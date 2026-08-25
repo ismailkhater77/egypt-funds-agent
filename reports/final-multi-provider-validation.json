@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-08-25T20:50:24.782Z",
+  "purpose": "Final pre-deployment multi-provider validation",
+  "policy": "Only official provider data is persisted; blocked or unavailable sources are reported and never fabricated.",
+  "providers": [
+    {
+      "provider": "EFG Holding / Hermes",
+      "source": "https://efgholding.com/en/our-services/mutual-funds",
+      "parser": "efg_html_table_v1",
+      "status": "implemented",
+      "note": "Official HTML table",
+      "run": {
+        "runId": "70d6364a-9186-4ef6-a0c0-8e46a9e5c9eb",
+        "startedAt": "2026-08-25T20:48:49.068Z",
+        "status": "success",
+        "source": "https://efgholding.com/en/our-services/mutual-funds",
+        "parser": "efg_html_table_v1",
+        "fetchedRecords": 26,
+        "inserted": 0,
+        "unchanged": 26,
+        "updated": 0,
+        "unmatched": [],
+        "failed": [],
+        "finishedAt": "2026-08-25T20:48:58.372Z"
+      }
+    },
+    {
+      "provider": "Beltone",
+      "source": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "parser": "beltone_fund_sheet_v1",
+      "status": "implemented",
+      "note": "Official fund sheet",
+      "run": {
+        "runId": "63dbce7c-f7c4-46d2-951f-15521f531075",
+        "startedAt": "2026-08-25T20:48:58.372Z",
+        "status": "partial",
+        "source": "https://www.beltoneholding.com/business-line/asset-management-1",
+        "parser": "beltone_fund_sheet_v1",
+        "fetchedRecords": 30,
+        "inserted": 0,
+        "unchanged": 28,
+        "updated": 0,
+        "unmatched": [
+          "ADIB Islamic",
+          "Beltone Gems Equity Fund- USD"
+        ],
+        "failed": [],
+        "finishedAt": "2026-08-25T20:49:09.373Z"
+      }
+    },
+    {
+      "provider": "AFIM",
+      "source": "https://www.afim.com.eg/public/index.php/investment",
+      "parser": "afim_detail_pages_v1",
+      "status": "implemented",
+      "note": "Official detail pages",
+      "run": {
+        "runId": "e63c0620-24c8-4cfe-ac4a-0ad95f2f2ea5",
+        "startedAt": "2026-08-25T20:49:09.373Z",
+        "status": "success",
+        "source": "https://www.afim.com.eg/public/index.php/investment",
+        "parser": "afim_detail_pages_v1",
+        "fetchedRecords": 13,
+        "inserted": 0,
+        "unchanged": 13,
+        "updated": 0,
+        "unmatched": [],
+        "failed": [],
+        "finishedAt": "2026-08-25T20:50:06.678Z"
+      }
+    },
+    {
+      "provider": "Zaldi",
+      "source": "https://zaldi-capital.com/zaldi-star/, https://zaldi-capital.com/zaldi-elmasry/",
+      "parser": "zaldi_detail_page_v1",
+      "status": "implemented",
+      "note": "Official fund pages",
+      "run": {
+        "runId": "07019c9f-a4e2-40a7-93af-c46520ee5b2b,81ca731b-f7dc-4b3e-9064-874d38affecf",
+        "startedAt": "2026-08-25T20:50:06.679Z",
+        "status": "success",
+        "source": "https://zaldi-capital.com/zaldi-star/",
+        "parser": "zaldi_detail_page_v1",
+        "fetchedRecords": 2,
+        "inserted": 0,
+        "unchanged": 2,
+        "updated": 0,
+        "unmatched": [],
+        "failed": [],
+        "finishedAt": "2026-08-25T20:50:09.518Z"
+      }
+    },
+    {
+      "provider": "Azimut",
+      "source": "https://app.azimut.eg/api/fund/list?size=100&web=true",
+      "parser": "azimut_fund_api_v1",
+      "status": "implemented",
+      "note": "Official API",
+      "run": {
+        "runId": "6632fcee-550a-4aa3-a1de-246839739059",
+        "startedAt": "2026-08-25T20:50:09.523Z",
+        "status": "success",
+        "source": "https://azimut.eg/funds",
+        "parser": "azimut_fund_api_v1",
+        "fetchedRecords": 19,
+        "inserted": 0,
+        "unchanged": 19,
+        "updated": 0,
+        "unmatched": [],
+        "failed": [],
+        "finishedAt": "2026-08-25T20:50:16.396Z"
+      }
+    },
+    {
+      "provider": "HC Securities",
+      "source": "https://www.hc-si.com/Service/asset-management#funds",
+      "parser": "hc_sponsor_ajax_v1",
+      "status": "implemented",
+      "note": "Official AJAX listing",
+      "run": {
+        "runId": "ea4d88f7-0e41-48f3-a49b-073de4a178e2",
+        "startedAt": "2026-08-25T20:50:16.396Z",
+        "status": "success",
+        "source": "https://www.hc-si.com/Service/asset-management#funds",
+        "parser": "hc_sponsor_ajax_v1",
+        "fetchedRecords": 7,
+        "inserted": 0,
+        "unchanged": 7,
+        "updated": 0,
+        "unmatched": [],
+        "failed": [],
+        "finishedAt": "2026-08-25T20:50:22.883Z"
+      }
+    },
+    {
+      "provider": "CI Capital",
+      "source": "https://www.cicapital.com/fundprice/",
+      "parser": "ci_capital_fundprice_v1",
+      "status": "blocked",
+      "note": "Official host currently fails TLS certificate validation; no alternate verified endpoint",
+      "run": {
+        "runId": "e916e58a-eeb6-46f4-a45f-3d12977fe648",
+        "startedAt": "2026-08-25T20:50:22.883Z",
+        "status": "failed",
+        "source": "https://www.cicapital.com/fundprice/",
+        "parser": "ci_capital_fundprice_v1",
+        "fetchedRecords": 0,
+        "inserted": 0,
+        "unchanged": 0,
+        "updated": 0,
+        "unmatched": [],
+        "failed": [],
+        "fetchError": "fetch failed",
+        "finishedAt": "2026-08-25T20:50:24.782Z"
+      }
+    },
+    {
+      "provider": "Arab African Investment Management (AAIM)",
+      "source": "https://aaim.com.eg/",
+      "parser": null,
+      "status": "unavailable",
+      "note": "No official public NAV table or API was verified; collector does not fabricate prices",
+      "run": {
+        "status": "unavailable",
+        "fetchedRecords": 0,
+        "inserted": 0,
+        "unchanged": 0,
+        "updated": 0,
+        "unmatched": [],
+        "failed": [
+          {
+            "name": "Arab African Investment Management (AAIM)",
+            "error": "No official public NAV table or API was verified; collector does not fabricate prices"
+          }
+        ]
+      }
+    }
+  ]
+}

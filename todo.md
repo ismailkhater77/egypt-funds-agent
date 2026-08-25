@@ -10,4 +10,14 @@
 - [ ] Verify the manual run and scheduled callback in the deployed environment
 - [ ] Rotate the Supabase secret key that was exposed in chat before configuring the collector
 - [ ] Confirm the compromised Supabase secret was revoked and document that only the replacement key is active
-- [ ] Add Vitest coverage for fund-name matching, idempotent unchanged writes, and run-summary counters
+- [x] Add Vitest coverage for fund-name matching, idempotent unchanged writes, and run-summary counters
+- [ ] Implement and validate CI Capital fund-price parser for all mapped CI records
+- [ ] Resolve Beltone ADIB Islamic and Beltone Gems USD records with explicit source mappings before final provider validation
+- [x] Implement and validate AFIM fund-price parser for all mapped AFIM records
+- [x] Correct and validate Zaldi fund-specific mappings and parsers
+- [x] Investigate and implement Beltone, Azimut, Arab African, and HC source parsers or mark unavailable records explicitly
+- [x] Run a full multi-provider validation report before deployment
+- [ ] Publish only after all supported providers pass validation and then enable the daily schedule
+- [x] Replace the legacy Beltone mapping URL with the currently verified official asset-management page and add a Beltone parser integration task
+- [x] Verify AFIM completeness by comparing all Supabase/imported AFIM-mapped funds against extracted AFIM records, and fail/report any mapped fund missing from source output
+- [x] Add Vitest coverage for AFIM parsing and AFIM fund-name matching using real-like HTML/detail fixtures

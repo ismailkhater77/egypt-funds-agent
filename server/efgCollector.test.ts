@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { collectorStatus, matchEfgRecords, normalize, parseEfgMutualFunds } from "./efgCollector";
+import { describe, expect, it, vi } from "vitest";
+import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseEfgMutualFunds, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts a validated fund snapshot from the EFG data payload", () => {
@@ -14,6 +14,32 @@ describe("EFG mutual-fund parser", () => {
         currency: "EGP",
       },
     ]);
+  });
+
+  it("extracts Beltone price and last-update date from a fund-sheet row", () => {
+    const html = `<div class="flex items-center justify-between w-full"><a class="underline"><p>MID Bank Fund 2</p></a><div class="w-[879px]"><p>1026.37</p><p>2005-07-01</p><p>2026-08-23</p><p>19.32%</p></div></div>`;
+    expect(parseBeltoneFunds(html)).toEqual([{
+      name: "MID Bank Fund 2",
+      rawName: "MID Bank Fund 2",
+      nav: 1026.37,
+      valuationDate: "2026-08-23",
+      currency: "EGP",
+    }]);
+  });
+
+  it("extracts AFIM price and valuation date from the detail page", async () => {
+    const listing = `<a href="/public/index.php/get-service/713"><div class="info text-center"><p>الصندوق الرابع – نقدى</p></div><div class="fundPrice"><span>304.2 جنيه</span></div></a>`;
+    const detail = `<div>التاريخ:<span> 8/25/2026 </span></div><div>سعر الوثيقة:<span>304.15366 جنيه</span></div>`;
+    const fetchMock = vi.fn(async (url: string) => new Response(url.includes("get-service") ? detail : listing, { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+    await expect(parseAfimFunds(listing)).resolves.toEqual([{
+      name: "الصندوق الرابع – نقدى",
+      rawName: "الصندوق الرابع – نقدى",
+      nav: 304.15366,
+      valuationDate: "2026-08-25",
+      currency: "EGP",
+    }]);
+    vi.unstubAllGlobals();
   });
 
   it("returns no rows for unrelated markup", () => {
@@ -32,6 +58,14 @@ describe("EFG mutual-fund parser", () => {
     expect(result.matched).toHaveLength(1);
     expect(result.unmatched).toEqual(["Unknown Fund"]);
     expect(normalize(" EFG-Hermes Equity Fund ")).toBe("efg hermes equity fund");
+  });
+
+  it("counts a repeated identical snapshot as unchanged and preserves exact counters", () => {
+    const firstRun = tallyWriteResult({ inserted: 0, unchanged: 0, updated: 0 }, "inserted");
+    const secondRun = tallyWriteResult({ inserted: 0, unchanged: 0, updated: 0 }, "unchanged");
+    expect(firstRun).toEqual({ inserted: 1, unchanged: 0, updated: 0 });
+    expect(secondRun).toEqual({ inserted: 0, unchanged: 1, updated: 0 });
+    expect(tallyWriteResult(firstRun, "unchanged")).toEqual({ inserted: 1, unchanged: 1, updated: 0 });
   });
 
   it("marks clean runs successful and incomplete runs partial", () => {

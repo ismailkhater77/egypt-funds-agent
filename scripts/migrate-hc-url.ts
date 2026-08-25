@@ -1,0 +1,16 @@
+const baseUrl = process.env.SUPABASE_URL;
+const secret = process.env.SUPABASE_SERVICE_ROLE_KEY;
+if (!baseUrl || !secret) throw new Error("Supabase server configuration is missing");
+const headers = { apikey: secret, Authorization: `Bearer ${secret}`, "Content-Type": "application/json", Prefer: "return=representation" };
+const oldUrl = "https://www.hc-si.com/ar";
+const newUrl = "https://www.hc-si.com/Service/asset-management#funds";
+const sourceLookup = await fetch(`${baseUrl}/rest/v1/sources?select=source_id&source_url=eq.${encodeURIComponent(oldUrl)}`, { headers });
+if (!sourceLookup.ok) throw new Error(`Source lookup failed: ${sourceLookup.status}`);
+const sources = await sourceLookup.json();
+if (sources.length !== 1) throw new Error(`Expected one HC source, found ${sources.length}`);
+const sourceId = sources[0].source_id;
+const sourceUpdate = await fetch(`${baseUrl}/rest/v1/sources?source_id=eq.${encodeURIComponent(sourceId)}`, { method: "PATCH", headers, body: JSON.stringify({ source_url: newUrl }) });
+if (!sourceUpdate.ok) throw new Error(`Source update failed: ${sourceUpdate.status} ${await sourceUpdate.text()}`);
+const fundUpdate = await fetch(`${baseUrl}/rest/v1/funds?source_id=eq.${encodeURIComponent(sourceId)}`, { method: "PATCH", headers, body: JSON.stringify({ price_update_url: newUrl }) });
+if (!fundUpdate.ok) throw new Error(`Fund update failed: ${fundUpdate.status} ${await fundUpdate.text()}`);
+console.log(JSON.stringify({ sourceId, oldUrl, newUrl, status: "updated" }, null, 2));
