@@ -8,6 +8,7 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { efgStatusHandler, manualEfgRunHandler, scheduledEfgHandler } from "../efgCollector";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -36,6 +37,9 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   registerStorageProxy(app);
   registerOAuthRoutes(app);
+  app.post("/api/collector/efg/run", manualEfgRunHandler);
+  app.get("/api/collector/efg/status", efgStatusHandler);
+  app.post("/api/scheduled/efg", scheduledEfgHandler);
   // tRPC API
   app.use(
     "/api/trpc",
