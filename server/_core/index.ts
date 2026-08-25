@@ -8,7 +8,7 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
-import { allCollectorsHandler, efgStatusHandler, manualBeltoneRunHandler, manualEfgRunHandler, providerSupportHandler, scheduledEfgHandler } from "../efgCollector";
+import { allCollectorsHandler, efgStatusHandler, manualBeltoneRunHandler, manualEfgRunHandler, providerSupportHandler, scheduledAllCollectorsHandler, scheduledEfgHandler } from "../efgCollector";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -43,6 +43,7 @@ async function startServer() {
   app.post("/api/collector/all/run", allCollectorsHandler);
   app.get("/api/collector/support", providerSupportHandler);
   app.post("/api/scheduled/efg", scheduledEfgHandler);
+  app.post("/api/scheduled/all", scheduledAllCollectorsHandler);
   // tRPC API
   app.use(
     "/api/trpc",

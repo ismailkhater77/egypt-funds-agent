@@ -557,3 +557,13 @@ export async function scheduledEfgHandler(req: Request, res: Response) {
     res.status(500).json({ error: error instanceof Error ? error.message : String(error), timestamp: new Date().toISOString() });
   }
 }
+
+export async function scheduledAllCollectorsHandler(req: Request, res: Response) {
+  try {
+    const user = await sdk.authenticateRequest(req);
+    if (!user.isCron || !user.taskUid) return res.status(403).json({ error: "cron-only" });
+    res.json(await runAllCollectors());
+  } catch (error) {
+    res.status(500).json({ error: error instanceof Error ? error.message : String(error), timestamp: new Date().toISOString() });
+  }
+}
