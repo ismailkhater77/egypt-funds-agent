@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseScbFundRates, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseScbFundRates, runFabMisrCollector, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -154,6 +154,26 @@ describe("EFG mutual-fund parser", () => {
     expect(firstRun).toEqual({ inserted: 1, unchanged: 0, updated: 0 });
     expect(secondRun).toEqual({ inserted: 0, unchanged: 1, updated: 0 });
     expect(tallyWriteResult(firstRun, "unchanged")).toEqual({ inserted: 1, unchanged: 1, updated: 0 });
+  });
+
+  it("treats an empty weekly valuation as no-new-valuation, not a source failure", () => {
+    expect(emptyRecordsOutcome("weekly")).toBe("no_new_valuation");
+    expect(emptyRecordsOutcome("daily")).toBe("error");
+    expect(emptyRecordsOutcome()).toBe("error");
+  });
+
+  it("classifies a recognized weekly page with no current valuation as successful no-new-valuation", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("<div>Ezdehar Fund (NAV)</div>", { status: 200 })));
+    await expect(runFabMisrCollector()).resolves.toMatchObject({ status: "success", outcome: "no_new_valuation", schedule: "weekly", fetchedRecords: 0 });
+    vi.unstubAllGlobals();
+  });
+
+  it("keeps real FABMISR fetch and source-structure failures as errors", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => { throw new Error("DNS unavailable"); }));
+    await expect(runFabMisrCollector()).resolves.toMatchObject({ status: "failed", outcome: "error", fetchError: "DNS unavailable" });
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("<html>changed markup</html>", { status: 200 })));
+    await expect(runFabMisrCollector()).resolves.toMatchObject({ status: "failed", outcome: "error" });
+    vi.unstubAllGlobals();
   });
 
   it("marks clean runs successful and incomplete runs partial", () => {

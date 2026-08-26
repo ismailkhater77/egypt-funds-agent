@@ -30,3 +30,7 @@ The NI Capital live collector fetched 2 records, matched 2, and inserted 2 valid
 After registering both official source records and adding them to Run All, the full coverage refresh reports **162/198** workbook funds with validated prices, up from 160. The two additional validated records are NI Capital Sahmy and NI Capital Sahmy 70. The full test suite passes: 20 tests, plus TypeScript with no errors. FAB Misr remains operationally pending because server-side DNS cannot resolve the official domain, although the official page was verified in the browser with NAV 472.6990 EGP dated 22 August 2026.
 
 A second NI Capital run fetched and matched the same two records with **0 inserted, 2 unchanged, and 0 unmatched**, confirming source-level idempotency.
+
+## Weekly pricing policy for FABMISR Ezdehar
+
+Ezdehar is now configured with `schedule: "weekly"`. An HTTP-successful page that yields no current valuation is classified as `status: "success"` and `outcome: "no_new_valuation"`; it is not treated as a parser/source failure. Actual transport errors remain `status: "failed"` and `outcome: "error"`. The current sandbox run still encountered a real DNS fetch error for FABMISR, so it correctly remained an error rather than being mislabeled as a weekly no-update. Coverage remains 162/198 because no new FAB snapshot was written.

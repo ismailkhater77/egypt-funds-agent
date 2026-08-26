@@ -77,6 +77,8 @@ export type RunSummary = {
   startedAt: string;
   finishedAt?: string;
   status: "running" | "success" | "partial" | "failed";
+  outcome?: "new_valuation" | "no_new_valuation" | "error";
+  schedule?: "daily" | "weekly";
   source: string;
   parser: string;
   fetchedRecords: number;
@@ -196,6 +198,7 @@ export function parseNiCapitalFunds(html: string): EfgRecord[] {
 }
 export function parseFabMisrEzdehar(html: string): EfgRecord[] {
   const text = stripTags(html);
+  if (!/Ezdehar Fund \(NAV\)/i.test(text)) throw new Error("FABMISR parser did not recognize the Ezdehar NAV section");
   const match = text.match(/Ezdehar Fund \(NAV\)\s+Date\s+(\d{1,2}\s+[A-Za-z]+\s+\d{4})\s+Currency \(EGP\)\s+([0-9.,]+)/i);
   if (!match) return [];
   const nav = parseLocalizedNumber(match[2]);
@@ -602,6 +605,9 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
   return { matched, unmatched };
 }
 
+export function emptyRecordsOutcome(schedule?: "daily" | "weekly"): "no_new_valuation" | "error" {
+  return schedule === "weekly" ? "no_new_valuation" : "error";
+}
 export function collectorStatus(failed: number, unmatched: number): RunSummary["status"] {
   return failed > 0 || unmatched > 0 ? "partial" : "success";
 }
@@ -667,7 +673,7 @@ async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string,
   return "inserted";
 }
 
-type CollectorConfig = { sourceUrl: string; fetchUrl?: string; parserName: string; parse: (html: string) => EfgRecord[] | Promise<EfgRecord[]>; fetcher?: (url: string) => Promise<globalThis.Response>; matchAllFunds?: boolean };
+type CollectorConfig = { sourceUrl: string; fetchUrl?: string; parserName: string; parse: (html: string) => EfgRecord[] | Promise<EfgRecord[]>; fetcher?: (url: string) => Promise<globalThis.Response>; matchAllFunds?: boolean; schedule?: "daily" | "weekly" };
 
 function fetchWithDigicertChain(url: string): Promise<globalThis.Response> {
   return new Promise((resolve, reject) => {
@@ -718,7 +724,7 @@ async function runCombinedCollectors(configs: CollectorConfig[]): Promise<RunSum
 async function runCollector(config: CollectorConfig): Promise<RunSummary> {
   const run: RunSummary = {
     runId: crypto.randomUUID(), startedAt: new Date().toISOString(), status: "running",
-    source: config.sourceUrl, parser: config.parserName, fetchedRecords: 0, matchedRecords: 0, matchedFundIds: [], inserted: 0, unchanged: 0,
+    source: config.sourceUrl, parser: config.parserName, schedule: config.schedule, fetchedRecords: 0, matchedRecords: 0, matchedFundIds: [], inserted: 0, unchanged: 0,
     updated: 0, unmatched: [], failed: [],
   };
   lastRun = run;
@@ -728,7 +734,15 @@ async function runCollector(config: CollectorConfig): Promise<RunSummary> {
     const html = await response.text();
     const records = await config.parse(html);
     run.fetchedRecords = records.length;
-    if (records.length === 0) throw new Error("EFG parser found no validated mutual-fund rows");
+    if (records.length === 0) {
+      run.outcome = emptyRecordsOutcome(config.schedule);
+      if (run.outcome === "no_new_valuation") {
+        run.status = "success";
+        return run;
+      }
+      throw new Error("EFG parser found no validated mutual-fund rows");
+    }
+    run.outcome = "new_valuation";
     const [funds, sourceId] = await Promise.all([getFunds(config.sourceUrl, config.matchAllFunds), getSourceId(config.sourceUrl)]);
     const matching = matchEfgRecords(records, funds);
     run.matchedRecords = matching.matched.length;
@@ -745,6 +759,7 @@ async function runCollector(config: CollectorConfig): Promise<RunSummary> {
     run.status = collectorStatus(run.failed.length, run.unmatched.length);
   } catch (error) {
     run.status = "failed";
+    run.outcome = "error";
     run.fetchError = error instanceof Error ? error.message : String(error);
   }
   run.finishedAt = new Date().toISOString();
@@ -808,7 +823,7 @@ export function runNiCapitalCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: NI_CAPITAL_SOURCE_URL, parserName: NI_CAPITAL_PARSER_NAME, parse: parseNiCapitalFunds, matchAllFunds: true });
 }
 export function runFabMisrCollector(): Promise<RunSummary> {
-  return runCollector({ sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true });
+  return runCollector({ sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true, schedule: "weekly" });
 }
 export function runNbkCollector(): Promise<RunSummary> {
   return runCombinedCollectors(NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })));
@@ -864,7 +879,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     ...NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })),
     { sourceUrl: PFI_SOURCE_URL, parserName: PFI_PARSER_NAME, parse: parsePfiFunds, matchAllFunds: true },
     { sourceUrl: NI_CAPITAL_SOURCE_URL, parserName: NI_CAPITAL_PARSER_NAME, parse: parseNiCapitalFunds, matchAllFunds: true },
-    { sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true },
+    { sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true, schedule: "weekly" },
     { sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },

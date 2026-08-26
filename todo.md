@@ -69,3 +69,11 @@
 - [ ] Verify official source, live NAV, and explicit valuation date for Education for Life
 - [ ] Verify official source, live NAV, and explicit valuation date for FAB Misr Ezdhar
 - [ ] Add only the seven fully verified sources to Run All, persist validated snapshots idempotently, and refresh coverage
+
+## FABMISR weekly valuation behavior
+- [x] Model Ezdehar as a weekly-priced fund and document the expected no-new-valuation outcome
+- [x] Distinguish weekly no-new-valuation from network/parser/source failure in the FABMISR collector
+- [x] Add Vitest coverage for a valid weekly NAV, a no-new-valuation day, and a real fetch/parse failure
+- [x] Run FABMISR and Run All, refresh coverage, and save the verified behavior in the batch report
+- [x] Add collector-level tests for FABMISR: weekly no-new-valuation success, fetch failure, and parser/source-structure failure
+- [x] Make FABMISR parser recognize the official NAV section before classifying an empty result as weekly no-new-valuation
