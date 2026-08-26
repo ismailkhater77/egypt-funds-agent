@@ -17,6 +17,8 @@ const HC_FETCH_URL = "https://www.hc-si.com/Service/asset-management";
 const HC_AJAX_URL = "https://www.hc-si.com/wp-admin/admin-ajax.php";
 const AAIM_SOURCE_URL = "https://aaim.com.eg/ar/what-we-offer/funds";
 const AAIM_FETCH_URL = "https://aaim.com.eg/en/what-we-offer/funds";
+const MUBASHER_SOURCE_URL = "https://mubasherfunds.info/";
+const MUBASHER_PARSER_NAME = "mubasher_funds_daily_articles_v1";
 const EFG_PARSER_NAME = "efg_html_table_v1";
 const CI_PARSER_NAME = "ci_capital_fundprice_v1";
 const AFIM_PARSER_NAME = "afim_detail_pages_v1";
@@ -245,6 +247,46 @@ export async function parseHcFunds(listingHtml: string): Promise<EfgRecord[]> {
     return response.text();
   }));
   return pages.flatMap(parseHcSponsor);
+}
+
+const ARABIC_MONTHS: Record<string, string> = { يناير: "01", فبراير: "02", مارس: "03", أبريل: "04", مايو: "05", يونيو: "06", يوليو: "07", أغسطس: "08", سبتمبر: "09", أكتوبر: "10", نوفمبر: "11", ديسمبر: "12" };
+
+function parseMubasherArticle(html: string): EfgRecord[] {
+  const text = stripTags(html);
+  const dateMatch = text.match(/بتاريخ\s+(\d{1,2})\s+(يناير|فبراير|مارس|أبريل|مايو|يونيو|يوليو|أغسطس|سبتمبر|أكتوبر|نوفمبر|ديسمبر)\s+(\d{4})/);
+  if (!dateMatch) return [];
+  const valuationDate = `${dateMatch[3]}-${ARABIC_MONTHS[dateMatch[2]]}-${dateMatch[1].padStart(2, "0")}`;
+  const records: EfgRecord[] = [];
+  const rowPattern = new RegExp(String.raw`<tr\b[\s\S]*?</tr>`, "gi");
+  const cellPattern = new RegExp(String.raw`<td\b[^>]*>([\s\S]*?)</td>`, "gi");
+  for (const row of Array.from(html.matchAll(rowPattern))) {
+    const cells = Array.from(row[0].matchAll(cellPattern)).map((m) => stripTags(m[1] ?? ""));
+    if (cells.length < 2) continue;
+    const nav = Number((cells[1] ?? "").replace(/,/g, "").replace(/[^0-9.]/g, ""));
+    if (!cells[0] || !Number.isFinite(nav) || nav < 0) continue;
+    const rawName = cells[0].trim();
+    const mappedName = normalize(rawName) === normalize("أسهم مباشر") ? "Mubasher Equity" : normalize(rawName) === normalize("كاش مباشر") ? "Cash Mubasher" : normalize(rawName) === normalize("دهب مباشر") ? "Mubasher Gold" : rawName;
+    if (!["Mubasher Equity", "Cash Mubasher", "Mubasher Gold"].includes(mappedName)) continue;
+    records.push({ name: mappedName, rawName, nav, valuationDate, currency: "EGP" });
+  }
+  return records;
+}
+
+export async function parseMubasherFunds(homeHtml: string): Promise<EfgRecord[]> {
+  const linkPattern = new RegExp(String.raw`href=["'](https?://mubasherfunds\.info/\d+/article/[^"']+)["']`, "gi");
+  const links = Array.from(homeHtml.matchAll(linkPattern)).map((m) => m[1]);
+  const uniqueLinks = Array.from(new Set(links));
+  const articles = await Promise.all(uniqueLinks.map(async (url) => {
+    const response = await fetch(url, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "text/html" } });
+    return response.ok ? response.text() : "";
+  }));
+  const latestByFund = new Map<string, EfgRecord>();
+  for (const article of articles.flatMap(parseMubasherArticle)) {
+    const key = normalize(article.name);
+    const previous = latestByFund.get(key);
+    if (!previous || article.valuationDate > previous.valuationDate) latestByFund.set(key, article);
+  }
+  return Array.from(latestByFund.values());
 }
 
 export function parseBeltoneFunds(html: string): EfgRecord[] {
@@ -508,6 +550,10 @@ export function runAaimCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: AAIM_SOURCE_URL, fetchUrl: AAIM_FETCH_URL, parserName: "aaim_fund_cards_v1", parse: parseAaimFunds });
 }
 
+export function runMubasherCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: MUBASHER_SOURCE_URL, parserName: MUBASHER_PARSER_NAME, parse: parseMubasherFunds });
+}
+
 export function runZaldiCollector(): Promise<RunSummary> {
   return runCombinedCollectors([
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
@@ -525,6 +571,7 @@ export function getProviderSupportReport() {
     { provider: "HC Securities", source: HC_SOURCE_URL, parser: HC_PARSER_NAME, status: "implemented" as const, note: "Official AJAX listing" },
     { provider: "CI Capital", source: CI_URL, parser: CI_PARSER_NAME, status: "implemented" as const, note: "Official Fund Type/Fund Name/Price table; secure DigiCert chain completion" },
     { provider: "Arab African Investment Management (AAIM)", source: AAIM_FETCH_URL, parser: "aaim_fund_cards_v1", status: "implemented" as const, note: "Official fund cards" },
+    { provider: "Mubasher Funds", source: MUBASHER_SOURCE_URL, parser: MUBASHER_PARSER_NAME, status: "implemented" as const, note: "Affiliated/publication daily tables; primary manager ownership not independently verified" },
   ];
 }
 
@@ -542,6 +589,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: HC_SOURCE_URL, fetchUrl: HC_FETCH_URL, parserName: HC_PARSER_NAME, parse: parseHcFunds },
     { sourceUrl: AZIMUT_SOURCE_URL, fetchUrl: AZIMUT_API_URL, parserName: AZIMUT_PARSER_NAME, parse: parseAzimutFunds },
     { sourceUrl: AAIM_SOURCE_URL, fetchUrl: AAIM_FETCH_URL, parserName: "aaim_fund_cards_v1", parse: parseAaimFunds },
+    { sourceUrl: MUBASHER_SOURCE_URL, parserName: MUBASHER_PARSER_NAME, parse: parseMubasherFunds },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
   ]).then(summary => {

@@ -29,3 +29,7 @@
 - [x] Add explicit CI mappings for Banque Misr Money Market Fund (EUR) and PBD & Banque du Caire (Al Wefak), then rerun completeness validation
 - [x] Import every distinct fund from the uploaded workbook into Supabase funds, preserving existing matches and marking source as pending when absent
 - [x] Verify workbook-to-database completeness after import and produce the source-discovery backlog
+- [ ] Discover and verify official Mubasher Asset Management NAV source for all Mubasher funds in the workbook/database
+- [ ] Add Mubasher source mapping, parser, idempotent writes, and tests after official source verification
+- [x] Verify whether mubasherfunds.info is officially controlled by Mubasher Asset Management/Mubasher Trade, or keep it explicitly classified as affiliated publication
+- [x] Update Mubasher support reporting to distinguish affiliated publication coverage from a primary manager NAV feed

@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseMubasherFunds, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts a validated fund snapshot from the EFG data payload", () => {
@@ -23,6 +23,17 @@ describe("EFG mutual-fund parser", () => {
     expect(result).toHaveLength(41);
     expect(result[1]).toMatchObject({ name: "CIB Money Market Fund (Ossoul)", nav: 1102.56, valuationDate: "2026-08-22" });
     expect(result).toContainEqual({ name: "Menthum Fixed Income Fund – USD", rawName: "Menthum Fixed Income Fund – USD", nav: 1.1116, valuationDate: "2026-08-22", currency: "EGP" });
+  });
+
+  it("selects the latest Mubasher article snapshot per fund", async () => {
+    const home = '<a href="https://mubasherfunds.info/8483/article/latest">latest</a><a href="https://mubasherfunds.info/8483/article/older">older</a>';
+    const latest = '<div>أسعار وثائق صناديق الاستثمار في الأسهم بتاريخ 25 أغسطس 2026</div><table><tr><td>أسهم مباشر</td><td>2.0182</td></tr></table>';
+    const older = '<div>أسعار وثائق صناديق الاستثمار في الأسهم بتاريخ 24 أغسطس 2026</div><table><tr><td>أسهم مباشر</td><td>2.0351</td></tr></table>';
+    vi.stubGlobal("fetch", vi.fn(async (url: string) => new Response(url.endsWith("latest") ? latest : url.endsWith("older") ? older : home, { status: 200 })));
+    await expect(parseMubasherFunds(home)).resolves.toEqual([{
+      name: "Mubasher Equity", rawName: "أسهم مباشر", nav: 2.0182, valuationDate: "2026-08-25", currency: "EGP",
+    }]);
+    vi.unstubAllGlobals();
   });
 
   it("extracts Beltone price and last-update date from a fund-sheet row", () => {
