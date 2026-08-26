@@ -1,0 +1,45 @@
+[OAuth] Initialized with baseURL: https://api.manus.im
+{
+  "scb": {
+    "runId": "28420cf0-3762-4e01-b4c1-6aff2cf00e23",
+    "startedAt": "2026-08-26T14:40:07.148Z",
+    "status": "partial",
+    "source": "https://scbank.com.eg/Ar/Fund_Rates.aspx",
+    "parser": "suez_canal_bank_fund_rates_v1",
+    "fetchedRecords": 4,
+    "matchedRecords": 3,
+    "matchedFundIds": [
+      "fund_472ddcd8c94d7ed3",
+      "fund_58307ef8e9ea2272",
+      "fund_46ddc8f193e74f70"
+    ],
+    "inserted": 3,
+    "unchanged": 0,
+    "updated": 0,
+    "unmatched": [
+      "صندوق استثمار العربية المصرية للتأمين"
+    ],
+    "failed": [],
+    "finishedAt": "2026-08-26T14:40:14.164Z"
+  },
+  "faisal": {
+    "runId": "82b7b0ad-4914-4b00-9ed6-587b4f1f19cb",
+    "startedAt": "2026-08-26T14:40:07.191Z",
+    "status": "partial",
+    "source": "https://www.faisalbank.com.eg/ar/Retail/Mutual-Funds",
+    "parser": "faisal_bank_mutual_funds_cards_v1",
+    "fetchedRecords": 2,
+    "matchedRecords": 1,
+    "matchedFundIds": [
+      "fund_44166931f38ee123"
+    ],
+    "inserted": 1,
+    "unchanged": 0,
+    "updated": 0,
+    "unmatched": [
+      "صندوق أمان ذو العائد التراكمى"
+    ],
+    "failed": [],
+    "finishedAt": "2026-08-26T14:40:13.173Z"
+  }
+}

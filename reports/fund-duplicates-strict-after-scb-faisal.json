@@ -1,0 +1,17 @@
+{
+  "totalFunds": 215,
+  "duplicateGroups": {
+    "canonicalExact": 0,
+    "canonicalNormalized": 0,
+    "eimaExact": 0,
+    "eimaNormalized": 0,
+    "crossField": 0
+  },
+  "duplicates": {
+    "canonicalExact": [],
+    "canonicalNormalized": [],
+    "eimaExact": [],
+    "eimaNormalized": [],
+    "crossField": []
+  }
+}

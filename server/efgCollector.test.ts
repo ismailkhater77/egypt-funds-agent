@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseMubasherFunds, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherFunds, parseScbFundRates, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts a validated fund snapshot from the EFG data payload", () => {
@@ -60,6 +60,24 @@ describe("EFG mutual-fund parser", () => {
       currency: "EGP",
     }]);
     vi.unstubAllGlobals();
+  });
+
+  it("extracts all four official Suez Canal Bank fund cards", () => {
+    const html = readFileSync(new URL("./fixtures/scbank-fund-rates.html", import.meta.url), "utf8");
+    expect(parseScbFundRates(html)).toEqual([
+      { name: "صندوق استثمار بنك قناة السويس", rawName: "صندوق استثمار بنك قناة السويس", nav: 2043.56, valuationDate: "2026-08-20", currency: "EGP" },
+      { name: "صندوق الأجيال", rawName: "صندوق الأجيال", nav: 73.96204, valuationDate: "2026-08-25", currency: "EGP" },
+      { name: "صندوق استثمار العربية المصرية للتأمين", rawName: "صندوق استثمار العربية المصرية للتأمين", nav: 1376.56, valuationDate: "2026-08-20", currency: "EGP" },
+      { name: "صندوق استثمار السويس اليومى", rawName: "صندوق استثمار السويس اليومى", nav: 25.41787, valuationDate: "2026-08-25", currency: "EGP" },
+    ]);
+  });
+
+  it("extracts both official Faisal Islamic Bank mutual-fund cards", () => {
+    const html = readFileSync(new URL("./fixtures/faisal-mutual-funds.html", import.meta.url), "utf8");
+    expect(parseFaisalMutualFunds(html)).toEqual([
+      { name: "صندوق أمان ذو العائد التراكمى", rawName: "صندوق أمان ذو العائد التراكمى", nav: 525.63, valuationDate: "2026-08-25", currency: "EGP" },
+      { name: "صندوق إستثمار بنك فيصل الإسلامى المصرى ذو العائد الدورى", rawName: "صندوق إستثمار بنك فيصل الإسلامى المصرى ذو العائد الدورى", nav: 581.67, valuationDate: "2026-08-23", currency: "EGP" },
+    ]);
   });
 
   it("returns no rows for unrelated markup", () => {

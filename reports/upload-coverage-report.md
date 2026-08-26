@@ -1,27 +1,27 @@
 # تقرير مقارنة ملف الصناديق مع قاعدة البيانات
 
-تاريخ التحليل: 2026-08-26T13:48:07.741372+00:00
+تاريخ التحليل: 2026-08-26T14:42:03.582855+00:00
 
 ## الخلاصة التنفيذية
 
-يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **213 سجل صندوق** و**189 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **198 صندوقًا** بقاعدة البيانات، ومن بينها **141 صندوقًا** لها سجل سعر بحالة `validated`. توجد **57 صناديق غير مغطاة حاليًا** ضمن الملف: **57** موجودة في قاعدة البيانات بلا سجل سعر validated، و**0** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
+يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **215 سجل صندوق** و**201 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **198 صندوقًا** بقاعدة البيانات، ومن بينها **145 صندوقًا** لها سجل سعر بحالة `validated`. توجد **53 صناديق غير مغطاة حاليًا** ضمن الملف: **53** موجودة في قاعدة البيانات بلا سجل سعر validated، و**0** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
 
 ## ما تم بناؤه في قاعدة البيانات
 
 | البند | العدد |
 |---|---:|
 | صفوف الصناديق في الملف | 198 |
-| سجلات الصناديق في Supabase | 213 |
-| سجلات الأسعار في Supabase | 189 |
+| سجلات الصناديق في Supabase | 215 |
+| سجلات الأسعار في Supabase | 201 |
 | صفوف الملف المرتبطة بسجل صندوق | 198 |
-| صفوف الملف ذات سعر `validated` | 141 |
-| صفوف الملف غير المغطاة | 57 |
+| صفوف الملف ذات سعر `validated` | 145 |
+| صفوف الملف غير المغطاة | 53 |
 
 > التغطية هنا تعني وجود صندوق مطابق في قاعدة البيانات مع سجل سعر بحالة `validated`. وجود الصندوق في جدول `funds` وحده لا يعني أن الوكيل حدّث سعره.
 
 ## الصناديق المغطاة
 
-تم العثور على سجل سعر validated لـ **141** صندوقًا من الملف. التفاصيل الكاملة محفوظة في ملف JSON الداعم، وتتضمن اسم الملف واسم قاعدة البيانات و`fund_id` وآخر سعر وتاريخ التقييم.
+تم العثور على سجل سعر validated لـ **145** صندوقًا من الملف. التفاصيل الكاملة محفوظة في ملف JSON الداعم، وتتضمن اسم الملف واسم قاعدة البيانات و`fund_id` وآخر سعر وتاريخ التقييم.
 
 ## موجودة في قاعدة البيانات ولكن بلا سعر validated
 
@@ -36,7 +36,6 @@
 | 24 | Pioneers Fund I | Pioneers Fund I | Amwal for Financial Investments |
 | 26 | National Bank of Kuwait Fund (Namaa) | National Bank of Kuwait Fund (Namaa) | NBK Capital Asset Management Egypt |
 | 28 | NI Capital (Sahmy Fund) | NI Capital (Sahmy Fund) | NI Capital |
-| 29 | Mubasher Equity | Mubasher Equity | Mubasher Asset Management |
 | 32 | Momentum | Momentum | CFH Asset Management |
 | 33 | Odin Trend | Odin Trend | Alpha Financial Investments Management |
 | 38 | Aspire Waffrah Plus | Aspire Waffrah Plus | Amwal for Financial Investments |
@@ -59,14 +58,12 @@
 | 101 | Granite First Fund | Granite First Fund | Granite Fund Management |
 | 103 | PFI Cashi | PFI Cashi | PFI Asset Management |
 | 105 | Aspire Rawajj | Aspire Rawajj | Amwal for Financial Investments |
-| 107 | ADIB Egypt Shari'a Compliant (Al Nahrda Fund) | ADIB Egypt Shari'a Compliant (Al Nahrda Fund) | Beltone Asset Management |
 | 110 | GIG Makaseb Fund First Tranche | GIG Makaseb Fund First Tranche | NI Capital |
 | 111 | GIG Makaseb Fund Second Tranche | GIG Makaseb Fund Second Tranche | NI Capital |
 | 115 | SAIB Fund III (Al Rabeh) | SAIB’s Third Investment Fund (El Rabeh) | Hermes Portfolio and Fund Management |
 | 116 | ALEXBANK Fund III | Bank of Alexandria Fund No. 3 | Hermes Portfolio and Fund Management |
 | 119 | Egyptian Arab Land Bank Fund (Al Masry) | Egyptian Arab Land Bank Fund (Al Masry) | Alpha Financial Investment Management |
 | 125 | NI Capital 15/30 | NI Capital 15/30 | NI Capital |
-| 127 | Cash Mubasher | Cash Mubasher | Mubasher Asset Management |
 | 131 | Stream | Stream | CFH Asset Management |
 | 132 | Target First Fund | Target First Fund | Target Asset Management |
 | 139 | *National Bank of Kuwait (Al Mizan) | *National Bank of Kuwait (Al Mizan) | NBK Capital Asset Management Egypt |
@@ -81,7 +78,6 @@
 | 184 | Maksab Second Tranche (Euro) | Maksab Second Tranche (Euro) | Alpha Financial Investments Management & Zaldi Investments |
 | 185 | Azimut Target Maturity Fund-Target 2027 USD | Azimut Target Maturity Fund-Target 2027 USD | Azimut Egypt Asset Management |
 | 188 | The charitable education Fund | The charitable education Fund | NI Capital |
-| 194 | Mubasher Gold | Mubasher Gold | Mubasher Asset Management |
 | 197 | Bokra Shakmagia | Bokra Shakmagia | Bokra |
 | 199 | Market Return | Market Return | EGX 30 |
 

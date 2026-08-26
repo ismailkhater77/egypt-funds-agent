@@ -1,0 +1,43 @@
+[OAuth] Initialized with baseURL: https://api.manus.im
+{
+  "scb": {
+    "runId": "16292d96-97e7-4376-8253-48d1b923588d",
+    "startedAt": "2026-08-26T14:43:24.099Z",
+    "status": "success",
+    "source": "https://scbank.com.eg/Ar/Fund_Rates.aspx",
+    "parser": "suez_canal_bank_fund_rates_v1",
+    "fetchedRecords": 4,
+    "matchedRecords": 4,
+    "matchedFundIds": [
+      "fund_472ddcd8c94d7ed3",
+      "fund_58307ef8e9ea2272",
+      "fund_catalog_scb_arabia_misr_insurance",
+      "fund_46ddc8f193e74f70"
+    ],
+    "inserted": 0,
+    "unchanged": 4,
+    "updated": 0,
+    "unmatched": [],
+    "failed": [],
+    "finishedAt": "2026-08-26T14:43:29.641Z"
+  },
+  "faisal": {
+    "runId": "bd8553e1-c8fe-4460-9471-8463cfadfb86",
+    "startedAt": "2026-08-26T14:43:24.142Z",
+    "status": "success",
+    "source": "https://www.faisalbank.com.eg/ar/Retail/Mutual-Funds",
+    "parser": "faisal_bank_mutual_funds_cards_v1",
+    "fetchedRecords": 2,
+    "matchedRecords": 2,
+    "matchedFundIds": [
+      "fund_2daf6f49025a1405",
+      "fund_44166931f38ee123"
+    ],
+    "inserted": 0,
+    "unchanged": 2,
+    "updated": 0,
+    "unmatched": [],
+    "failed": [],
+    "finishedAt": "2026-08-26T14:43:29.363Z"
+  }
+}

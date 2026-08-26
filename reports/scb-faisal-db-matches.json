@@ -1,0 +1,65 @@
+[
+  {
+    "fund_id": "fund_44166931f38ee123",
+    "canonical_name": "Faisal Islamic Bank of Egypt Fund",
+    "eima_name_raw": "Faisal Islamic Bank of Egypt Fund",
+    "management_company_raw": "Hermes Portfolio and Fund Management",
+    "source_id": "src_97d34f55d3f43656",
+    "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+    "active": true
+  },
+  {
+    "fund_id": "fund_c722efc8d8e6f31a",
+    "canonical_name": "Misr Insurance (Istithmar and Aman)",
+    "eima_name_raw": "Misr Insurance (Istithmar and Aman)",
+    "management_company_raw": "Arab African Investment Management",
+    "source_id": "src_ad7b5cd6a2846887",
+    "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+    "active": true
+  },
+  {
+    "fund_id": "fund_2daf6f49025a1405",
+    "canonical_name": "Faisal & CIB Fund (Al Aman)",
+    "eima_name_raw": "FIBE & CIB (Aman)",
+    "management_company_raw": "CI Asset Management",
+    "source_id": "src_6556b18fd56ff738",
+    "price_update_url": "https://www.cicapital.com/fundprice/",
+    "active": true
+  },
+  {
+    "fund_id": "fund_46ddc8f193e74f70",
+    "canonical_name": "Suez Canale Bank Money Market Fund",
+    "eima_name_raw": "Suez Canal Bank ( Al Suez Al Youmi)",
+    "management_company_raw": "CI Asset Management",
+    "source_id": "src_6556b18fd56ff738",
+    "price_update_url": "https://www.cicapital.com/fundprice/",
+    "active": true
+  },
+  {
+    "fund_id": "fund_58307ef8e9ea2272",
+    "canonical_name": "(صندوق استثمار بنك قناة السويس الثاني للاسهم (الأجيال",
+    "eima_name_raw": "Suez Canal Bank Fund II (Al Agial)",
+    "management_company_raw": "Beltone Asset Management",
+    "source_id": "src_7208153dbe9de70c",
+    "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+    "active": true
+  },
+  {
+    "fund_id": "fund_472ddcd8c94d7ed3",
+    "canonical_name": "Suez Canal Bank (Fund No.1)",
+    "eima_name_raw": "Suez Canal Bank Fund I",
+    "management_company_raw": "HC Securities & Investment",
+    "source_id": "src_6f46003eeee91384",
+    "price_update_url": "https://www.hc-si.com/Service/asset-management#funds",
+    "active": true
+  },
+  {
+    "fund_id": "fund_catalog_9a9824abcbc06d4e",
+    "canonical_name": "Aman Micro Finance",
+    "eima_name_raw": "Aman Micro Finance",
+    "management_company_raw": "Prime Investments",
+    "source_id": null,
+    "price_update_url": null,
+    "active": true
+  }
+]

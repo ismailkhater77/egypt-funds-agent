@@ -33,3 +33,12 @@
 - [ ] Add Mubasher source mapping, parser, idempotent writes, and tests after official source verification
 - [x] Verify whether mubasherfunds.info is officially controlled by Mubasher Asset Management/Mubasher Trade, or keep it explicitly classified as affiliated publication
 - [x] Update Mubasher support reporting to distinguish affiliated publication coverage from a primary manager NAV feed
+- [x] Inspect and document official Suez Canal Bank fund-rate source and extract published NAV/date rows
+- [x] Inspect and document official Faisal Islamic Bank investment-funds source and extract published NAV/date rows
+- [x] Match both bank sources to existing funds and the 57-source-pending backlog without creating duplicates
+- [x] Add verified secondary-source mappings/parsers, tests, and idempotent snapshots for matched Suez Canal/Faisal funds
+- [x] Run strict duplicate-name/catalog check after SCB insurance insertion and merge/remove any duplicate if found
+- [x] Rerun SCB and Faisal collectors after final inserts and verify all matched snapshots are unchanged
+- [x] Produce a final SCB/Faisal validation report with aliases and matched fund IDs
+- [x] Run strict cross-field duplicate audit using canonical_name and eima_name_raw with exact and normalized keys, and save an artifact
+- [x] Add an explicit SCB/Faisal alias mapping table to the final validation report

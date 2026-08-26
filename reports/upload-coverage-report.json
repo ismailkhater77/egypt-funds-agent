@@ -2,11 +2,11 @@
   "workbook": "/home/ubuntu/upload/ملفالصناديق.xlsx",
   "sheet": "Sheet1",
   "file_fund_count": 198,
-  "database_fund_count": 213,
-  "database_price_row_count": 189,
+  "database_fund_count": 215,
+  "database_price_row_count": 201,
   "matched_to_database_count": 198,
-  "covered_with_validated_price_count": 141,
-  "not_covered_count": 57,
+  "covered_with_validated_price_count": 145,
+  "not_covered_count": 53,
   "exact_or_confident_match_count": 198,
   "unmatched_or_ambiguous_count": 0,
   "covered": [
@@ -132,8 +132,8 @@
         "currency": "EGP",
         "valuation_date": "2026-08-20",
         "status": "validated",
-        "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-25T20:41:14.28173+00:00"
+        "source_id": "src_scb_fund_rates",
+        "collected_at": "2026-08-26T14:40:12.477324+00:00"
       }
     },
     {
@@ -338,12 +338,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_58307ef8e9ea2272",
-        "nav": 73.75,
+        "nav": 73.96204,
         "currency": "EGP",
-        "valuation_date": "2026-08-23",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-25T20:00:53.22039+00:00"
+        "source_id": "src_scb_fund_rates",
+        "collected_at": "2026-08-26T14:40:13.314719+00:00"
       }
     },
     {
@@ -386,6 +386,27 @@
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
         "collected_at": "2026-08-25T20:30:24.599727+00:00"
+      }
+    },
+    {
+      "row": 29,
+      "file_name": "Mubasher Equity",
+      "company": "Mubasher Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_8f87165f1dc5f1b3",
+      "db_name": "Mubasher Equity",
+      "db_raw_name": "Mubasher Equity",
+      "db_company": "Mubasher Asset Management",
+      "price_update_url": "https://mubasherfunds.info/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_8f87165f1dc5f1b3",
+        "nav": 2.0182,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T14:18:54.78077+00:00"
       }
     },
     {
@@ -552,8 +573,8 @@
         "currency": "EGP",
         "valuation_date": "2026-08-23",
         "status": "validated",
-        "source_id": "src_97d34f55d3f43656",
-        "collected_at": "2026-08-25T19:30:57.564054+00:00"
+        "source_id": "src_faisal_mutual_funds",
+        "collected_at": "2026-08-26T14:40:13.08209+00:00"
       }
     },
     {
@@ -590,12 +611,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_2daf6f49025a1405",
-        "nav": 523.75,
+        "nav": 525.63,
         "currency": "EGP",
-        "valuation_date": "2026-08-22",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_6556b18fd56ff738",
-        "collected_at": "2026-08-26T13:24:14.493605+00:00"
+        "source_id": "src_faisal_mutual_funds",
+        "collected_at": "2026-08-26T14:41:43.968157+00:00"
       }
     },
     {
@@ -1157,12 +1178,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_46ddc8f193e74f70",
-        "nav": 25.38,
+        "nav": 25.41787,
         "currency": "EGP",
-        "valuation_date": "2026-08-22",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_6556b18fd56ff738",
-        "collected_at": "2026-08-26T13:24:02.049956+00:00"
+        "source_id": "src_scb_fund_rates",
+        "collected_at": "2026-08-26T14:40:14.071185+00:00"
       }
     },
     {
@@ -1544,6 +1565,27 @@
       }
     },
     {
+      "row": 107,
+      "file_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_5e0d169d137e8e17",
+      "db_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+      "db_raw_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_5e0d169d137e8e17",
+        "nav": 417.32,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-26T14:29:26.357667+00:00"
+      }
+    },
+    {
       "row": 108,
       "file_name": "Al Baraka Bank Egypt (Al Barakat)",
       "company": "Hermes Portfolio and Fund Management",
@@ -1814,6 +1856,27 @@
         "status": "validated",
         "source_id": "src_ad7b5cd6a2846887",
         "collected_at": "2026-08-26T13:33:41.509199+00:00"
+      }
+    },
+    {
+      "row": 127,
+      "file_name": "Cash Mubasher",
+      "company": "Mubasher Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_ec35b86a2af66e66",
+      "db_name": "Cash Mubasher",
+      "db_raw_name": "Cash Mubasher",
+      "db_company": "Mubasher Asset Management",
+      "price_update_url": "https://mubasherfunds.info/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_ec35b86a2af66e66",
+        "nav": 24.03852,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T14:18:55.298717+00:00"
       }
     },
     {
@@ -2909,6 +2972,27 @@
       }
     },
     {
+      "row": 194,
+      "file_name": "Mubasher Gold",
+      "company": "Mubasher Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_ce8809c05bb69e89",
+      "db_name": "Mubasher Gold",
+      "db_raw_name": "Mubasher Gold",
+      "db_company": "Mubasher Asset Management",
+      "price_update_url": "https://mubasherfunds.info/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_ce8809c05bb69e89",
+        "nav": 13.0276,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T14:18:56.182244+00:00"
+      }
+    },
+    {
       "row": 195,
       "file_name": "CIAM Gold Fund",
       "company": "CI Asset Management",
@@ -3086,19 +3170,6 @@
       "db_name": "NI Capital (Sahmy Fund)",
       "db_raw_name": "NI Capital (Sahmy Fund)",
       "db_company": "NI Capital",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 29,
-      "file_name": "Mubasher Equity",
-      "company": "Mubasher Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_8f87165f1dc5f1b3",
-      "db_name": "Mubasher Equity",
-      "db_raw_name": "Mubasher Equity",
-      "db_company": "Mubasher Asset Management",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null
@@ -3390,19 +3461,6 @@
       "latest_price": null
     },
     {
-      "row": 107,
-      "file_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
-      "company": "Beltone Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_5e0d169d137e8e17",
-      "db_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
-      "db_raw_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
-      "db_company": "Beltone Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
       "row": 110,
       "file_name": "GIG Makaseb Fund First Tranche",
       "company": "NI Capital",
@@ -3476,19 +3534,6 @@
       "db_name": "NI Capital 15/30",
       "db_raw_name": "NI Capital 15/30",
       "db_company": "NI Capital",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 127,
-      "file_name": "Cash Mubasher",
-      "company": "Mubasher Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_ec35b86a2af66e66",
-      "db_name": "Cash Mubasher",
-      "db_raw_name": "Cash Mubasher",
-      "db_company": "Mubasher Asset Management",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null
@@ -3671,19 +3716,6 @@
       "db_name": "The charitable education Fund",
       "db_raw_name": "The charitable education Fund",
       "db_company": "NI Capital",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 194,
-      "file_name": "Mubasher Gold",
-      "company": "Mubasher Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_ce8809c05bb69e89",
-      "db_name": "Mubasher Gold",
-      "db_raw_name": "Mubasher Gold",
-      "db_company": "Mubasher Asset Management",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null
