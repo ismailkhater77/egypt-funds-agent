@@ -51,3 +51,9 @@ Official source: https://www.cibeg.com/-/media/project/downloads/personal/funds/
 The first-party CIB/CI Capital fact sheet states `Aman Fund`, managed by CI Capital Asset Management, with official NAV per share **503.476 EGP** and date **31/07/2026**. This is valid official dated NAV evidence for CIB/Faisal Aman Fund, but the workbook's uncovered record is named `Aman Micro Finance`, a different identity. The value was therefore not mapped without explicit identity proof.
 
 The database record for `Aman Micro Finance` explicitly lists `Prime Investments` as management company, while the official CIB Aman fact sheet lists CI Capital Asset Management. This confirms an identity mismatch, so the valid CIB Aman NAV was correctly not assigned to Aman Micro Finance.
+
+## Bokra Shakmagia
+
+Official URL: https://bokra.com/
+
+The official Bokra website confirms the regulated savings platform and lists `الشكمجية` among products, but the public page does not publish a fund NAV or valuation date. The current official evidence is insufficient for a validated price snapshot, so `Bokra Shakmagia` remains Pending Verification and third-party values were not used.
