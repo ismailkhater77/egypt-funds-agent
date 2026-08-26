@@ -1,6 +1,7 @@
 {
   "workbook": "/home/ubuntu/upload/ملفالصناديق.xlsx",
   "sheet": "Sheet1",
+  "as_of_date": "2026-08-26",
   "file_fund_count": 198,
   "database_fund_count": 215,
   "database_price_row_count": 310,
@@ -254,12 +255,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_5138e12acac03d95",
-        "nav": 228.93,
+        "nav": 228.21,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:09.290418+00:00"
+        "collected_at": "2026-08-25T20:00:53.643716+00:00"
       }
     },
     {
@@ -380,12 +381,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_58307ef8e9ea2272",
-        "nav": 73.95,
+        "nav": 73.96204,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:08.865317+00:00"
+        "source_id": "src_scb_fund_rates",
+        "collected_at": "2026-08-26T14:40:13.314719+00:00"
       }
     },
     {
@@ -548,12 +549,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_e0c61fcc066e02ae",
-        "nav": 1.5,
+        "nav": 1.49,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:08.442101+00:00"
+        "collected_at": "2026-08-25T19:58:47.463696+00:00"
       }
     },
     {
@@ -611,12 +612,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_1e30d07a3be5bc69",
-        "nav": 13.4,
+        "nav": 13.06,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_8ee7a6b5e4677ae3",
-        "collected_at": "2026-08-26T17:29:58.811921+00:00"
+        "collected_at": "2026-08-25T20:21:58.691769+00:00"
       }
     },
     {
@@ -632,12 +633,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_8267d32e1a907f71",
-        "nav": 1058.7272,
+        "nav": 1061.11653,
         "currency": "EGP",
-        "valuation_date": "2026-08-29",
+        "valuation_date": "2026-08-22",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-26T16:13:40.727528+00:00"
+        "collected_at": "2026-08-25T20:41:15.094815+00:00"
       }
     },
     {
@@ -926,12 +927,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_c330bbe2271df519",
-        "nav": 1029.95,
+        "nav": 1026.37,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:29:58.357297+00:00"
+        "collected_at": "2026-08-25T20:00:46.803306+00:00"
       }
     },
     {
@@ -1010,12 +1011,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_ddc5d394505a99b7",
-        "nav": 74.82,
+        "nav": 74.56,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:29:59.154018+00:00"
+        "collected_at": "2026-08-25T20:00:47.529948+00:00"
       }
     },
     {
@@ -1094,12 +1095,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_1bbc98b369114e95",
-        "nav": 74.22,
+        "nav": 73.96,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:29:59.639701+00:00"
+        "collected_at": "2026-08-25T20:00:48.254803+00:00"
       }
     },
     {
@@ -1136,12 +1137,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_d248d4b02433f626",
-        "nav": 73.98,
+        "nav": 73.72,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:00.120714+00:00"
+        "collected_at": "2026-08-25T20:00:48.668241+00:00"
       }
     },
     {
@@ -1157,12 +1158,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_911baed193599096",
-        "nav": 73.52118,
+        "nav": 73.26781,
         "currency": "EGP",
-        "valuation_date": "2026-08-29",
+        "valuation_date": "2026-08-22",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-26T16:13:38.482995+00:00"
+        "collected_at": "2026-08-25T20:41:12.524183+00:00"
       }
     },
     {
@@ -1199,12 +1200,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_572c49594f78c71c",
-        "nav": 542.75187,
+        "nav": 540.95951,
         "currency": "EGP",
-        "valuation_date": "2026-08-29",
+        "valuation_date": "2026-08-22",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-26T16:13:39.165718+00:00"
+        "collected_at": "2026-08-25T20:41:13.553779+00:00"
       }
     },
     {
@@ -1220,12 +1221,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_98f867d45b6b4ecd",
-        "nav": 48.67,
+        "nav": 48.5,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:00.569294+00:00"
+        "collected_at": "2026-08-25T20:00:49.457109+00:00"
       }
     },
     {
@@ -1241,12 +1242,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_b312b6dcabf028f6",
-        "nav": 47.28,
+        "nav": 47.11,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:01.057196+00:00"
+        "collected_at": "2026-08-25T19:58:44.688827+00:00"
       }
     },
     {
@@ -1262,12 +1263,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_458f7f604809eb89",
-        "nav": 3963.62,
+        "nav": 3950.07,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:01.499714+00:00"
+        "collected_at": "2026-08-25T20:00:50.076403+00:00"
       }
     },
     {
@@ -1577,12 +1578,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_594b8151365a5058",
-        "nav": 1.78868,
+        "nav": 1.7855,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-26T15:45:32.835066+00:00"
+        "collected_at": "2026-08-25T20:30:22.9793+00:00"
       }
     },
     {
@@ -1640,12 +1641,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_7984dd2a845f904f",
-        "nav": 1.81142,
+        "nav": 1.81055,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-26T13:32:44.499412+00:00"
+        "collected_at": "2026-08-25T20:30:21.709935+00:00"
       }
     },
     {
@@ -1703,12 +1704,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_3729c5fb2587a803",
-        "nav": 112.88191,
+        "nav": 112.65609,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_5d36849d3d5c977d",
-        "collected_at": "2026-08-26T17:29:59.070721+00:00"
+        "collected_at": "2026-08-25T20:22:01.133882+00:00"
       }
     },
     {
@@ -1829,12 +1830,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_catalog_5e0d169d137e8e17",
-        "nav": 418.72,
+        "nav": 417.32,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:02.375317+00:00"
+        "collected_at": "2026-08-26T14:29:26.357667+00:00"
       }
     },
     {
@@ -1892,12 +1893,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_63b2d19280bbf1bb",
-        "nav": 18.21791,
+        "nav": 18.1851,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-26T15:45:33.598474+00:00"
+        "collected_at": "2026-08-25T20:30:23.399465+00:00"
       }
     },
     {
@@ -1913,12 +1914,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_9ebcd523fc49a4c3",
-        "nav": 1.3173,
+        "nav": 1.315,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-26T15:45:30.942749+00:00"
+        "collected_at": "2026-08-26T13:32:43.166249+00:00"
       }
     },
     {
@@ -2102,12 +2103,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_5549b9417edff89d",
-        "nav": 21.16062,
+        "nav": 21.13012,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-26T15:45:35.368836+00:00"
+        "collected_at": "2026-08-25T20:30:25.039088+00:00"
       }
     },
     {
@@ -2186,12 +2187,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_5f9867233e699077",
-        "nav": 1.98,
+        "nav": 1.97,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:11.416762+00:00"
+        "collected_at": "2026-08-25T20:04:05.363106+00:00"
       }
     },
     {
@@ -2333,12 +2334,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_a489be10a3161f80",
-        "nav": 345.49207,
+        "nav": 344.70308,
         "currency": "EGP",
-        "valuation_date": "2026-08-29",
+        "valuation_date": "2026-08-22",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-26T16:13:41.227912+00:00"
+        "collected_at": "2026-08-25T20:41:15.575547+00:00"
       }
     },
     {
@@ -2522,12 +2523,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_d276dbadffdb507f",
-        "nav": 845.34,
+        "nav": 849.43,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:10.136621+00:00"
+        "collected_at": "2026-08-25T20:00:54.068038+00:00"
       }
     },
     {
@@ -2627,12 +2628,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_7f9c790e19a85c26",
-        "nav": 2.19,
+        "nav": 2.17,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:03.247715+00:00"
+        "collected_at": "2026-08-25T20:04:01.403119+00:00"
       }
     },
     {
@@ -2648,12 +2649,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_5db2afe47b118793",
-        "nav": 2.58,
+        "nav": 2.53,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:03.677191+00:00"
+        "collected_at": "2026-08-25T20:04:01.823967+00:00"
       }
     },
     {
@@ -2711,12 +2712,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_01c26dadf463c6f9",
-        "nav": 1.69,
+        "nav": 1.68,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:05.840577+00:00"
+        "collected_at": "2026-08-25T20:00:51.728984+00:00"
       }
     },
     {
@@ -2753,12 +2754,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_21e3c6b23e6f074a",
-        "nav": 1.48,
+        "nav": 1.49,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:06.272025+00:00"
+        "collected_at": "2026-08-25T20:00:52.170367+00:00"
       }
     },
     {
@@ -2774,12 +2775,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_a14b1984e6ee491f",
-        "nav": 1.66,
+        "nav": 1.62,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:06.701523+00:00"
+        "collected_at": "2026-08-25T20:00:52.59049+00:00"
       }
     },
     {
@@ -2963,12 +2964,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_eb6d028c9161f545",
-        "nav": 1.76,
-        "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "nav": 1.75286,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:04.105554+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:53.686121+00:00"
       }
     },
     {
@@ -2984,12 +2985,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_4ffe13e99f4fc1d7",
-        "nav": 2.09,
-        "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "nav": 2.07393,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:04.54042+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:56.007172+00:00"
       }
     },
     {
@@ -3005,12 +3006,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_a824eaf1e65870b5",
-        "nav": 1.73,
-        "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "nav": 1.73719,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:04.964045+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:55.139922+00:00"
       }
     },
     {
@@ -3026,12 +3027,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_677538b0d0f1aac4",
-        "nav": 1.85,
-        "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "nav": 1.84178,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:05.404984+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:52.818013+00:00"
       }
     },
     {
@@ -3047,12 +3048,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_8d7fb095eec2e9ed",
-        "nav": 63.4,
+        "nav": 63.0,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:02.807365+00:00"
+        "collected_at": "2026-08-25T20:00:50.480362+00:00"
       }
     },
     {
@@ -3133,10 +3134,10 @@
         "fund_id": "fund_47d56bf6fa1027de",
         "nav": 1.17,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:10.986878+00:00"
+        "collected_at": "2026-08-25T19:58:47.866511+00:00"
       }
     },
     {
@@ -3236,12 +3237,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_5bf58206c8e6cab7",
-        "nav": 197.49,
+        "nav": 196.84,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:10.574574+00:00"
+        "collected_at": "2026-08-25T20:00:54.481204+00:00"
       }
     },
     {
@@ -3299,12 +3300,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_5f870a3631b4f621",
-        "nav": 1.75,
+        "nav": 1.71,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:07.570734+00:00"
+        "collected_at": "2026-08-25T20:02:10.215769+00:00"
       }
     },
     {
@@ -3404,12 +3405,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_69861fed8a7bc96f",
-        "nav": 0.83,
+        "nav": 0.81,
         "currency": "EGP",
-        "valuation_date": "2026-08-30",
+        "valuation_date": "2026-08-23",
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-26T17:30:08.028958+00:00"
+        "collected_at": "2026-08-25T20:02:10.622425+00:00"
       }
     }
   ],

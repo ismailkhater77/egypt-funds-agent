@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseScbFundRates, runFabMisrCollector, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseScbFundRates, runFabMisrCollector, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -123,6 +123,14 @@ describe("EFG mutual-fund parser", () => {
     const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>22 August 2026</td></tr><tr><td>Currency (EGP)</td><td>472.6990</td></tr></table>`;
     expect(parseFabMisrEzdehar(html)).toEqual([{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav: 472.699, valuationDate: "2026-08-22", currency: "EGP" }]);
   });
+  it("rejects future-dated Azimut API rows while retaining current official NAV rows", () => {
+    const payload = JSON.stringify({ response: { funds: { dataList: [
+      { name: "az– استحقاق T27 USD", currency: { symbol: "USD" }, last_nav: { nav: 10.50287, date: "2026-08-25" } },
+      { name: "az- حالا", currency: { symbol: "EGP" }, last_nav: { nav: 1.81142, date: "2026-08-30" } },
+    ] } } });
+    expect(parseAzimutFunds(payload)).toEqual([{ name: "az– استحقاق T27 USD", rawName: "az– استحقاق T27 USD", nav: 10.50287, valuationDate: "2026-08-25", currency: "USD" }]);
+  });
+
   it("extracts an official NBK detail-page NAV and closing date", () => {
     const html = `<h1>Ishraq</h1><table><tr><th>Pricing</th><th>Closing date</th></tr><tr><td>EGP 69.92017</td><td>25/08/2026</td></tr></table><p>Ishraq Fund Unit Price</p>`;
     expect(parseNbkFundPage(html)).toEqual([{

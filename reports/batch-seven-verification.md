@@ -34,3 +34,9 @@ A second NI Capital run fetched and matched the same two records with **0 insert
 ## Weekly pricing policy for FABMISR Ezdehar
 
 Ezdehar is now configured with `schedule: "weekly"`. An HTTP-successful page that yields no current valuation is classified as `status: "success"` and `outcome: "no_new_valuation"`; it is not treated as a parser/source failure. Actual transport errors remain `status: "failed"` and `outcome: "error"`. The current sandbox run still encountered a real DNS fetch error for FABMISR, so it correctly remained an error rather than being mislabeled as a weekly no-update. Coverage remains 162/198 because no new FAB snapshot was written.
+
+## User-provided manager links — Azimut and Alpha Odin
+
+The official Azimut API returned 19 records on the first successful matching run. After adding the future-date guard, 14 records remained valid as of 2026-08-26; five rows dated 2026-08-30 are now rejected by the parser. The official `az– استحقاق T27 USD` row is valid at NAV 10.50287 USD dated 2026-08-25 and matched the existing catalog record unchanged. The API response did not contain names for Ebank El Khabeer, Bank ABC Fund I, Ebank Fund II, or Menthum, so those remain pending rather than being inferred from the manager label.
+
+The official Alpha Odin page loaded successfully but exposed no current fund NAV/date rows in the live DOM, so Odin Trend, Maksab, and Al Masry remain pending. The coverage report now explicitly uses `as_of_date=2026-08-26` and excludes future-dated validated rows.

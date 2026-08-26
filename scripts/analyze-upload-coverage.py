@@ -4,6 +4,7 @@ from urllib.parse import quote
 from difflib import SequenceMatcher
 from html import unescape
 import os, re, json, requests
+from datetime import datetime, timezone
 
 WORKBOOK = Path('/home/ubuntu/upload/ملفالصناديق.xlsx')
 BASE_URL = os.environ.get('SUPABASE_URL')
@@ -43,8 +44,11 @@ for row_number, row in enumerate(rows[1:], start=2):
 db_funds = get_all('funds', 'fund_id,canonical_name,eima_name_raw,management_company_raw,price_update_url,source_id,active', 1000)
 db_prices = get_all('fund_prices', 'fund_id,nav,currency,valuation_date,status,source_id,collected_at', 10000)
 prices_by_fund = {}
+as_of_date = datetime.now(timezone.utc).date().isoformat()
 for price in db_prices:
     if price.get('status') not in (None, 'validated'):
+        continue
+    if price.get('valuation_date') and price['valuation_date'] > as_of_date:
         continue
     fund_id = price.get('fund_id')
     if not fund_id:
@@ -97,7 +101,7 @@ covered = [m for m in matches if m.get('has_price')]
 in_db = [m for m in matches if m.get('fund_id')]
 uncovered = [m for m in matches if not m.get('has_price')]
 report = {
-    'workbook': str(WORKBOOK), 'sheet': ws.title, 'file_fund_count': len(file_funds),
+    'workbook': str(WORKBOOK), 'sheet': ws.title, 'as_of_date': as_of_date, 'file_fund_count': len(file_funds),
     'database_fund_count': len(db_funds), 'database_price_row_count': len(db_prices),
     'matched_to_database_count': len(in_db), 'covered_with_validated_price_count': len(covered),
     'not_covered_count': len(uncovered), 'exact_or_confident_match_count': len([m for m in in_db if m.get('match_type') in ('exact','high_similarity')]),
@@ -105,7 +109,7 @@ report = {
     'covered': covered, 'not_covered': uncovered,
 }
 Path('/tmp/upload-coverage-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
-print(json.dumps({k: report[k] for k in ('file_fund_count','database_fund_count','database_price_row_count','matched_to_database_count','covered_with_validated_price_count','not_covered_count','unmatched_or_ambiguous_count')}, ensure_ascii=False, indent=2))
+print(json.dumps({k: report[k] for k in ('as_of_date','file_fund_count','database_fund_count','database_price_row_count','matched_to_database_count','covered_with_validated_price_count','not_covered_count','unmatched_or_ambiguous_count')}, ensure_ascii=False, indent=2))
 print('--- NOT COVERED ---')
 for item in uncovered:
     print(f"{item['row']}\t{item['file_name']}\t{item.get('match_type')}\t{'; '.join(item.get('candidates', []))}")

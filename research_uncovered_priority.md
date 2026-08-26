@@ -127,3 +127,21 @@ The page reports Today's ABK-Egypt Equity Fund Price as 410.52 EGP with Last Upd
 - **EBank El Khabeer:** EBank's official homepage was unreachable during the controlled check. EIMA search results identify the fund and provide historical performance PDFs, but not a current official daily NAV endpoint. No current snapshot was stored.
 - **Pharos Fund I / Pioneers Fund I:** Pharos's official site `https://www.pharosholding.com/` confirms the holding company and services but exposes no current fund NAV table in the inspected page. EGX PDFs and third-party tracking pages contain historical or secondary values, not a current primary manager feed. No snapshot was stored.
 - **Data-integrity decision:** these groups remain `pending` rather than accepting stale, secondary, or identity-mismatched values. This is intentional and avoids fabricating a current valuation date.
+
+## User-provided source batch — 26 August 2026
+
+- NI Capital official Asset Management page: https://nicapital.com.eg/lines-of-business/asset-management/ — current certificate-price section is the primary source for Sahmy, Sahmy 70, 15/30, GIG Makaseb tranches, and Education for Life. The collector accepted Sahmy and Sahmy 70 on 26 August 2026; the other displayed rows were dated 29 August 2026 and were rejected as future-dated at that run.
+- PFI official funds page: https://pfi-am.com.eg/funds/ — the server parser fetched one current matched record, GIG Equity Fund, and returned unchanged on rerun. The page showed other rows with future-dated values at the run time; no unsupported snapshot was inserted.
+- Azimut official funds page: https://azimut.eg/funds — the official dynamic table yielded 19 parsed records in the collector, but the subsequent Supabase request returned HTTP 401 `JWT issued at future`, so no matching or writing decision was made from that run.
+- Alpha Odin official funds page: https://alpha-odin.com/funds/ — search discovery shows Odin Trend price 1.24156 EGP with last update 20 August 2026 and additional fund cards; direct page verification is still required before accepting snapshots for Odin Trend, Maksab, or Al Masry.
+- Aton/Pharos social and hosted pages remain candidate discovery sources only. Authority, ownership, current NAV, and explicit valuation date must be established before integration.
+
+## Alpha Odin direct verification — 26 August 2026
+
+The official page https://alpha-odin.com/funds/ loaded successfully and identifies Alpha Odin's Funds Management service, but the current DOM exposed no fund cards, NAV values, or valuation dates. Search-result snippets are not sufficient evidence for a validated snapshot. Odin Trend, Maksab tranches, and Al Masry therefore remain Pending Verification until a first-party page or fact sheet with an actual NAV and clear date is extracted.
+
+## User-provided source verification update — 26 August 2026
+
+- Azimut's official JSON endpoint used by the collector, `https://app.azimut.eg/api/fund/list?size=100&web=true`, returned 19 records and all 19 matched existing catalog records on the retry. The published target-maturity USD record was `az– استحقاق T27 USD`, NAV 10.50287 USD, valuation date 2026-08-25. This corresponds to the catalog's `AZ - Estehkak T27 USD`; the run was 19 unchanged. The endpoint did not publish names matching Ebank El Khabeer, Bank ABC Fund I, Ebank Fund II, or Menthum in the returned 19 records.
+- The official Alpha Odin page `https://alpha-odin.com/funds/` loaded, but its current page/DOM contained no fund cards, NAV values, or valuation dates. No Odin Trend, Maksab, or Al Masry snapshot was accepted.
+- The official PFI page remains usable for GIG Equity; the currently returned Mawared row was future-dated in the latest run and was not accepted under the collector's date rule.

@@ -77,3 +77,14 @@
 - [x] Run FABMISR and Run All, refresh coverage, and save the verified behavior in the batch report
 - [x] Add collector-level tests for FABMISR: weekly no-new-valuation success, fetch failure, and parser/source-structure failure
 - [x] Make FABMISR parser recognize the official NAV section before classifying an empty result as weekly no-new-valuation
+
+## User-provided source batch
+- [ ] Verify current NI Capital prices for Sahmy, Sahmy 70, 15/30, GIG Makaseb tranches, and Education for Life
+- [ ] Verify current PFI prices for Housing & Development Bank (Mawared) and any matched GIG funds
+- [ ] Verify current Azimut prices for Ebank El Khabeer, Bank ABC Fund I, Ebank Fund II, Menthum, and Target Maturity 2027 USD
+- [ ] Verify Alpha Odin official NAV/valuation-date evidence for Odin Trend, Maksab tranches, and Al Masry
+- [ ] Verify whether Aton/Pharos links are authoritative and contain current NAV plus valuation dates
+- [ ] Add only fully verified new source mappings and refresh coverage; preserve --, stale, or undated records as Pending Verification
+- [x] Reject future-dated Azimut NAV rows and add a regression test before accepting official API records
+- [ ] Quarantine previously stored future-dated Azimut snapshots as rejected without deleting audit history, then verify coverage excludes them
+- [x] Exclude future-dated validated snapshots from workbook coverage calculations and document the as-of date

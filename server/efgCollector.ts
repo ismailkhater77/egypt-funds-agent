@@ -366,8 +366,8 @@ export function parseAzimutFunds(payload: string): EfgRecord[] {
     const date = fund.last_nav?.date;
     if (!fund.name || !Number.isFinite(nav) || (nav ?? 0) < 0 || !date) return [];
     const parsedDate = new Date(date);
-    if (Number.isNaN(parsedDate.getTime())) return [];
-    return [{ name: fund.name, rawName: fund.name, nav: nav as number, valuationDate: date, currency: (fund.currency?.symbol ?? "EGP").toUpperCase() }];
+    if (Number.isNaN(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) > new Date().toISOString().slice(0, 10)) return [];
+    return [{ name: fund.name, rawName: fund.name, nav: nav as number, valuationDate: parsedDate.toISOString().slice(0, 10), currency: (fund.currency?.symbol ?? "EGP").toUpperCase() }];
   });
 }
 
