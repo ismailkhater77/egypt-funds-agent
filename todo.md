@@ -86,5 +86,5 @@
 - [x] Verify whether Aton/Pharos links are authoritative and contain current NAV plus valuation dates (identity supported; no current NAV/date published, so Pharos remains Pending)
 - [ ] Add only fully verified new source mappings and refresh coverage; preserve --, stale, or undated records as Pending Verification
 - [x] Reject future-dated Azimut NAV rows and add a regression test before accepting official API records
-- [ ] Quarantine previously stored future-dated Azimut snapshots as rejected without deleting audit history, then verify coverage excludes them
+- [x] Quarantine previously stored future-dated Azimut snapshots as rejected without deleting audit history, then verify coverage excludes them (metadata quarantine; DB status constraint remains validated-only)
 - [x] Exclude future-dated validated snapshots from workbook coverage calculations and document the as-of date

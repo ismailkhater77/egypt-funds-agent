@@ -7,7 +7,7 @@ if (!sourceResponse.ok) throw new Error(`source lookup ${sourceResponse.status}:
 const sources = await sourceResponse.json();
 const sourceId = sources[0]?.source_id;
 if (!sourceId) { console.log(JSON.stringify({ sourceId: null, rows: [] }, null, 2)); process.exit(0); }
-const url = `${base}/rest/v1/fund_prices?source_id=eq.${encodeURIComponent(sourceId)}&valuation_date=gt.2026-08-26&select=id,fund_id,nav,currency,valuation_date,status&order=valuation_date.asc`;
+const url = `${base}/rest/v1/fund_prices?source_id=eq.${encodeURIComponent(sourceId)}&valuation_date=gt.2026-08-26&select=id,fund_id,nav,currency,valuation_date,status,raw_payload&order=valuation_date.asc`;
 const response = await fetch(url, { headers });
 if (!response.ok) throw new Error(`price lookup ${response.status}: ${await response.text()}`);
 console.log(JSON.stringify({ sourceId, rows: await response.json() }, null, 2));
