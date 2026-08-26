@@ -35,3 +35,7 @@ This establishes the safety property requested by the user: no future scheduled 
 ## Follow-up source search
 
 A follow-up search for official historical-price endpoints found only the existing Beltone asset-management page, HC's official managed-fund price list, and Zaldi's official site. The other results were secondary aggregators or social posts and were not used. No additional official endpoint was found that supplies a separate actual valuation date for the Beltone, HC, or Zaldi rows currently carrying future dates.
+
+## Regression suite extension
+
+The suite now contains 32 passing tests. Two reusable B-Cobonat HTML fixtures represent the same NAV (1.02 EGP) first dated 2026-08-23 and then displayed with 2026-08-30. The end-to-end mocked persistence test confirms the second observation is `unchanged`, reuses the prior actual date, and performs no POST. A second end-to-end case changes the NAV to 1.03 while leaving only the future date available; it returns a failure and performs no POST. This prevents both accidental date replacement and silent acceptance of an undated/incorrect future valuation.
