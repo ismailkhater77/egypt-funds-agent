@@ -100,7 +100,7 @@
 ## Regression: actual NAV date versus next update date
 - [ ] Inspect Beltone, Azimut, HC Securities, and Zaldi parsers and identify the exact actual-date field versus next-update field
 - [ ] Fix the four parsers to persist the latest actual NAV date and ignore next-update dates
-- [ ] Add B-Cobonat regression fixtures proving two identical prices retain the actual date rather than changing to the future date
+- [x] Add B-Cobonat regression fixtures proving two identical prices retain the actual date rather than changing to the future date
 - [x] Rerun the four collectors, Run All, coverage, duplicate audit, TypeScript, and Vitest after the date-field fix
 
 - [ ] Add a regression invariant across Beltone 30/60, Azimut 5/30, HC Securities 4/14, and Zaldi 2/4: identical NAV values must not receive a future next-update date; preserve the last verified actual valuation date instead

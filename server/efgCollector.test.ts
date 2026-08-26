@@ -59,8 +59,8 @@ describe("EFG mutual-fund parser", () => {
   });
 
   it("keeps B-Cobonat on its prior actual date when Beltone changes only the scheduled update date", () => {
-    const firstRunHtml = `<div class="flex items-center justify-between w-full"><a><p>Beltone 2nd tranche &quot;B-Cobonat&quot; Fund</p></a><div><p>1.02</p><p>2026-07-16</p><p>2026-08-23</p><p>-</p></div></div>`;
-    const secondRunHtml = firstRunHtml.replace("2026-08-23", "2026-08-30");
+    const firstRunHtml = readFileSync(new URL("./fixtures/beltone-b-cobonat-2026-08-23.html", import.meta.url), "utf8");
+    const secondRunHtml = readFileSync(new URL("./fixtures/beltone-b-cobonat-2026-08-30.html", import.meta.url), "utf8");
     const first = parseBeltoneFunds(firstRunHtml)[0];
     const second = parseBeltoneFunds(secondRunHtml)[0];
     expect(first).toMatchObject({ nav: 1.02, valuationDate: "2026-08-23" });
@@ -223,6 +223,24 @@ describe("EFG mutual-fund parser", () => {
     vi.stubGlobal("fetch", fetchMock);
     const summary = await runBeltoneCollector();
     expect(summary).toMatchObject({ status: "success", fetchedRecords: 1, matchedRecords: 1, inserted: 0, unchanged: 1, updated: 0, failed: [] });
+    expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/rest/v1/fund_prices") && init?.method === "POST")).toBe(false);
+    vi.unstubAllGlobals();
+  });
+
+  it("rejects a changed NAV when the only provider date is a future schedule", async () => {
+    const html = `<div class="flex items-center justify-between w-full"><a><p>Beltone 2nd tranche &quot;B-Cobonat&quot; Fund</p></a><div><p>1.03</p><p>2026-07-16</p><p>2026-08-30</p><p>-</p></div></div>`;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url === "https://www.beltoneholding.com/business-line/asset-management-1") return new Response(html, { status: 200 });
+      if (url.includes("/rest/v1/funds?")) return new Response(JSON.stringify([{ fund_id: "fund-b-cobonat", canonical_name: "Beltone 2nd tranche B-Cobonat Fund", eima_name_raw: null, category: "fixed income", price_update_url: "https://www.beltoneholding.com/business-line/asset-management-1" }]), { status: 200 });
+      if (url.includes("/rest/v1/sources?")) return new Response(JSON.stringify([{ source_id: "source-beltone" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?") && url.includes("status=eq.validated")) return new Response(JSON.stringify([{ nav: 1.02, currency: "EGP", valuation_date: "2026-08-23" }]), { status: 200 });
+      return new Response(JSON.stringify([]), { status: 200 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const summary = await runBeltoneCollector();
+    expect(summary).toMatchObject({ status: "partial", fetchedRecords: 1, matchedRecords: 1, inserted: 0, unchanged: 0, updated: 0 });
+    expect(summary.failed).toHaveLength(1);
     expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/rest/v1/fund_prices") && init?.method === "POST")).toBe(false);
     vi.unstubAllGlobals();
   });
