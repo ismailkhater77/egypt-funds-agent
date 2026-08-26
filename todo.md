@@ -5,7 +5,7 @@
 - [x] Match EFG records to imported funds and persist validated fund price snapshots with audit metadata
 - [x] Make collector writes idempotent and report inserted, unchanged, unmatched, and failed records
 - [x] Add protected manual-run and status endpoints
-- [ ] Add daily scheduled callback after the expected EFG publication window
+- [x] Add daily scheduled callback after the expected EFG publication window (callback implemented at `/api/scheduled/all`; Heartbeat creation remains deployment-gated)
 - [x] Add unit tests for parsing, matching, idempotency, and run summaries
 - [ ] Verify the manual run and scheduled callback in the deployed environment
 - [x] Rotate the Supabase secret key that was exposed in chat before configuring the collector
