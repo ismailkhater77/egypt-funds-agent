@@ -523,7 +523,7 @@ export function getProviderSupportReport() {
     { provider: "Zaldi", source: `${ZALDI_STAR_URL}, ${ZALDI_ELMASRY_URL}`, parser: ZALDI_PARSER_NAME, status: "implemented" as const, note: "Official fund pages" },
     { provider: "Azimut", source: AZIMUT_API_URL, parser: AZIMUT_PARSER_NAME, status: "implemented" as const, note: "Official API" },
     { provider: "HC Securities", source: HC_SOURCE_URL, parser: HC_PARSER_NAME, status: "implemented" as const, note: "Official AJAX listing" },
-    { provider: "CI Capital", source: CI_URL, parser: CI_PARSER_NAME, status: "blocked" as const, note: "Official host currently fails TLS certificate validation; no alternate verified endpoint" },
+    { provider: "CI Capital", source: CI_URL, parser: CI_PARSER_NAME, status: "implemented" as const, note: "Official Fund Type/Fund Name/Price table; secure DigiCert chain completion" },
     { provider: "Arab African Investment Management (AAIM)", source: AAIM_FETCH_URL, parser: "aaim_fund_cards_v1", status: "implemented" as const, note: "Official fund cards" },
   ];
 }

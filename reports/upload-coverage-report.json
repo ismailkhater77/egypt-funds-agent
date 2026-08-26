@@ -1,0 +1,3418 @@
+{
+  "workbook": "/home/ubuntu/upload/ملفالصناديق.xlsx",
+  "sheet": "Sheet1",
+  "file_fund_count": 198,
+  "database_fund_count": 163,
+  "database_price_row_count": 189,
+  "matched_to_database_count": 148,
+  "covered_with_validated_price_count": 141,
+  "not_covered_count": 57,
+  "exact_or_confident_match_count": 148,
+  "unmatched_or_ambiguous_count": 50,
+  "covered": [
+    {
+      "row": 2,
+      "file_name": "Credit Agricole Egypt Fund I",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_7cc6304e5269054b",
+      "db_name": "Credit Agricole Mutual Fund No. 1",
+      "db_raw_name": "Credit Agricole Egypt Fund I",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_7cc6304e5269054b",
+        "nav": 1934.5,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:53.506082+00:00"
+      }
+    },
+    {
+      "row": 3,
+      "file_name": "ALEXBANK Fund I",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_75f480cb1cc5346b",
+      "db_name": "Bank of Alexandria Mutual Fund No. 1",
+      "db_raw_name": "ALEXBANK Fund I",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_75f480cb1cc5346b",
+        "nav": 1786.16,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:53.080102+00:00"
+      }
+    },
+    {
+      "row": 5,
+      "file_name": "Banque Misr Fund II",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_e57915c4aea2ff67",
+      "db_name": "Banque Misr Second Fund",
+      "db_raw_name": "Banque Misr Fund II",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_e57915c4aea2ff67",
+        "nav": 23.23,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:08.651911+00:00"
+      }
+    },
+    {
+      "row": 6,
+      "file_name": "National Bank of Egypt Fund II",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_ecdb9f8262d72ce7",
+      "db_name": "الصندوق الثاني – أسهم",
+      "db_raw_name": "National Bank of Egypt Fund II",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_ecdb9f8262d72ce7",
+        "nav": 311.27,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:34.785232+00:00"
+      }
+    },
+    {
+      "row": 7,
+      "file_name": "Banque Du Caire Fund I",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_a4a7277af28c4ba3",
+      "db_name": "Banque du Caire Mutual Fund No. 1",
+      "db_raw_name": "Banque Du Caire Fund I",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a4a7277af28c4ba3",
+        "nav": 46.6,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:54.976457+00:00"
+      }
+    },
+    {
+      "row": 9,
+      "file_name": "Suez Canal Bank Fund I",
+      "company": "HC Securities & Investment",
+      "match_type": "exact",
+      "fund_id": "fund_472ddcd8c94d7ed3",
+      "db_name": "Suez Canal Bank (Fund No.1)",
+      "db_raw_name": "Suez Canal Bank Fund I",
+      "db_company": "HC Securities & Investment",
+      "price_update_url": "https://www.hc-si.com/Service/asset-management#funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_472ddcd8c94d7ed3",
+        "nav": 2043.56,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_6f46003eeee91384",
+        "collected_at": "2026-08-25T20:41:14.28173+00:00"
+      }
+    },
+    {
+      "row": 10,
+      "file_name": "Credit Agricole Egypt Fund II",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_009606a871333aa4",
+      "db_name": "Credit Agricole Mutual Fund No. 2",
+      "db_raw_name": "Credit Agricole Egypt Fund II",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_009606a871333aa4",
+        "nav": 832.26,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:54.252721+00:00"
+      }
+    },
+    {
+      "row": 11,
+      "file_name": "Egyptian Gulf Bank Fund I",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_e23ea10475bd65e7",
+      "db_name": "Egyptian Gulf Bank Mutual Fund",
+      "db_raw_name": "Egyptian Gulf Bank Fund I",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_e23ea10475bd65e7",
+        "nav": 1374.7,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:55.37969+00:00"
+      }
+    },
+    {
+      "row": 12,
+      "file_name": "Arab African International Bank (Shield)",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_4924d1368f6343dc",
+      "db_name": "Arab African International Bank (Shield)",
+      "db_raw_name": "Arab African International Bank (Shield)",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_4924d1368f6343dc",
+        "nav": 842.26,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T05:39:17.137448+00:00"
+      }
+    },
+    {
+      "row": 13,
+      "file_name": "Banque Misr Fund III",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_04922021c4bbd796",
+      "db_name": "Banque Misr Third Fund",
+      "db_raw_name": "Banque Misr Fund III",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_04922021c4bbd796",
+        "nav": 34.31,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T06:16:02.36513+00:00"
+      }
+    },
+    {
+      "row": 14,
+      "file_name": "MID Bank Fund I",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_5138e12acac03d95",
+      "db_name": "صندوق استثمار ميدبنك الأول ذو العائد التراكمي والتوزيع الدوري",
+      "db_raw_name": "MID Bank Fund I",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5138e12acac03d95",
+        "nav": 228.21,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:53.643716+00:00"
+      }
+    },
+    {
+      "row": 15,
+      "file_name": "National Bank of Egypt Fund III",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_29d32f37da9ab72a",
+      "db_name": "الصندوق الثالث – أسهم",
+      "db_raw_name": "National Bank of Egypt Fund III",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_29d32f37da9ab72a",
+        "nav": 633.44,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:35.19232+00:00"
+      }
+    },
+    {
+      "row": 16,
+      "file_name": "CIB Fund II (Istthmar)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_56df5f71a12e14b8",
+      "db_name": "CIB Fund (2) (Istethmar)",
+      "db_raw_name": "CIB Fund II (Istthmar)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_56df5f71a12e14b8",
+        "nav": 1070.8,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:09.567188+00:00"
+      }
+    },
+    {
+      "row": 17,
+      "file_name": "National Bank of Egypt Fund V",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_31ea749d92554ea8",
+      "db_name": "الصندوق الخامس – أسهم",
+      "db_raw_name": "National Bank of Egypt Fund V",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_31ea749d92554ea8",
+        "nav": 55.71,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:35.603874+00:00"
+      }
+    },
+    {
+      "row": 19,
+      "file_name": "Housing & Development Bank ( AL Tameer)",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_8e638aeb2853a1a5",
+      "db_name": "Housing & Development Bank ( AL Tameer)",
+      "db_raw_name": "Housing & Development Bank ( AL Tameer)",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_8e638aeb2853a1a5",
+        "nav": 928.78,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T05:41:04.749476+00:00"
+      }
+    },
+    {
+      "row": 21,
+      "file_name": "Suez Canal Bank Fund II (Al Agial)",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_58307ef8e9ea2272",
+      "db_name": "(صندوق استثمار بنك قناة السويس الثاني للاسهم (الأجيال",
+      "db_raw_name": "Suez Canal Bank Fund II (Al Agial)",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_58307ef8e9ea2272",
+        "nav": 73.75,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:53.22039+00:00"
+      }
+    },
+    {
+      "row": 25,
+      "file_name": "Misr Al Mostakbal Fund",
+      "company": "HC Securities & Investment",
+      "match_type": "exact",
+      "fund_id": "fund_db51b3c5dedb115e",
+      "db_name": "Misr Al Mostakbal Fund",
+      "db_raw_name": "Misr Al Mostakbal Fund",
+      "db_company": "HC Securities & Investment",
+      "price_update_url": "https://www.hc-si.com/Service/asset-management#funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_db51b3c5dedb115e",
+        "nav": 87.93,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_6f46003eeee91384",
+        "collected_at": "2026-08-25T20:41:14.689977+00:00"
+      }
+    },
+    {
+      "row": 27,
+      "file_name": "AZ Foras",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_6293926e9cfd4869",
+      "db_name": "AZ Foras",
+      "db_raw_name": "AZ Foras",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_6293926e9cfd4869",
+        "nav": 52.42922,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:24.599727+00:00"
+      }
+    },
+    {
+      "row": 30,
+      "file_name": "Kenz Foras Equity",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_585e5ab0b900073b",
+      "db_name": "Kenz Foras Equity",
+      "db_raw_name": "Kenz Foras Equity",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_585e5ab0b900073b",
+        "nav": 154.33,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:42.693466+00:00"
+      }
+    },
+    {
+      "row": 31,
+      "file_name": "*Maashy",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_33f6632a1feaada7",
+      "db_name": "*Maashy",
+      "db_raw_name": "*Maashy",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_33f6632a1feaada7",
+        "nav": 3179.9201,
+        "currency": "EGP",
+        "valuation_date": "2026-08-24",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:25.92353+00:00"
+      }
+    },
+    {
+      "row": 34,
+      "file_name": "B-Alpha",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_e0c61fcc066e02ae",
+      "db_name": "صندوق بلتون للإستثمار النشط في الأسهم المصري B-Alpha",
+      "db_raw_name": "B-Alpha",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_e0c61fcc066e02ae",
+        "nav": 1.49,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T19:58:47.463696+00:00"
+      }
+    },
+    {
+      "row": 35,
+      "file_name": "Hermes Equity",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_8890dc47a4febaea",
+      "db_name": "EFG Hermes Equity Fund",
+      "db_raw_name": "Hermes Equity",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_8890dc47a4febaea",
+        "nav": 118.79,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:00.578829+00:00"
+      }
+    },
+    {
+      "row": 36,
+      "file_name": "Gosour Equity",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_18c27c04454a5e14",
+      "db_name": "Gosour Equity",
+      "db_raw_name": "Gosour Equity",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_18c27c04454a5e14",
+        "nav": 11.37,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:44.082881+00:00"
+      }
+    },
+    {
+      "row": 37,
+      "file_name": "Zaldi El Masry",
+      "company": "Zaldi Investments",
+      "match_type": "exact",
+      "fund_id": "fund_1e30d07a3be5bc69",
+      "db_name": "Zaldi-Elmasry",
+      "db_raw_name": "Zaldi El Masry",
+      "db_company": "Zaldi Investments",
+      "price_update_url": "https://zaldi-capital.com/zaldi-elmasry/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_1e30d07a3be5bc69",
+        "nav": 13.06,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_8ee7a6b5e4677ae3",
+        "collected_at": "2026-08-25T20:21:58.691769+00:00"
+      }
+    },
+    {
+      "row": 39,
+      "file_name": "QNB AlAHLI (Tadawol)",
+      "company": "HC Securities & Investment",
+      "match_type": "exact",
+      "fund_id": "fund_8267d32e1a907f71",
+      "db_name": "QNB Al Ahli Fund No.3 Periodic Cumulative Return, (Tadawol)",
+      "db_raw_name": "QNB AlAHLI (Tadawol)",
+      "db_company": "HC Securities & Investment",
+      "price_update_url": "https://www.hc-si.com/Service/asset-management#funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_8267d32e1a907f71",
+        "nav": 1061.11653,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6f46003eeee91384",
+        "collected_at": "2026-08-25T20:41:15.094815+00:00"
+      }
+    },
+    {
+      "row": 40,
+      "file_name": "Faisal Islamic Bank of Egypt Fund",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_44166931f38ee123",
+      "db_name": "Faisal Islamic Bank of Egypt Fund",
+      "db_raw_name": "Faisal Islamic Bank of Egypt Fund",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_44166931f38ee123",
+        "nav": 581.67,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:57.564054+00:00"
+      }
+    },
+    {
+      "row": 41,
+      "file_name": "Al Baraka Bank Egypt",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_7799d127d2e3fafa",
+      "db_name": "Al Baraka Bank Islamic Fund",
+      "db_raw_name": "Al Baraka Bank Egypt",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_7799d127d2e3fafa",
+        "nav": 631.27,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:57.155253+00:00"
+      }
+    },
+    {
+      "row": 42,
+      "file_name": "FIBE & CIB (Aman)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_2daf6f49025a1405",
+      "db_name": "Faisal & CIB Fund (Al Aman)",
+      "db_raw_name": "FIBE & CIB (Aman)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_2daf6f49025a1405",
+        "nav": 523.75,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:14.493605+00:00"
+      }
+    },
+    {
+      "row": 43,
+      "file_name": "Banque Misr Fund IV",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_3442167caff8194a",
+      "db_name": "Banque Misr Fourth Fund",
+      "db_raw_name": "Banque Misr Fund IV",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_3442167caff8194a",
+        "nav": 23.25,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T06:16:02.793932+00:00"
+      }
+    },
+    {
+      "row": 44,
+      "file_name": "SAIB & ADIB Fund (Sanabel)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_5fc8c80c905b9888",
+      "db_name": "Sanabel Islamic Fund",
+      "db_raw_name": "SAIB & ADIB Fund (Sanabel)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5fc8c80c905b9888",
+        "nav": 813.35,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:14.990788+00:00"
+      }
+    },
+    {
+      "row": 45,
+      "file_name": "NBE & Al Baraka Bank Egypt Fund (Bashayer)",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_61b3c8b926dce88d",
+      "db_name": "صندوق بشائر – أسهم اسلامي",
+      "db_raw_name": "NBE & Al Baraka Bank Egypt Fund (Bashayer)",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_61b3c8b926dce88d",
+        "nav": 395.15,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:33.538256+00:00"
+      }
+    },
+    {
+      "row": 47,
+      "file_name": "Bank Nxt Fund II (Helal)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_19d6487e194e32b5",
+      "db_name": "BANK NXT (Helal) Fund 2",
+      "db_raw_name": "Bank Nxt Fund II (Helal)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_19d6487e194e32b5",
+        "nav": 385.75529,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:57.974031+00:00"
+      }
+    },
+    {
+      "row": 50,
+      "file_name": "AZ-Foras Shariah",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_ec01acace56cb648",
+      "db_name": "AZ-Foras Shariah",
+      "db_raw_name": "AZ-Foras Shariah",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_ec01acace56cb648",
+        "nav": 2.04395,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:20.931538+00:00"
+      }
+    },
+    {
+      "row": 51,
+      "file_name": "Hermes Shariah",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_d1eb6c122d182dcb",
+      "db_name": "EFG Hermes Islamic Equity Fund",
+      "db_raw_name": "Hermes Shariah",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_d1eb6c122d182dcb",
+        "nav": 131.69,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:01.884631+00:00"
+      }
+    },
+    {
+      "row": 52,
+      "file_name": "KFH Bank (Alpha)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_c89c74ac6157383b",
+      "db_name": "KFH-Alpha-Shariaa Compliant Equity Fund",
+      "db_raw_name": "KFH Bank (Alpha)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_c89c74ac6157383b",
+        "nav": 129.29733,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:56.399967+00:00"
+      }
+    },
+    {
+      "row": 53,
+      "file_name": "Credit Agricole Egypt Fund III",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_a8f3a08e143e8ca5",
+      "db_name": "Credit Agricole Money Market Fund No. 3",
+      "db_raw_name": "Credit Agricole Egypt Fund III",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a8f3a08e143e8ca5",
+        "nav": 1128.46,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:03.024974+00:00"
+      }
+    },
+    {
+      "row": 54,
+      "file_name": "CIB Fund I (Osoul)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_318fd4d1552c0e1a",
+      "db_name": "CIB Money Market Fund (Ossoul)",
+      "db_raw_name": "CIB Fund I (Osoul)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_318fd4d1552c0e1a",
+        "nav": 1102.56,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:23:57.46389+00:00"
+      }
+    },
+    {
+      "row": 55,
+      "file_name": "MID Bank Fund II",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_c330bbe2271df519",
+      "db_name": "صندوق استثمار ميدبنك الثاني النقدي (ذو العائد اليومي والتوزيع الدوري)",
+      "db_raw_name": "MID Bank Fund II",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_c330bbe2271df519",
+        "nav": 1026.37,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:46.803306+00:00"
+      }
+    },
+    {
+      "row": 56,
+      "file_name": "ALEXBANK Fund II",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_f8f71290ee431793",
+      "db_name": "Bank of Alexandria Mutual Fund No. 2",
+      "db_raw_name": "ALEXBANK Fund II",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_f8f71290ee431793",
+        "nav": 100.49,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:02.611098+00:00"
+      }
+    },
+    {
+      "row": 57,
+      "file_name": "National Bank of Egypt Fund IV",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_4c30fe8a694e6d87",
+      "db_name": "الصندوق الرابع – نقدى",
+      "db_raw_name": "National Bank of Egypt Fund IV",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_4c30fe8a694e6d87",
+        "nav": 304.15366,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:32.005448+00:00"
+      }
+    },
+    {
+      "row": 58,
+      "file_name": "QNB AlAhli (Themar)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_dacab30de94875f4",
+      "db_name": "QNB Al Ahli Money Market Fund (Themar)",
+      "db_raw_name": "QNB AlAhli (Themar)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_dacab30de94875f4",
+        "nav": 972.124,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:05.061496+00:00"
+      }
+    },
+    {
+      "row": 60,
+      "file_name": "Bank ABC Fund (Mazaya)",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_ddc5d394505a99b7",
+      "db_name": "صندوق بنك المؤسسة العربية المصرفية Bank ABC بالجنيه المصري ذو العائد اليومي التراكمي \" مزايا\"",
+      "db_raw_name": "Bank ABC Fund (Mazaya)",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_ddc5d394505a99b7",
+        "nav": 74.56,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:47.529948+00:00"
+      }
+    },
+    {
+      "row": 61,
+      "file_name": "HSBC Egypt Bank Fund",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_aebc19e10d1526dd",
+      "db_name": "HSBC Money Market Fund",
+      "db_raw_name": "HSBC Egypt Bank Fund",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_aebc19e10d1526dd",
+        "nav": 776.40291,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:03.850832+00:00"
+      }
+    },
+    {
+      "row": 62,
+      "file_name": "Arab African International Bank (Juman)",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_17c89daa3d4a1923",
+      "db_name": "Arab African International Bank (Juman)",
+      "db_raw_name": "Arab African International Bank (Juman)",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_17c89daa3d4a1923",
+        "nav": 795.49,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:37.779355+00:00"
+      }
+    },
+    {
+      "row": 64,
+      "file_name": "FAB Misr (Modkharaty)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_43f33bd3196adab7",
+      "db_name": "FABMisr Money Market Fund (Modkharaty)",
+      "db_raw_name": "FAB Misr (Modkharaty)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_43f33bd3196adab7",
+        "nav": 75.73322,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:03.442976+00:00"
+      }
+    },
+    {
+      "row": 65,
+      "file_name": "Banque Du Caire Fund II",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_1bbc98b369114e95",
+      "db_name": "صندوق استثمار بنك القاهرة النقدي للسيولة ذو العائد اليومي التراكمي \" القاهرة اليومي\"",
+      "db_raw_name": "Banque Du Caire Fund II",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_1bbc98b369114e95",
+        "nav": 73.96,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:48.254803+00:00"
+      }
+    },
+    {
+      "row": 68,
+      "file_name": "Arab Bank Fund (Yomaty)",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_d248d4b02433f626",
+      "db_name": "صندوق البنك العربي النقدي بالجنيه المصري ذو العائد اليومي التراكمي \"يوماتي\"",
+      "db_raw_name": "Arab Bank Fund (Yomaty)",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_d248d4b02433f626",
+        "nav": 73.72,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:48.668241+00:00"
+      }
+    },
+    {
+      "row": 70,
+      "file_name": "Agricultural Bank of Egypt (Al Hasad Al Yaumy)",
+      "company": "HC Securities & Investment",
+      "match_type": "exact",
+      "fund_id": "fund_911baed193599096",
+      "db_name": "Agricultural Bank of Egypt Fund No.2 (Al Hasad Al Yaumy)",
+      "db_raw_name": "Agricultural Bank of Egypt (Al Hasad Al Yaumy)",
+      "db_company": "HC Securities & Investment",
+      "price_update_url": "https://www.hc-si.com/Service/asset-management#funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_911baed193599096",
+        "nav": 73.26781,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6f46003eeee91384",
+        "collected_at": "2026-08-25T20:41:12.524183+00:00"
+      }
+    },
+    {
+      "row": 71,
+      "file_name": "Bank Nxt Fund I",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_3e250209bb10955c",
+      "db_name": "BANK NXT Money Market Fund",
+      "db_raw_name": "Bank Nxt Fund I",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_3e250209bb10955c",
+        "nav": 26.58431,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:04.651894+00:00"
+      }
+    },
+    {
+      "row": 73,
+      "file_name": "Fab Misr (Al Awal)",
+      "company": "HC Securities & Investment",
+      "match_type": "exact",
+      "fund_id": "fund_572c49594f78c71c",
+      "db_name": "FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity",
+      "db_raw_name": "Fab Misr (Al Awal)",
+      "db_company": "HC Securities & Investment",
+      "price_update_url": "https://www.hc-si.com/Service/asset-management#funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_572c49594f78c71c",
+        "nav": 540.95951,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6f46003eeee91384",
+        "collected_at": "2026-08-25T20:41:13.553779+00:00"
+      }
+    },
+    {
+      "row": 74,
+      "file_name": "Saib (Yaumy Fund)",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_98f867d45b6b4ecd",
+      "db_name": "صندوق استثمار بنك الشركة المصرفية الدولية النقدي للسيولة بالجنيه المصرى ذو العائد اليومي التراكمي \"يومي\"",
+      "db_raw_name": "Saib (Yaumy Fund)",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_98f867d45b6b4ecd",
+        "nav": 48.5,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:49.457109+00:00"
+      }
+    },
+    {
+      "row": 75,
+      "file_name": "Misr Insurance Fund",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_b312b6dcabf028f6",
+      "db_name": "صندوق استثمار مصر للتأمين النقدي للسيولة ذو العائد اليومي التراكمي \"الحصن اليومي\"",
+      "db_raw_name": "Misr Insurance Fund",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_b312b6dcabf028f6",
+        "nav": 47.11,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T19:58:44.688827+00:00"
+      }
+    },
+    {
+      "row": 77,
+      "file_name": "Attijariwafa BankFund",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_458f7f604809eb89",
+      "db_name": "صندوق استثمار التجاري وفا بنك إيجبت النقدي بالجنيه المصري \"رصيدي اليوم\"",
+      "db_raw_name": "Attijariwafa BankFund",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_458f7f604809eb89",
+        "nav": 3950.07,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:50.076403+00:00"
+      }
+    },
+    {
+      "row": 78,
+      "file_name": "Emirates NBD (Mazid)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_54d2af279fd38f33",
+      "db_name": "Emirates NBD Money Market Fund (Mazid)",
+      "db_raw_name": "Emirates NBD (Mazid)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_54d2af279fd38f33",
+        "nav": 1482.54,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:04.251181+00:00"
+      }
+    },
+    {
+      "row": 79,
+      "file_name": "Suez Canal Bank ( Al Suez Al Youmi)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_46ddc8f193e74f70",
+      "db_name": "Suez Canale Bank Money Market Fund",
+      "db_raw_name": "Suez Canal Bank ( Al Suez Al Youmi)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_46ddc8f193e74f70",
+        "nav": 25.38,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:02.049956+00:00"
+      }
+    },
+    {
+      "row": 80,
+      "file_name": "Sarwa Life Insurance Fund",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_48e5fdafdedbaee3",
+      "db_name": "Sarwa Life Insurance Co. Fund",
+      "db_raw_name": "Sarwa Life Insurance Fund",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_48e5fdafdedbaee3",
+        "nav": 2.3701,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:23:59.585547+00:00"
+      }
+    },
+    {
+      "row": 82,
+      "file_name": "Misr Life Insurance Fund",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_7fa7346ab5d14bdb",
+      "db_name": "Misr Life Insurance Co. Money Market Fund",
+      "db_raw_name": "Misr Life Insurance Fund",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_7fa7346ab5d14bdb",
+        "nav": 23.11,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:02.991783+00:00"
+      }
+    },
+    {
+      "row": 83,
+      "file_name": "Sarwaty*",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_902d8a9ccc91c398",
+      "db_name": "Sarwaty*",
+      "db_raw_name": "Sarwaty*",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_902d8a9ccc91c398",
+        "nav": 222.35315,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:43.609508+00:00"
+      }
+    },
+    {
+      "row": 84,
+      "file_name": "Wethaq",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_49ae7cc7867eed20",
+      "db_name": "صندوق وثاق – نقدى",
+      "db_raw_name": "Wethaq",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_49ae7cc7867eed20",
+        "nav": 23.43353,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:32.72025+00:00"
+      }
+    },
+    {
+      "row": 86,
+      "file_name": "Fawry",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_3a979f5bc0895ae4",
+      "db_name": "Fawry CI Capital Money Market Fund (Yawmy)",
+      "db_raw_name": "Fawry",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_3a979f5bc0895ae4",
+        "nav": 2.1437,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:00.743343+00:00"
+      }
+    },
+    {
+      "row": 90,
+      "file_name": "Allianz",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_054936aa9e17886f",
+      "db_name": "Allianz Co. Money Market Fund",
+      "db_raw_name": "Allianz",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_054936aa9e17886f",
+        "nav": 20.67,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:01.544129+00:00"
+      }
+    },
+    {
+      "row": 91,
+      "file_name": "Diamond",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_05a1f20e1c5b16d1",
+      "db_name": "Diamond",
+      "db_raw_name": "Diamond",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_05a1f20e1c5b16d1",
+        "nav": 214.05364,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:38.745295+00:00"
+      }
+    },
+    {
+      "row": 92,
+      "file_name": "Hourus",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_3892077415908a70",
+      "db_name": "صندوق حورس - النقدي",
+      "db_raw_name": "Hourus",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_3892077415908a70",
+        "nav": 20.88268,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:30.847136+00:00"
+      }
+    },
+    {
+      "row": 93,
+      "file_name": "CI Misr Al Youmy",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_a9ed4a029c9b8915",
+      "db_name": "CIAM Money Market Fund (Misr Al Youmy)",
+      "db_raw_name": "CI Misr Al Youmy",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a9ed4a029c9b8915",
+        "nav": 19.38,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:02.503728+00:00"
+      }
+    },
+    {
+      "row": 94,
+      "file_name": "AZ Value",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_594b8151365a5058",
+      "db_name": "AZ Value",
+      "db_raw_name": "AZ Value",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_594b8151365a5058",
+        "nav": 1.7855,
+        "currency": "EGP",
+        "valuation_date": "2026-08-26",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:22.9793+00:00"
+      }
+    },
+    {
+      "row": 95,
+      "file_name": "Iskan Insurance",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_0b5432fffbaa9c8c",
+      "db_name": "Iskan Insurance",
+      "db_raw_name": "Iskan Insurance",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_0b5432fffbaa9c8c",
+        "nav": 19.74624,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:38.26456+00:00"
+      }
+    },
+    {
+      "row": 96,
+      "file_name": "Tamayoz",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_3c02c00fe3d0e17f",
+      "db_name": "صندوق تميز – نقدى",
+      "db_raw_name": "Tamayoz",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_3c02c00fe3d0e17f",
+        "nav": 17.33244,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:31.59706+00:00"
+      }
+    },
+    {
+      "row": 97,
+      "file_name": "AZ Halan",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_7984dd2a845f904f",
+      "db_name": "AZ Halan",
+      "db_raw_name": "AZ Halan",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_7984dd2a845f904f",
+        "nav": 1.81142,
+        "currency": "EGP",
+        "valuation_date": "2026-08-30",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-26T13:32:44.499412+00:00"
+      }
+    },
+    {
+      "row": 98,
+      "file_name": "Fanar",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_e89bbc9d85ecf407",
+      "db_name": "Fanar",
+      "db_raw_name": "Fanar",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_e89bbc9d85ecf407",
+        "nav": 175.30857,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:41.974634+00:00"
+      }
+    },
+    {
+      "row": 100,
+      "file_name": "Zaldi Star",
+      "company": "Zaldi Investments",
+      "match_type": "exact",
+      "fund_id": "fund_3729c5fb2587a803",
+      "db_name": "Zaldi Star- EGP",
+      "db_raw_name": "Zaldi Star",
+      "db_company": "Zaldi Investments",
+      "price_update_url": "https://zaldi-capital.com/zaldi-star/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_3729c5fb2587a803",
+        "nav": 112.65609,
+        "currency": "EGP",
+        "valuation_date": "2026-08-26",
+        "status": "validated",
+        "source_id": "src_5d36849d3d5c977d",
+        "collected_at": "2026-08-25T20:22:01.133882+00:00"
+      }
+    },
+    {
+      "row": 102,
+      "file_name": "Basata",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_147a738f036b4614",
+      "db_name": "Basata Fund",
+      "db_raw_name": "Basata",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_147a738f036b4614",
+        "nav": 1.1574,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:03.458008+00:00"
+      }
+    },
+    {
+      "row": 104,
+      "file_name": "Hermes",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_ffd69f146b1a9cb9",
+      "db_name": "EFG Hermes Money Market Fund",
+      "db_raw_name": "Hermes",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_ffd69f146b1a9cb9",
+        "nav": 111.51433,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:05.496054+00:00"
+      }
+    },
+    {
+      "row": 106,
+      "file_name": "The United Bank Fund (Rakhaa)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_dbbed067d20f4b66",
+      "db_name": "United Bank Egypt Money Market Fund (Rakhaa)",
+      "db_raw_name": "The United Bank Fund (Rakhaa)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_dbbed067d20f4b66",
+        "nav": 148.02,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:23:58.301543+00:00"
+      }
+    },
+    {
+      "row": 108,
+      "file_name": "Al Baraka Bank Egypt (Al Barakat)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_3284023fbe6c1899",
+      "db_name": "Al Baraka Bank Islamic Money Market Fund (Al Barakat)",
+      "db_raw_name": "Al Baraka Bank Egypt (Al Barakat)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_3284023fbe6c1899",
+        "nav": 261.24,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:05.900391+00:00"
+      }
+    },
+    {
+      "row": 109,
+      "file_name": "Misr Takaful",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_a9311525e8341ee9",
+      "db_name": "Misr Takaful",
+      "db_raw_name": "Misr Takaful",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a9311525e8341ee9",
+        "nav": 212.05923,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:41.033721+00:00"
+      }
+    },
+    {
+      "row": 112,
+      "file_name": "AZ Naser",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_63b2d19280bbf1bb",
+      "db_name": "AZ Naser",
+      "db_raw_name": "AZ Naser",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_63b2d19280bbf1bb",
+        "nav": 18.1851,
+        "currency": "EGP",
+        "valuation_date": "2026-08-26",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:23.399465+00:00"
+      }
+    },
+    {
+      "row": 113,
+      "file_name": "AZ Thndr",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_9ebcd523fc49a4c3",
+      "db_name": "AZ Thndr",
+      "db_raw_name": "AZ Thndr",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_9ebcd523fc49a4c3",
+        "nav": 1.315,
+        "currency": "EGP",
+        "valuation_date": "2026-08-26",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-26T13:32:43.166249+00:00"
+      }
+    },
+    {
+      "row": 114,
+      "file_name": "Ahli United Bank (Tharwa)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_e6b8f19b34ef9ea5",
+      "db_name": "KFH-Tharwa-Shariaa-Compliant Money Market Fund",
+      "db_raw_name": "Ahli United Bank (Tharwa)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_e6b8f19b34ef9ea5",
+        "nav": 626.7112,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:06.317315+00:00"
+      }
+    },
+    {
+      "row": 117,
+      "file_name": "AAIB (Gozoor)",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_6c6c8859d82febfc",
+      "db_name": "AAIB (Gozoor)",
+      "db_raw_name": "AAIB (Gozoor)",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_6c6c8859d82febfc",
+        "nav": 55.97846,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:39.21338+00:00"
+      }
+    },
+    {
+      "row": 118,
+      "file_name": "Banque Du Caire (Al Thabet)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_18a34b655259f418",
+      "db_name": "Banque Du Caire Fixed Income Fund (El Thabet)",
+      "db_raw_name": "Banque Du Caire (Al Thabet)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_18a34b655259f418",
+        "nav": 515.63,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:04.608308+00:00"
+      }
+    },
+    {
+      "row": 120,
+      "file_name": "Manasek",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_19f4c3f8a68ba311",
+      "db_name": "Al Baraka Capital Fund - Manasek",
+      "db_raw_name": "Manasek",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_19f4c3f8a68ba311",
+        "nav": 109.03426,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:07.115481+00:00"
+      }
+    },
+    {
+      "row": 121,
+      "file_name": "National Bank of Egypt VIII",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_e42f345f7bffd172",
+      "db_name": "صندوق الواعد – دخل ثابت",
+      "db_raw_name": "National Bank of Egypt VIII",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_e42f345f7bffd172",
+        "nav": 2516.757,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:30.091675+00:00"
+      }
+    },
+    {
+      "row": 122,
+      "file_name": "Afaaq",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_62ec8b7e2c9716ff",
+      "db_name": "Afaaq",
+      "db_raw_name": "Afaaq",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_62ec8b7e2c9716ff",
+        "nav": 264.2139,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:40.122788+00:00"
+      }
+    },
+    {
+      "row": 123,
+      "file_name": "Edkhar",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_5549b9417edff89d",
+      "db_name": "Edkhar",
+      "db_raw_name": "Edkhar",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5549b9417edff89d",
+        "nav": 21.13012,
+        "currency": "EGP",
+        "valuation_date": "2026-08-26",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:25.039088+00:00"
+      }
+    },
+    {
+      "row": 124,
+      "file_name": "Misr Insurance (Istithmar and Aman)",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_c722efc8d8e6f31a",
+      "db_name": "Misr Insurance (Istithmar and Aman)",
+      "db_raw_name": "Misr Insurance (Istithmar and Aman)",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_c722efc8d8e6f31a",
+        "nav": 221.8695,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:40.58606+00:00"
+      }
+    },
+    {
+      "row": 126,
+      "file_name": "Bareeq",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_4d3e4c02b52413fb",
+      "db_name": "Bareeq",
+      "db_raw_name": "Bareeq",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_4d3e4c02b52413fb",
+        "nav": 212.86535,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:41.509199+00:00"
+      }
+    },
+    {
+      "row": 128,
+      "file_name": "B-Secure",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_5f9867233e699077",
+      "db_name": "صندوق بلتون للأوراق المالية ذات العائد الثابت ذو العائد التراكمي والتوزيع الدوري B-Secure”",
+      "db_raw_name": "B-Secure",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5f9867233e699077",
+        "nav": 1.97,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:04:05.363106+00:00"
+      }
+    },
+    {
+      "row": 129,
+      "file_name": "*CI Fixed Income Fund",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_5fd06bad24df7b1b",
+      "db_name": "CIAM Fixed Income Fund (Kol Shahr)",
+      "db_raw_name": "*CI Fixed Income Fund",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5fd06bad24df7b1b",
+        "nav": 1.8473,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:04.144239+00:00"
+      }
+    },
+    {
+      "row": 130,
+      "file_name": "CIB (Thabat)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_e7b7e7a69d1d0f92",
+      "db_name": "CIB Fixed Income Fund (Thabat)",
+      "db_raw_name": "CIB (Thabat)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_e7b7e7a69d1d0f92",
+        "nav": 608.7,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T06:16:00.61712+00:00"
+      }
+    },
+    {
+      "row": 133,
+      "file_name": "Misr Capital Guaranteed (Al Omr)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_66ee0f79a9d96e03",
+      "db_name": "Banque Misr (5) Capital Protected",
+      "db_raw_name": "Misr Capital Guaranteed (Al Omr)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_66ee0f79a9d96e03",
+        "nav": 14.56,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:07.161142+00:00"
+      }
+    },
+    {
+      "row": 134,
+      "file_name": "Arab African International Bank (Guard)",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_a61e15ee9305ebc6",
+      "db_name": "Arab African International Bank (Guard)",
+      "db_raw_name": "Arab African International Bank (Guard)",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a61e15ee9305ebc6",
+        "nav": 36.68662,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:39.641895+00:00"
+      }
+    },
+    {
+      "row": 135,
+      "file_name": "CIB Fund IV (Hamaya)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_2433cf90eee59126",
+      "db_name": "CIB Fund (4) (Hemaya)",
+      "db_raw_name": "CIB Fund IV (Hamaya)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_2433cf90eee59126",
+        "nav": 808.41,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T06:16:01.169311+00:00"
+      }
+    },
+    {
+      "row": 136,
+      "file_name": "FAB Misr Fund (Etm'nan)",
+      "company": "HC Securities & Investment",
+      "match_type": "exact",
+      "fund_id": "fund_a489be10a3161f80",
+      "db_name": "FABMISR (Etm’nan) Capital Preservation Fund",
+      "db_raw_name": "FAB Misr Fund (Etm'nan)",
+      "db_company": "HC Securities & Investment",
+      "price_update_url": "https://www.hc-si.com/Service/asset-management#funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a489be10a3161f80",
+        "nav": 344.70308,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6f46003eeee91384",
+        "collected_at": "2026-08-25T20:41:15.575547+00:00"
+      }
+    },
+    {
+      "row": 137,
+      "file_name": "National Bank of Egypt Fund I",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_93b839afbc5e4290",
+      "db_name": "الصندوق الأول – متوازن",
+      "db_raw_name": "National Bank of Egypt Fund I",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_93b839afbc5e4290",
+        "nav": 169.15,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:33.95545+00:00"
+      }
+    },
+    {
+      "row": 138,
+      "file_name": "Banque Misr Fund I",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_59a03f0a961229af",
+      "db_name": "Banque Misr First Fund",
+      "db_raw_name": "Banque Misr Fund I",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_59a03f0a961229af",
+        "nav": 20.1,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T06:16:01.925458+00:00"
+      }
+    },
+    {
+      "row": 140,
+      "file_name": "Agricultural Bank of Egypt Fund (Al Massy)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_addb8d2de283e26b",
+      "db_name": "Egyptian Agricultural Bank (Al Massy)",
+      "db_raw_name": "Agricultural Bank of Egypt Fund (Al Massy)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_addb8d2de283e26b",
+        "nav": 76.69,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:31:04.030292+00:00"
+      }
+    },
+    {
+      "row": 141,
+      "file_name": "Credit Agricole Egypt Fund IV (Al Thiqa)",
+      "company": "HC Securities & Investment",
+      "match_type": "exact",
+      "fund_id": "fund_7d36b894257db9f9",
+      "db_name": "Crédit Agricole – Egypt Fund No.4 Balanced Fund (Al Thiqa)",
+      "db_raw_name": "Credit Agricole Egypt Fund IV (Al Thiqa)",
+      "db_company": "HC Securities & Investment",
+      "price_update_url": "https://www.hc-si.com/Service/asset-management#funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_7d36b894257db9f9",
+        "nav": 896.73,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_6f46003eeee91384",
+        "collected_at": "2026-08-25T20:43:10.233971+00:00"
+      }
+    },
+    {
+      "row": 142,
+      "file_name": "Bank Nxt Fund III (Sanady)",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_d5278f42f53f168d",
+      "db_name": "Bank Nxt Fund III (Sanady)",
+      "db_raw_name": "Bank Nxt Fund III (Sanady)",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_d5278f42f53f168d",
+        "nav": 26.25831,
+        "currency": "EGP",
+        "valuation_date": "2026-05-23",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:23.838729+00:00"
+      }
+    },
+    {
+      "row": 143,
+      "file_name": "CIB Fund (Takamol)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_8c84dc350643b43a",
+      "db_name": "CIB Balanced Fund (Takamol)",
+      "db_raw_name": "CIB Fund (Takamol)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_8c84dc350643b43a",
+        "nav": 857.77,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:07.933616+00:00"
+      }
+    },
+    {
+      "row": 144,
+      "file_name": "Al Ahly Hayat",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_7090c320a549df5c",
+      "db_name": "صندوق الأهلي حياة – متوازن",
+      "db_raw_name": "Al Ahly Hayat",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_7090c320a549df5c",
+        "nav": 357.29,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:34.360855+00:00"
+      }
+    },
+    {
+      "row": 145,
+      "file_name": "QNB Al Ahli (Tawazon)",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_d276dbadffdb507f",
+      "db_name": "صندوق استثمار بنك قطر الوطني الأهلي الثاني ذو العائد الدوري التراكمي بالجنيه المصري - توازن",
+      "db_raw_name": "QNB Al Ahli (Tawazon)",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_d276dbadffdb507f",
+        "nav": 849.43,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:54.068038+00:00"
+      }
+    },
+    {
+      "row": 148,
+      "file_name": "SAIB Fund II",
+      "company": "*Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_5250f3711dadc2a6",
+      "db_name": "SAIB’s Second Investment Fund",
+      "db_raw_name": "SAIB Fund II",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5250f3711dadc2a6",
+        "nav": 663.72845,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T19:30:55.787075+00:00"
+      }
+    },
+    {
+      "row": 151,
+      "file_name": "National Bank of Egypt VII",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_be23bf789e4c5d6b",
+      "db_name": "الصندوق السابع",
+      "db_raw_name": "National Bank of Egypt VII",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_be23bf789e4c5d6b",
+        "nav": 328.21,
+        "currency": "EGP",
+        "valuation_date": "2026-08-24",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:36.012615+00:00"
+      }
+    },
+    {
+      "row": 152,
+      "file_name": "CIAM Misr Equity",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_98634228c0ad3387",
+      "db_name": "Misr Equity Fund",
+      "db_raw_name": "CIAM Misr Equity",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_98634228c0ad3387",
+        "nav": 38.02,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:09.115138+00:00"
+      }
+    },
+    {
+      "row": 153,
+      "file_name": "CIAM Misr Shariah Equity",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_edd9ee4031222463",
+      "db_name": "CIAM Shariaa Index Equity Fund (EGX 33)",
+      "db_raw_name": "CIAM Misr Shariah Equity",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_edd9ee4031222463",
+        "nav": 22.33,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:15.439985+00:00"
+      }
+    },
+    {
+      "row": 154,
+      "file_name": "Beltone EGX33 Shariah Index Tracker – Wafra",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_7f9c790e19a85c26",
+      "db_name": "بلتون ذو العائد التراكمي للإستثمار في أسهم مؤشر الشريعة EGX33 “وفرة”",
+      "db_raw_name": "Beltone EGX33 Shariah Index Tracker – Wafra",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_7f9c790e19a85c26",
+        "nav": 2.17,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:04:01.403119+00:00"
+      }
+    },
+    {
+      "row": 155,
+      "file_name": "Beltone EGX100 Index Tracker – Meya Meya",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_5db2afe47b118793",
+      "db_name": "بلتون ذو العائد التراكمي للإستثمار في أسهم مؤشر EGX100 \"مائه/مائه\"",
+      "db_raw_name": "Beltone EGX100 Index Tracker – Meya Meya",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5db2afe47b118793",
+        "nav": 2.53,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:04:01.823967+00:00"
+      }
+    },
+    {
+      "row": 156,
+      "file_name": "Kenoz EGX33 Shariah Index Tracker – Shariah",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_291a3c879cd82808",
+      "db_name": "Kenoz EGX33 Shariah Index Tracker – Shariah",
+      "db_raw_name": "Kenoz EGX33 Shariah Index Tracker – Shariah",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_291a3c879cd82808",
+        "nav": 181.07,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:43.153956+00:00"
+      }
+    },
+    {
+      "row": 158,
+      "file_name": "Menthum Grow EGX 30 Capped",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_01c26dadf463c6f9",
+      "db_name": "صندوق استثمار منثم ذو العائد التراكمي للاستثمار في أسهم مؤشر EGX30 Capped",
+      "db_raw_name": "Menthum Grow EGX 30 Capped",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_01c26dadf463c6f9",
+        "nav": 1.68,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:51.728984+00:00"
+      }
+    },
+    {
+      "row": 160,
+      "file_name": "AZ-LV",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_a68c44781bf3f565",
+      "db_name": "AZ-LV",
+      "db_raw_name": "AZ-LV",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a68c44781bf3f565",
+        "nav": 1.475,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:28:22.553883+00:00"
+      }
+    },
+    {
+      "row": 161,
+      "file_name": "Beltone EGX 35 Tracker",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_21e3c6b23e6f074a",
+      "db_name": "صندوق بلتون للإستثمار في أسهم مؤشر \"EGX-35LV\" B-35",
+      "db_raw_name": "Beltone EGX 35 Tracker",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_21e3c6b23e6f074a",
+        "nav": 1.49,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:52.170367+00:00"
+      }
+    },
+    {
+      "row": 162,
+      "file_name": "B70- EGX 70 Tracker",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_a14b1984e6ee491f",
+      "db_name": "بلتون للإستثمار في أسهم مؤشر \"EGX-70EWI\" B-70",
+      "db_raw_name": "B70- EGX 70 Tracker",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a14b1984e6ee491f",
+        "nav": 1.62,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:52.59049+00:00"
+      }
+    },
+    {
+      "row": 163,
+      "file_name": "CIAM 1st Issue (Real Estate)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_f3c7a6f56f090248",
+      "db_name": "CI Real Estate Value Chain",
+      "db_raw_name": "CIAM 1st Issue (Real Estate)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_f3c7a6f56f090248",
+        "nav": 21.16,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:10.016529+00:00"
+      }
+    },
+    {
+      "row": 164,
+      "file_name": "CIAM 2nd Issue (Technology)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_44c2791a8c5eae3d",
+      "db_name": "CI Financials and Fintech",
+      "db_raw_name": "CIAM 2nd Issue (Technology)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_44c2791a8c5eae3d",
+        "nav": 21.23,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:11.91495+00:00"
+      }
+    },
+    {
+      "row": 165,
+      "file_name": "CIAM 3rd Issue (Export)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_195b83809c5e4a2c",
+      "db_name": "CI Exporters",
+      "db_raw_name": "CIAM 3rd Issue (Export)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_195b83809c5e4a2c",
+        "nav": 15.48,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:10.968626+00:00"
+      }
+    },
+    {
+      "row": 166,
+      "file_name": "CIAM 4th Issue (Consumption)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_b485e7d20cc3f70c",
+      "db_name": "CI Consumer and Basic Needs",
+      "db_raw_name": "CIAM 4th Issue (Consumption)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_b485e7d20cc3f70c",
+        "nav": 21.22,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:11.459841+00:00"
+      }
+    },
+    {
+      "row": 167,
+      "file_name": "CIAM 5th Issue (Electronic Payments)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_3f77f14dd18f46c9",
+      "db_name": "CI Telecoms and IT",
+      "db_raw_name": "CIAM 5th Issue (Electronic Payments)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_3f77f14dd18f46c9",
+        "nav": 18.98,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:10.476801+00:00"
+      }
+    },
+    {
+      "row": 168,
+      "file_name": "CIAM 6th Issue  (The Quant)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_4a4e66c62823a21c",
+      "db_name": "CI The Quant",
+      "db_raw_name": "CIAM 6th Issue (The Quant)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_4a4e66c62823a21c",
+        "nav": 11.98,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:12.367724+00:00"
+      }
+    },
+    {
+      "row": 169,
+      "file_name": "CIAM 7th Issue  (HD 20)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_9f0aec90206805f8",
+      "db_name": "CI 20HD",
+      "db_raw_name": "CIAM 7th Issue (HD 20)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_9f0aec90206805f8",
+        "nav": 11.89,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:12.816456+00:00"
+      }
+    },
+    {
+      "row": 170,
+      "file_name": "CIAM 8th Issue (IPOs)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_95bdd90815aff576",
+      "db_name": "CI IPO",
+      "db_raw_name": "CIAM 8th Issue (IPOs)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_95bdd90815aff576",
+        "nav": 11.06,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:13.262027+00:00"
+      }
+    },
+    {
+      "row": 171,
+      "file_name": "Beltone Financial Fund",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_eb6d028c9161f545",
+      "db_name": "بلتون للإستثمار في أسهم القطاعات المالية",
+      "db_raw_name": "Beltone Financial Fund",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_eb6d028c9161f545",
+        "nav": 1.74,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T19:58:45.415853+00:00"
+      }
+    },
+    {
+      "row": 172,
+      "file_name": "Beltone Real Estate Fund",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_4ffe13e99f4fc1d7",
+      "db_name": "بلتون للإستثمار في أسهم القطاعات العقارية",
+      "db_raw_name": "Beltone Real Estate Fund",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_4ffe13e99f4fc1d7",
+        "nav": 2.05,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T19:58:45.932559+00:00"
+      }
+    },
+    {
+      "row": 173,
+      "file_name": "Beltone Industrial Fund",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_a824eaf1e65870b5",
+      "db_name": "بلتون للإستثمار في أسهم القطاعات الصناعية",
+      "db_raw_name": "Beltone Industrial Fund",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a824eaf1e65870b5",
+        "nav": 1.72,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T19:58:46.650888+00:00"
+      }
+    },
+    {
+      "row": 174,
+      "file_name": "Beltone Consumer Fund",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_677538b0d0f1aac4",
+      "db_name": "بلتون للإستثمار في أسهم القطاعات الإستهلاكية",
+      "db_raw_name": "Beltone Consumer Fund",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_677538b0d0f1aac4",
+        "nav": 1.84,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T19:58:47.063756+00:00"
+      }
+    },
+    {
+      "row": 175,
+      "file_name": "EGX30 Index ETF- EGX30 Index ETF",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_8d7fb095eec2e9ed",
+      "db_name": "صندوق استثمار شركة صناديق المؤشرات EGX30 Index ETF",
+      "db_raw_name": "EGX30 Index ETF- EGX30 Index ETF",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_8d7fb095eec2e9ed",
+        "nav": 63.0,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:50.480362+00:00"
+      }
+    },
+    {
+      "row": 176,
+      "file_name": "Misr Money Market ($)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_c4f258ea6d6a9783",
+      "db_name": "Banque Misr Money Market Fund (USD)",
+      "db_raw_name": "Misr Money Market ($)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_c4f258ea6d6a9783",
+        "nav": 14.77,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:23:58.78855+00:00"
+      }
+    },
+    {
+      "row": 177,
+      "file_name": "CIAM ($)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_386921f5fc6aabcf",
+      "db_name": "CIAM Fixed Income Fund (Misr Al Yomy USD)",
+      "db_raw_name": "CIAM ($)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_386921f5fc6aabcf",
+        "nav": 10.65,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:05.562411+00:00"
+      }
+    },
+    {
+      "row": 179,
+      "file_name": "Menthum USD $",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_161bc7887f7badbd",
+      "db_name": "Menthum Fixed Income Fund – USD",
+      "db_raw_name": "Menthum USD $",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_161bc7887f7badbd",
+        "nav": 1.1116,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:06.355116+00:00"
+      }
+    },
+    {
+      "row": 181,
+      "file_name": "Beltone Fixed Income USD Fund",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_47d56bf6fa1027de",
+      "db_name": "صندوق بلتون للدخل الثابت بالدولار الأمريكي",
+      "db_raw_name": "Beltone Fixed Income USD Fund",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_47d56bf6fa1027de",
+        "nav": 1.17,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T19:58:47.866511+00:00"
+      }
+    },
+    {
+      "row": 182,
+      "file_name": "Hermes Fixed Income USD Fund",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_44d31baa2f135a94",
+      "db_name": "EFG Hermes Fixed Income Fund (USD)",
+      "db_raw_name": "Hermes Fixed Income USD Fund",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_44d31baa2f135a94",
+        "nav": 102.24346,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:06.718457+00:00"
+      }
+    },
+    {
+      "row": 183,
+      "file_name": "Bonds Fixed Income USD Fund",
+      "company": "Arab African Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_81ea87492cdbab5e",
+      "db_name": "Bonds Fixed Income USD Fund",
+      "db_raw_name": "Bonds Fixed Income USD Fund",
+      "db_company": "Arab African Investment Management",
+      "price_update_url": "https://aaim.com.eg/ar/what-we-offer/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_81ea87492cdbab5e",
+        "nav": 10.29874,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ad7b5cd6a2846887",
+        "collected_at": "2026-08-26T13:33:44.527077+00:00"
+      }
+    },
+    {
+      "row": 186,
+      "file_name": "Azimut Target Maturity Fund-Target 2029 USD",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_98e4d067c5c77b65",
+      "db_name": "Azimut Target Maturity Fund-Target 2029 USD",
+      "db_raw_name": "Azimut Target Maturity Fund-Target 2029 USD",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_98e4d067c5c77b65",
+        "nav": 10.32271,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:20.177902+00:00"
+      }
+    },
+    {
+      "row": 187,
+      "file_name": "Ataa",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_cd774486b2708c4c",
+      "db_name": "Ataa",
+      "db_raw_name": "Ataa",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_cd774486b2708c4c",
+        "nav": 15.54803,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:25.478886+00:00"
+      }
+    },
+    {
+      "row": 189,
+      "file_name": "Sports Fund",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_5bf58206c8e6cab7",
+      "db_name": "صندوق الاستثمار الخيري لدعم الرياضة \"صندوق الرياضة المصري Egyptian Sport Fund",
+      "db_raw_name": "Sports Fund",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5bf58206c8e6cab7",
+        "nav": 196.84,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:00:54.481204+00:00"
+      }
+    },
+    {
+      "row": 190,
+      "file_name": "Shefa Orman Charity Fund",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_c140cb2ec26f5bb4",
+      "db_name": "Shefa Orman Charity Fund",
+      "db_raw_name": "Shefa Orman Charity Fund",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_c140cb2ec26f5bb4",
+        "nav": 19.04,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T13:24:05.080971+00:00"
+      }
+    },
+    {
+      "row": 191,
+      "file_name": "AZ Gold",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_69768837ab21ae45",
+      "db_name": "AZ Gold",
+      "db_raw_name": "AZ Gold",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_69768837ab21ae45",
+        "nav": 25.2991,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-25T20:30:22.454801+00:00"
+      }
+    },
+    {
+      "row": 192,
+      "file_name": "Sabayek",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_5f870a3631b4f621",
+      "db_name": "صندوق بلتون ايفولف للاستثمار في الذهب \"سبائك\"",
+      "db_raw_name": "Sabayek",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5f870a3631b4f621",
+        "nav": 1.71,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:02:10.215769+00:00"
+      }
+    },
+    {
+      "row": 193,
+      "file_name": "Dahab",
+      "company": "Al Ahly Financial Investments Management",
+      "match_type": "exact",
+      "fund_id": "fund_3b007e03cf3d8988",
+      "db_name": "صندوق دهب",
+      "db_raw_name": "Dahab",
+      "db_company": "Al Ahly Financial Investments Management",
+      "price_update_url": "https://www.afim.com.eg/public/index.php/investment",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_3b007e03cf3d8988",
+        "nav": 189.74037,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_8c91879296604ed3",
+        "collected_at": "2026-08-25T20:16:36.422466+00:00"
+      }
+    },
+    {
+      "row": 195,
+      "file_name": "CIAM Gold Fund",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_d890d29ee6d3b975",
+      "db_name": "CIAM Gold Fund (Gold Masr)",
+      "db_raw_name": "CIAM Gold Fund",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_d890d29ee6d3b975",
+        "nav": 1.109,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T06:16:03.225026+00:00"
+      }
+    },
+    {
+      "row": 196,
+      "file_name": "Hermes Gold",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_f517786d76dc74dc",
+      "db_name": "EFG Hermes Gold Fund",
+      "db_raw_name": "Hermes Gold",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_f517786d76dc74dc",
+        "nav": 95.48411,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-25T20:47:07.715873+00:00"
+      }
+    },
+    {
+      "row": 198,
+      "file_name": "Beltone Fada",
+      "company": "Beltone Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_69861fed8a7bc96f",
+      "db_name": "صندوق استثمار بلتون ايفولف للاستثمار فى الفضة ذو العائد اليومى التراكمى \" فضة \"",
+      "db_raw_name": "Beltone Fada",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": "https://www.beltoneholding.com/business-line/asset-management-1",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_69861fed8a7bc96f",
+        "nav": 0.81,
+        "currency": "EGP",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "source_id": "src_7208153dbe9de70c",
+        "collected_at": "2026-08-25T20:02:10.622425+00:00"
+      }
+    }
+  ],
+  "not_covered": [
+    {
+      "row": 4,
+      "file_name": "GIG Insurance - Egypt Fund I",
+      "company": "*PFI Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 8,
+      "file_name": "Ebank Fund (El Khabeer)",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_a786beb77a2a6a85",
+      "db_name": "Ebank Fund (El Khabeer)",
+      "db_raw_name": "Ebank Fund (El Khabeer)",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": false,
+      "latest_price": null
+    },
+    {
+      "row": 18,
+      "file_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
+      "company": "Sigma Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 20,
+      "file_name": "Bank ABC Fund I",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_e813d653742781f5",
+      "db_name": "Bank ABC Fund I",
+      "db_raw_name": "Bank ABC Fund I",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": false,
+      "latest_price": null
+    },
+    {
+      "row": 22,
+      "file_name": "Blom Bank Fund I",
+      "company": "CFH Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 23,
+      "file_name": "Pharos Fund I",
+      "company": "Pharos Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 24,
+      "file_name": "Pioneers Fund I",
+      "company": "Amwal for Financial Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 26,
+      "file_name": "National Bank of Kuwait Fund (Namaa)",
+      "company": "NBK Capital Asset Management Egypt",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 28,
+      "file_name": "NI Capital (Sahmy Fund)",
+      "company": "NI Capital",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 29,
+      "file_name": "Mubasher Equity",
+      "company": "Mubasher Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 32,
+      "file_name": "Momentum",
+      "company": "CFH Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 33,
+      "file_name": "Odin Trend",
+      "company": "Alpha Financial Investments Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 38,
+      "file_name": "Aspire Waffrah Plus",
+      "company": "Amwal for Financial Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 46,
+      "file_name": "National Bank of Kuwait (Hayat)",
+      "company": "NBK Capital Asset Management Egypt",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 48,
+      "file_name": "Naeem Misr Fund",
+      "company": "Naeem for Financial Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 49,
+      "file_name": "Agriculural Bank of Egypt (Al Wefak)",
+      "company": "CI Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 59,
+      "file_name": "Ebank Fund II",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_cc427cc3701e7509",
+      "db_name": "Ebank Fund II",
+      "db_raw_name": "Ebank Fund II",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": false,
+      "latest_price": null
+    },
+    {
+      "row": 63,
+      "file_name": "Al Ahli Bank of Kuwait - Egypt Fund II",
+      "company": "Sigma Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 66,
+      "file_name": "Blom Bank Fund II",
+      "company": "CFH Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 67,
+      "file_name": "National Bank of Kuwait Fund (Ishraq)",
+      "company": "NBK Capital Asset Management Egypt",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 69,
+      "file_name": "Housing & Development Bank (Mawared)",
+      "company": "PFI Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 72,
+      "file_name": "Egyptian Gulf Bank (Tharaa)",
+      "company": "Prime Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 76,
+      "file_name": "Arope Insurance Misr Fund",
+      "company": "CFH Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 81,
+      "file_name": "Siula Money Market",
+      "company": "NI Capital",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 85,
+      "file_name": "Delta Life Insurance",
+      "company": "Alpha Financial Investment Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 87,
+      "file_name": "GIG Insurance",
+      "company": "*PFI Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 88,
+      "file_name": "Aman Micro Finance",
+      "company": "Prime Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 89,
+      "file_name": "Menthum",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_52f11ef94c6ef2ee",
+      "db_name": "Menthum",
+      "db_raw_name": "Menthum",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": false,
+      "latest_price": null
+    },
+    {
+      "row": 99,
+      "file_name": "Odin 4",
+      "company": "Alpha Financial Investment Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 101,
+      "file_name": "Granite First Fund",
+      "company": "Granite Fund Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 103,
+      "file_name": "PFI Cashi",
+      "company": "PFI Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 105,
+      "file_name": "Aspire Rawajj",
+      "company": "Amwal for Financial Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 107,
+      "file_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+      "company": "Beltone Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 110,
+      "file_name": "GIG Makaseb Fund First Tranche",
+      "company": "NI Capital",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 111,
+      "file_name": "GIG Makaseb Fund Second Tranche",
+      "company": "NI Capital",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 115,
+      "file_name": "SAIB Fund III (Al Rabeh)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_b433cc6abdcf0a71",
+      "db_name": "SAIB’s Third Investment Fund (El Rabeh)",
+      "db_raw_name": "SAIB Fund III (Al Rabeh)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": false,
+      "latest_price": null
+    },
+    {
+      "row": 116,
+      "file_name": "ALEXBANK Fund III",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_5468465eb99512e9",
+      "db_name": "Bank of Alexandria Fund No. 3",
+      "db_raw_name": "ALEXBANK Fund III",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": false,
+      "latest_price": null
+    },
+    {
+      "row": 119,
+      "file_name": "Egyptian Arab Land Bank Fund (Al Masry)",
+      "company": "Alpha Financial Investment Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 125,
+      "file_name": "NI Capital 15/30",
+      "company": "NI Capital",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 127,
+      "file_name": "Cash Mubasher",
+      "company": "Mubasher Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 131,
+      "file_name": "Stream",
+      "company": "CFH Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 132,
+      "file_name": "Target First Fund",
+      "company": "Target Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 139,
+      "file_name": "*National Bank of Kuwait (Al Mizan)",
+      "company": "NBK Capital Asset Management Egypt",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 146,
+      "file_name": "Al Baraka Bank Egypt (Al Motawazen)",
+      "company": "Naeem Capital for Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 147,
+      "file_name": "FAB Misr Fund (Ezdhar)",
+      "company": "Acumen Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 149,
+      "file_name": "Sigma Traded Fund",
+      "company": "Sigma Funds Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 150,
+      "file_name": "Ebank Fund III (Konooz)",
+      "company": "Prime Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 157,
+      "file_name": "NI Capital EGX 70",
+      "company": "NI Capital",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 159,
+      "file_name": "Prime NMOW",
+      "company": "Prime Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 178,
+      "file_name": "Misr Money Market (Euro)",
+      "company": "CI Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 180,
+      "file_name": "Maksab First Tranche USD $",
+      "company": "Alpha Financial Investments Management & Zaldi Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 184,
+      "file_name": "Maksab Second Tranche (Euro)",
+      "company": "Alpha Financial Investments Management & Zaldi Investments",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 185,
+      "file_name": "Azimut Target Maturity Fund-Target 2027 USD",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_0b35a6355a36769f",
+      "db_name": "Azimut Target Maturity Fund-Target 2027 USD",
+      "db_raw_name": "Azimut Target Maturity Fund-Target 2027 USD",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": false,
+      "latest_price": null
+    },
+    {
+      "row": 188,
+      "file_name": "The charitable education Fund",
+      "company": "NI Capital",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 194,
+      "file_name": "Mubasher Gold",
+      "company": "Mubasher Asset Management",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 197,
+      "file_name": "Bokra Shakmagia",
+      "company": "Bokra",
+      "match_type": "unmatched",
+      "candidates": []
+    },
+    {
+      "row": 199,
+      "file_name": "Market Return",
+      "company": "EGX 30",
+      "match_type": "unmatched",
+      "candidates": []
+    }
+  ]
+}
