@@ -36,7 +36,8 @@ const PFI_SOURCE_URL = "https://pfi-am.com.eg/funds/";
 const NI_CAPITAL_SOURCE_URL = "https://nicapital.com.eg/lines-of-business/asset-management/";
 const FAB_MISR_EZDEHAR_SOURCE_URL = "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund";
 const EBANK_SOURCE_URL = "https://ebank.com.eg/market-updates/";
-const ABK_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Equity-Fund?r=2";
+const ABK_EQUITY_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Equity-Fund?r=2";
+const ABK_MONEY_MARKET_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Money-Market-Fund?r=2";
 const ALPHA_ODIN_SOURCE_URL = "https://alpha-odin.com/";
 const ALPHA_ODIN_API_URL = "https://alphaodinf.uwd.agency/funds/";
 const NBK_SOURCE_URLS = [
@@ -441,13 +442,21 @@ export function parseAaimFunds(html: string): EfgRecord[] {
 
 export function parseAbkFund(html: string): EfgRecord[] {
   const text = stripTags(html);
-  const match = text.match(/Today's ABK-Egypt Equity Fund Price:\s*Price\s+Last Update\s+([0-9.,]+)\s+(\d{1,2}\/\d{1,2}\/\d{4})/i);
-  if (!match) return [];
-  const nav = Number(match[1].replace(/,/g, ""));
-  const date = match[2].split("/");
-  if (!Number.isFinite(nav) || nav < 0 || date.length !== 3) return [];
-  const [month, day, year] = date;
-  return [{ name: "ABK-Egypt Equity Fund", rawName: "ABK-Egypt Equity Fund", nav, valuationDate: `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`, currency: "EGP" }];
+  const variants = [
+    { label: "Equity Fund", recordName: "ABK-Egypt Equity Fund" },
+    { label: "Money Market Fund", recordName: "ABK-Egypt Money Market Fund" },
+  ];
+  const records: EfgRecord[] = [];
+  for (const variant of variants) {
+    const match = text.match(new RegExp(`Today's ABK-Egypt ${variant.label} Price:\\s*Price\\s+Last Update\\s+([0-9.,]+)\\s+(\\d{1,2}\\/\\d{1,2}\\/\\d{4})`, "i"));
+    if (!match) continue;
+    const nav = Number(match[1].replace(/,/g, ""));
+    const date = match[2].split("/");
+    if (!Number.isFinite(nav) || nav < 0 || date.length !== 3) continue;
+    const [month, day, year] = date;
+    records.push({ name: variant.recordName, rawName: variant.recordName, nav, valuationDate: `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`, currency: "EGP" });
+  }
+  return records;
 }
 
 /**
@@ -798,6 +807,7 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "ادخار - AZFI": "edkhar",
     "جي أي جي النقدي": "gig insurance",
     "ABK-Egypt Equity Fund": "al ahli bank of kuwait - egypt fund i",
+    "ABK-Egypt Money Market Fund": "al ahli bank of kuwait - egypt fund ii",
     "khabeer fund": "ebank fund el khabeer",
     "money market fund": "ebank fund ii",
     "konooz fund": "ebank fund iii konooz",
@@ -1050,21 +1060,25 @@ async function fetchAzimutWithHistory(url: string): Promise<globalThis.Response>
 export function aggregateRunSummaries(summaries: RunSummary[]): RunSummary {
   if (!summaries.length) throw new Error("Cannot aggregate an empty collector set");
   const allFailed = summaries.length > 0 && summaries.every((summary) => summary.status === "failed");
-  return summaries.reduce((combined, summary) => ({
-    ...combined,
-    runId: `${combined.runId},${summary.runId}`,
-    status: allFailed ? "failed" : combined.status === "partial" || summary.status === "partial" || combined.status === "failed" || summary.status === "failed" ? "partial" : "success",
-    fetchedRecords: combined.fetchedRecords + summary.fetchedRecords,
-    matchedRecords: combined.matchedRecords + summary.matchedRecords,
-    matchedFundIds: Array.from(new Set([...combined.matchedFundIds, ...summary.matchedFundIds])),
-    inserted: combined.inserted + summary.inserted,
-    scheduled: (combined.scheduled ?? 0) + (summary.scheduled ?? 0),
-    unchanged: combined.unchanged + summary.unchanged,
-    updated: combined.updated + summary.updated,
-    unmatched: [...combined.unmatched, ...summary.unmatched],
-    failed: [...combined.failed, ...summary.failed],
-    finishedAt: summary.finishedAt,
-  }));
+  return summaries.reduce((combined, summary) => {
+    const fetchErrors = [combined.fetchError, summary.fetchError].filter((value): value is string => Boolean(value));
+    return {
+      ...combined,
+      runId: `${combined.runId},${summary.runId}`,
+      status: allFailed ? "failed" : combined.status === "partial" || summary.status === "partial" || combined.status === "failed" || summary.status === "failed" ? "partial" : "success",
+      fetchedRecords: combined.fetchedRecords + summary.fetchedRecords,
+      matchedRecords: combined.matchedRecords + summary.matchedRecords,
+      matchedFundIds: Array.from(new Set([...combined.matchedFundIds, ...summary.matchedFundIds])),
+      inserted: combined.inserted + summary.inserted,
+      scheduled: (combined.scheduled ?? 0) + (summary.scheduled ?? 0),
+      unchanged: combined.unchanged + summary.unchanged,
+      updated: combined.updated + summary.updated,
+      unmatched: [...combined.unmatched, ...summary.unmatched],
+      failed: [...combined.failed, ...summary.failed, ...(summary.fetchError ? [{ name: summary.source, error: summary.fetchError }] : [])],
+      fetchError: fetchErrors.length ? fetchErrors.join(" | ") : undefined,
+      finishedAt: summary.finishedAt,
+    };
+  });
 }
 
 async function runCombinedCollectors(configs: CollectorConfig[]): Promise<RunSummary> {
@@ -1142,7 +1156,10 @@ export function runAzimutCollector(): Promise<RunSummary> {
 }
 
 export function runAbkCollector(): Promise<RunSummary> {
-  return runCollector({ sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true });
+  return runCombinedCollectors([
+    { sourceUrl: ABK_EQUITY_SOURCE_URL, parserName: "abk_official_fund_pages_v2", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
+    { sourceUrl: ABK_MONEY_MARKET_SOURCE_URL, parserName: "abk_official_fund_pages_v2", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
+  ]);
 }
 
 export function runAlphaOdinCollector(): Promise<RunSummary> {
@@ -1233,7 +1250,7 @@ export function getProviderSupportReport() {
     { provider: "NI Capital", source: NI_CAPITAL_SOURCE_URL, parser: NI_CAPITAL_PARSER_NAME, status: "implemented" as const, note: "Official asset-management page; future-dated rows are rejected" },
     { provider: "FAB Misr", source: FAB_MISR_EZDEHAR_SOURCE_URL, parser: FAB_MISR_PARSER_NAME, status: "implemented" as const, note: "Official bank fund page; NAV/date extracted and future-dated values rejected" },
     { provider: "EBank", source: EBANK_SOURCE_URL, parser: EBANK_PARSER_NAME, status: "implemented" as const, note: "Official Market Updates page; Khabeer/Money Market/Konooz NAV and valuation dates" },
-    { provider: "ABK-Egypt", source: ABK_SOURCE_URL, parser: "abk_official_equity_fund_v1", status: "implemented" as const, note: "Official equity-fund page; TLS uses trusted DigiCert intermediate" },
+    { provider: "ABK-Egypt", source: `${ABK_EQUITY_SOURCE_URL}, ${ABK_MONEY_MARKET_SOURCE_URL}`, parser: "abk_official_fund_pages_v2", status: "implemented" as const, note: "Official equity and money-market fund pages; Fund II identity reconciled through Sigma, May-2009 inception, and EGP 10 nominal value" },
     { provider: "Alpha Odin", source: ALPHA_ODIN_SOURCE_URL, parser: ALPHA_ODIN_PARSER_NAME, status: "implemented" as const, note: "Official homepage cards; limited to exact, reviewed Odin Trend and Egyptian Arab Land Bank Al Masry identities" },
   ];
 }
@@ -1263,7 +1280,8 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: NI_CAPITAL_SOURCE_URL, parserName: NI_CAPITAL_PARSER_NAME, parse: parseNiCapitalFunds, matchAllFunds: true },
     { sourceUrl: EBANK_SOURCE_URL, parserName: EBANK_PARSER_NAME, parse: parseEbankMarketUpdates, matchAllFunds: true },
     { sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, fetcher: fetchFabMisrPage, matchAllFunds: true, schedule: "weekly" },
-    { sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
+    { sourceUrl: ABK_EQUITY_SOURCE_URL, parserName: "abk_official_fund_pages_v2", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
+    { sourceUrl: ABK_MONEY_MARKET_SOURCE_URL, parserName: "abk_official_fund_pages_v2", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ALPHA_ODIN_SOURCE_URL, fetchUrl: ALPHA_ODIN_API_URL, parserName: ALPHA_ODIN_PARSER_NAME, parse: parseAlphaOdinFunds, matchAllFunds: true },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },

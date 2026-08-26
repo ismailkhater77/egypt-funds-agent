@@ -14,6 +14,17 @@ describe("EFG mutual-fund parser", () => {
     }]);
   });
 
+  it("extracts the official ABK-Egypt Money Market Fund price and last-update date", () => {
+    const html = readFileSync(new URL("./fixtures/abk-money-market-fund.html", import.meta.url), "utf8");
+    expect(parseAbkFund(html)).toEqual([{
+      name: "ABK-Egypt Money Market Fund",
+      rawName: "ABK-Egypt Money Market Fund",
+      nav: 72.8897,
+      valuationDate: "2026-08-26",
+      currency: "EGP",
+    }]);
+  });
+
   it("extracts only exact, current Alpha Odin API records with their matching NAV dates and currencies", async () => {
     const api = JSON.stringify({ funds_all: [
       { id: 81, name: "Odin Equity Investment Fund in EGX-Listed Stocks (Trend) – First Issue", newprice: "1.23911", currentprice: "1.24156", currency: "EGP", status: 1 },

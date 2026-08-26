@@ -140,3 +140,5 @@
 - [x] Resolve the Zaldi Star Equity versus official Zaldi Star Money Market identity conflict; correct the catalog and reject the official daily future-dated NAV
 - [x] Enrich BLOM Bank Fund I and II with their verified historical fund classes and successor-record evidence without treating the stale EIMA NAV as a validated snapshot
 - [x] Correct the Market Return catalog record after direct EIMA evidence confirms it is the EGX30 benchmark, not an investable fund
+- [x] Integrate ABK Egypt Fund II from the official Money Market Fund page after exact identity reconciliation through Sigma Asset Management, May-2009 inception, and EGP 10 nominal value
+- [ ] Complete the next official-source discovery pass for the 23 active funds without a validated NAV, prioritizing directly publishable bank and manager feeds

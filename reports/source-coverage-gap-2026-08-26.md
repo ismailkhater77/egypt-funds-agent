@@ -5,18 +5,17 @@ This report is a **read-only** Supabase audit of active fund records. “No upda
 | Category | Count |
 | --- | ---: |
 | Active catalog funds | 213 |
-| Funds with no update-source URL at all | 38 |
+| Funds with no update-source URL at all | 37 |
 | Funds linked to a URL but without a validated snapshot as of 2026-08-26 | 2 |
-| Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 23 |
-| Funds with at least one validated snapshot as of 2026-08-26 | 190 |
+| Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 22 |
+| Funds with at least one validated snapshot as of 2026-08-26 | 191 |
 
-## A. Funds with no update-source URL at all (38)
+## A. Funds with no update-source URL at all (37)
 
 | Canonical fund name | Imported/EIMA name | Source URL |
 | --- | --- | --- |
 | *National Bank of Kuwait (Al Mizan) | *National Bank of Kuwait (Al Mizan) | — |
 | Al Ahli Bank of Kuwait - Egypt Fund I | Al Ahli Bank of Kuwait - Egypt Fund I | — |
-| Al Ahli Bank of Kuwait - Egypt Fund II | Al Ahli Bank of Kuwait - Egypt Fund II | — |
 | Al Baraka Bank Egypt (Al Motawazen) | Al Baraka Bank Egypt (Al Motawazen) | — |
 | Aman Micro Finance | Aman Micro Finance | — |
 | Arope Insurance Misr Fund | Arope Insurance Misr Fund | — |
@@ -62,13 +61,12 @@ These are **not** part of the “no source at all” count. They are included so
 | Bank ABC Fund I | Bank ABC Fund I | https://azimut.eg/funds |
 | Zaldi Star (Money Market) | Zaldi Star Equity | https://zaldi-capital.com/zaldi-star/ |
 
-## C. Funds with no validated snapshot as of 2026-08-26 (23)
+## C. Funds with no validated snapshot as of 2026-08-26 (22)
 
 This is the operational priority list. It contains all active funds not yet covered by a validated NAV snapshot, whether the catalog currently has a source URL or not.
 
 | Canonical fund name | Imported/EIMA name | Linked source URL |
 | --- | --- | --- |
-| Al Ahli Bank of Kuwait - Egypt Fund II | Al Ahli Bank of Kuwait - Egypt Fund II | null |
 | Al Baraka Bank Egypt (Al Motawazen) | Al Baraka Bank Egypt (Al Motawazen) | null |
 | Aman Micro Finance | Aman Micro Finance | null |
 | Arope Insurance Misr Fund | Arope Insurance Misr Fund | null |

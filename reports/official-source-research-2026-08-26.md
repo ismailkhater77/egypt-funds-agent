@@ -14,11 +14,13 @@ The page identifies investment services and links to BLOMINVEST, but it does not
 
 ## ABK-Egypt Money Market
 
-Official URL: https://w.abkegypt.com/en/Business/Treasury/Investments/Money-Market-Fund
+Official URL: https://www.abkegypt.com/Business/Treasury/Investments/Money-Market-Fund?r=2
 
-The official page exposes `Today's ABK-Egypt Money Market Fund Price` = 72.8897 EGP with `Last Update` = 8/26/2026. This is explicit NAV/date evidence for the ABK-Egypt Money Market Fund. It should be matched only to the corresponding catalog record if the database identity and source mapping are exact; it must not be substituted for ABK-Egypt Fund II without identity confirmation.
+The bank’s official current page identifies the product as a daily-liquidity EGP money-market fund, **managed by Sigma Asset Management**, with **May 2009** inception and **EGP 10** nominal value. It publishes `Today's ABK-Egypt Money Market Fund Price` = **72.8897 EGP** with `Last Update` = **26-Aug-2026**.
 
-The catalog contains `Al Ahli Bank of Kuwait - Egypt Fund II` managed by Sigma Asset Management, but the official ABK page labels the current product only `ABK-Egypt Money Market Fund`; it does not state that this product is Fund II. Because the project forbids identity inference, the NAV 72.8897 was not written to Fund II. An EIMA performance search result naming Fund II was not used as a current NAV source because it is not a current official bank price page for 2026-08-26.
+The catalog record `Al Ahli Bank of Kuwait - Egypt Fund II` has the same manager. The official ABK December-2025 monthly report independently identifies the money-market product as Sigma-managed and “Since Inception (May 2009).” The EIMA performance report dated 14-May-2026 labels **Fund II** as a money-market fund, Sigma-managed, with **May-2009** inception and **EGP 10** initial value. These four concordant identity fields establish the exact mapping; EIMA is identity evidence only and is not the NAV source.
+
+The official ABK source was recorded separately, Fund II was linked to it, and the collector inserted the 26-Aug-2026 snapshot once. The immediate re-run returned **unchanged** for both ABK Fund I and Fund II. The primary source is fetched from the bank’s `www` host using the trusted DigiCert intermediate; the `ftp` mirror was not used because its certificate hostname does not match that subdomain.
 
 ## Naeem Misr Fund
 

@@ -18,7 +18,6 @@ const category = {
 };
 
 const assignments = new Map([
-  ["Al Ahli Bank of Kuwait - Egypt Fund II", "IDENTITY_UNCONFIRMED"],
   ["Al Baraka Bank Egypt (Al Motawazen)", "OFFICIAL_NO_CURRENT_NAV"],
   ["Aman Micro Finance", "OFFICIAL_UNDATED"],
   ["Arope Insurance Misr Fund", "OFFICIAL_UNDATED"],

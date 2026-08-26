@@ -1,12 +1,12 @@
 # Current Uncovered-Fund Classification — 2026-08-26
 
-This is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before 2026-08-26. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **23**.
+This is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before 2026-08-26. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **22**.
 
 | Metric | Count |
 | --- | ---: |
-| Current funds without a validated snapshot | 23 |
+| Current funds without a validated snapshot | 22 |
 | Recorded catalog URL exists | 2 |
-| Catalog URL is blank | 21 |
+| Catalog URL is blank | 20 |
 | Confirmed parser extraction failures from an otherwise published price/date | 0 |
 | Confirmed future-date-only rejection | 6 |
 
@@ -28,7 +28,6 @@ This is an **exhaustive current** classification of every catalog fund without a
 
 | Fund | Recorded catalog URL | One controlling reason |
 | --- | --- | --- |
-| Al Ahli Bank of Kuwait - Egypt Fund II | — | يوجد منتج رسمي محتمل لكن هوية Fund II غير مثبتة |
 | Al Baraka Bank Egypt (Al Motawazen) | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
 | Aman Micro Finance | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
 | Arope Insurance Misr Fund | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
