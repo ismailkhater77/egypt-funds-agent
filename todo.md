@@ -9,7 +9,7 @@
 - [x] Add unit tests for parsing, matching, idempotency, and run summaries
 - [ ] Verify the manual run and scheduled callback in the deployed environment
 - [x] Rotate the Supabase secret key that was exposed in chat before configuring the collector
-- [ ] Confirm the compromised Supabase secret was revoked and document that only the replacement key is active
+- [x] Confirm the compromised Supabase secret was revoked and document that only the replacement key is active (user confirmed the old key was disabled)
 - [x] Add Vitest coverage for fund-name matching, idempotent unchanged writes, and run-summary counters
 - [x] Implement and validate CI Capital fund-price parser for all mapped CI records
 - [x] Resolve Beltone ADIB Islamic and Beltone Gems USD records with explicit source mappings before final provider validation
