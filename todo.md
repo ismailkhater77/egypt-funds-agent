@@ -132,3 +132,5 @@
 - [x] Add fixture-backed integration coverage proving persisted scheduled-weekly review rows are excluded from latest-validated, coverage, and duplicate checks
 - [x] Add a fixture-backed duplicate-audit test proving scheduled-weekly review rows are excluded or handled without false same-source duplicate violations
 - [x] Map NI Capital Siula to the official funds-prices feed, add parser coverage, and retain daily future-date rejection
+- [x] Integrate Alpha Odin’s official current NAV cards for exact Odin Trend and Al Masry identities, with idempotent writes and tests
+- [x] Aggregate scheduled weekly observations in the combined Run All summary and add regression coverage

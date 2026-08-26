@@ -96,9 +96,11 @@ The raw HTML of Prime's official page carries `article:modified_time=2026-08-26T
 
 ## Alpha Odin official recheck
 
-Official URLs: https://alpha-odin.com/ and https://alpha-odin.com/funds/
+Official URLs: https://alpha-odin.com/, https://alpha-odin.com/funds/, and the public first-party card API consumed by the homepage: `https://alphaodinf.uwd.agency/funds/`.
 
-The official Alpha Odin site confirms fund-management activity and lists public funds. The accessible Funds page currently exposes only the Egyptian Real Estate Fund at 19.17 EGP with `Last Update: Jul 31, 2026`; the expected Maksab USD/Euro records and their NAV/date details are not present in the extracted page content. No current dated NAV was accepted for Maksab USD, Maksab Euro, Odin Trend, or Al Masry.
+The homepage renders fund cards dynamically from its public first-party API. Its own client script pairs `status=1` with `newprice` and the latest entry in the fund’s `dates` array. The API details established exact identities, EGP NAVs, and explicit matching evaluation dates for two catalog records: **Odin Trend** at **1.23911 EGP** on **26-Aug-2026**, and **Egyptian Arab Land Bank Fund (Al Masry)** at **471.83603 EGP** on **26-Aug-2026**. Both were inserted as validated snapshots from the official Alpha Odin source and the immediate second live run returned unchanged.
+
+The source’s published names and the catalog labels are exact reviewed matches for these two records. Maksab USD/Euro remain pending because no equally explicit catalog-to-source identity mapping was approved in this pass; they were not inferred from similarly named products.
 
 ## Follow-up on NI/GIG/FAB search
 
@@ -250,3 +252,25 @@ NI Capital’s current official Funds Certificates Prices section lists **SIULA 
 Naeem Holding’s official page confirms that NAEEM Misr is an EGP Sharia-compliant equity fund managed by NAEEM Financial Investments, with weekly subscription/redemption through Egyptian Gulf Bank. It publishes no current NAV or valuation date. The page links to `naeemmisrfund.com`, but the linked hostname did not resolve from the research environment; no alternate current first-party NAV page was established. The fund should be eligible for `scheduled_weekly` only after a working official page publishes an observable NAV/date. [9]
 
 [9] [Naeem Holding — NAEEM Misr Fund](https://www.naeemholding.com/asset-management/investment-offerings/our-funds/naeem-misr-fund/)
+
+## EGBank Tharaa — official bank site inspected, no public price route found
+
+EGBANK’s official home and Personal Banking pages expose a generic Funds category but do not expose a Tharaa product page, NAV, valuation date, or a public fund-pricing endpoint in their accessible content. The fund’s manager/sponsor identity is not sufficient to map a current price; Tharaa remains Pending Verification. [10]
+
+[10] [EGBANK — Personal Banking](https://www.eg-bank.com/En/Personal)
+
+## Delta Life Insurance — official fund identity and filings, no current NAV
+
+Delta Life Assurance’s official Financial Regulatory page identifies its money-market fund and publishes prospectuses, amendments, and financial statements, including annual 2025 statements and governance notices in 2026. It does not display a current NAV/certificate price or an explicit current valuation date. Historical financial statements are not a substitute for a daily NAV feed, so Delta Life remains Pending Verification. [11]
+
+[11] [Delta Life Assurance — Financial Regulatory / Money Market Fund](https://deltalifeegypt.com/ar/FinancialRegulatory)
+
+## ABK Egypt Fund II — official Money Market NAV found; legal-name mapping pending
+
+ABK Egypt’s official Money Market Fund page identifies a daily-return, daily-subscription/redemption EGP fund managed by Sigma Asset Management and publishes **72.8897 EGP** with last update **26-August-2026**. The official page calls the product “Money Market Fund” and does not explicitly state “ABK Egypt Fund II,” while the catalog record uses that legal/imported label. No snapshot was mapped until the prospectus or another official filing confirms they are the same fund. [12]
+
+The linked official prospectus file is protected by the bank’s request filter when called directly from this environment, so it cannot yet supply the missing legal-name evidence. This is an access limitation, not a parser or NAV-validation failure.
+
+An FRA registry result also appears relevant to a former Piraeus/ABK fund, but the full registry page is access-protected in this environment. Its search snippet alone is not sufficient evidence to map the catalog’s Fund II record to the daily Money Market Fund, so the unresolved identity decision is retained.
+
+[12] [ABK Egypt — Money Market Fund](https://www.abkegypt.com/Business/Treasury/Investments/Money-Market-Fund)

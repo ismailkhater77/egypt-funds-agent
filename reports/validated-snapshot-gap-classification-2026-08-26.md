@@ -4,14 +4,14 @@
 
 This classification distinguishes catalog metadata from live collection behavior. A blank `price_update_url` means that no URL has been recorded in the `funds` row; it does **not** prove that no first-party page exists anywhere. A “future-date rejection” requires a price and a valuation date that are both present, where the valuation date is after the controlled as-of date.
 
-The Source-Coverage Gap report initially contained **31** funds with no validated snapshot. The official Banque du Caire Al Wefak feed subsequently inserted a valid 26-Aug-2026 snapshot, and the official FABMISR Ezdehar feed inserted a valid 22-Aug-2026 snapshot. The live gap is therefore **29**.
+The Source-Coverage Gap report initially contained **31** funds with no validated snapshot. The official Banque du Caire Al Wefak feed, official FABMISR Ezdehar feed, and the official Alpha Odin records for Odin Trend and Al Masry subsequently inserted valid snapshots. The current live gap is therefore **27**.
 
-| Requested measure | Count from the original 31-gap report | Current count after Al Wefak integration | Evidence / interpretation |
+| Requested measure | Count from the original 31-gap report | Current count after all verified integrations | Evidence / interpretation |
 | --- | ---: | ---: | --- |
 | Has a recorded `price_update_url` but no validated snapshot | 2 | 2 | Bank ABC Fund I and Zaldi Star Equity |
 | Fails because the parser cannot extract an otherwise published NAV/date | 0 | 0 | The two linked pages responded successfully, but did not expose a usable current NAV/date for their target records; this is absence of publishable data or an incomplete target page, not a parser failure |
 | Rejected only because a dated NAV is future relative to 26-Aug-2026 | 1 confirmed | 1 confirmed | Housing & Development Bank (Mawared): PFI officially displayed 71.4934 dated 29-Aug-2026, so it was intentionally not stored |
-| Blank `price_update_url` in the catalog | 29 | 27 within the remaining uncovered set | This is a metadata count, **not** a claim that no official source exists |
+| Blank `price_update_url` in the catalog | 29 | 25 within the remaining uncovered set | This is a metadata count, **not** a claim that no official source exists |
 
 ## Linked but unvalidated records
 

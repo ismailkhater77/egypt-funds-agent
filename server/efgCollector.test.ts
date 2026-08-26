@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
+import { aggregateRunSummaries, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -12,6 +12,25 @@ describe("EFG mutual-fund parser", () => {
       valuationDate: "2026-08-26",
       currency: "EGP",
     }]);
+  });
+
+  it("extracts only exact, current Alpha Odin API records for Odin Trend and Al Masry", async () => {
+    const api = JSON.stringify({ funds_all: [
+      { id: 81, name: "Odin Equity Investment Fund in EGX-Listed Stocks (Trend) – First Issue", newprice: "1.23911", currentprice: "1.24156", currency: "EGP", status: 1 },
+      { id: 38, name: "The Egyptian Arab Land Bank Investment Fund for Debt Instruments – Egyptian Accumulative Yield", newprice: "471.83603", currentprice: "470.75763", currency: "EGP", status: 1 },
+      { id: 71, name: "Maksab-OZ Fixed Income Investment Fund - Second Edition (Euro)", newprice: "1.07862", currency: "EUR", status: 1 },
+    ] });
+    vi.stubGlobal("fetch", vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.endsWith("/81")) return new Response(JSON.stringify({ fundDetails: { status: 1, newprice: "1.23911", currency: "EGP" }, dates: ["2026-08-20T13:10:00.000Z", "2026-08-26T14:32:00.000Z"] }), { status: 200 });
+      if (url.endsWith("/38")) return new Response(JSON.stringify({ fundDetails: { status: 1, newprice: "471.83603", currency: "EGP" }, dates: ["2026-08-20T12:17:00.000Z", "2026-08-26T13:54:00.000Z"] }), { status: 200 });
+      throw new Error(`unexpected Alpha Odin detail URL: ${url}`);
+    }));
+    await expect(parseAlphaOdinFunds(api)).resolves.toEqual([
+      { name: "Odin Trend", rawName: "Odin Equity Investment Fund in EGX-Listed Stocks (Trend) – First Issue", nav: 1.23911, valuationDate: "2026-08-26", currency: "EGP" },
+      { name: "Egyptian Arab Land Bank Fund (Al Masry)", rawName: "The Egyptian Arab Land Bank Investment Fund for Debt Instruments – Egyptian Accumulative Yield", nav: 471.83603, valuationDate: "2026-08-26", currency: "EGP" },
+    ]);
+    vi.unstubAllGlobals();
   });
 
   it("extracts a validated fund snapshot from the EFG data payload", () => {
@@ -66,6 +85,15 @@ describe("EFG mutual-fund parser", () => {
     expect(first).toMatchObject({ nav: 1.02, valuationDate: "2026-08-23" });
     expect(second).toMatchObject({ nav: 1.02, valuationDate: "2026-08-30" });
     expect(chooseActualValuationDate(second.valuationDate, first.valuationDate, "2026-08-26")).toBe("2026-08-23");
+  });
+
+  it("adds scheduled weekly observations in a combined collector summary", () => {
+    const base = { startedAt: "2026-08-26T00:00:00.000Z", finishedAt: "2026-08-26T00:01:00.000Z", status: "success" as const, source: "official", parser: "parser", fetchedRecords: 1, matchedRecords: 1, matchedFundIds: ["fund-1"], inserted: 0, unchanged: 0, updated: 0, unmatched: [], failed: [] };
+    const summary = aggregateRunSummaries([
+      { ...base, runId: "first", scheduled: 1 },
+      { ...base, runId: "second", scheduled: 2, matchedFundIds: ["fund-2"] },
+    ]);
+    expect(summary).toMatchObject({ status: "success", scheduled: 3, matchedFundIds: ["fund-1", "fund-2"] });
   });
 
   it("does not promote future HC and Zaldi dates when the NAV is unchanged", () => {

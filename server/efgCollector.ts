@@ -37,6 +37,8 @@ const NI_CAPITAL_SOURCE_URL = "https://nicapital.com.eg/lines-of-business/asset-
 const FAB_MISR_EZDEHAR_SOURCE_URL = "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund";
 const EBANK_SOURCE_URL = "https://ebank.com.eg/market-updates/";
 const ABK_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Equity-Fund?r=2";
+const ALPHA_ODIN_SOURCE_URL = "https://alpha-odin.com/";
+const ALPHA_ODIN_API_URL = "https://alphaodinf.uwd.agency/funds/";
 const NBK_SOURCE_URLS = [
   "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/ishraq.html",
   "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/namaa.html",
@@ -53,6 +55,7 @@ const PFI_PARSER_NAME = "pfi_official_funds_v1";
 const NI_CAPITAL_PARSER_NAME = "ni_capital_official_funds_v1";
 const FAB_MISR_PARSER_NAME = "fab_misr_official_ezdehar_v1";
 const EBANK_PARSER_NAME = "ebank_official_market_updates_v1";
+const ALPHA_ODIN_PARSER_NAME = "alpha_odin_homepage_fund_cards_v1";
 const EFG_PARSER_NAME = "efg_html_table_v1";
 const CI_PARSER_NAME = "ci_capital_fundprice_v1";
 const AFIM_PARSER_NAME = "afim_detail_pages_v1";
@@ -445,6 +448,55 @@ export function parseAbkFund(html: string): EfgRecord[] {
   if (!Number.isFinite(nav) || nav < 0 || date.length !== 3) return [];
   const [month, day, year] = date;
   return [{ name: "ABK-Egypt Equity Fund", rawName: "ABK-Egypt Equity Fund", nav, valuationDate: `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`, currency: "EGP" }];
+}
+
+/**
+ * Alpha Odin's official homepage exposes current, dated cards. Limit extraction
+ * to exact catalog identities that have been independently reviewed; this avoids
+ * treating similarly named Maksab or other Alpha products as confirmed matches.
+ */
+type AlphaOdinFundListItem = {
+  id?: number;
+  name?: string;
+  currentprice?: string;
+  newprice?: string;
+  currency?: string;
+  status?: number;
+};
+
+type AlphaOdinDetailPayload = {
+  fundDetails?: AlphaOdinFundListItem;
+  dates?: string[];
+};
+
+/**
+ * The public Alpha Odin homepage renders its fund cards from this official API.
+ * Its own frontend displays newprice with the latest date for status=1 and
+ * currentprice with the preceding date for status=0; mirror that pairing so a
+ * price is never persisted against an unrelated card or page timestamp.
+ */
+export async function parseAlphaOdinFunds(payload: string): Promise<EfgRecord[]> {
+  const parsed = JSON.parse(payload) as { funds_all?: AlphaOdinFundListItem[] };
+  const definitions = [
+    ["Odin Equity Investment Fund in EGX-Listed Stocks (Trend) – First Issue", "Odin Trend"],
+    ["The Egyptian Arab Land Bank Investment Fund for Debt Instruments – Egyptian Accumulative Yield", "Egyptian Arab Land Bank Fund (Al Masry)"],
+  ] as const;
+  const records: Array<EfgRecord | null> = await Promise.all(definitions.map(async ([publishedName, name]) => {
+    const listed = parsed.funds_all?.find((fund) => fund.name === publishedName);
+    if (!listed?.id) throw new Error(`Alpha Odin official API does not expose the expected fund: ${publishedName}`);
+    const response = await fetch(`${ALPHA_ODIN_API_URL}${listed.id}`, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "application/json" } });
+    if (!response.ok) throw new Error(`Alpha Odin fund detail ${listed.id} returned HTTP ${response.status}`);
+    const detail = await response.json() as AlphaOdinDetailPayload;
+    const fund = detail.fundDetails;
+    const status = fund?.status ?? listed.status;
+    const rawPrice = status === 1 ? (fund?.newprice ?? listed.newprice) : (fund?.currentprice ?? listed.currentprice);
+    const rawDate = status === 1 ? detail.dates?.at(-1) : detail.dates?.at(-2);
+    const nav = parseLocalizedNumber(rawPrice ?? "");
+    const valuationDate = rawDate ? parseEnglishDate(rawDate) : null;
+    if (!valuationDate || !Number.isFinite(nav) || nav < 0 || valuationDate > asOfDate()) return null;
+    return { name, rawName: publishedName, nav, valuationDate, currency: (fund?.currency ?? listed.currency ?? "EGP").toUpperCase() };
+  }));
+  return records.filter((record): record is EfgRecord => record !== null);
 }
 
 type AzimutGraphPoint = [number, number];
@@ -985,8 +1037,8 @@ async function fetchAzimutWithHistory(url: string): Promise<globalThis.Response>
   }), { status: response.status, headers: { "content-type": "application/json" } });
 }
 
-async function runCombinedCollectors(configs: CollectorConfig[]): Promise<RunSummary> {
-  const summaries = await Promise.all(configs.map(runCollector));
+export function aggregateRunSummaries(summaries: RunSummary[]): RunSummary {
+  if (!summaries.length) throw new Error("Cannot aggregate an empty collector set");
   const allFailed = summaries.length > 0 && summaries.every((summary) => summary.status === "failed");
   return summaries.reduce((combined, summary) => ({
     ...combined,
@@ -996,12 +1048,17 @@ async function runCombinedCollectors(configs: CollectorConfig[]): Promise<RunSum
     matchedRecords: combined.matchedRecords + summary.matchedRecords,
     matchedFundIds: Array.from(new Set([...combined.matchedFundIds, ...summary.matchedFundIds])),
     inserted: combined.inserted + summary.inserted,
+    scheduled: (combined.scheduled ?? 0) + (summary.scheduled ?? 0),
     unchanged: combined.unchanged + summary.unchanged,
     updated: combined.updated + summary.updated,
     unmatched: [...combined.unmatched, ...summary.unmatched],
     failed: [...combined.failed, ...summary.failed],
     finishedAt: summary.finishedAt,
   }));
+}
+
+async function runCombinedCollectors(configs: CollectorConfig[]): Promise<RunSummary> {
+  return aggregateRunSummaries(await Promise.all(configs.map(runCollector)));
 }
 
 async function runCollector(config: CollectorConfig): Promise<RunSummary> {
@@ -1076,6 +1133,10 @@ export function runAzimutCollector(): Promise<RunSummary> {
 
 export function runAbkCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true });
+}
+
+export function runAlphaOdinCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: ALPHA_ODIN_SOURCE_URL, fetchUrl: ALPHA_ODIN_API_URL, parserName: ALPHA_ODIN_PARSER_NAME, parse: parseAlphaOdinFunds, matchAllFunds: true });
 }
 
 export function runAaimCollector(): Promise<RunSummary> {
@@ -1163,6 +1224,7 @@ export function getProviderSupportReport() {
     { provider: "FAB Misr", source: FAB_MISR_EZDEHAR_SOURCE_URL, parser: FAB_MISR_PARSER_NAME, status: "implemented" as const, note: "Official bank fund page; NAV/date extracted and future-dated values rejected" },
     { provider: "EBank", source: EBANK_SOURCE_URL, parser: EBANK_PARSER_NAME, status: "implemented" as const, note: "Official Market Updates page; Khabeer/Money Market/Konooz NAV and valuation dates" },
     { provider: "ABK-Egypt", source: ABK_SOURCE_URL, parser: "abk_official_equity_fund_v1", status: "implemented" as const, note: "Official equity-fund page; TLS uses trusted DigiCert intermediate" },
+    { provider: "Alpha Odin", source: ALPHA_ODIN_SOURCE_URL, parser: ALPHA_ODIN_PARSER_NAME, status: "implemented" as const, note: "Official homepage cards; limited to exact, reviewed Odin Trend and Egyptian Arab Land Bank Al Masry identities" },
   ];
 }
 
@@ -1192,6 +1254,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: EBANK_SOURCE_URL, parserName: EBANK_PARSER_NAME, parse: parseEbankMarketUpdates, matchAllFunds: true },
     { sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, fetcher: fetchFabMisrPage, matchAllFunds: true, schedule: "weekly" },
     { sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
+    { sourceUrl: ALPHA_ODIN_SOURCE_URL, fetchUrl: ALPHA_ODIN_API_URL, parserName: ALPHA_ODIN_PARSER_NAME, parse: parseAlphaOdinFunds, matchAllFunds: true },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
   ]).then(summary => {
