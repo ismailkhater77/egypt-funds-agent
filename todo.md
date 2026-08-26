@@ -83,7 +83,7 @@
 - [ ] Verify current PFI prices for Housing & Development Bank (Mawared) and any matched GIG funds
 - [ ] Verify current Azimut prices for Ebank El Khabeer, Bank ABC Fund I, Ebank Fund II, Menthum, and Target Maturity 2027 USD
 - [ ] Verify Alpha Odin official NAV/valuation-date evidence for Odin Trend, Maksab tranches, and Al Masry
-- [ ] Verify whether Aton/Pharos links are authoritative and contain current NAV plus valuation dates
+- [x] Verify whether Aton/Pharos links are authoritative and contain current NAV plus valuation dates (identity supported; no current NAV/date published, so Pharos remains Pending)
 - [ ] Add only fully verified new source mappings and refresh coverage; preserve --, stale, or undated records as Pending Verification
 - [x] Reject future-dated Azimut NAV rows and add a regression test before accepting official API records
 - [ ] Quarantine previously stored future-dated Azimut snapshots as rejected without deleting audit history, then verify coverage excludes them
