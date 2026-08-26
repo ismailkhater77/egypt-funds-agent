@@ -176,3 +176,7 @@ Credit Agricole Egypt's official Mutual Fund Number 4 – Al Thiqa page exposes 
 ## Credit Agricole Al Thiqa integration result
 
 The official Credit Agricole source was added idempotently as `src_credit_agricole_thiqa`. The live collector fetched one record, matched `fund_7d36b894257db9f9` (`Crédit Agricole – Egypt Fund No.4 Balanced Fund (Al Thiqa)`), and inserted one validated snapshot: NAV 903.73 EGP, valuation date 2026-08-23. This is an independent official bank-source snapshot; the existing HC source mapping was preserved.
+
+## Run All after Credit Agricole integration
+
+A live Run All completed with status `partial` because unresolved/unavailable source rows remain, while the Pharos Facebook source remains intentionally excluded. The aggregate reported 422 fetched records, 170 matched records, 8 inserts, 118 unchanged records, 0 updates, 252 unmatched records, and 44 failed records. A subsequent read-only Supabase audit reported 215 catalog funds, 184 funds covered as of 2026-08-26, 297 validated rows, 0 future-dated validated rows, 0 same-source duplicate groups, and 46 funds without a `price_update_url`. The Al Thiqa source remained idempotent and did not create a duplicate on its second standalone run.

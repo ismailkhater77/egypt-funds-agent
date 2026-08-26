@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -169,6 +169,12 @@ describe("EFG mutual-fund parser", () => {
     const html = `<h2>Crédit Agricole Egypt Mutual Fund Number 4</h2><div>As of closing: 23 August 2026</div><div>IC Price: EGP 903.73</div><div>Updated every Sunday and Wednesday</div>`;
     expect(parseCreditAgricoleThiqa(html)).toEqual([{ name: "Crédit Agricole – Egypt Fund No.4 Balanced Fund (Al Thiqa)", rawName: "CAE Mutual Fund Number 4 – Al Thiqa", nav: 903.73, valuationDate: "2026-08-23", currency: "EGP" }]);
     expect(parseCreditAgricoleThiqa(html.replace("23 August 2026", "30 August 2026"))).toEqual([]);
+  });
+
+  it("extracts Banque du Caire Al Wefak NAV with the official update date", () => {
+    const html = `<div>تم تحديث الأسعار بتاريخ 26-August-2026</div><table><tr><td>الوفاق</td><td>45.9061</td></tr></table>`;
+    expect(parseBdcAlWefak(html)).toEqual([{ name: "Agriculural Bank of Egypt (Al Wefak)", rawName: "الوفاق", nav: 45.9061, valuationDate: "2026-08-26", currency: "EGP" }]);
+    expect(parseBdcAlWefak(html.replace("26-August-2026", "30-August-2026"))).toEqual([]);
   });
 
   it("extracts the official Aton Pharos Fund I NAV from dated Arabic post text", () => {

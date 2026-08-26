@@ -1,0 +1,64 @@
+# Current Uncovered-Fund Classification — 2026-08-26
+
+This is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before 2026-08-26. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **30**.
+
+| Metric | Count |
+| --- | ---: |
+| Current funds without a validated snapshot | 30 |
+| Recorded catalog URL exists | 2 |
+| Catalog URL is blank | 28 |
+| Confirmed parser extraction failures from an otherwise published price/date | 0 |
+| Confirmed future-date-only rejection | 1 |
+
+## Category totals
+
+| Category | Meaning | Count |
+| --- | --- | ---: |
+| LINKED_NO_PUBLISHED_NAV | رابط رسمي قائم لكن لا ينشر NAV/تاريخ قابلًا للاعتماد | 1 |
+| LINKED_GENERIC_OR_UNMAPPED | رابط قائم لكنه صفحة عامة أو غير مثبتة للمنتج المستهدف | 1 |
+| IDENTITY_UNCONFIRMED | يوجد منتج رسمي محتمل لكن هوية Fund II غير مثبتة | 1 |
+| OFFICIAL_UNDATED | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح | 7 |
+| OFFICIAL_STALE | مصدر رسمي موجود لكن NAV/المستند قديم | 6 |
+| FUTURE_DATE_ONLY | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط | 1 |
+| OFFICIAL_FETCH_BLOCKED | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا | 2 |
+| OFFICIAL_NO_CURRENT_NAV | مصدر رسمي مفحوص لا ينشر NAV حاليًا | 6 |
+| NO_OFFICIAL_CURRENT_NAV_FOUND | لم يظهر مصدر رسمي حالي لـNAV بعد البحث | 5 |
+
+## Per-fund classification
+
+| Fund | Recorded catalog URL | One controlling reason |
+| --- | --- | --- |
+| Al Ahli Bank of Kuwait - Egypt Fund II | — | يوجد منتج رسمي محتمل لكن هوية Fund II غير مثبتة |
+| Al Baraka Bank Egypt (Al Motawazen) | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
+| Aman Micro Finance | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
+| Arope Insurance Misr Fund | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
+| Aspire Rawajj | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
+| Aspire Waffrah Plus | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
+| Bank ABC Fund I | https://azimut.eg/funds | رابط رسمي قائم لكن لا ينشر NAV/تاريخ قابلًا للاعتماد |
+| Blom Bank Fund I | — | لم يظهر مصدر رسمي حالي لـNAV بعد البحث |
+| Blom Bank Fund II | — | لم يظهر مصدر رسمي حالي لـNAV بعد البحث |
+| Bokra Shakmagia | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
+| Egyptian Arab Land Bank Fund (Al Masry) | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
+| Egyptian Gulf Bank (Tharaa) | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
+| FAB Misr Fund (Ezdhar) | — | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا |
+| GIG Makaseb Fund First Tranche | — | مصدر رسمي موجود لكن NAV/المستند قديم |
+| GIG Makaseb Fund Second Tranche | — | مصدر رسمي موجود لكن NAV/المستند قديم |
+| Housing & Development Bank (Mawared) | — | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |
+| Maksab First Tranche USD $ | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
+| Maksab Second Tranche (Euro) | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
+| Market Return | — | لم يظهر مصدر رسمي حالي لـNAV بعد البحث |
+| Momentum | — | لم يظهر مصدر رسمي حالي لـNAV بعد البحث |
+| Naeem Misr Fund | — | مصدر رسمي موجود لكن NAV/المستند قديم |
+| NI Capital 15/30 | — | مصدر رسمي موجود لكن NAV/المستند قديم |
+| Odin Trend | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
+| Pharos Fund I | — | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا |
+| Pioneers Fund I | — | مصدر رسمي موجود لكن NAV/المستند قديم |
+| Prime NMOW | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
+| Sigma Traded Fund | — | لم يظهر مصدر رسمي حالي لـNAV بعد البحث |
+| Stream | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
+| The charitable education Fund | — | مصدر رسمي موجود لكن NAV/المستند قديم |
+| Zaldi Star Equity | https://zaldi-capital.com/ | رابط قائم لكنه صفحة عامة أو غير مثبتة للمنتج المستهدف |
+
+## Interpretation
+
+A blank catalog URL does **not** prove that an official source does not exist. Some blank-URL rows have already been researched and assigned a reason such as stale official evidence, an undated official table, or a blocked official endpoint. The only confirmed future-date-only case in this current set is Mawared: the official PFI page published 71.4934 EGP dated 29-Aug-2026, which is after the controlled as-of date.

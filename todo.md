@@ -120,3 +120,6 @@
 - [ ] Rerun Pharos live, coverage, duplicate audit, TypeScript, and Vitest after the server-side Facebook fetch is fixed
 
 - [x] Inspect user-confirmed Pharos Facebook URL https://www.facebook.com/share/1bstbdayA7/ and verify it redirects to the official Pharos page before using any posts as source evidence
+- [x] Produce an exact Supabase list of funds with no `price_update_url`, and separately classify linked-but-ineligible sources
+- [x] Add Banque du Caire’s official Al Wefak price feed after confirming the Agricultural Bank of Egypt / Banque du Caire fund identity; validate an idempotent snapshot write
+- [x] Classify every current no-validated-snapshot fund by linked URL, extraction failure, future-date rejection, or no source URL and report exact counts
