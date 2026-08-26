@@ -1,0 +1,12 @@
+{
+  "fund_count": 215,
+  "price_count": 329,
+  "duplicate_canonical_name_group_count": 0,
+  "duplicate_normalized_name_group_count": 0,
+  "duplicate_price_snapshot_group_count": 23,
+  "same_source_price_duplicate_group_count": 0,
+  "multi_source_price_group_count": 23,
+  "multi_source_nav_conflict_group_count": 3,
+  "has_fund_duplicates": false,
+  "has_price_duplicates": false
+}

@@ -122,6 +122,31 @@ function parseEnglishDateStrict(value: string): string {
   return date.toISOString().slice(0, 10);
 }
 
+function asOfDate(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
+/**
+ * A provider may publish the next scheduled update date beside an unchanged NAV.
+ * Never promote that future date to a valuation date. If the NAV is unchanged,
+ * reuse the previously validated actual date; otherwise reject the candidate.
+ */
+export function chooseActualValuationDate(candidateDate: string, previousValidatedDate: string | null, asOf = asOfDate()): string | null {
+  if (candidateDate <= asOf) return candidateDate;
+  if (previousValidatedDate && previousValidatedDate <= asOf) return previousValidatedDate;
+  return null;
+}
+
+type PriorValidatedSnapshot = { nav: number; currency: string; valuation_date: string };
+
+export function resolvePersistedValuationDate(candidateDate: string, nav: number, currency: string, previous: PriorValidatedSnapshot[], asOf = asOfDate()): string | null {
+  const sameNav = previous
+    .filter((row) => Number(row.nav) === nav && row.currency === currency && row.valuation_date <= asOf)
+    .sort((left, right) => right.valuation_date.localeCompare(left.valuation_date));
+  if (candidateDate > asOf) return sameNav[0]?.valuation_date ?? null;
+  return sameNav.find((row) => row.valuation_date > candidateDate)?.valuation_date ?? candidateDate;
+}
+
 function parseLocalizedNumber(value: string): number {
   const arabicDigits = value.replace(/[٠-٩]/g, digit => String("٠١٢٣٤٥٦٧٨٩".indexOf(digit)));
   return Number(arabicDigits.replace(/,/g, "").replace(/[^0-9.]/g, ""));
@@ -360,16 +385,38 @@ export function parseAbkFund(html: string): EfgRecord[] {
   return [{ name: "ABK-Egypt Equity Fund", rawName: "ABK-Egypt Equity Fund", nav, valuationDate: `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`, currency: "EGP" }];
 }
 
+type AzimutGraphPoint = [number, number];
+type AzimutFundPayload = {
+  id?: number;
+  name?: string;
+  currency?: { symbol?: string };
+  last_nav?: { nav?: number; date?: string };
+  graph?: AzimutGraphPoint[];
+};
+
+type AzimutListPayload = { response?: { funds?: { dataList?: AzimutFundPayload[] } } };
+
+function latestActualAzimutGraphPoint(graph: AzimutGraphPoint[] | undefined, asOf = asOfDate()): { nav: number; valuationDate: string } | null {
+  const points = (graph ?? [])
+    .filter((point): point is AzimutGraphPoint => Array.isArray(point) && point.length >= 2 && Number.isFinite(point[0]) && Number.isFinite(point[1]))
+    .map(([timestamp, nav]) => ({ nav, valuationDate: new Date(timestamp).toISOString().slice(0, 10) }))
+    .filter((point) => point.valuationDate <= asOf)
+    .sort((left, right) => left.valuationDate.localeCompare(right.valuationDate));
+  return points.at(-1) ?? null;
+}
+
 export function parseAzimutFunds(payload: string): EfgRecord[] {
-  const parsed = JSON.parse(payload) as { response?: { funds?: { dataList?: Array<{ name?: string; currency?: { symbol?: string }; last_nav?: { nav?: number; date?: string } }> } } };
+  const parsed = JSON.parse(payload) as AzimutListPayload;
   const funds = parsed.response?.funds?.dataList ?? [];
   return funds.flatMap((fund) => {
-    const nav = fund.last_nav?.nav;
-    const date = fund.last_nav?.date;
+    const graphPoint = latestActualAzimutGraphPoint(fund.graph);
+    const nav = graphPoint?.nav ?? fund.last_nav?.nav;
+    const date = graphPoint?.valuationDate ?? fund.last_nav?.date;
     if (!fund.name || !Number.isFinite(nav) || (nav ?? 0) < 0 || !date) return [];
     const parsedDate = new Date(date);
-    if (Number.isNaN(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) > new Date().toISOString().slice(0, 10)) return [];
-    return [{ name: fund.name, rawName: fund.name, nav: nav as number, valuationDate: parsedDate.toISOString().slice(0, 10), currency: (fund.currency?.symbol ?? "EGP").toUpperCase() }];
+    const valuationDate = Number.isNaN(parsedDate.getTime()) ? null : parsedDate.toISOString().slice(0, 10);
+    if (!valuationDate || valuationDate > asOfDate()) return [];
+    return [{ name: fund.name, rawName: fund.name, nav: nav as number, valuationDate, currency: (fund.currency?.symbol ?? "EGP").toUpperCase() }];
   });
 }
 
@@ -678,19 +725,55 @@ async function fetchExisting(fundId: string, valuationDate: string, sourceId: st
   return rows[0];
 }
 
+async function fetchLatestValidated(fundId: string, sourceId: string) {
+  const params = new URLSearchParams({
+    select: "nav,currency,valuation_date",
+    fund_id: `eq.${fundId}`,
+    source_id: `eq.${sourceId}`,
+    status: "eq.validated",
+    order: "valuation_date.desc",
+    limit: "50",
+  });
+  return supabaseRequest<Array<{ nav: number; currency: string; valuation_date: string }>>(`/rest/v1/fund_prices?${params.toString()}`);
+}
+
+async function resolveRecordForPersistence(record: EfgRecord, fund: FundRow, sourceId: string, parserName: string): Promise<{ record: EfgRecord; candidateDate: string; dateResolution: string }> {
+  const candidateDate = record.valuationDate;
+  const shouldCheckPrior = candidateDate > asOfDate() || parserName === AZIMUT_PARSER_NAME;
+  if (!shouldCheckPrior) return { record, candidateDate, dateResolution: "provider_actual_date" };
+
+  const previous = await fetchLatestValidated(fund.fund_id, sourceId);
+  const persistedDate = resolvePersistedValuationDate(candidateDate, record.nav, record.currency, previous);
+  if (!persistedDate) {
+    throw new Error(`Provider supplied future date ${candidateDate} without a prior validated snapshot at the same NAV`);
+  }
+  return {
+    record: persistedDate === candidateDate ? record : { ...record, valuationDate: persistedDate },
+    candidateDate,
+    dateResolution: persistedDate === candidateDate ? "provider_actual_date" : candidateDate > asOfDate() ? "prior_validated_date_for_future_schedule" : "existing_validated_date_for_same_nav",
+  };
+}
+
 async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string, sourceUrl: string, parserName: string): Promise<"inserted" | "unchanged" | "updated"> {
-  const existing = await fetchExisting(fund.fund_id, record.valuationDate, sourceId);
-  if (existing && Number(existing.nav) === record.nav) return "unchanged";
+  const resolved = await resolveRecordForPersistence(record, fund, sourceId, parserName);
+  const persistedRecord = resolved.record;
+  const existing = await fetchExisting(fund.fund_id, persistedRecord.valuationDate, sourceId);
+  if (existing && Number(existing.nav) === persistedRecord.nav) return "unchanged";
   const payload = {
     fund_id: fund.fund_id,
-    nav: record.nav,
-    currency: record.currency,
-    valuation_date: record.valuationDate,
+    nav: persistedRecord.nav,
+    currency: persistedRecord.currency,
+    valuation_date: persistedRecord.valuationDate,
     source_id: sourceId,
     parser_name: parserName,
     status: "validated",
-    raw_name: record.rawName,
-    raw_payload: { source_url: sourceUrl, extracted_name: record.rawName },
+    raw_name: persistedRecord.rawName,
+    raw_payload: {
+      source_url: sourceUrl,
+      extracted_name: persistedRecord.rawName,
+      candidate_valuation_date: resolved.candidateDate,
+      date_resolution: resolved.dateResolution,
+    },
   };
   if (existing) {
     await supabaseRequest(`/rest/v1/fund_prices?id=eq.${encodeURIComponent(existing.id)}`, {
@@ -735,6 +818,32 @@ function fetchCiCapital(url: string): Promise<globalThis.Response> {
     req.on("error", reject);
     req.end();
   });
+}
+
+async function fetchAzimutWithHistory(url: string): Promise<globalThis.Response> {
+  const response = await fetch(url, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "application/json" } });
+  if (!response.ok) return response;
+  const payload = await response.json() as AzimutListPayload;
+  const funds = payload.response?.funds?.dataList ?? [];
+  const enrichedFunds = await Promise.all(funds.map(async (fund) => {
+    if (!fund.id) return fund;
+    try {
+      const detailResponse = await fetch(`https://app.azimut.eg/api/fund/${fund.id}`, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "application/json" } });
+      if (!detailResponse.ok) return fund;
+      const detail = await detailResponse.json() as { response?: { fund?: { graph?: AzimutGraphPoint[] } } };
+      const graph = detail.response?.fund?.graph;
+      return graph?.length ? { ...fund, graph } : fund;
+    } catch {
+      return fund;
+    }
+  }));
+  return new globalThis.Response(JSON.stringify({
+    ...payload,
+    response: {
+      ...payload.response,
+      funds: { ...payload.response?.funds, dataList: enrichedFunds },
+    },
+  }), { status: response.status, headers: { "content-type": "application/json" } });
 }
 
 async function runCombinedCollectors(configs: CollectorConfig[]): Promise<RunSummary> {
@@ -823,7 +932,7 @@ export function runHcCollector(): Promise<RunSummary> {
 }
 
 export function runAzimutCollector(): Promise<RunSummary> {
-  return runCollector({ sourceUrl: AZIMUT_SOURCE_URL, fetchUrl: AZIMUT_API_URL, parserName: AZIMUT_PARSER_NAME, parse: parseAzimutFunds });
+  return runCollector({ sourceUrl: AZIMUT_SOURCE_URL, fetchUrl: AZIMUT_API_URL, parserName: AZIMUT_PARSER_NAME, parse: parseAzimutFunds, fetcher: fetchAzimutWithHistory });
 }
 
 export function runAbkCollector(): Promise<RunSummary> {
@@ -910,7 +1019,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: CI_URL, parserName: CI_PARSER_NAME, parse: parseCiCapitalFunds },
     { sourceUrl: AFIM_URL, parserName: AFIM_PARSER_NAME, parse: parseAfimFunds },
     { sourceUrl: HC_SOURCE_URL, fetchUrl: HC_FETCH_URL, parserName: HC_PARSER_NAME, parse: parseHcFunds },
-    { sourceUrl: AZIMUT_SOURCE_URL, fetchUrl: AZIMUT_API_URL, parserName: AZIMUT_PARSER_NAME, parse: parseAzimutFunds },
+    { sourceUrl: AZIMUT_SOURCE_URL, fetchUrl: AZIMUT_API_URL, parserName: AZIMUT_PARSER_NAME, parse: parseAzimutFunds, fetcher: fetchAzimutWithHistory },
     { sourceUrl: AAIM_SOURCE_URL, fetchUrl: AAIM_FETCH_URL, parserName: "aaim_fund_cards_v1", parse: parseAaimFunds },
     { sourceUrl: MUBASHER_SOURCE_URL, parserName: MUBASHER_PARSER_NAME, parse: parseMubasherFunds },
     ...MUBASHER_CATEGORY_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: MUBASHER_DAILY_PARSER_NAME, parse: parseMubasherDailyArticle, matchAllFunds: true })),

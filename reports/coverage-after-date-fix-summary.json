@@ -1,0 +1,41 @@
+{
+  "as_of_date": "2026-08-26",
+  "file_fund_count": 198,
+  "database_fund_count": 215,
+  "database_price_row_count": 329,
+  "matched_to_database_count": 198,
+  "covered_with_validated_price_count": 168,
+  "not_covered_count": 30,
+  "unmatched_or_ambiguous_count": 0
+}
+--- NOT COVERED ---
+20	Bank ABC Fund I	exact	
+22	Blom Bank Fund I	exact	
+23	Pharos Fund I	exact	
+24	Pioneers Fund I	exact	
+32	Momentum	exact	
+33	Odin Trend	exact	
+38	Aspire Waffrah Plus	exact	
+48	Naeem Misr Fund	exact	
+49	Agriculural Bank of Egypt (Al Wefak)	exact	
+63	Al Ahli Bank of Kuwait - Egypt Fund II	exact	
+66	Blom Bank Fund II	exact	
+69	Housing & Development Bank (Mawared)	exact	
+72	Egyptian Gulf Bank (Tharaa)	exact	
+76	Arope Insurance Misr Fund	exact	
+88	Aman Micro Finance	exact	
+105	Aspire Rawajj	exact	
+110	GIG Makaseb Fund First Tranche	exact	
+111	GIG Makaseb Fund Second Tranche	exact	
+119	Egyptian Arab Land Bank Fund (Al Masry)	exact	
+125	NI Capital 15/30	exact	
+131	Stream	exact	
+146	Al Baraka Bank Egypt (Al Motawazen)	exact	
+147	FAB Misr Fund (Ezdhar)	exact	
+149	Sigma Traded Fund	exact	
+159	Prime NMOW	exact	
+180	Maksab First Tranche USD $	exact	
+184	Maksab Second Tranche (Euro)	exact	
+188	The charitable education Fund	exact	
+197	Bokra Shakmagia	exact	
+199	Market Return	exact	

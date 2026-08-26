@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseScbFundRates, runFabMisrCollector, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseScbFundRates, runFabMisrCollector, runBeltoneCollector, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -56,6 +56,35 @@ describe("EFG mutual-fund parser", () => {
       valuationDate: "2026-08-23",
       currency: "EGP",
     }]);
+  });
+
+  it("keeps B-Cobonat on its prior actual date when Beltone changes only the scheduled update date", () => {
+    const firstRunHtml = `<div class="flex items-center justify-between w-full"><a><p>Beltone 2nd tranche &quot;B-Cobonat&quot; Fund</p></a><div><p>1.02</p><p>2026-07-16</p><p>2026-08-23</p><p>-</p></div></div>`;
+    const secondRunHtml = firstRunHtml.replace("2026-08-23", "2026-08-30");
+    const first = parseBeltoneFunds(firstRunHtml)[0];
+    const second = parseBeltoneFunds(secondRunHtml)[0];
+    expect(first).toMatchObject({ nav: 1.02, valuationDate: "2026-08-23" });
+    expect(second).toMatchObject({ nav: 1.02, valuationDate: "2026-08-30" });
+    expect(chooseActualValuationDate(second.valuationDate, first.valuationDate, "2026-08-26")).toBe("2026-08-23");
+  });
+
+  it("does not promote future HC and Zaldi dates when the NAV is unchanged", () => {
+    const hc = parseHcSponsor(`<h3>FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity</h3><div>Price per certificate as of Date 540.95951 - 2026-08-29</div>`)[0];
+    const zaldi = parseZaldiFund(`<h1>Zaldi Star _IC</h1><div>NAV/UNIT : 112.65609 EGP</div><div>Date: 30/8/2026</div>`)[0];
+    expect(chooseActualValuationDate(hc.valuationDate, "2026-08-22", "2026-08-26")).toBe("2026-08-22");
+    expect(chooseActualValuationDate(zaldi.valuationDate, "2026-08-26", "2026-08-26")).toBe("2026-08-26");
+  });
+
+  it("uses Azimut graph's latest actual NAV instead of future last_nav date", () => {
+    const payload = JSON.stringify({ response: { funds: { dataList: [
+      {
+        name: "az- حالا",
+        currency: { symbol: "EGP" },
+        last_nav: { nav: 1.81142, date: "2026-08-30" },
+        graph: [[Date.parse("2026-08-25T12:00:00Z"), 1.81055], [Date.parse("2026-08-30T12:00:00Z"), 1.81142]],
+      },
+    ] } } });
+    expect(parseAzimutFunds(payload)).toEqual([{ name: "az- حالا", rawName: "az- حالا", nav: 1.81055, valuationDate: "2026-08-25", currency: "EGP" }]);
   });
 
   it("extracts AFIM price and valuation date from the detail page", async () => {
@@ -177,6 +206,36 @@ describe("EFG mutual-fund parser", () => {
     expect(result.matched).toHaveLength(1);
     expect(result.unmatched).toEqual(["Unknown Fund"]);
     expect(normalize(" EFG-Hermes Equity Fund ")).toBe("efg hermes equity fund");
+  });
+
+  it("resolves a future Beltone schedule end-to-end as unchanged against the prior actual snapshot", async () => {
+    const html = `<div class="flex items-center justify-between w-full"><a><p>Beltone 2nd tranche &quot;B-Cobonat&quot; Fund</p></a><div><p>1.02</p><p>2026-07-16</p><p>2026-08-30</p><p>-</p></div></div>`;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url === "https://www.beltoneholding.com/business-line/asset-management-1") return new Response(html, { status: 200 });
+      if (url.includes("/rest/v1/funds?")) return new Response(JSON.stringify([{ fund_id: "fund-b-cobonat", canonical_name: "Beltone 2nd tranche B-Cobonat Fund", eima_name_raw: null, category: "fixed income", price_update_url: "https://www.beltoneholding.com/business-line/asset-management-1" }]), { status: 200 });
+      if (url.includes("/rest/v1/sources?")) return new Response(JSON.stringify([{ source_id: "source-beltone" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?") && url.includes("status=eq.validated")) return new Response(JSON.stringify([{ nav: 1.02, currency: "EGP", valuation_date: "2026-08-23" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?")) return new Response(JSON.stringify([{ id: "prior-b-cobonat", nav: 1.02 }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices") && init?.method === "POST") return new Response(null, { status: 204 });
+      return new Response(JSON.stringify([]), { status: 200 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const summary = await runBeltoneCollector();
+    expect(summary).toMatchObject({ status: "success", fetchedRecords: 1, matchedRecords: 1, inserted: 0, unchanged: 1, updated: 0, failed: [] });
+    expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/rest/v1/fund_prices") && init?.method === "POST")).toBe(false);
+    vi.unstubAllGlobals();
+  });
+
+  it("resolves future scheduled dates only against the same NAV and currency", () => {
+    const prior = [
+      { nav: 1.02, currency: "EGP", valuation_date: "2026-08-23" },
+      { nav: 1.02, currency: "EGP", valuation_date: "2026-08-26" },
+      { nav: 1.02, currency: "USD", valuation_date: "2026-08-25" },
+    ];
+    expect(resolvePersistedValuationDate("2026-08-30", 1.02, "EGP", prior, "2026-08-26")).toBe("2026-08-26");
+    expect(resolvePersistedValuationDate("2026-08-30", 1.03, "EGP", prior, "2026-08-26")).toBeNull();
+    expect(resolvePersistedValuationDate("2026-08-25", 1.02, "EGP", prior, "2026-08-26")).toBe("2026-08-26");
   });
 
   it("counts a repeated identical snapshot as unchanged and preserves exact counters", () => {
