@@ -1,0 +1,12 @@
+const baseUrl = process.env.SUPABASE_URL;
+const secret = process.env.SUPABASE_SERVICE_ROLE_KEY;
+if (!baseUrl || !secret) throw new Error('Supabase server configuration is missing');
+const sourceUrl = 'https://www.beltoneholding.com/business-line/asset-management-1';
+const headers = { apikey: secret, Authorization: `Bearer ${secret}`, 'Content-Type': 'application/json' };
+const sourceResponse = await fetch(`${baseUrl}/rest/v1/sources?select=source_id&source_url=eq.${encodeURIComponent(sourceUrl)}&limit=1`, { headers });
+if (!sourceResponse.ok) throw new Error(`source lookup failed: ${sourceResponse.status}`);
+const sourceId = (await sourceResponse.json())[0]?.source_id;
+if (!sourceId) throw new Error('Beltone source missing');
+const response = await fetch(`${baseUrl}/rest/v1/funds?canonical_name=eq.${encodeURIComponent("ADIB Egypt Shari'a Compliant (Al Nahrda Fund)")}`, { method: 'PATCH', headers: { ...headers, Prefer: 'return=minimal' }, body: JSON.stringify({ source_id: sourceId, price_update_url: sourceUrl }) });
+if (!response.ok) throw new Error(`ADIB link failed: ${response.status} ${(await response.text()).slice(0, 300)}`);
+console.log(JSON.stringify({ linked: true, canonical_name: "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)", sourceId }, null, 2));

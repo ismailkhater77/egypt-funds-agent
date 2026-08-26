@@ -318,7 +318,7 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "saib money market fund": "saib yaumy fund",
     "attijariwafa bank money market fund": "attijariwafa bankfund",
     "beltone 3rd tranche b yawmy fund": "b youmy",
-    "adib islamic": "adib islamic",
+    "adib islamic": "adib egypt shari'a compliant al nahrda fund",
     "egx 30 etf": "egx30 index etf egx30 index etf",
     "beltone egx33 wafra shariah tracker": "beltone egx33 shariah index tracker wafra",
     "beltone egx100 tracker": "beltone egx100 index tracker meya meya",

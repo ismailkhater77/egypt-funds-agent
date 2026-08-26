@@ -12,7 +12,7 @@
 - [ ] Confirm the compromised Supabase secret was revoked and document that only the replacement key is active
 - [x] Add Vitest coverage for fund-name matching, idempotent unchanged writes, and run-summary counters
 - [x] Implement and validate CI Capital fund-price parser for all mapped CI records
-- [ ] Resolve Beltone ADIB Islamic and Beltone Gems USD records with explicit source mappings before final provider validation
+- [x] Resolve Beltone ADIB Islamic and Beltone Gems USD records with explicit source mappings before final provider validation
 - [x] Implement and validate AFIM fund-price parser for all mapped AFIM records
 - [x] Correct and validate Zaldi fund-specific mappings and parsers
 - [x] Investigate and implement Beltone, Azimut, Arab African, and HC source parsers or mark unavailable records explicitly
