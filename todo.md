@@ -24,6 +24,6 @@
 - [x] Emit exact matched-fund counts and matched fund IDs in provider run summaries for precise coverage reporting
 - [x] Re-check AAIM official NAV source and implement or explicitly document unavailable status
 - [x] Re-check CI Capital official TLS, HTTP, and alternate-domain endpoints and implement a secure verified fallback if available
-- [ ] Verify CI completeness against all funds mapped to the CI source and add an idempotent second-run assertion
-- [ ] Replace CI card parser with the official Fund Type/Fund Name/Price table parser and add a real HTML fixture test
-- [ ] Add explicit CI mappings for Banque Misr Money Market Fund (EUR) and PBD & Banque du Caire (Al Wefak), then rerun completeness validation
+- [x] Verify CI completeness against all funds mapped to the CI source and add an idempotent second-run assertion
+- [x] Replace CI card parser with the official Fund Type/Fund Name/Price table parser and add a real HTML fixture test
+- [x] Add explicit CI mappings for Banque Misr Money Market Fund (EUR) and PBD & Banque du Caire (Al Wefak), then rerun completeness validation
