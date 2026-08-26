@@ -43,3 +43,11 @@ Prime's official page identifies the first Prime equity issue (Prime Nمو) and 
 The official AROPE Life Insurance Egypt page confirms Arope Money Market Fund and states that it is managed by ABC Egypt Investments, but it publishes no NAV or valuation date. It remains Pending Verification.
 
 The official CIB Aman page confirms Aman Fund as an Islamic equity fund sponsored by CIB and Faisal Bank and managed by CI Capital Asset Management. It provides a fact-sheet link and product details but no current NAV or explicit valuation date in the page content. This identity does not prove the separate workbook record `Aman Micro Finance`, so no value was mapped or stored.
+
+## CIB Aman official fact sheet
+
+Official source: https://www.cibeg.com/-/media/project/downloads/personal/funds/most-recent-fact-sheets/aman-fund-fact-sheet.pdf
+
+The first-party CIB/CI Capital fact sheet states `Aman Fund`, managed by CI Capital Asset Management, with official NAV per share **503.476 EGP** and date **31/07/2026**. This is valid official dated NAV evidence for CIB/Faisal Aman Fund, but the workbook's uncovered record is named `Aman Micro Finance`, a different identity. The value was therefore not mapped without explicit identity proof.
+
+The database record for `Aman Micro Finance` explicitly lists `Prime Investments` as management company, while the official CIB Aman fact sheet lists CI Capital Asset Management. This confirms an identity mismatch, so the valid CIB Aman NAV was correctly not assigned to Aman Micro Finance.
