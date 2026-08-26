@@ -103,3 +103,7 @@ The official Alpha Odin site confirms fund-management activity and lists public 
 ## Follow-up on NI/GIG/FAB search
 
 The latest search found an official NI Capital 15/30 fact sheet dated July 2025 and an official NI article dated November 2023, neither of which is a current valuation dated 2026-08-26. Results for GIG Makaseb came from secondary fund aggregators rather than an official GIG or manager NAV feed. Results for FAB Misr Ezdhar repeated NAV 472.699 as at 22 August 2026 through secondary/social pages; the official FAB endpoint remains inaccessible from the server because of DNS. No new validated snapshot was written.
+
+## Mubasher Capital official-site recheck
+
+The official Mubasher Capital homepage and its `/mutual-funds` section identify a Bahrain-regulated investment firm and describe mutual-fund services, but the accessible content contains no Egypt-specific fund NAV table and no valuation-date field. The site therefore does not qualify as a direct dated NAV source for the Egyptian Mubasher fund records. Mubasherfunds.info and Mubasher news articles remain separate publication channels and were not upgraded to primary-manager status by this inspection.
