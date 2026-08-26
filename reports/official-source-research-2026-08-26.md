@@ -69,3 +69,15 @@ The current PFI page explicitly labels NAV per certificate and dates. GIG Equity
 Official URL: https://www.naeemholding.com/asset-management/investment-offerings/our-funds/al-baraka-fund/
 
 The official Naeem page identifies Al Baraka Fund as an open-ended Egyptian balanced Sharia-compliant fund, managed by AT Financial Investments, with weekly subscription/redemption through Al Baraka Bank. It publishes historical return statistics and a 2017 fact sheet link, but no current NAV or explicit current valuation date. The catalog record `Al Baraka Bank Egypt (Al Motawazen)` remains Pending Verification; no third-party NAV was used.
+
+## NI Capital official fact-sheet recheck
+
+Official page: https://nicapital.com.eg/lines-of-business/asset-management/
+
+The current NI Capital page links first-party Fact Sheets for the uncovered funds. The 15/30 sheet reports IC Price 19.27594, the GIG Makaseb sheet reports 18.29768 (first tranche) and 18.22678 (second tranche), and the National Charitable Investment Fund for Education sheet reports IC price 186.3485. However, all three documents are explicitly labeled **December 2025** and do not provide a current 26-Aug-2026 valuation date. They are therefore useful official identity evidence but stale for the daily NAV objective; no snapshots were inserted and NI Capital 15/30, Makaseb tranches, and Education for Life remain Pending Verification.
+
+## Stream / Cairo Capital
+
+Official URL: https://cairocapitalgroup.com/
+
+The official Cairo Capital Group website loads the firm's verticals, insights/news, and contact sections, but no current NAV or explicit valuation date for Stream is published in the accessible content. The catalog record `Stream` (CFH Asset Management) remains Pending Verification; secondary market pages were not used.
