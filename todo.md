@@ -21,3 +21,5 @@
 - [x] Replace the legacy Beltone mapping URL with the currently verified official asset-management page and add a Beltone parser integration task
 - [x] Verify AFIM completeness by comparing all Supabase/imported AFIM-mapped funds against extracted AFIM records, and fail/report any mapped fund missing from source output
 - [x] Add Vitest coverage for AFIM parsing and AFIM fund-name matching using real-like HTML/detail fixtures
+- [x] Emit exact matched-fund counts and matched fund IDs in provider run summaries for precise coverage reporting
+- [x] Re-check AAIM official NAV source and implement or explicitly document unavailable status

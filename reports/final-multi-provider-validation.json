@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T20:50:24.782Z",
+  "generatedAt": "2026-08-26T05:28:08.512Z",
   "purpose": "Final pre-deployment multi-provider validation",
   "policy": "Only official provider data is persisted; blocked or unavailable sources are reported and never fabricated.",
   "providers": [
@@ -10,18 +10,47 @@
       "status": "implemented",
       "note": "Official HTML table",
       "run": {
-        "runId": "70d6364a-9186-4ef6-a0c0-8e46a9e5c9eb",
-        "startedAt": "2026-08-25T20:48:49.068Z",
+        "runId": "39738bd9-ea50-425b-849d-f74a284713f7",
+        "startedAt": "2026-08-26T05:26:16.785Z",
         "status": "success",
         "source": "https://efgholding.com/en/our-services/mutual-funds",
         "parser": "efg_html_table_v1",
         "fetchedRecords": 26,
+        "matchedRecords": 26,
+        "matchedFundIds": [
+          "fund_75f480cb1cc5346b",
+          "fund_7cc6304e5269054b",
+          "fund_009606a871333aa4",
+          "fund_a4a7277af28c4ba3",
+          "fund_e23ea10475bd65e7",
+          "fund_5250f3711dadc2a6",
+          "fund_8890dc47a4febaea",
+          "fund_c89c74ac6157383b",
+          "fund_7799d127d2e3fafa",
+          "fund_44166931f38ee123",
+          "fund_19d6487e194e32b5",
+          "fund_d1eb6c122d182dcb",
+          "fund_f8f71290ee431793",
+          "fund_a8f3a08e143e8ca5",
+          "fund_43f33bd3196adab7",
+          "fund_aebc19e10d1526dd",
+          "fund_54d2af279fd38f33",
+          "fund_3e250209bb10955c",
+          "fund_dacab30de94875f4",
+          "fund_ffd69f146b1a9cb9",
+          "fund_3284023fbe6c1899",
+          "fund_e6b8f19b34ef9ea5",
+          "fund_44d31baa2f135a94",
+          "fund_19f4c3f8a68ba311",
+          "fund_addb8d2de283e26b",
+          "fund_f517786d76dc74dc"
+        ],
         "inserted": 0,
         "unchanged": 26,
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-25T20:48:58.372Z"
+        "finishedAt": "2026-08-26T05:26:28.464Z"
       }
     },
     {
@@ -31,12 +60,43 @@
       "status": "implemented",
       "note": "Official fund sheet",
       "run": {
-        "runId": "63dbce7c-f7c4-46d2-951f-15521f531075",
-        "startedAt": "2026-08-25T20:48:58.372Z",
+        "runId": "d5350cc3-6fee-4843-ae2f-a2a2f4be45ec",
+        "startedAt": "2026-08-26T05:26:28.464Z",
         "status": "partial",
         "source": "https://www.beltoneholding.com/business-line/asset-management-1",
         "parser": "beltone_fund_sheet_v1",
         "fetchedRecords": 30,
+        "matchedRecords": 28,
+        "matchedFundIds": [
+          "fund_c330bbe2271df519",
+          "fund_ddc5d394505a99b7",
+          "fund_1bbc98b369114e95",
+          "fund_d248d4b02433f626",
+          "fund_98f867d45b6b4ecd",
+          "fund_b312b6dcabf028f6",
+          "fund_458f7f604809eb89",
+          "fund_6e2602dc275c6aa6",
+          "fund_8d7fb095eec2e9ed",
+          "fund_7f9c790e19a85c26",
+          "fund_5db2afe47b118793",
+          "fund_eb6d028c9161f545",
+          "fund_4ffe13e99f4fc1d7",
+          "fund_a824eaf1e65870b5",
+          "fund_677538b0d0f1aac4",
+          "fund_01c26dadf463c6f9",
+          "fund_21e3c6b23e6f074a",
+          "fund_a14b1984e6ee491f",
+          "fund_5f870a3631b4f621",
+          "fund_69861fed8a7bc96f",
+          "fund_e0c61fcc066e02ae",
+          "fund_58307ef8e9ea2272",
+          "fund_5138e12acac03d95",
+          "fund_d276dbadffdb507f",
+          "fund_5bf58206c8e6cab7",
+          "fund_47d56bf6fa1027de",
+          "fund_5f9867233e699077",
+          "fund_273f8757bddb9973"
+        ],
         "inserted": 0,
         "unchanged": 28,
         "updated": 0,
@@ -45,7 +105,7 @@
           "Beltone Gems Equity Fund- USD"
         ],
         "failed": [],
-        "finishedAt": "2026-08-25T20:49:09.373Z"
+        "finishedAt": "2026-08-26T05:26:40.671Z"
       }
     },
     {
@@ -55,18 +115,34 @@
       "status": "implemented",
       "note": "Official detail pages",
       "run": {
-        "runId": "e63c0620-24c8-4cfe-ac4a-0ad95f2f2ea5",
-        "startedAt": "2026-08-25T20:49:09.373Z",
+        "runId": "71623530-ccf8-442e-b2f5-eff144244e25",
+        "startedAt": "2026-08-26T05:26:40.671Z",
         "status": "success",
         "source": "https://www.afim.com.eg/public/index.php/investment",
         "parser": "afim_detail_pages_v1",
         "fetchedRecords": 13,
+        "matchedRecords": 13,
+        "matchedFundIds": [
+          "fund_e42f345f7bffd172",
+          "fund_3892077415908a70",
+          "fund_3c02c00fe3d0e17f",
+          "fund_4c30fe8a694e6d87",
+          "fund_49ae7cc7867eed20",
+          "fund_61b3c8b926dce88d",
+          "fund_93b839afbc5e4290",
+          "fund_7090c320a549df5c",
+          "fund_ecdb9f8262d72ce7",
+          "fund_29d32f37da9ab72a",
+          "fund_31ea749d92554ea8",
+          "fund_be23bf789e4c5d6b",
+          "fund_3b007e03cf3d8988"
+        ],
         "inserted": 0,
         "unchanged": 13,
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-25T20:50:06.678Z"
+        "finishedAt": "2026-08-26T05:27:46.787Z"
       }
     },
     {
@@ -76,18 +152,23 @@
       "status": "implemented",
       "note": "Official fund pages",
       "run": {
-        "runId": "07019c9f-a4e2-40a7-93af-c46520ee5b2b,81ca731b-f7dc-4b3e-9064-874d38affecf",
-        "startedAt": "2026-08-25T20:50:06.679Z",
+        "runId": "01151b8f-8e2e-4c35-997e-a03ed4429676,77a28608-4b79-4b67-96da-80ec2b07e7ef",
+        "startedAt": "2026-08-26T05:27:46.787Z",
         "status": "success",
         "source": "https://zaldi-capital.com/zaldi-star/",
         "parser": "zaldi_detail_page_v1",
         "fetchedRecords": 2,
+        "matchedRecords": 2,
+        "matchedFundIds": [
+          "fund_3729c5fb2587a803",
+          "fund_1e30d07a3be5bc69"
+        ],
         "inserted": 0,
         "unchanged": 2,
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-25T20:50:09.518Z"
+        "finishedAt": "2026-08-26T05:27:50.485Z"
       }
     },
     {
@@ -97,18 +178,40 @@
       "status": "implemented",
       "note": "Official API",
       "run": {
-        "runId": "6632fcee-550a-4aa3-a1de-246839739059",
-        "startedAt": "2026-08-25T20:50:09.523Z",
+        "runId": "e29efc0f-a9ef-4296-b81e-05f694b3045f",
+        "startedAt": "2026-08-26T05:27:51.229Z",
         "status": "success",
         "source": "https://azimut.eg/funds",
         "parser": "azimut_fund_api_v1",
         "fetchedRecords": 19,
+        "matchedRecords": 19,
+        "matchedFundIds": [
+          "fund_azimut_b7a56873cd771f2c",
+          "fund_azimut_c2356069e9d1e79c",
+          "fund_a68c44781bf3f565",
+          "fund_d2870f20c8658b00",
+          "fund_9ebcd523fc49a4c3",
+          "fund_98e4d067c5c77b65",
+          "fund_ec01acace56cb648",
+          "fund_7984dd2a845f904f",
+          "fund_69768837ab21ae45",
+          "fund_594b8151365a5058",
+          "fund_63b2d19280bbf1bb",
+          "fund_azimut_3fdba35f04dc8c46",
+          "fund_d5278f42f53f168d",
+          "fund_azimut_4a44dc15364204a8",
+          "fund_azimut_19581e27de7ced00",
+          "fund_6293926e9cfd4869",
+          "fund_5549b9417edff89d",
+          "fund_cd774486b2708c4c",
+          "fund_33f6632a1feaada7"
+        ],
         "inserted": 0,
         "unchanged": 19,
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-25T20:50:16.396Z"
+        "finishedAt": "2026-08-26T05:27:59.131Z"
       }
     },
     {
@@ -118,18 +221,28 @@
       "status": "implemented",
       "note": "Official AJAX listing",
       "run": {
-        "runId": "ea4d88f7-0e41-48f3-a49b-073de4a178e2",
-        "startedAt": "2026-08-25T20:50:16.396Z",
+        "runId": "d00ba3ed-28ae-41e1-b0d7-06b8f5a5c648",
+        "startedAt": "2026-08-26T05:27:59.131Z",
         "status": "success",
         "source": "https://www.hc-si.com/Service/asset-management#funds",
         "parser": "hc_sponsor_ajax_v1",
         "fetchedRecords": 7,
+        "matchedRecords": 7,
+        "matchedFundIds": [
+          "fund_911baed193599096",
+          "fund_572c49594f78c71c",
+          "fund_472ddcd8c94d7ed3",
+          "fund_db51b3c5dedb115e",
+          "fund_8267d32e1a907f71",
+          "fund_a489be10a3161f80",
+          "fund_7d36b894257db9f9"
+        ],
         "inserted": 0,
         "unchanged": 7,
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-25T20:50:22.883Z"
+        "finishedAt": "2026-08-26T05:28:06.082Z"
       }
     },
     {
@@ -139,19 +252,21 @@
       "status": "blocked",
       "note": "Official host currently fails TLS certificate validation; no alternate verified endpoint",
       "run": {
-        "runId": "e916e58a-eeb6-46f4-a45f-3d12977fe648",
-        "startedAt": "2026-08-25T20:50:22.883Z",
+        "runId": "ba19953c-b5a6-4895-9851-33dbaea3c2d3",
+        "startedAt": "2026-08-26T05:28:06.082Z",
         "status": "failed",
         "source": "https://www.cicapital.com/fundprice/",
         "parser": "ci_capital_fundprice_v1",
         "fetchedRecords": 0,
+        "matchedRecords": 0,
+        "matchedFundIds": [],
         "inserted": 0,
         "unchanged": 0,
         "updated": 0,
         "unmatched": [],
         "failed": [],
         "fetchError": "fetch failed",
-        "finishedAt": "2026-08-25T20:50:24.782Z"
+        "finishedAt": "2026-08-26T05:28:08.512Z"
       }
     },
     {

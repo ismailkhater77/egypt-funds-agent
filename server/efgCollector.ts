@@ -12,7 +12,8 @@ const AZIMUT_API_URL = "https://app.azimut.eg/api/fund/list?size=100&web=true";
 const HC_SOURCE_URL = "https://www.hc-si.com/Service/asset-management#funds";
 const HC_FETCH_URL = "https://www.hc-si.com/Service/asset-management";
 const HC_AJAX_URL = "https://www.hc-si.com/wp-admin/admin-ajax.php";
-const AAIM_SOURCE_URL = "https://aaim.com.eg/";
+const AAIM_SOURCE_URL = "https://aaim.com.eg/ar/what-we-offer/funds";
+const AAIM_FETCH_URL = "https://aaim.com.eg/en/what-we-offer/funds";
 const EFG_PARSER_NAME = "efg_html_table_v1";
 const CI_PARSER_NAME = "ci_capital_fundprice_v1";
 const AFIM_PARSER_NAME = "afim_detail_pages_v1";
@@ -45,6 +46,8 @@ export type RunSummary = {
   source: string;
   parser: string;
   fetchedRecords: number;
+  matchedRecords: number;
+  matchedFundIds: string[];
   inserted: number;
   unchanged: number;
   updated: number;
@@ -182,6 +185,30 @@ export function parseZaldiFund(html: string): EfgRecord[] {
   return [{ name, rawName: name, nav, valuationDate: `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`, currency: "EGP" }];
 }
 
+function parseEnglishDate(value: string): string | null {
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString().slice(0, 10);
+}
+
+export function parseAaimFunds(html: string): EfgRecord[] {
+  const records: EfgRecord[] = [];
+  const cardPattern = new RegExp(String.raw`<a[^>]+href="([^"]*/funds/[^"]+)"[^>]*>([\s\S]*?)</a>`, "gi");
+  for (const match of Array.from(html.matchAll(cardPattern))) {
+    const rawCard = match[2] ?? "";
+    const rawName = rawCard.match(/<h3 class="name[^>]*>\s*([^<]+?)\s*<\/h3>/i)?.[1];
+    const rawNav = rawCard.match(/<div class="price">\s*([0-9.,]+)\s*<\/div>/i)?.[1];
+    const rawCurrency = rawCard.match(/<div class="currency[^>]*>\s*([^<]+?)\s*<\/div>/i)?.[1];
+    const rawDate = rawCard.match(/Last update\s+(\d{1,2}\s+[A-Za-z]+,\s+\d{4})/i)?.[1];
+    const nav = Number(rawNav?.replace(/,/g, ""));
+    const valuationDate = rawDate ? parseEnglishDate(rawDate) : null;
+    if (!rawName || !rawCurrency || !Number.isFinite(nav) || nav < 0 || !valuationDate) continue;
+    records.push({ name: rawName.trim(), rawName: rawName.trim(), nav, valuationDate, currency: rawCurrency.trim().toUpperCase() });
+  }
+  const unique = new Map<string, EfgRecord>();
+  for (const record of records) unique.set(`${normalize(record.name)}|${record.valuationDate}`, record);
+  return Array.from(unique.values());
+}
+
 export function parseAzimutFunds(payload: string): EfgRecord[] {
   const parsed = JSON.parse(payload) as { response?: { funds?: { dataList?: Array<{ name?: string; currency?: { symbol?: string }; last_nav?: { nav?: number; date?: string } }> } } };
   const funds = parsed.response?.funds?.dataList ?? [];
@@ -274,6 +301,21 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "Maashy": "*maashy",
     "bank nxt - sanady": "bank nxt fund iii (sanady)",
     "crédit agricole &#8211; egypt fund no 4 balanced fund al thiqa": "credit agricole bank egypt balanced fund no 4",
+    "shield": "arab african international bank shield",
+    "juman": "arab african international bank juman",
+    "iskan": "iskan insurance",
+    "gozoor": "aaib gozoor",
+    "guard": "arab african international bank guard",
+    "kenz foras": "kenz foras equity",
+    "sarwaty": "sarwaty*",
+    "gosour": "gosour equity",
+    "bond$": "bonds fixed income usd fund",
+    "istsmar w aman": "misr insurance istithmar and aman",
+    "el fanar": "fanar",
+    "al tameer": "housing & development bank al tameer",
+    "kenz shariah": "kenoz egx33 shariah index tracker shariah",
+    "kenz egx70 ewi": "kenz egx70 ewi",
+    "kenz egx35 lv": "kenz egx35 lv",
   };
   for (const fund of funds) {
     byName.set(normalize(fund.canonical_name), fund);
@@ -370,6 +412,8 @@ async function runCombinedCollectors(configs: CollectorConfig[]): Promise<RunSum
     runId: `${combined.runId},${summary.runId}`,
     status: combined.status === "failed" || summary.status === "failed" ? "failed" : combined.status === "partial" || summary.status === "partial" ? "partial" : "success",
     fetchedRecords: combined.fetchedRecords + summary.fetchedRecords,
+    matchedRecords: combined.matchedRecords + summary.matchedRecords,
+    matchedFundIds: Array.from(new Set([...combined.matchedFundIds, ...summary.matchedFundIds])),
     inserted: combined.inserted + summary.inserted,
     unchanged: combined.unchanged + summary.unchanged,
     updated: combined.updated + summary.updated,
@@ -382,7 +426,7 @@ async function runCombinedCollectors(configs: CollectorConfig[]): Promise<RunSum
 async function runCollector(config: CollectorConfig): Promise<RunSummary> {
   const run: RunSummary = {
     runId: crypto.randomUUID(), startedAt: new Date().toISOString(), status: "running",
-    source: config.sourceUrl, parser: config.parserName, fetchedRecords: 0, inserted: 0, unchanged: 0,
+    source: config.sourceUrl, parser: config.parserName, fetchedRecords: 0, matchedRecords: 0, matchedFundIds: [], inserted: 0, unchanged: 0,
     updated: 0, unmatched: [], failed: [],
   };
   lastRun = run;
@@ -395,6 +439,8 @@ async function runCollector(config: CollectorConfig): Promise<RunSummary> {
     if (records.length === 0) throw new Error("EFG parser found no validated mutual-fund rows");
     const [funds, sourceId] = await Promise.all([getFunds(config.sourceUrl), getSourceId(config.sourceUrl)]);
     const matching = matchEfgRecords(records, funds);
+    run.matchedRecords = matching.matched.length;
+    run.matchedFundIds = matching.matched.map(({ fund }) => fund.fund_id);
     run.unmatched.push(...matching.unmatched);
     for (const { record, fund } of matching.matched) {
       try {
@@ -438,6 +484,10 @@ export function runAzimutCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: AZIMUT_SOURCE_URL, fetchUrl: AZIMUT_API_URL, parserName: AZIMUT_PARSER_NAME, parse: parseAzimutFunds });
 }
 
+export function runAaimCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: AAIM_SOURCE_URL, fetchUrl: AAIM_FETCH_URL, parserName: "aaim_fund_cards_v1", parse: parseAaimFunds });
+}
+
 export function runZaldiCollector(): Promise<RunSummary> {
   return runCombinedCollectors([
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
@@ -454,13 +504,13 @@ export function getProviderSupportReport() {
     { provider: "Azimut", source: AZIMUT_API_URL, parser: AZIMUT_PARSER_NAME, status: "implemented" as const, note: "Official API" },
     { provider: "HC Securities", source: HC_SOURCE_URL, parser: HC_PARSER_NAME, status: "implemented" as const, note: "Official AJAX listing" },
     { provider: "CI Capital", source: CI_URL, parser: CI_PARSER_NAME, status: "blocked" as const, note: "Official host currently fails TLS certificate validation; no alternate verified endpoint" },
-    { provider: "Arab African Investment Management (AAIM)", source: AAIM_SOURCE_URL, parser: null, status: "unavailable" as const, note: "No official public NAV table or API was verified; collector does not fabricate prices" },
+    { provider: "Arab African Investment Management (AAIM)", source: AAIM_FETCH_URL, parser: "aaim_fund_cards_v1", status: "implemented" as const, note: "Official fund cards" },
   ];
 }
 
 function unavailableSummary(provider: string, source: string, reason: string): RunSummary {
   const now = new Date().toISOString();
-  return { runId: crypto.randomUUID(), startedAt: now, finishedAt: now, status: "partial", source, parser: "unsupported_source", fetchedRecords: 0, inserted: 0, unchanged: 0, updated: 0, unmatched: [], failed: [{ name: provider, error: reason }] };
+  return { runId: crypto.randomUUID(), startedAt: now, finishedAt: now, status: "partial", source, parser: "unsupported_source", fetchedRecords: 0, matchedRecords: 0, matchedFundIds: [], inserted: 0, unchanged: 0, updated: 0, unmatched: [], failed: [{ name: provider, error: reason }] };
 }
 
 export async function runAllCollectors(): Promise<RunSummary> {
@@ -471,11 +521,11 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: AFIM_URL, parserName: AFIM_PARSER_NAME, parse: parseAfimFunds },
     { sourceUrl: HC_SOURCE_URL, fetchUrl: HC_FETCH_URL, parserName: HC_PARSER_NAME, parse: parseHcFunds },
     { sourceUrl: AZIMUT_SOURCE_URL, fetchUrl: AZIMUT_API_URL, parserName: AZIMUT_PARSER_NAME, parse: parseAzimutFunds },
+    { sourceUrl: AAIM_SOURCE_URL, fetchUrl: AAIM_FETCH_URL, parserName: "aaim_fund_cards_v1", parse: parseAaimFunds },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
   ]).then(summary => {
-    const aa = unavailableSummary("Arab African Investment Management (AAIM)", AAIM_SOURCE_URL, "No verified official public NAV source");
-    return { ...summary, runId: `${summary.runId},${aa.runId}`, status: summary.status === "failed" ? "failed" : "partial", failed: [...summary.failed, ...aa.failed] };
+    return summary;
   });
 }
 
