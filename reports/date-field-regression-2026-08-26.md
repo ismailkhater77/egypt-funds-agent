@@ -31,3 +31,7 @@ The four-provider rerun completed with the following observed results: Beltone f
 Run All completed with status `partial`, 238 fetched records, 158 matched records, 0 inserts, 130 unchanged, 0 updates, 80 unmatched, and 28 rejected/failed records. The coverage materializer reports **168/198** with `validated` prices and 30 pending. The database audit reports **0 same-source price-duplicate groups**, **0 fund-name duplicate groups**, 23 legitimate multi-source fund/date groups, and 3 multi-source NAV conflicts retained for review. A separate all-source future-date audit found 41 future-dated rows, all with status `review`, and **0 future-dated validated rows**.
 
 This establishes the safety property requested by the user: no future scheduled date is persisted as a validated valuation date. It does not claim that Beltone, HC Securities, or Zaldi have an actual-date field when their current official payloads do not expose one; changed-NAV records from those sources remain explicitly rejected until the provider publishes a verifiable actual valuation date.
+
+## Follow-up source search
+
+A follow-up search for official historical-price endpoints found only the existing Beltone asset-management page, HC's official managed-fund price list, and Zaldi's official site. The other results were secondary aggregators or social posts and were not used. No additional official endpoint was found that supplies a separate actual valuation date for the Beltone, HC, or Zaldi rows currently carrying future dates.
