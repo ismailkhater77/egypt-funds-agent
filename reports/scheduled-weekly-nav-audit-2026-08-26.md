@@ -6,7 +6,7 @@ This read-only audit verifies the separation between scheduled weekly observatio
 | --- | ---: |
 | Future-dated rows with status validated | 0 |
 | Rows marked review + scheduled_weekly | 0 |
-| Coverage-eligible validated rows (status validated, date ≤ as-of) | 301 |
+| Coverage-eligible validated rows (status validated, date ≤ as-of) | 303 |
 
 ## Result
 

@@ -19,7 +19,12 @@ const sourceResponse = await fetch(`${baseUrl}/rest/v1/sources?on_conflict=sourc
 });
 if (!sourceResponse.ok) throw new Error(`Source upsert failed: ${sourceResponse.status} ${(await sourceResponse.text()).slice(0, 500)}`);
 
-const wantedNames = ["Odin Trend", "Egyptian Arab Land Bank Fund (Al Masry)"];
+const wantedNames = [
+  "Odin Trend",
+  "Egyptian Arab Land Bank Fund (Al Masry)",
+  "Maksab First Tranche USD $",
+  "Maksab Second Tranche (Euro)",
+];
 const results = [];
 for (const canonicalName of wantedNames) {
   const lookup = await fetch(`${baseUrl}/rest/v1/funds?select=fund_id,canonical_name&canonical_name=eq.${encodeURIComponent(canonicalName)}&limit=2`, { headers });

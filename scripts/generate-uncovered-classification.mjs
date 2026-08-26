@@ -29,21 +29,19 @@ const assignments = new Map([
   ["Blom Bank Fund II", "NO_OFFICIAL_CURRENT_NAV_FOUND"],
   ["Bokra Shakmagia", "OFFICIAL_NO_CURRENT_NAV"],
   ["Egyptian Gulf Bank (Tharaa)", "OFFICIAL_UNDATED"],
-  ["GIG Makaseb Fund First Tranche", "OFFICIAL_STALE"],
-  ["GIG Makaseb Fund Second Tranche", "OFFICIAL_STALE"],
+  ["GIG Makaseb Fund First Tranche", "FUTURE_DATE_ONLY"],
+  ["GIG Makaseb Fund Second Tranche", "FUTURE_DATE_ONLY"],
   ["Housing & Development Bank (Mawared)", "FUTURE_DATE_ONLY"],
-  ["Maksab First Tranche USD $", "OFFICIAL_NO_CURRENT_NAV"],
-  ["Maksab Second Tranche (Euro)", "OFFICIAL_NO_CURRENT_NAV"],
   ["Market Return", "NO_OFFICIAL_CURRENT_NAV_FOUND"],
-  ["Momentum", "NO_OFFICIAL_CURRENT_NAV_FOUND"],
+  ["Momentum", "OFFICIAL_NO_CURRENT_NAV"],
   ["Naeem Misr Fund", "OFFICIAL_STALE"],
-  ["NI Capital 15/30", "OFFICIAL_STALE"],
+  ["NI Capital 15/30", "FUTURE_DATE_ONLY"],
   ["Pharos Fund I", "OFFICIAL_FETCH_BLOCKED"],
   ["Pioneers Fund I", "OFFICIAL_STALE"],
   ["Prime NMOW", "OFFICIAL_UNDATED"],
   ["Sigma Traded Fund", "NO_OFFICIAL_CURRENT_NAV_FOUND"],
   ["Stream", "OFFICIAL_NO_CURRENT_NAV"],
-  ["The charitable education Fund", "OFFICIAL_STALE"],
+  ["The charitable education Fund", "FUTURE_DATE_ONLY"],
   ["Zaldi Star Equity", "LINKED_GENERIC_OR_UNMAPPED"],
 ]);
 
@@ -69,7 +67,7 @@ const blankCatalogUrls = classified.filter((fund) => !fund.price_update_url).len
 const linkedCatalogUrls = classified.filter((fund) => fund.price_update_url).length;
 const row = (fund) => `| ${fund.canonical_name} | ${fund.price_update_url ?? "—"} | ${category[fund.categoryKey]} |`;
 
-const markdown = `# Current Uncovered-Fund Classification — ${asOfDate}\n\nThis is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before ${asOfDate}. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **${classified.length}**.\n\n| Metric | Count |\n| --- | ---: |\n| Current funds without a validated snapshot | ${classified.length} |\n| Recorded catalog URL exists | ${linkedCatalogUrls} |\n| Catalog URL is blank | ${blankCatalogUrls} |\n| Confirmed parser extraction failures from an otherwise published price/date | ${counts.LINKED_NO_PUBLISHED_NAV === 0 ? 0 : 0} |\n| Confirmed future-date-only rejection | ${counts.FUTURE_DATE_ONLY} |\n\n## Category totals\n\n| Category | Meaning | Count |\n| --- | --- | ---: |\n${Object.keys(category).map((key) => `| ${key} | ${category[key]} | ${counts[key]} |`).join("\n")}\n\n## Per-fund classification\n\n| Fund | Recorded catalog URL | One controlling reason |\n| --- | --- | --- |\n${classified.map(row).join("\n")}\n\n## Interpretation\n\nA blank catalog URL does **not** prove that an official source does not exist. Some blank-URL rows have already been researched and assigned a reason such as stale official evidence, an undated official table, or a blocked official endpoint. The only confirmed future-date-only case in this current set is Mawared: the official PFI page published 71.4934 EGP dated 29-Aug-2026, which is after the controlled as-of date.\n`;
+const markdown = `# Current Uncovered-Fund Classification — ${asOfDate}\n\nThis is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before ${asOfDate}. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **${classified.length}**.\n\n| Metric | Count |\n| --- | ---: |\n| Current funds without a validated snapshot | ${classified.length} |\n| Recorded catalog URL exists | ${linkedCatalogUrls} |\n| Catalog URL is blank | ${blankCatalogUrls} |\n| Confirmed parser extraction failures from an otherwise published price/date | ${counts.LINKED_NO_PUBLISHED_NAV === 0 ? 0 : 0} |\n| Confirmed future-date-only rejection | ${counts.FUTURE_DATE_ONLY} |\n\n## Category totals\n\n| Category | Meaning | Count |\n| --- | --- | ---: |\n${Object.keys(category).map((key) => `| ${key} | ${category[key]} | ${counts[key]} |`).join("\n")}\n\n## Per-fund classification\n\n| Fund | Recorded catalog URL | One controlling reason |\n| --- | --- | --- |\n${classified.map(row).join("\n")}\n\n## Interpretation\n\nA blank catalog URL does **not** prove that an official source does not exist. Some blank-URL rows have already been researched and assigned a reason such as stale official evidence, an undated official table, or a blocked official endpoint. The current \`FUTURE_DATE_ONLY\` set contains five daily funds: Mawared from PFI, plus NI Capital 15/30, the two GIG Makaseb tranches, and the charitable education fund from NI Capital. Their official dates are later than the controlled as-of date, so none is validated or treated as scheduled-weekly.\n`;
 
 await writeFile("/home/ubuntu/egypt-funds-agent/reports/current-uncovered-fund-classification-2026-08-26.md", markdown);
 console.log(JSON.stringify({ asOfDate, currentUncovered: classified.length, blankCatalogUrls, linkedCatalogUrls, counts }, null, 2));

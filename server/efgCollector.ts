@@ -480,6 +480,8 @@ export async function parseAlphaOdinFunds(payload: string): Promise<EfgRecord[]>
   const definitions = [
     ["Odin Equity Investment Fund in EGX-Listed Stocks (Trend) – First Issue", "Odin Trend"],
     ["The Egyptian Arab Land Bank Investment Fund for Debt Instruments – Egyptian Accumulative Yield", "Egyptian Arab Land Bank Fund (Al Masry)"],
+    ["Maksab (OZ) Fixed Income Instruments Investment Fund – First Issue (USD)", "Maksab First Tranche USD $"],
+    ["Maksab-OZ Fixed Income Investment Fund - Second Edition (Euro)", "Maksab Second Tranche (Euro)"],
   ] as const;
   const records: Array<EfgRecord | null> = await Promise.all(definitions.map(async ([publishedName, name]) => {
     const listed = parsed.funds_all?.find((fund) => fund.name === publishedName);
@@ -494,7 +496,9 @@ export async function parseAlphaOdinFunds(payload: string): Promise<EfgRecord[]>
     const nav = parseLocalizedNumber(rawPrice ?? "");
     const valuationDate = rawDate ? parseEnglishDate(rawDate) : null;
     if (!valuationDate || !Number.isFinite(nav) || nav < 0 || valuationDate > asOfDate()) return null;
-    return { name, rawName: publishedName, nav, valuationDate, currency: (fund?.currency ?? listed.currency ?? "EGP").toUpperCase() };
+    const sourceCurrency = (fund?.currency ?? listed.currency ?? "EGP").trim().toUpperCase();
+    const currency = sourceCurrency === "$" ? "USD" : sourceCurrency === "€" ? "EUR" : sourceCurrency;
+    return { name, rawName: publishedName, nav, valuationDate, currency };
   }));
   return records.filter((record): record is EfgRecord => record !== null);
 }

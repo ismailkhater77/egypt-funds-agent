@@ -98,9 +98,9 @@ The raw HTML of Prime's official page carries `article:modified_time=2026-08-26T
 
 Official URLs: https://alpha-odin.com/, https://alpha-odin.com/funds/, and the public first-party card API consumed by the homepage: `https://alphaodinf.uwd.agency/funds/`.
 
-The homepage renders fund cards dynamically from its public first-party API. Its own client script pairs `status=1` with `newprice` and the latest entry in the fund’s `dates` array. The API details established exact identities, EGP NAVs, and explicit matching evaluation dates for two catalog records: **Odin Trend** at **1.23911 EGP** on **26-Aug-2026**, and **Egyptian Arab Land Bank Fund (Al Masry)** at **471.83603 EGP** on **26-Aug-2026**. Both were inserted as validated snapshots from the official Alpha Odin source and the immediate second live run returned unchanged.
+The homepage renders fund cards dynamically from its public first-party API. Its own client script pairs `status=1` with `newprice` and the latest entry in the fund’s `dates` array. The API details established exact identities, currencies, NAVs, and explicit matching evaluation dates for four catalog records: **Odin Trend** at **1.23911 EGP** on **26-Aug-2026**; **Egyptian Arab Land Bank Fund (Al Masry)** at **471.83603 EGP** on **26-Aug-2026**; **Maksab First Tranche USD $** at **1.18012 USD** on **24-Aug-2026**; and **Maksab Second Tranche (Euro)** at **1.07862 EUR** on **24-Aug-2026**. The USD source payload uses `$`, which the collector normalizes to the ISO currency code `USD` before persistence. All four were inserted as validated snapshots from the official Alpha Odin source and the immediate second live run returned unchanged.
 
-The source’s published names and the catalog labels are exact reviewed matches for these two records. Maksab USD/Euro remain pending because no equally explicit catalog-to-source identity mapping was approved in this pass; they were not inferred from similarly named products.
+The source’s published names and the catalog labels are exact reviewed matches for all four records: “First Issue (USD)” maps to the catalog’s “First Tranche USD,” and “Second Edition (Euro)” maps to “Second Tranche (Euro).” The source also identifies Alpha Financial Investments as manager and the USD/Euro details describe the corresponding issue and currency. No other similarly named Alpha products were inferred or mapped.
 
 ## Follow-up on NI/GIG/FAB search
 
@@ -109,6 +109,34 @@ The latest search found an official NI Capital 15/30 fact sheet dated July 2025 
 ## Mubasher Capital official-site recheck
 
 The official Mubasher Capital homepage and its `/mutual-funds` section identify a Bahrain-regulated investment firm and describe mutual-fund services, but the accessible content contains no Egypt-specific fund NAV table and no valuation-date field. The site therefore does not qualify as a direct dated NAV source for the Egyptian Mubasher fund records. Mubasherfunds.info and Mubasher news articles remain separate publication channels and were not upgraded to primary-manager status by this inspection.
+
+## BLOM Bank Egypt official-site recheck
+
+The accessible BLOM Bank Egypt domain presents a legacy site whose footer states **Copyright © 2017**. Its official sitemap lists consumer banking, corporate banking, institutional banking, rates, exchange rates, and corporate pages, but no investment-fund, NAV, or fund-price section. This cannot support a current dated NAV for BLOM Bank Fund I or BLOM Bank Fund II. The public acquisition history also creates an identity-continuity concern, so no mapping to Bank ABC or another successor source was inferred.
+
+## Cairo Capital / Momentum official-source recheck
+
+The official Cairo Capital website identifies Cairo Capital as an Egyptian asset manager but exposes no Momentum product page, NAV table, or valuation-date field. The official `CairoCapitalGP` Facebook post establishes that **Momentum Fund** is associated with Cairo Capital and ranks it in EIMA weekly-equity performance, but publishes neither a NAV nor an explicit valuation date. The available first-party evidence therefore proves a manager/fund relationship but not a validated price observation; no source mapping or snapshot was added.
+
+## Al Baraka Al Motawazen identity reconciliation — pending
+
+EFG’s official mutual-funds table publishes `صندوق استثمار بنك البركة مصر ذو العائد الدوري` at **635.1 EGP** dated **26-Aug-2026**. A regulator search record identifies a similarly named Al Baraka periodic cumulative balanced fund. However, the imported catalog row `Al Baraka Bank Egypt (Al Motawazen)` currently names **Naeem Capital for Investments** as manager, whereas EFG presents the rate in its own manager page. This creates an unresolved manager/identity conflict. The EFG value is documented as evidence only and was **not** written as a snapshot; the provisional source link will be removed unless primary documentation resolves the discrepancy.
+
+## Pharos non-Facebook first-party route recheck
+
+The official Aton Holding site identifies **Pharos Fund 1** and the **Pharos Company for the Formation and Management of Securities Portfolios and Investment Funds** as subsidiaries, which supports the manager/fund relationship. It does not provide a NAV, valuation date, historical-price document, or machine-readable price endpoint. Pharos Holding’s own current site likewise describes its historical asset-management business but has no fund-price content. Consequently, this first-party route cannot replace the currently blocked Facebook collector; no snapshot was added and Pharos remains excluded from Run All.
+
+## Arope official fund-page recheck
+
+The official Arope Life Insurance Egypt page identifies an **Arope Money Market Fund**, denominated in EGP and managed by **ABC Egypt Investments**, with daily accumulated return. It publishes no NAV, valuation date, or historical-price endpoint. Moreover, this product name does not by itself prove identity with the catalog row `Arope Insurance Misr Fund`. No source link, alias, or snapshot was added.
+
+## Cairo Capital / Stream official-source recheck
+
+An official Cairo Capital Group Facebook post confirms **Stream Fund** and describes a 23.3% annualized return, but does not provide a NAV or explicit valuation date. The logged-out post view is also gated by Facebook and does not expose a durable machine-readable fund-price feed. The manager/fund relationship is therefore documented, but there is no validated price observation and no collector mapping was added.
+
+## NI Capital price-table recheck — future dates retained as ineligible daily observations
+
+NI Capital’s first-party price table publishes **29-Aug-2026** alongside the following records: `15/30` at **21.78483 EGP**; `Makaseb — first issue` at **20.64864 EGP**; `Makaseb — second issue` at **20.60258 EGP**; and `Education Hayah Charitable Fund` at **200.4176 EGP**. The same official page describes 15/30 purchases as daily and Makaseb as a daily accumulated-return money-market fund; no official weekly dealing cycle was established for these observations. With the controlled as-of date of **26-Aug-2026**, the values remain future-dated and are not inserted as `validated` or as `scheduled_weekly`; the uncovered classification is therefore `FUTURE_DATE_ONLY`, not stale-source failure.
 
 ## Follow-up on ABC and ABK
 

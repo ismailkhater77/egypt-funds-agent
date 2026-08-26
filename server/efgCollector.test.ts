@@ -14,21 +14,26 @@ describe("EFG mutual-fund parser", () => {
     }]);
   });
 
-  it("extracts only exact, current Alpha Odin API records for Odin Trend and Al Masry", async () => {
+  it("extracts only exact, current Alpha Odin API records with their matching NAV dates and currencies", async () => {
     const api = JSON.stringify({ funds_all: [
       { id: 81, name: "Odin Equity Investment Fund in EGX-Listed Stocks (Trend) – First Issue", newprice: "1.23911", currentprice: "1.24156", currency: "EGP", status: 1 },
       { id: 38, name: "The Egyptian Arab Land Bank Investment Fund for Debt Instruments – Egyptian Accumulative Yield", newprice: "471.83603", currentprice: "470.75763", currency: "EGP", status: 1 },
       { id: 71, name: "Maksab-OZ Fixed Income Investment Fund - Second Edition (Euro)", newprice: "1.07862", currency: "EUR", status: 1 },
+      { id: 45, name: "Maksab (OZ) Fixed Income Instruments Investment Fund – First Issue (USD)", newprice: "1.18012", currency: "$", status: 1 },
     ] });
     vi.stubGlobal("fetch", vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
       if (url.endsWith("/81")) return new Response(JSON.stringify({ fundDetails: { status: 1, newprice: "1.23911", currency: "EGP" }, dates: ["2026-08-20T13:10:00.000Z", "2026-08-26T14:32:00.000Z"] }), { status: 200 });
       if (url.endsWith("/38")) return new Response(JSON.stringify({ fundDetails: { status: 1, newprice: "471.83603", currency: "EGP" }, dates: ["2026-08-20T12:17:00.000Z", "2026-08-26T13:54:00.000Z"] }), { status: 200 });
+      if (url.endsWith("/45")) return new Response(JSON.stringify({ fundDetails: { status: 1, newprice: "1.18012", currency: "$" }, dates: ["2026-08-17T12:43:00.000Z", "2026-08-24T15:34:00.000Z"] }), { status: 200 });
+      if (url.endsWith("/71")) return new Response(JSON.stringify({ fundDetails: { status: 1, newprice: "1.07862", currency: "EUR" }, dates: ["2026-08-17T14:37:00.000Z", "2026-08-24T14:15:00.000Z"] }), { status: 200 });
       throw new Error(`unexpected Alpha Odin detail URL: ${url}`);
     }));
     await expect(parseAlphaOdinFunds(api)).resolves.toEqual([
       { name: "Odin Trend", rawName: "Odin Equity Investment Fund in EGX-Listed Stocks (Trend) – First Issue", nav: 1.23911, valuationDate: "2026-08-26", currency: "EGP" },
       { name: "Egyptian Arab Land Bank Fund (Al Masry)", rawName: "The Egyptian Arab Land Bank Investment Fund for Debt Instruments – Egyptian Accumulative Yield", nav: 471.83603, valuationDate: "2026-08-26", currency: "EGP" },
+      { name: "Maksab First Tranche USD $", rawName: "Maksab (OZ) Fixed Income Instruments Investment Fund – First Issue (USD)", nav: 1.18012, valuationDate: "2026-08-24", currency: "USD" },
+      { name: "Maksab Second Tranche (Euro)", rawName: "Maksab-OZ Fixed Income Investment Fund - Second Edition (Euro)", nav: 1.07862, valuationDate: "2026-08-24", currency: "EUR" },
     ]);
     vi.unstubAllGlobals();
   });

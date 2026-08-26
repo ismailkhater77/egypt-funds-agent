@@ -67,7 +67,7 @@
 - [ ] Verify official source, live NAV, and explicit valuation date for GIG Makaseb First Tranche
 - [ ] Verify official source, live NAV, and explicit valuation date for GIG Makaseb Second Tranche
 - [ ] Verify official source, live NAV, and explicit valuation date for Education for Life
-- [ ] Verify official source, live NAV, and explicit valuation date for FAB Misr Ezdhar
+- [x] Verify official source, live NAV, and explicit valuation date for FAB Misr Ezdhar
 - [ ] Add only the seven fully verified sources to Run All, persist validated snapshots idempotently, and refresh coverage
 
 ## FABMISR weekly valuation behavior
@@ -82,7 +82,7 @@
 - [x] Verify current NI Capital prices for Sahmy, Sahmy 70, 15/30, GIG Makaseb tranches, and Education for Life; accept only as-of-valid rows and reject future-dated rows
 - [x] Verify current PFI prices for Housing & Development Bank (Mawared) and any matched GIG funds; retain valid GIG Equity and reject future-dated rows
 - [x] Verify current Azimut prices for Ebank El Khabeer, Bank ABC Fund I, Ebank Fund II, Menthum, and Target Maturity 2027 USD; use historical graph dates and reject future rows
-- [x] Verify Alpha Odin official NAV/valuation-date evidence for Odin Trend, Maksab tranches, and Al Masry (official page inspected; no current NAV/date exposed, records remain Pending)
+- [x] Verify Alpha Odin official NAV/valuation-date evidence for Odin Trend, Maksab tranches, and Al Masry (official API produced exact identities, NAVs, and dates; four validated snapshots inserted)
 - [x] Verify whether Aton/Pharos links are authoritative and contain current NAV plus valuation dates (official Facebook HTML exposed dated NAV text for Pharos Fund I; live server fetch remains blocked)
 - [ ] Add only fully verified new source mappings and refresh coverage; preserve --, stale, or undated records as Pending Verification
 - [x] Reject future-dated Azimut NAV rows and add a regression test before accepting official API records
@@ -134,3 +134,5 @@
 - [x] Map NI Capital Siula to the official funds-prices feed, add parser coverage, and retain daily future-date rejection
 - [x] Integrate Alpha Odin’s official current NAV cards for exact Odin Trend and Al Masry identities, with idempotent writes and tests
 - [x] Aggregate scheduled weekly observations in the combined Run All summary and add regression coverage
+- [x] Integrate exact Alpha Odin Maksab USD and Euro issues after validating their identities, currencies, NAVs, and explicit valuation dates
+- [ ] Resolve the manager and legal-identity conflict for Al Baraka Bank Egypt (Al Motawazen) before enabling any EFG alias or NAV write
