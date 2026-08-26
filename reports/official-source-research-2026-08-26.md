@@ -91,3 +91,5 @@ The configured first-party URL `https://www.fabmisr.com.eg/en/personal-banking/i
 Official URL: https://primeholdingco.com/asset-management/
 
 After opening the official Funds tab, Prime publishes a table that identifies `Aman Micro Finance` as the sponsor and `Aman Money Market Fund` as the fund name, with NAV **1.84978**. The same official table lists Tharaa at 45.8342 and Prime NMW at 12.8894. However, the table does not state a valuation date or an as-of timestamp. Under the strict policy, these values are not validated snapshots and were not inserted. This resolves the Aman identity mismatch for future dated-source work, while current verification remains pending.
+
+The raw HTML of Prime's official page carries `article:modified_time=2026-08-26T06:15:43Z`, but this is the webpage modification timestamp, not a valuation/as-of date for the displayed NAVs. It cannot satisfy the NAV valuation-date requirement, so the values remain excluded from validated coverage.
