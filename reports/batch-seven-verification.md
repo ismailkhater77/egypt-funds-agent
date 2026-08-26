@@ -64,3 +64,12 @@ The coverage refresh after the T27 correction reports **166/198** validated work
 ## Bank ABC and Pioneers official-source review
 
 The official Bank ABC Egypt mutual-funds page was inspected and confirmed the fund offering but did not expose a current NAV and valuation date for ABC Fund I. The official Pioneers Funds page exposed Al-Raeed at 90.33 dated 2011-05-26, which is materially stale. Both records remain Pending Verification; no secondary tracker value was substituted.
+
+## CI Capital official aliases — Menthum and Misr Money Market EUR
+
+The official CI Capital page's dated rows for Menthum Fixed Income Fund – USD and Banque Misr Money Market Fund (EUR) were linked to the corresponding workbook records through exact aliases and source mappings. The first post-link CI run matched 41 records and inserted 2 validated snapshots; the next run matched 41 and returned `inserted: 0`, `unchanged: 41`, `updated: 0`, with no unmatched or failed records. Coverage should therefore include both official CI rows after the next refresh.
+
+
+## Coverage after CI alias mapping
+
+The post-link coverage refresh as of 2026-08-26 reports **168/198** workbook funds with validated prices and **30 remaining**. Both Menthum and Misr Money Market (Euro) are now covered from the official CI Capital page. All 198 workbook rows remain matched to the database with zero unmatched or ambiguous rows. The duplicate audit reports zero same-source duplicate groups, 22 legitimate multi-source groups, and one documented Delta Life Insurance NAV conflict.

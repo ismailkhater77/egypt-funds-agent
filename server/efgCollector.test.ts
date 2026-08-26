@@ -151,6 +151,20 @@ describe("EFG mutual-fund parser", () => {
     expect(parseEfgMutualFunds("<html><body>No fund table</body></html>")).toEqual([]);
   });
 
+  it("matches official CI Menthum and Banque Misr EUR names by exact aliases", () => {
+    const funds = [
+      { fund_id: "menthum", canonical_name: "Menthum", eima_name_raw: "Menthum", category: null, price_update_url: null },
+      { fund_id: "misr-eur", canonical_name: "Misr Money Market (Euro)", eima_name_raw: "Misr Money Market (Euro)", category: null, price_update_url: null },
+    ];
+    const records = [
+      { name: "Menthum Fixed Income Fund – USD", rawName: "Menthum Fixed Income Fund – USD", nav: 1.1116, valuationDate: "2026-08-22", currency: "EGP" },
+      { name: "Banque Misr Money Market Fund (EUR)", rawName: "Banque Misr Money Market Fund (EUR)", nav: 11.94, valuationDate: "2026-08-22", currency: "EGP" },
+    ];
+    const result = matchEfgRecords(records, funds);
+    expect(result.matched.map(({ fund }) => fund.fund_id)).toEqual(["menthum", "misr-eur"]);
+    expect(result.unmatched).toEqual([]);
+  });
+
   it("matches canonical and raw EIMA names and reports unmatched rows", () => {
     const funds = [
       { fund_id: "f1", canonical_name: "EFG Hermes Equity Fund", eima_name_raw: "Hermes Equity", category: null, price_update_url: null },

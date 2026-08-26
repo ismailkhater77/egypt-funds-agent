@@ -582,6 +582,8 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "namaa": "national bank of kuwait fund namaa",
     "al hayah": "national bank of kuwait hayat",
     "al mizan": "*national bank of kuwait al mizan",
+    "menthum fixed income fund – usd": "menthum",
+    "banque misr money market fund (eur)": "misr money market (euro)",
     "gig money market fund": "gig insurance",
     "gig equity fund": "gig insurance egypt fund i",
     "mawared money market fund": "housing development bank mawared",

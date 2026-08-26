@@ -4,10 +4,10 @@
   "as_of_date": "2026-08-26",
   "file_fund_count": 198,
   "database_fund_count": 215,
-  "database_price_row_count": 314,
+  "database_price_row_count": 316,
   "matched_to_database_count": 198,
-  "covered_with_validated_price_count": 166,
-  "not_covered_count": 32,
+  "covered_with_validated_price_count": 168,
+  "not_covered_count": 30,
   "exact_or_confident_match_count": 198,
   "unmatched_or_ambiguous_count": 0,
   "covered": [
@@ -1521,6 +1521,27 @@
         "status": "validated",
         "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
         "collected_at": "2026-08-26T16:11:25.164881+00:00"
+      }
+    },
+    {
+      "row": 89,
+      "file_name": "Menthum",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_52f11ef94c6ef2ee",
+      "db_name": "Menthum",
+      "db_raw_name": "Menthum",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_52f11ef94c6ef2ee",
+        "nav": 1.1116,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T18:47:17.387945+00:00"
       }
     },
     {
@@ -3162,6 +3183,27 @@
       }
     },
     {
+      "row": 178,
+      "file_name": "Misr Money Market (Euro)",
+      "company": "CI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_f571b08373e7625f",
+      "db_name": "Misr Money Market (Euro)",
+      "db_raw_name": "Misr Money Market (Euro)",
+      "db_company": "CI Asset Management",
+      "price_update_url": "https://www.cicapital.com/fundprice/",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_f571b08373e7625f",
+        "nav": 11.94,
+        "currency": "EGP",
+        "valuation_date": "2026-08-22",
+        "status": "validated",
+        "source_id": "src_6556b18fd56ff738",
+        "collected_at": "2026-08-26T18:47:14.956562+00:00"
+      }
+    },
+    {
       "row": 179,
       "file_name": "Menthum USD $",
       "company": "CI Asset Management",
@@ -3695,19 +3737,6 @@
       "latest_price": null
     },
     {
-      "row": 89,
-      "file_name": "Menthum",
-      "company": "Azimut Egypt Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_52f11ef94c6ef2ee",
-      "db_name": "Menthum",
-      "db_raw_name": "Menthum",
-      "db_company": "Azimut Egypt Asset Management",
-      "price_update_url": "https://azimut.eg/funds",
-      "has_price": false,
-      "latest_price": null
-    },
-    {
       "row": 105,
       "file_name": "Aspire Rawajj",
       "company": "Amwal for Financial Investments",
@@ -3833,19 +3862,6 @@
       "db_name": "Prime NMOW",
       "db_raw_name": "Prime NMOW",
       "db_company": "Prime Investments",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 178,
-      "file_name": "Misr Money Market (Euro)",
-      "company": "CI Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_f571b08373e7625f",
-      "db_name": "Misr Money Market (Euro)",
-      "db_raw_name": "Misr Money Market (Euro)",
-      "db_company": "CI Asset Management",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null

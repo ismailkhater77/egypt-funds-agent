@@ -1,10 +1,10 @@
 # تقرير مقارنة ملف الصناديق مع قاعدة البيانات
 
-تاريخ التحليل: 2026-08-26T18:34:53.880316+00:00
+تاريخ التحليل: 2026-08-26T18:48:57.242866+00:00
 
 ## الخلاصة التنفيذية
 
-يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **215 سجل صندوق** و**314 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **198 صندوقًا** بقاعدة البيانات، ومن بينها **166 صندوقًا** لها سجل سعر بحالة `validated`. توجد **32 صناديق غير مغطاة حاليًا** ضمن الملف: **32** موجودة في قاعدة البيانات بلا سجل سعر validated، و**0** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
+يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **215 سجل صندوق** و**316 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **198 صندوقًا** بقاعدة البيانات، ومن بينها **168 صندوقًا** لها سجل سعر بحالة `validated`. توجد **30 صناديق غير مغطاة حاليًا** ضمن الملف: **30** موجودة في قاعدة البيانات بلا سجل سعر validated، و**0** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
 
 ## ما تم بناؤه في قاعدة البيانات
 
@@ -12,16 +12,16 @@
 |---|---:|
 | صفوف الصناديق في الملف | 198 |
 | سجلات الصناديق في Supabase | 215 |
-| سجلات الأسعار في Supabase | 314 |
+| سجلات الأسعار في Supabase | 316 |
 | صفوف الملف المرتبطة بسجل صندوق | 198 |
-| صفوف الملف ذات سعر `validated` | 166 |
-| صفوف الملف غير المغطاة | 32 |
+| صفوف الملف ذات سعر `validated` | 168 |
+| صفوف الملف غير المغطاة | 30 |
 
 > التغطية هنا تعني وجود صندوق مطابق في قاعدة البيانات مع سجل سعر بحالة `validated`. وجود الصندوق في جدول `funds` وحده لا يعني أن الوكيل حدّث سعره.
 
 ## الصناديق المغطاة
 
-تم العثور على سجل سعر validated لـ **166** صندوقًا من الملف. التفاصيل الكاملة محفوظة في ملف JSON الداعم، وتتضمن اسم الملف واسم قاعدة البيانات و`fund_id` وآخر سعر وتاريخ التقييم.
+تم العثور على سجل سعر validated لـ **168** صندوقًا من الملف. التفاصيل الكاملة محفوظة في ملف JSON الداعم، وتتضمن اسم الملف واسم قاعدة البيانات و`fund_id` وآخر سعر وتاريخ التقييم.
 
 ## موجودة في قاعدة البيانات ولكن بلا سعر validated
 
@@ -42,7 +42,6 @@
 | 72 | Egyptian Gulf Bank (Tharaa) | Egyptian Gulf Bank (Tharaa) | Prime Investments |
 | 76 | Arope Insurance Misr Fund | Arope Insurance Misr Fund | CFH Asset Management |
 | 88 | Aman Micro Finance | Aman Micro Finance | Prime Investments |
-| 89 | Menthum | Menthum | Azimut Egypt Asset Management |
 | 105 | Aspire Rawajj | Aspire Rawajj | Amwal for Financial Investments |
 | 110 | GIG Makaseb Fund First Tranche | GIG Makaseb Fund First Tranche | NI Capital |
 | 111 | GIG Makaseb Fund Second Tranche | GIG Makaseb Fund Second Tranche | NI Capital |
@@ -53,7 +52,6 @@
 | 147 | FAB Misr Fund (Ezdhar) | FAB Misr Fund (Ezdhar) | Acumen Asset Management |
 | 149 | Sigma Traded Fund | Sigma Traded Fund | Sigma Funds Management |
 | 159 | Prime NMOW | Prime NMOW | Prime Investments |
-| 178 | Misr Money Market (Euro) | Misr Money Market (Euro) | CI Asset Management |
 | 180 | Maksab First Tranche USD $ | Maksab First Tranche USD $ | Alpha Financial Investments Management & Zaldi Investments |
 | 184 | Maksab Second Tranche (Euro) | Maksab Second Tranche (Euro) | Alpha Financial Investments Management & Zaldi Investments |
 | 188 | The charitable education Fund | The charitable education Fund | NI Capital |

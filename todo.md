@@ -95,3 +95,4 @@
 - [x] Re-run the official EBank collector and prove 3 unchanged with zero new inserts
 - [x] Add an EBank idempotency regression test or saved run artifact for the three official fund records
 - [x] Reconcile Azimut Target Maturity 2027 USD: verify the valid 25-Aug NAV maps to the workbook fund_id and is included in coverage
+- [x] Add exact CI Capital aliases for Menthum USD and Banque Misr Money Market EUR, validate dated NAVs, and rerun CI idempotently

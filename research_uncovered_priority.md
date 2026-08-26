@@ -171,3 +171,7 @@ The official Bank ABC Egypt Mutual Funds page was opened directly. It establishe
 ## Pioneers Funds official page — 26 August 2026
 
 The official Pioneers Funds site was opened directly. It identifies Pioneers Funds and displays Al-Raeed Fund's Price 90.33 with date 2011-05-26. This is official but stale and not a current valuation; it is therefore rejected for current validated coverage and the workbook Pioneers record remains Pending Verification. No secondary tracker value is substituted.
+
+## CI Capital official Fund Prices — 26 August 2026
+
+The official CI Capital Fund Prices page reports `Last update: Saturday, August 22, 2026` and exposes current dated-price table rows including Banque Misr Money Market Fund (EUR) at 11.94 and Menthum Fixed Income Fund – USD at 1.1116, alongside PBD & Banque du Caire (Al Wefak) at 45.91. The page is an official CI Capital publication; these rows are candidates for exact alias mapping, with the reported page date preserved as the valuation date.
