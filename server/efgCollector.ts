@@ -30,6 +30,8 @@ const MUBASHER_CATEGORY_SOURCE_URLS = [
 const SCB_SOURCE_URL = "https://scbank.com.eg/Ar/Fund_Rates.aspx";
 const FAISAL_SOURCE_URL = "https://www.faisalbank.com.eg/ar/Retail/Mutual-Funds";
 const PFI_SOURCE_URL = "https://pfi-am.com.eg/funds/";
+const NI_CAPITAL_SOURCE_URL = "https://nicapital.com.eg/lines-of-business/asset-management/";
+const FAB_MISR_EZDEHAR_SOURCE_URL = "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund";
 const ABK_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Equity-Fund?r=2";
 const NBK_SOURCE_URLS = [
   "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/ishraq.html",
@@ -43,6 +45,8 @@ const SCB_PARSER_NAME = "suez_canal_bank_fund_rates_v1";
 const FAISAL_PARSER_NAME = "faisal_bank_mutual_funds_cards_v1";
 const NBK_PARSER_NAME = "nbk_official_fund_detail_v1";
 const PFI_PARSER_NAME = "pfi_official_funds_v1";
+const NI_CAPITAL_PARSER_NAME = "ni_capital_official_funds_v1";
+const FAB_MISR_PARSER_NAME = "fab_misr_official_ezdehar_v1";
 const EFG_PARSER_NAME = "efg_html_table_v1";
 const CI_PARSER_NAME = "ci_capital_fundprice_v1";
 const AFIM_PARSER_NAME = "afim_detail_pages_v1";
@@ -108,6 +112,11 @@ function parseDate(value: string): string {
   if (!match) throw new Error(`Invalid EFG valuation date: ${value}`);
   return `${match[3]}-${match[2]}-${match[1]}`;
 }
+function parseEnglishDateStrict(value: string): string {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) throw new Error(`Invalid English valuation date: ${value}`);
+  return date.toISOString().slice(0, 10);
+}
 
 function parseLocalizedNumber(value: string): number {
   const arabicDigits = value.replace(/[٠-٩]/g, digit => String("٠١٢٣٤٥٦٧٨٩".indexOf(digit)));
@@ -163,6 +172,37 @@ export function parsePfiFunds(html: string): EfgRecord[] {
   return records;
 }
 
+export function parseNiCapitalFunds(html: string): EfgRecord[] {
+  const text = stripTags(html);
+  const definitions = [
+    ["SAHMY FUND", "NI Capital (Sahmy Fund)"],
+    ["SAHMY 70 FUND", "NI Capital EGX 70"],
+    ["15/30 Fixed Income Fund", "NI Capital 15/30"],
+    ["MAKASEB 1st Tranche", "GIG Makaseb Fund First Tranche"],
+    ["MAKASEB 2nd Tranche", "GIG Makaseb Fund Second Tranche"],
+    ["EDUCATION FOR LIFE", "The charitable education Fund"],
+  ] as const;
+  const records: EfgRecord[] = [];
+  for (const [publishedName, name] of definitions) {
+    const escaped = publishedName.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&");
+    const match = text.match(new RegExp(`${escaped}\\s+(\\d{1,2}\\s+[A-Za-z]+\\s+\\d{4})\\s+Certificate Price\\s+(?:EGP\\s*)?([0-9.,]+)`, "i"));
+    if (!match) continue;
+    const date = parseEnglishDateStrict(match[1]);
+    const nav = parseLocalizedNumber(match[2]);
+    if (!Number.isFinite(nav) || nav < 0 || date > new Date().toISOString().slice(0, 10)) continue;
+    records.push({ name, rawName: publishedName, nav, valuationDate: date, currency: "EGP" });
+  }
+  return records;
+}
+export function parseFabMisrEzdehar(html: string): EfgRecord[] {
+  const text = stripTags(html);
+  const match = text.match(/Ezdehar Fund \(NAV\)\s+Date\s+(\d{1,2}\s+[A-Za-z]+\s+\d{4})\s+Currency \(EGP\)\s+([0-9.,]+)/i);
+  if (!match) return [];
+  const nav = parseLocalizedNumber(match[2]);
+  const valuationDate = parseEnglishDateStrict(match[1]);
+  if (!Number.isFinite(nav) || nav < 0 || valuationDate > new Date().toISOString().slice(0, 10)) return [];
+  return [{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav, valuationDate, currency: "EGP" }];
+}
 export function parseNbkFundPage(html: string): EfgRecord[] {
   const title = html.match(/<h1[^>]*>\s*(Ishraq|Namaa|Al-Hayah|Al-Mizan)\s*<\/h1>/i)?.[1];
   const text = stripTags(html);
@@ -535,6 +575,14 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "ادخار - AZFI": "edkhar",
     "جي أي جي النقدي": "gig insurance",
     "ABK-Egypt Equity Fund": "al ahli bank of kuwait - egypt fund i",
+    "NI Capital (Sahmy Fund)": "ni capital (sahmy fund)",
+    "SAHMY FUND": "ni capital (sahmy fund)",
+    "SAHMY 70 FUND": "ni capital egx 70",
+    "15/30 Fixed Income Fund": "ni capital 15/30",
+    "MAKASEB 1st Tranche": "gig makaseb fund first tranche",
+    "MAKASEB 2nd Tranche": "gig makaseb fund second tranche",
+    "EDUCATION FOR LIFE": "the charitable education fund",
+    "Ezdehar Fund": "fab misr fund (ezdhar)",
   };
   for (const fund of funds) {
     byName.set(normalize(fund.canonical_name), fund);
@@ -756,6 +804,12 @@ export function runFaisalCollector(): Promise<RunSummary> {
 export function runPfiCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: PFI_SOURCE_URL, parserName: PFI_PARSER_NAME, parse: parsePfiFunds, matchAllFunds: true });
 }
+export function runNiCapitalCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: NI_CAPITAL_SOURCE_URL, parserName: NI_CAPITAL_PARSER_NAME, parse: parseNiCapitalFunds, matchAllFunds: true });
+}
+export function runFabMisrCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true });
+}
 export function runNbkCollector(): Promise<RunSummary> {
   return runCombinedCollectors(NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })));
 }
@@ -783,6 +837,8 @@ export function getProviderSupportReport() {
     { provider: "Faisal Islamic Bank Egypt", source: FAISAL_SOURCE_URL, parser: FAISAL_PARSER_NAME, status: "implemented" as const, note: "Official bank page with two mutual-fund cards and valuation dates" },
     { provider: "National Bank of Kuwait Egypt", source: NBK_SOURCE_URLS.join(", "), parser: NBK_PARSER_NAME, status: "implemented" as const, note: "Official detail pages for Ishraq, Namaa, Al-Hayah, and Al-Mizan" },
     { provider: "PFI Asset Management", source: PFI_SOURCE_URL, parser: PFI_PARSER_NAME, status: "implemented" as const, note: "Official funds page; future-dated rows are rejected" },
+    { provider: "NI Capital", source: NI_CAPITAL_SOURCE_URL, parser: NI_CAPITAL_PARSER_NAME, status: "implemented" as const, note: "Official asset-management page; future-dated rows are rejected" },
+    { provider: "FAB Misr", source: FAB_MISR_EZDEHAR_SOURCE_URL, parser: FAB_MISR_PARSER_NAME, status: "implemented" as const, note: "Official bank fund page; NAV/date extracted and future-dated values rejected" },
     { provider: "ABK-Egypt", source: ABK_SOURCE_URL, parser: "abk_official_equity_fund_v1", status: "implemented" as const, note: "Official equity-fund page; TLS uses trusted DigiCert intermediate" },
   ];
 }
@@ -807,6 +863,8 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: FAISAL_SOURCE_URL, parserName: FAISAL_PARSER_NAME, parse: parseFaisalMutualFunds, matchAllFunds: true },
     ...NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })),
     { sourceUrl: PFI_SOURCE_URL, parserName: PFI_PARSER_NAME, parse: parsePfiFunds, matchAllFunds: true },
+    { sourceUrl: NI_CAPITAL_SOURCE_URL, parserName: NI_CAPITAL_PARSER_NAME, parse: parseNiCapitalFunds, matchAllFunds: true },
+    { sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true },
     { sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },

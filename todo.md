@@ -59,3 +59,13 @@
 - [x] Produce a Mubasher alias-audit artifact with published name, exact catalog record, and evidence source
 - [x] Recheck official/public sources for EBank El Khabeer, BLOM, Pharos, and Pioneers; reject stale, secondary, or identity-mismatched values
 - [x] Document why the four rechecked groups remain pending rather than storing unsupported current prices
+
+## Batch: seven funds requested by user
+- [x] Verify official source, live NAV, and explicit valuation date for NI Capital Sahmy
+- [x] Verify official source, live NAV, and explicit valuation date for NI Capital Sahmy 70 / EGX 70
+- [ ] Verify official source, live NAV, and explicit valuation date for NI Capital 15/30
+- [ ] Verify official source, live NAV, and explicit valuation date for GIG Makaseb First Tranche
+- [ ] Verify official source, live NAV, and explicit valuation date for GIG Makaseb Second Tranche
+- [ ] Verify official source, live NAV, and explicit valuation date for Education for Life
+- [ ] Verify official source, live NAV, and explicit valuation date for FAB Misr Ezdhar
+- [ ] Add only the seven fully verified sources to Run All, persist validated snapshots idempotently, and refresh coverage
