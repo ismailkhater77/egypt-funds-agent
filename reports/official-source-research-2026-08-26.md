@@ -81,3 +81,7 @@ The current NI Capital page links first-party Fact Sheets for the uncovered fund
 Official URL: https://cairocapitalgroup.com/
 
 The official Cairo Capital Group website loads the firm's verticals, insights/news, and contact sections, but no current NAV or explicit valuation date for Stream is published in the accessible content. The catalog record `Stream` (CFH Asset Management) remains Pending Verification; secondary market pages were not used.
+
+## FABMISR endpoint probe
+
+The configured first-party URL `https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund` still fails DNS resolution from the server environment (`curl: Resolving timed out`). The parser and weekly valuation policy remain implemented, but a live snapshot cannot be claimed until the official endpoint is reachable; no value was inserted from a cached or secondary source.
