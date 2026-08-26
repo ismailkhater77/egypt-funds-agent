@@ -99,3 +99,7 @@ The raw HTML of Prime's official page carries `article:modified_time=2026-08-26T
 Official URLs: https://alpha-odin.com/ and https://alpha-odin.com/funds/
 
 The official Alpha Odin site confirms fund-management activity and lists public funds. The accessible Funds page currently exposes only the Egyptian Real Estate Fund at 19.17 EGP with `Last Update: Jul 31, 2026`; the expected Maksab USD/Euro records and their NAV/date details are not present in the extracted page content. No current dated NAV was accepted for Maksab USD, Maksab Euro, Odin Trend, or Al Masry.
+
+## Follow-up on NI/GIG/FAB search
+
+The latest search found an official NI Capital 15/30 fact sheet dated July 2025 and an official NI article dated November 2023, neither of which is a current valuation dated 2026-08-26. Results for GIG Makaseb came from secondary fund aggregators rather than an official GIG or manager NAV feed. Results for FAB Misr Ezdhar repeated NAV 472.699 as at 22 August 2026 through secondary/social pages; the official FAB endpoint remains inaccessible from the server because of DNS. No new validated snapshot was written.
