@@ -4,21 +4,21 @@
 
 This classification distinguishes catalog metadata from live collection behavior. A blank `price_update_url` means that no URL has been recorded in the `funds` row; it does **not** prove that no first-party page exists anywhere. A “future-date rejection” requires a price and a valuation date that are both present, where the valuation date is after the controlled as-of date.
 
-The Source-Coverage Gap report initially contained **31** funds with no validated snapshot. The official Banque du Caire Al Wefak feed, official FABMISR Ezdehar feed, and the official Alpha Odin records for Odin Trend and Al Masry subsequently inserted valid snapshots. The current live gap is therefore **27**.
+The Source-Coverage Gap report initially contained **31** funds with no validated snapshot. Subsequent verified integrations, including Banque du Caire Al Wefak, FABMISR Ezdehar, and four exact Alpha Odin products, raised validated coverage. One preserved workbook row, `Sigma Traded Fund`, was later confirmed by the FRA to be a fund-management company rather than an investable fund and was marked inactive without deletion. The current operational universe is therefore **214 active funds**, of which **190** have a validated snapshot and **24** remain uncovered as of 26-Aug-2026.
 
 | Requested measure | Count from the original 31-gap report | Current count after all verified integrations | Evidence / interpretation |
 | --- | ---: | ---: | --- |
-| Has a recorded `price_update_url` but no validated snapshot | 2 | 2 | Bank ABC Fund I and Zaldi Star Equity |
-| Fails because the parser cannot extract an otherwise published NAV/date | 0 | 0 | The two linked pages responded successfully, but did not expose a usable current NAV/date for their target records; this is absence of publishable data or an incomplete target page, not a parser failure |
-| Rejected only because a dated NAV is future relative to 26-Aug-2026 | 1 confirmed | 1 confirmed | Housing & Development Bank (Mawared): PFI officially displayed 71.4934 dated 29-Aug-2026, so it was intentionally not stored |
-| Blank `price_update_url` in the catalog | 29 | 25 within the remaining uncovered set | This is a metadata count, **not** a claim that no official source exists |
+| Has a recorded `price_update_url` but no validated snapshot | 2 | 2 | Bank ABC Fund I and Zaldi Star (Money Market) |
+| Fails because the parser cannot extract an otherwise published NAV/date | 0 | 0 | Bank ABC’s official API has no usable NAV/date; Zaldi’s official page publishes a price/date and is parsed, but its date is in the future |
+| Rejected only because a dated NAV is future relative to 26-Aug-2026 | 1 confirmed | 6 confirmed | Daily funds: Mawared, NI Capital 15/30, both GIG Makaseb tranches, the charitable education fund, and Zaldi Star |
+| Blank `price_update_url` in the catalog | 29 | 22 within the remaining active uncovered set | This is a metadata count, **not** a claim that no official source exists |
 
 ## Linked but unvalidated records
 
 | Fund | Recorded URL | Live diagnosis |
 | --- | --- | --- |
 | Bank ABC Fund I | `https://azimut.eg/funds` | The official Azimut API responded HTTP 200 and returned the `ABC` entry, but both `last_nav` and history graph were empty. No NAV/date was available to extract or validate. |
-| Zaldi Star Equity | `https://zaldi-capital.com/` | The official site root responded HTTP 200, but the HTML contained neither `Zaldi Star Equity` nor an `NAV/UNIT` field. The stored URL is a generic root page rather than a verified current detail page for the target fund. |
+| Zaldi Star (Money Market) | `https://zaldi-capital.com/zaldi-star/` | The FRA and first-party page confirmed the corrected money-market identity. The official page published 112.88191 EGP dated 30-Aug-2026; the daily future-dated value was deliberately rejected rather than stored. |
 
 ## Date policy
 

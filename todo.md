@@ -138,3 +138,4 @@
 - [x] Verify Al Baraka Al Motawazen’s legal identity and NAEEM affiliation from a directly readable FRA record; retain no alias or NAV write because the manager page lacks a current dated NAV
 - [x] Correct the catalog identity of Sigma Traded Fund after direct FRA evidence showed the name is a fund-management company, not an investable fund
 - [x] Resolve the Zaldi Star Equity versus official Zaldi Star Money Market identity conflict; correct the catalog and reject the official daily future-dated NAV
+- [x] Enrich BLOM Bank Fund I and II with their verified historical fund classes and successor-record evidence without treating the stale EIMA NAV as a validated snapshot

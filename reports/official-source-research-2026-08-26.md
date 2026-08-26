@@ -138,6 +138,22 @@ The Financial Regulatory Authority directly identifies company **669776** as `ص
 
 The official page publishes **112.88191 EGP** with date **30-Aug-2026**. Relative to the controlled as-of date **26-Aug-2026**, that date is future-dated. Since the official description is daily rather than weekly, the collector correctly rejects it from `validated` and does not create a `scheduled_weekly` review observation. The live source-only run made no NAV write.
 
+## Bank ABC Fund I direct bank-page recheck
+
+Bank ABC Egypt’s first-party mutual-funds page identifies its capital-growth EGP fund (`صندوق استثمار بنك المؤسسة العربية المصرفية ذو النمو الرأسمالي بالجنية المصري`) and separately identifies the daily money-market **Mazaya** fund. This confirms that the catalog’s **Bank ABC Fund I** belongs to the capital-growth product, not Mazaya. The bank page links prospectuses and historic corporate events only; it publishes no current NAV and no valuation date. The primary page therefore improves identity evidence but cannot replace the existing no-price classification or generate a snapshot.
+
+## BLOM Bank I/II successor-record recheck
+
+The FRA identifies two former BLOM Egypt funds now under Bank ABC Egypt: company **669306** is the current ABC Egypt cumulative money-market fund, formerly BLOM Egypt Money Market Fund (license **525**, 02-Jun-2009); company **669271** is the current ABC Egypt cumulative fund with periodic distribution, formerly BLOM Egypt cumulative fund (license **490**, 01-Dec-2008). Both records use CFH/Cairo Capital contacts and no current NAV is published in the regulator records or Bank ABC’s funds page.
+
+The EIMA performance report dated **14-May-2026** directly resolves the ordinal classes: **Blom Bank Fund I** is an open-end equity fund, CFH Asset Management, inception **Jul-2009**, with report NAV **545.72 EGP**; **Blom Bank Fund II** is an open-end money-market fund, CFH Asset Management, inception **Sep-2009**, with report NAV **700.57 EGP**. These class/inception distinctions align respectively with the 2008 former-BLOM cumulative FRA record (**669271**) and the 2009 former-BLOM money-market record (**669306**). The catalog was enriched with this identity information only.
+
+The EIMA figures are stale relative to the controlled 26-Aug-2026 as-of date and EIMA is not a manager/bank/regulator price publisher under the project rule. Neither NAV was persisted, and no price URL or source link was assigned. The funds remain pending current primary NAV publication.
+
+## Market Return recheck — unresolved catalog identity
+
+The imported record `Market Return` has `EGX 30` in its manager field, which is not a fund manager. An EIMA performance-report result suggests that “Market Return” may be the EGX30 benchmark column rather than a fund name, but the underlying report could not be retrieved as a readable file in the server environment: both direct HTTP and HTTPS downloads returned empty files. The browser preview alone is insufficient to reconstruct the row. No catalog change, source link, or NAV write was made; the record remains an explicitly unresolved identity rather than being treated as a verified fund.
+
 ## Pharos non-Facebook first-party route recheck
 
 The official Aton Holding site identifies **Pharos Fund 1** and the **Pharos Company for the Formation and Management of Securities Portfolios and Investment Funds** as subsidiaries, which supports the manager/fund relationship. It does not provide a NAV, valuation date, historical-price document, or machine-readable price endpoint. Pharos Holding’s own current site likewise describes its historical asset-management business but has no fund-price content. Consequently, this first-party route cannot replace the currently blocked Facebook collector; no snapshot was added and Pharos remains excluded from Run All.
