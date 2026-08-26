@@ -107,3 +107,7 @@ The latest search found an official NI Capital 15/30 fact sheet dated July 2025 
 ## Mubasher Capital official-site recheck
 
 The official Mubasher Capital homepage and its `/mutual-funds` section identify a Bahrain-regulated investment firm and describe mutual-fund services, but the accessible content contains no Egypt-specific fund NAV table and no valuation-date field. The site therefore does not qualify as a direct dated NAV source for the Egyptian Mubasher fund records. Mubasherfunds.info and Mubasher news articles remain separate publication channels and were not upgraded to primary-manager status by this inspection.
+
+## Follow-up on ABC and ABK
+
+The search located Bank ABC Egypt's official mutual-funds page and ABK's official Equity Fund page, plus an ABK July 2026 monthly report. The available search evidence does not by itself expose a current NAV with an explicit valuation date for Bank ABC Fund I or a separate ABK Fund II; secondary fund pages were not accepted. EIMA's older 2023 performance PDF is stale for the current daily objective. No new validated snapshot was written.
