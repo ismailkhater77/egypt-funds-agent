@@ -2,13 +2,13 @@
   "workbook": "/home/ubuntu/upload/ملفالصناديق.xlsx",
   "sheet": "Sheet1",
   "file_fund_count": 198,
-  "database_fund_count": 163,
+  "database_fund_count": 213,
   "database_price_row_count": 189,
-  "matched_to_database_count": 148,
+  "matched_to_database_count": 198,
   "covered_with_validated_price_count": 141,
   "not_covered_count": 57,
-  "exact_or_confident_match_count": 148,
-  "unmatched_or_ambiguous_count": 50,
+  "exact_or_confident_match_count": 198,
+  "unmatched_or_ambiguous_count": 0,
   "covered": [
     {
       "row": 2,
@@ -2977,8 +2977,14 @@
       "row": 4,
       "file_name": "GIG Insurance - Egypt Fund I",
       "company": "*PFI Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_cb37d8a8ab14a079",
+      "db_name": "GIG Insurance - Egypt Fund I",
+      "db_raw_name": "GIG Insurance - Egypt Fund I",
+      "db_company": "*PFI Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 8,
@@ -2997,8 +3003,14 @@
       "row": 18,
       "file_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
       "company": "Sigma Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_196096d8c91019c6",
+      "db_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
+      "db_raw_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
+      "db_company": "Sigma Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 20,
@@ -3017,85 +3029,157 @@
       "row": 22,
       "file_name": "Blom Bank Fund I",
       "company": "CFH Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_5e23d437b00dd28f",
+      "db_name": "Blom Bank Fund I",
+      "db_raw_name": "Blom Bank Fund I",
+      "db_company": "CFH Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 23,
       "file_name": "Pharos Fund I",
       "company": "Pharos Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_2d0080f3a14a0fb8",
+      "db_name": "Pharos Fund I",
+      "db_raw_name": "Pharos Fund I",
+      "db_company": "Pharos Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 24,
       "file_name": "Pioneers Fund I",
       "company": "Amwal for Financial Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_e538c111a8f2f22a",
+      "db_name": "Pioneers Fund I",
+      "db_raw_name": "Pioneers Fund I",
+      "db_company": "Amwal for Financial Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 26,
       "file_name": "National Bank of Kuwait Fund (Namaa)",
       "company": "NBK Capital Asset Management Egypt",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_fbdb62734b9d2bc8",
+      "db_name": "National Bank of Kuwait Fund (Namaa)",
+      "db_raw_name": "National Bank of Kuwait Fund (Namaa)",
+      "db_company": "NBK Capital Asset Management Egypt",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 28,
       "file_name": "NI Capital (Sahmy Fund)",
       "company": "NI Capital",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_2274c76e2f0c2607",
+      "db_name": "NI Capital (Sahmy Fund)",
+      "db_raw_name": "NI Capital (Sahmy Fund)",
+      "db_company": "NI Capital",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 29,
       "file_name": "Mubasher Equity",
       "company": "Mubasher Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_8f87165f1dc5f1b3",
+      "db_name": "Mubasher Equity",
+      "db_raw_name": "Mubasher Equity",
+      "db_company": "Mubasher Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 32,
       "file_name": "Momentum",
       "company": "CFH Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_506d6004db598cdc",
+      "db_name": "Momentum",
+      "db_raw_name": "Momentum",
+      "db_company": "CFH Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 33,
       "file_name": "Odin Trend",
       "company": "Alpha Financial Investments Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_fd33cc2b398c2dfc",
+      "db_name": "Odin Trend",
+      "db_raw_name": "Odin Trend",
+      "db_company": "Alpha Financial Investments Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 38,
       "file_name": "Aspire Waffrah Plus",
       "company": "Amwal for Financial Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_340c039797911e9c",
+      "db_name": "Aspire Waffrah Plus",
+      "db_raw_name": "Aspire Waffrah Plus",
+      "db_company": "Amwal for Financial Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 46,
       "file_name": "National Bank of Kuwait (Hayat)",
       "company": "NBK Capital Asset Management Egypt",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_27773e8d07295e89",
+      "db_name": "National Bank of Kuwait (Hayat)",
+      "db_raw_name": "National Bank of Kuwait (Hayat)",
+      "db_company": "NBK Capital Asset Management Egypt",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 48,
       "file_name": "Naeem Misr Fund",
       "company": "Naeem for Financial Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_7ecf69eda96b7c22",
+      "db_name": "Naeem Misr Fund",
+      "db_raw_name": "Naeem Misr Fund",
+      "db_company": "Naeem for Financial Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 49,
       "file_name": "Agriculural Bank of Egypt (Al Wefak)",
       "company": "CI Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_505f20f4ff52058b",
+      "db_name": "Agriculural Bank of Egypt (Al Wefak)",
+      "db_raw_name": "Agriculural Bank of Egypt (Al Wefak)",
+      "db_company": "CI Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 59,
@@ -3114,71 +3198,131 @@
       "row": 63,
       "file_name": "Al Ahli Bank of Kuwait - Egypt Fund II",
       "company": "Sigma Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_8cb45ae0c96c7f90",
+      "db_name": "Al Ahli Bank of Kuwait - Egypt Fund II",
+      "db_raw_name": "Al Ahli Bank of Kuwait - Egypt Fund II",
+      "db_company": "Sigma Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 66,
       "file_name": "Blom Bank Fund II",
       "company": "CFH Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_6003f4e5a46235cf",
+      "db_name": "Blom Bank Fund II",
+      "db_raw_name": "Blom Bank Fund II",
+      "db_company": "CFH Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 67,
       "file_name": "National Bank of Kuwait Fund (Ishraq)",
       "company": "NBK Capital Asset Management Egypt",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_e4c9c101a3374b3d",
+      "db_name": "National Bank of Kuwait Fund (Ishraq)",
+      "db_raw_name": "National Bank of Kuwait Fund (Ishraq)",
+      "db_company": "NBK Capital Asset Management Egypt",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 69,
       "file_name": "Housing & Development Bank (Mawared)",
       "company": "PFI Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_7a2bb4bbf55e9560",
+      "db_name": "Housing & Development Bank (Mawared)",
+      "db_raw_name": "Housing & Development Bank (Mawared)",
+      "db_company": "PFI Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 72,
       "file_name": "Egyptian Gulf Bank (Tharaa)",
       "company": "Prime Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_2770d5bf37ce5dc4",
+      "db_name": "Egyptian Gulf Bank (Tharaa)",
+      "db_raw_name": "Egyptian Gulf Bank (Tharaa)",
+      "db_company": "Prime Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 76,
       "file_name": "Arope Insurance Misr Fund",
       "company": "CFH Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_dcdce29bf354ca01",
+      "db_name": "Arope Insurance Misr Fund",
+      "db_raw_name": "Arope Insurance Misr Fund",
+      "db_company": "CFH Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 81,
       "file_name": "Siula Money Market",
       "company": "NI Capital",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_09c739ead1bd42d7",
+      "db_name": "Siula Money Market",
+      "db_raw_name": "Siula Money Market",
+      "db_company": "NI Capital",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 85,
       "file_name": "Delta Life Insurance",
       "company": "Alpha Financial Investment Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_2a497fc7469ee7ea",
+      "db_name": "Delta Life Insurance",
+      "db_raw_name": "Delta Life Insurance",
+      "db_company": "Alpha Financial Investment Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 87,
       "file_name": "GIG Insurance",
       "company": "*PFI Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+      "db_name": "GIG Insurance",
+      "db_raw_name": "GIG Insurance",
+      "db_company": "*PFI Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 88,
       "file_name": "Aman Micro Finance",
       "company": "Prime Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_9a9824abcbc06d4e",
+      "db_name": "Aman Micro Finance",
+      "db_raw_name": "Aman Micro Finance",
+      "db_company": "Prime Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 89,
@@ -3197,50 +3341,92 @@
       "row": 99,
       "file_name": "Odin 4",
       "company": "Alpha Financial Investment Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_228c50577ac34cf2",
+      "db_name": "Odin 4",
+      "db_raw_name": "Odin 4",
+      "db_company": "Alpha Financial Investment Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 101,
       "file_name": "Granite First Fund",
       "company": "Granite Fund Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_bad1022b0ea1c260",
+      "db_name": "Granite First Fund",
+      "db_raw_name": "Granite First Fund",
+      "db_company": "Granite Fund Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 103,
       "file_name": "PFI Cashi",
       "company": "PFI Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_55de4d996617e8fc",
+      "db_name": "PFI Cashi",
+      "db_raw_name": "PFI Cashi",
+      "db_company": "PFI Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 105,
       "file_name": "Aspire Rawajj",
       "company": "Amwal for Financial Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_00eb009a5cba4913",
+      "db_name": "Aspire Rawajj",
+      "db_raw_name": "Aspire Rawajj",
+      "db_company": "Amwal for Financial Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 107,
       "file_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
       "company": "Beltone Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_5e0d169d137e8e17",
+      "db_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+      "db_raw_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+      "db_company": "Beltone Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 110,
       "file_name": "GIG Makaseb Fund First Tranche",
       "company": "NI Capital",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_7c6c6f87a110bc05",
+      "db_name": "GIG Makaseb Fund First Tranche",
+      "db_raw_name": "GIG Makaseb Fund First Tranche",
+      "db_company": "NI Capital",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 111,
       "file_name": "GIG Makaseb Fund Second Tranche",
       "company": "NI Capital",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_ab8f6b89e48300e6",
+      "db_name": "GIG Makaseb Fund Second Tranche",
+      "db_raw_name": "GIG Makaseb Fund Second Tranche",
+      "db_company": "NI Capital",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 115,
@@ -3272,106 +3458,196 @@
       "row": 119,
       "file_name": "Egyptian Arab Land Bank Fund (Al Masry)",
       "company": "Alpha Financial Investment Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_65fc778135774384",
+      "db_name": "Egyptian Arab Land Bank Fund (Al Masry)",
+      "db_raw_name": "Egyptian Arab Land Bank Fund (Al Masry)",
+      "db_company": "Alpha Financial Investment Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 125,
       "file_name": "NI Capital 15/30",
       "company": "NI Capital",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_4a91355f14fab6b2",
+      "db_name": "NI Capital 15/30",
+      "db_raw_name": "NI Capital 15/30",
+      "db_company": "NI Capital",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 127,
       "file_name": "Cash Mubasher",
       "company": "Mubasher Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_ec35b86a2af66e66",
+      "db_name": "Cash Mubasher",
+      "db_raw_name": "Cash Mubasher",
+      "db_company": "Mubasher Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 131,
       "file_name": "Stream",
       "company": "CFH Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_5832f921b015e253",
+      "db_name": "Stream",
+      "db_raw_name": "Stream",
+      "db_company": "CFH Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 132,
       "file_name": "Target First Fund",
       "company": "Target Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_c1a54a18b309eebb",
+      "db_name": "Target First Fund",
+      "db_raw_name": "Target First Fund",
+      "db_company": "Target Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 139,
       "file_name": "*National Bank of Kuwait (Al Mizan)",
       "company": "NBK Capital Asset Management Egypt",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_a54635b361da0832",
+      "db_name": "*National Bank of Kuwait (Al Mizan)",
+      "db_raw_name": "*National Bank of Kuwait (Al Mizan)",
+      "db_company": "NBK Capital Asset Management Egypt",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 146,
       "file_name": "Al Baraka Bank Egypt (Al Motawazen)",
       "company": "Naeem Capital for Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_8890fe5997836df8",
+      "db_name": "Al Baraka Bank Egypt (Al Motawazen)",
+      "db_raw_name": "Al Baraka Bank Egypt (Al Motawazen)",
+      "db_company": "Naeem Capital for Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 147,
       "file_name": "FAB Misr Fund (Ezdhar)",
       "company": "Acumen Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_4401d4d4b9314a90",
+      "db_name": "FAB Misr Fund (Ezdhar)",
+      "db_raw_name": "FAB Misr Fund (Ezdhar)",
+      "db_company": "Acumen Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 149,
       "file_name": "Sigma Traded Fund",
       "company": "Sigma Funds Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_7c9cd45a3eb4f4c2",
+      "db_name": "Sigma Traded Fund",
+      "db_raw_name": "Sigma Traded Fund",
+      "db_company": "Sigma Funds Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 150,
       "file_name": "Ebank Fund III (Konooz)",
       "company": "Prime Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_b4f8cf2ed93a265a",
+      "db_name": "Ebank Fund III (Konooz)",
+      "db_raw_name": "Ebank Fund III (Konooz)",
+      "db_company": "Prime Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 157,
       "file_name": "NI Capital EGX 70",
       "company": "NI Capital",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_0e3039d40b526224",
+      "db_name": "NI Capital EGX 70",
+      "db_raw_name": "NI Capital EGX 70",
+      "db_company": "NI Capital",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 159,
       "file_name": "Prime NMOW",
       "company": "Prime Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_6b4de8489e04124c",
+      "db_name": "Prime NMOW",
+      "db_raw_name": "Prime NMOW",
+      "db_company": "Prime Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 178,
       "file_name": "Misr Money Market (Euro)",
       "company": "CI Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_f571b08373e7625f",
+      "db_name": "Misr Money Market (Euro)",
+      "db_raw_name": "Misr Money Market (Euro)",
+      "db_company": "CI Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 180,
       "file_name": "Maksab First Tranche USD $",
       "company": "Alpha Financial Investments Management & Zaldi Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_cb2fa7631c7099b1",
+      "db_name": "Maksab First Tranche USD $",
+      "db_raw_name": "Maksab First Tranche USD $",
+      "db_company": "Alpha Financial Investments Management & Zaldi Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 184,
       "file_name": "Maksab Second Tranche (Euro)",
       "company": "Alpha Financial Investments Management & Zaldi Investments",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_3cf867a117ae80dd",
+      "db_name": "Maksab Second Tranche (Euro)",
+      "db_raw_name": "Maksab Second Tranche (Euro)",
+      "db_company": "Alpha Financial Investments Management & Zaldi Investments",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 185,
@@ -3390,29 +3666,53 @@
       "row": 188,
       "file_name": "The charitable education Fund",
       "company": "NI Capital",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_36f84fcd84ba2624",
+      "db_name": "The charitable education Fund",
+      "db_raw_name": "The charitable education Fund",
+      "db_company": "NI Capital",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 194,
       "file_name": "Mubasher Gold",
       "company": "Mubasher Asset Management",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_ce8809c05bb69e89",
+      "db_name": "Mubasher Gold",
+      "db_raw_name": "Mubasher Gold",
+      "db_company": "Mubasher Asset Management",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 197,
       "file_name": "Bokra Shakmagia",
       "company": "Bokra",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_e4143c8985b4e122",
+      "db_name": "Bokra Shakmagia",
+      "db_raw_name": "Bokra Shakmagia",
+      "db_company": "Bokra",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     },
     {
       "row": 199,
       "file_name": "Market Return",
       "company": "EGX 30",
-      "match_type": "unmatched",
-      "candidates": []
+      "match_type": "exact",
+      "fund_id": "fund_catalog_b54758ef8387b610",
+      "db_name": "Market Return",
+      "db_raw_name": "Market Return",
+      "db_company": "EGX 30",
+      "price_update_url": null,
+      "has_price": false,
+      "latest_price": null
     }
   ]
 }

@@ -1,19 +1,19 @@
 # تقرير مقارنة ملف الصناديق مع قاعدة البيانات
 
-تاريخ التحليل: 2026-08-26T13:42:19.895714+00:00
+تاريخ التحليل: 2026-08-26T13:48:07.741372+00:00
 
 ## الخلاصة التنفيذية
 
-يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **163 سجل صندوق** و**189 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **148 صندوقًا** بقاعدة البيانات، ومن بينها **141 صندوقًا** لها سجل سعر بحالة `validated`. توجد **57 صناديق غير مغطاة حاليًا** ضمن الملف: **7** موجودة في قاعدة البيانات بلا سجل سعر validated، و**50** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
+يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **213 سجل صندوق** و**189 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **198 صندوقًا** بقاعدة البيانات، ومن بينها **141 صندوقًا** لها سجل سعر بحالة `validated`. توجد **57 صناديق غير مغطاة حاليًا** ضمن الملف: **57** موجودة في قاعدة البيانات بلا سجل سعر validated، و**0** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
 
 ## ما تم بناؤه في قاعدة البيانات
 
 | البند | العدد |
 |---|---:|
 | صفوف الصناديق في الملف | 198 |
-| سجلات الصناديق في Supabase | 163 |
+| سجلات الصناديق في Supabase | 213 |
 | سجلات الأسعار في Supabase | 189 |
-| صفوف الملف المرتبطة بسجل صندوق | 148 |
+| صفوف الملف المرتبطة بسجل صندوق | 198 |
 | صفوف الملف ذات سعر `validated` | 141 |
 | صفوف الملف غير المغطاة | 57 |
 
@@ -27,68 +27,68 @@
 
 | صف Excel | اسم الصندوق في الملف | الاسم في قاعدة البيانات | الشركة المديرة |
 |---:|---|---|---|
+| 4 | GIG Insurance - Egypt Fund I | GIG Insurance - Egypt Fund I | *PFI Asset Management |
 | 8 | Ebank Fund (El Khabeer) | Ebank Fund (El Khabeer) | Azimut Egypt Asset Management |
+| 18 | Al Ahli Bank of Kuwait - Egypt Fund I | Al Ahli Bank of Kuwait - Egypt Fund I | Sigma Asset Management |
 | 20 | Bank ABC Fund I | Bank ABC Fund I | Azimut Egypt Asset Management |
+| 22 | Blom Bank Fund I | Blom Bank Fund I | CFH Asset Management |
+| 23 | Pharos Fund I | Pharos Fund I | Pharos Asset Management |
+| 24 | Pioneers Fund I | Pioneers Fund I | Amwal for Financial Investments |
+| 26 | National Bank of Kuwait Fund (Namaa) | National Bank of Kuwait Fund (Namaa) | NBK Capital Asset Management Egypt |
+| 28 | NI Capital (Sahmy Fund) | NI Capital (Sahmy Fund) | NI Capital |
+| 29 | Mubasher Equity | Mubasher Equity | Mubasher Asset Management |
+| 32 | Momentum | Momentum | CFH Asset Management |
+| 33 | Odin Trend | Odin Trend | Alpha Financial Investments Management |
+| 38 | Aspire Waffrah Plus | Aspire Waffrah Plus | Amwal for Financial Investments |
+| 46 | National Bank of Kuwait (Hayat) | National Bank of Kuwait (Hayat) | NBK Capital Asset Management Egypt |
+| 48 | Naeem Misr Fund | Naeem Misr Fund | Naeem for Financial Investments |
+| 49 | Agriculural Bank of Egypt (Al Wefak) | Agriculural Bank of Egypt (Al Wefak) | CI Asset Management |
 | 59 | Ebank Fund II | Ebank Fund II | Azimut Egypt Asset Management |
+| 63 | Al Ahli Bank of Kuwait - Egypt Fund II | Al Ahli Bank of Kuwait - Egypt Fund II | Sigma Asset Management |
+| 66 | Blom Bank Fund II | Blom Bank Fund II | CFH Asset Management |
+| 67 | National Bank of Kuwait Fund (Ishraq) | National Bank of Kuwait Fund (Ishraq) | NBK Capital Asset Management Egypt |
+| 69 | Housing & Development Bank (Mawared) | Housing & Development Bank (Mawared) | PFI Asset Management |
+| 72 | Egyptian Gulf Bank (Tharaa) | Egyptian Gulf Bank (Tharaa) | Prime Investments |
+| 76 | Arope Insurance Misr Fund | Arope Insurance Misr Fund | CFH Asset Management |
+| 81 | Siula Money Market | Siula Money Market | NI Capital |
+| 85 | Delta Life Insurance | Delta Life Insurance | Alpha Financial Investment Management |
+| 87 | GIG Insurance | GIG Insurance | *PFI Asset Management |
+| 88 | Aman Micro Finance | Aman Micro Finance | Prime Investments |
 | 89 | Menthum | Menthum | Azimut Egypt Asset Management |
+| 99 | Odin 4 | Odin 4 | Alpha Financial Investment Management |
+| 101 | Granite First Fund | Granite First Fund | Granite Fund Management |
+| 103 | PFI Cashi | PFI Cashi | PFI Asset Management |
+| 105 | Aspire Rawajj | Aspire Rawajj | Amwal for Financial Investments |
+| 107 | ADIB Egypt Shari'a Compliant (Al Nahrda Fund) | ADIB Egypt Shari'a Compliant (Al Nahrda Fund) | Beltone Asset Management |
+| 110 | GIG Makaseb Fund First Tranche | GIG Makaseb Fund First Tranche | NI Capital |
+| 111 | GIG Makaseb Fund Second Tranche | GIG Makaseb Fund Second Tranche | NI Capital |
 | 115 | SAIB Fund III (Al Rabeh) | SAIB’s Third Investment Fund (El Rabeh) | Hermes Portfolio and Fund Management |
 | 116 | ALEXBANK Fund III | Bank of Alexandria Fund No. 3 | Hermes Portfolio and Fund Management |
+| 119 | Egyptian Arab Land Bank Fund (Al Masry) | Egyptian Arab Land Bank Fund (Al Masry) | Alpha Financial Investment Management |
+| 125 | NI Capital 15/30 | NI Capital 15/30 | NI Capital |
+| 127 | Cash Mubasher | Cash Mubasher | Mubasher Asset Management |
+| 131 | Stream | Stream | CFH Asset Management |
+| 132 | Target First Fund | Target First Fund | Target Asset Management |
+| 139 | *National Bank of Kuwait (Al Mizan) | *National Bank of Kuwait (Al Mizan) | NBK Capital Asset Management Egypt |
+| 146 | Al Baraka Bank Egypt (Al Motawazen) | Al Baraka Bank Egypt (Al Motawazen) | Naeem Capital for Investments |
+| 147 | FAB Misr Fund (Ezdhar) | FAB Misr Fund (Ezdhar) | Acumen Asset Management |
+| 149 | Sigma Traded Fund | Sigma Traded Fund | Sigma Funds Management |
+| 150 | Ebank Fund III (Konooz) | Ebank Fund III (Konooz) | Prime Investments |
+| 157 | NI Capital EGX 70 | NI Capital EGX 70 | NI Capital |
+| 159 | Prime NMOW | Prime NMOW | Prime Investments |
+| 178 | Misr Money Market (Euro) | Misr Money Market (Euro) | CI Asset Management |
+| 180 | Maksab First Tranche USD $ | Maksab First Tranche USD $ | Alpha Financial Investments Management & Zaldi Investments |
+| 184 | Maksab Second Tranche (Euro) | Maksab Second Tranche (Euro) | Alpha Financial Investments Management & Zaldi Investments |
 | 185 | Azimut Target Maturity Fund-Target 2027 USD | Azimut Target Maturity Fund-Target 2027 USD | Azimut Egypt Asset Management |
+| 188 | The charitable education Fund | The charitable education Fund | NI Capital |
+| 194 | Mubasher Gold | Mubasher Gold | Mubasher Asset Management |
+| 197 | Bokra Shakmagia | Bokra Shakmagia | Bokra |
+| 199 | Market Return | Market Return | EGX 30 |
 
 ## غير موجودة في قاعدة البيانات أو لم تُربط
 
 | صف Excel | اسم الصندوق | الشركة المديرة في الملف |
 |---:|---|---|
-| 4 | GIG Insurance - Egypt Fund I | *PFI Asset Management |
-| 18 | Al Ahli Bank of Kuwait - Egypt Fund I | Sigma Asset Management |
-| 22 | Blom Bank Fund I | CFH Asset Management |
-| 23 | Pharos Fund I | Pharos Asset Management |
-| 24 | Pioneers Fund I | Amwal for Financial Investments |
-| 26 | National Bank of Kuwait Fund (Namaa) | NBK Capital Asset Management Egypt |
-| 28 | NI Capital (Sahmy Fund) | NI Capital |
-| 29 | Mubasher Equity | Mubasher Asset Management |
-| 32 | Momentum | CFH Asset Management |
-| 33 | Odin Trend | Alpha Financial Investments Management |
-| 38 | Aspire Waffrah Plus | Amwal for Financial Investments |
-| 46 | National Bank of Kuwait (Hayat) | NBK Capital Asset Management Egypt |
-| 48 | Naeem Misr Fund | Naeem for Financial Investments |
-| 49 | Agriculural Bank of Egypt (Al Wefak) | CI Asset Management |
-| 63 | Al Ahli Bank of Kuwait - Egypt Fund II | Sigma Asset Management |
-| 66 | Blom Bank Fund II | CFH Asset Management |
-| 67 | National Bank of Kuwait Fund (Ishraq) | NBK Capital Asset Management Egypt |
-| 69 | Housing & Development Bank (Mawared) | PFI Asset Management |
-| 72 | Egyptian Gulf Bank (Tharaa) | Prime Investments |
-| 76 | Arope Insurance Misr Fund | CFH Asset Management |
-| 81 | Siula Money Market | NI Capital |
-| 85 | Delta Life Insurance | Alpha Financial Investment Management |
-| 87 | GIG Insurance | *PFI Asset Management |
-| 88 | Aman Micro Finance | Prime Investments |
-| 99 | Odin 4 | Alpha Financial Investment Management |
-| 101 | Granite First Fund | Granite Fund Management |
-| 103 | PFI Cashi | PFI Asset Management |
-| 105 | Aspire Rawajj | Amwal for Financial Investments |
-| 107 | ADIB Egypt Shari'a Compliant (Al Nahrda Fund) | Beltone Asset Management |
-| 110 | GIG Makaseb Fund First Tranche | NI Capital |
-| 111 | GIG Makaseb Fund Second Tranche | NI Capital |
-| 119 | Egyptian Arab Land Bank Fund (Al Masry) | Alpha Financial Investment Management |
-| 125 | NI Capital 15/30 | NI Capital |
-| 127 | Cash Mubasher | Mubasher Asset Management |
-| 131 | Stream | CFH Asset Management |
-| 132 | Target First Fund | Target Asset Management |
-| 139 | *National Bank of Kuwait (Al Mizan) | NBK Capital Asset Management Egypt |
-| 146 | Al Baraka Bank Egypt (Al Motawazen) | Naeem Capital for Investments |
-| 147 | FAB Misr Fund (Ezdhar) | Acumen Asset Management |
-| 149 | Sigma Traded Fund | Sigma Funds Management |
-| 150 | Ebank Fund III (Konooz) | Prime Investments |
-| 157 | NI Capital EGX 70 | NI Capital |
-| 159 | Prime NMOW | Prime Investments |
-| 178 | Misr Money Market (Euro) | CI Asset Management |
-| 180 | Maksab First Tranche USD $ | Alpha Financial Investments Management & Zaldi Investments |
-| 184 | Maksab Second Tranche (Euro) | Alpha Financial Investments Management & Zaldi Investments |
-| 188 | The charitable education Fund | NI Capital |
-| 194 | Mubasher Gold | Mubasher Asset Management |
-| 197 | Bokra Shakmagia | Bokra |
-| 199 | Market Return | EGX 30 |
 
 ## منهجية المطابقة والقيود
 
