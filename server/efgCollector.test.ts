@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { aggregateRunSummaries, buildActiveFundsQuery, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
+import { aggregateRunSummaries, buildActiveFundsQuery, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseFabMisrAlAwal, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runFabMisrAlAwalCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -270,9 +270,51 @@ describe("EFG mutual-fund parser", () => {
     const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>22 August 2026</td></tr><tr><td>Currency (EGP)</td><td>472.6990</td></tr></table>`;
     expect(parseFabMisrEzdehar(html)).toEqual([{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav: 472.699, valuationDate: "2026-08-22", currency: "EGP" }]);
   });
+  it("extracts FAB Misr Al Awal NAV and explicit daily valuation date", () => {
+    const html = readFileSync(new URL("./fixtures/fab-misr-al-awal.html", import.meta.url), "utf8");
+    expect(parseFabMisrAlAwal(html)).toEqual([{
+      name: "FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity",
+      rawName: "Al Awal Fund",
+      nav: 541.4604,
+      valuationDate: "2026-08-24",
+      currency: "EGP",
+    }]);
+  });
   it("preserves a future weekly FABMISR source date for scheduled review instead of discarding the official NAV", () => {
     const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>29 August 2026</td></tr><tr><td>Currency (EGP)</td><td>480.1000</td></tr></table>`;
     expect(parseFabMisrEzdehar(html)).toEqual([{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav: 480.1, valuationDate: "2026-08-29", currency: "EGP" }]);
+  });
+  it("persists FABMISR Al Awal as a daily validated snapshot under its independent official-bank source", async () => {
+    const html = `<div>Al Awal Daily Money Market Fund (NAV)</div><table><tr><td>Date</td><td>24 August 2026</td></tr><tr><td>Currency (EGP)</td><td>541.46040</td></tr></table>`;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("fabmisr.com.eg/en/personal-banking/investments-funds/al-awal-fund")) return new Response(html, { status: 200 });
+      if (url.includes("/rest/v1/funds?")) return new Response(JSON.stringify([{
+        fund_id: "fab-al-awal",
+        canonical_name: "FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity",
+        eima_name_raw: "Fab Misr (Al Awal)",
+        category: "Open End- Money Market Funds",
+        price_update_url: "https://www.hc-si.com/Service/asset-management#funds",
+      }]), { status: 200 });
+      if (url.includes("/rest/v1/sources?")) return new Response(JSON.stringify([{ source_id: "src_fab_misr_al_awal" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?")) return new Response(JSON.stringify([]), { status: 200 });
+      if (url.endsWith("/rest/v1/fund_prices") && init?.method === "POST") return new Response(null, { status: 204 });
+      return new Response(JSON.stringify([]), { status: 200 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const summary = await runFabMisrAlAwalCollector();
+    expect(summary).toMatchObject({ status: "success", schedule: "daily", fetchedRecords: 1, matchedRecords: 1, inserted: 1, scheduled: 0, failed: [] });
+    const write = fetchMock.mock.calls.find(([input, init]) => String(input).endsWith("/rest/v1/fund_prices") && init?.method === "POST");
+    expect(JSON.parse(String(write?.[1]?.body))).toMatchObject({
+      fund_id: "fab-al-awal",
+      source_id: "src_fab_misr_al_awal",
+      nav: 541.4604,
+      currency: "EGP",
+      valuation_date: "2026-08-24",
+      status: "validated",
+      raw_payload: { observation_state: "validated_actual_or_resolved_date" },
+    });
+    vi.unstubAllGlobals();
   });
   it("accepts only valid IPv4 A records for the FABMISR DNS fallback", () => {
     expect(selectDnsARecord({ Answer: [{ type: 28, data: "2001:db8::1" }, { type: 1, data: "41.33.19.60" }] })).toBe("41.33.19.60");

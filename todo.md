@@ -142,3 +142,4 @@
 - [x] Correct the Market Return catalog record after direct EIMA evidence confirms it is the EGX30 benchmark, not an investable fund
 - [x] Integrate ABK Egypt Fund II from the official Money Market Fund page after exact identity reconciliation through Sigma Asset Management, May-2009 inception, and EGP 10 nominal value
 - [ ] Complete the next official-source discovery pass for the 22 active funds without a validated NAV, prioritizing directly publishable bank and manager feeds
+- [x] Integrate FABMISR Al Awal from its official daily fund page only after exact catalog identity, source link, idempotent live write, and regression tests are confirmed

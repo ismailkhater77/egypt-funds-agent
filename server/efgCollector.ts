@@ -35,6 +35,7 @@ const FAISAL_SOURCE_URL = "https://www.faisalbank.com.eg/ar/Retail/Mutual-Funds"
 const PFI_SOURCE_URL = "https://pfi-am.com.eg/funds/";
 const NI_CAPITAL_SOURCE_URL = "https://nicapital.com.eg/lines-of-business/asset-management/";
 const FAB_MISR_EZDEHAR_SOURCE_URL = "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund";
+const FAB_MISR_AL_AWAL_SOURCE_URL = "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/al-awal-fund";
 const EBANK_SOURCE_URL = "https://ebank.com.eg/market-updates/";
 const ABK_EQUITY_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Equity-Fund?r=2";
 const ABK_MONEY_MARKET_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Money-Market-Fund?r=2";
@@ -55,6 +56,7 @@ const NBK_PARSER_NAME = "nbk_official_fund_detail_v1";
 const PFI_PARSER_NAME = "pfi_official_funds_v1";
 const NI_CAPITAL_PARSER_NAME = "ni_capital_official_funds_v1";
 const FAB_MISR_PARSER_NAME = "fab_misr_official_ezdehar_v1";
+const FAB_MISR_AL_AWAL_PARSER_NAME = "fab_misr_official_al_awal_v1";
 const EBANK_PARSER_NAME = "ebank_official_market_updates_v1";
 const ALPHA_ODIN_PARSER_NAME = "alpha_odin_homepage_fund_cards_v1";
 const EFG_PARSER_NAME = "efg_html_table_v1";
@@ -298,6 +300,17 @@ export function parseFabMisrEzdehar(html: string): EfgRecord[] {
   const valuationDate = parseEnglishDateStrict(match[1]);
   if (!Number.isFinite(nav) || nav < 0) return [];
   return [{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav, valuationDate, currency: "EGP" }];
+}
+
+export function parseFabMisrAlAwal(html: string): EfgRecord[] {
+  const text = stripTags(html);
+  if (!/Al Awal Daily Money Market Fund \(NAV\)/i.test(text)) throw new Error("FABMISR parser did not recognize the Al Awal NAV section");
+  const match = text.match(/Al Awal Daily Money Market Fund \(NAV\)\s+Date\s+(\d{1,2}\s+[A-Za-z]+\s+\d{4})\s+Currency \(EGP\)\s+([0-9.,]+)/i);
+  if (!match) return [];
+  const nav = parseLocalizedNumber(match[2]);
+  const valuationDate = parseEnglishDateStrict(match[1]);
+  if (!Number.isFinite(nav) || nav < 0) return [];
+  return [{ name: "FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity", rawName: "Al Awal Fund", nav, valuationDate, currency: "EGP" }];
 }
 export function parseNbkFundPage(html: string): EfgRecord[] {
   const title = html.match(/<h1[^>]*>\s*(Ishraq|Namaa|Al-Hayah|Al-Mizan)\s*<\/h1>/i)?.[1];
@@ -1205,6 +1218,10 @@ export function runEbankCollector(): Promise<RunSummary> {
 export function runFabMisrCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, fetcher: fetchFabMisrPage, matchAllFunds: true, schedule: "weekly" });
 }
+
+export function runFabMisrAlAwalCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: FAB_MISR_AL_AWAL_SOURCE_URL, parserName: FAB_MISR_AL_AWAL_PARSER_NAME, parse: parseFabMisrAlAwal, fetcher: fetchFabMisrPage, matchAllFunds: true, schedule: "daily" });
+}
 export function runNbkCollector(): Promise<RunSummary> {
   return runCombinedCollectors(NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })));
 }
@@ -1248,7 +1265,8 @@ export function getProviderSupportReport() {
     { provider: "National Bank of Kuwait Egypt", source: NBK_SOURCE_URLS.join(", "), parser: NBK_PARSER_NAME, status: "implemented" as const, note: "Official detail pages for Ishraq, Namaa, Al-Hayah, and Al-Mizan" },
     { provider: "PFI Asset Management", source: PFI_SOURCE_URL, parser: PFI_PARSER_NAME, status: "implemented" as const, note: "Official funds page; future-dated rows are rejected" },
     { provider: "NI Capital", source: NI_CAPITAL_SOURCE_URL, parser: NI_CAPITAL_PARSER_NAME, status: "implemented" as const, note: "Official asset-management page; future-dated rows are rejected" },
-    { provider: "FAB Misr", source: FAB_MISR_EZDEHAR_SOURCE_URL, parser: FAB_MISR_PARSER_NAME, status: "implemented" as const, note: "Official bank fund page; NAV/date extracted and future-dated values rejected" },
+    { provider: "FAB Misr Ezdehar", source: FAB_MISR_EZDEHAR_SOURCE_URL, parser: FAB_MISR_PARSER_NAME, status: "implemented" as const, note: "Official bank fund page; explicit weekly valuation policy preserves a future source date only as review" },
+    { provider: "FAB Misr Al Awal", source: FAB_MISR_AL_AWAL_SOURCE_URL, parser: FAB_MISR_AL_AWAL_PARSER_NAME, status: "implemented" as const, note: "Official daily money-market fund page with explicit NAV and valuation date; separate from Ezdehar weekly policy" },
     { provider: "EBank", source: EBANK_SOURCE_URL, parser: EBANK_PARSER_NAME, status: "implemented" as const, note: "Official Market Updates page; Khabeer/Money Market/Konooz NAV and valuation dates" },
     { provider: "ABK-Egypt", source: `${ABK_EQUITY_SOURCE_URL}, ${ABK_MONEY_MARKET_SOURCE_URL}`, parser: "abk_official_fund_pages_v2", status: "implemented" as const, note: "Official equity and money-market fund pages; Fund II identity reconciled through Sigma, May-2009 inception, and EGP 10 nominal value" },
     { provider: "Alpha Odin", source: ALPHA_ODIN_SOURCE_URL, parser: ALPHA_ODIN_PARSER_NAME, status: "implemented" as const, note: "Official homepage cards; limited to exact, reviewed Odin Trend and Egyptian Arab Land Bank Al Masry identities" },
@@ -1280,6 +1298,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: NI_CAPITAL_SOURCE_URL, parserName: NI_CAPITAL_PARSER_NAME, parse: parseNiCapitalFunds, matchAllFunds: true },
     { sourceUrl: EBANK_SOURCE_URL, parserName: EBANK_PARSER_NAME, parse: parseEbankMarketUpdates, matchAllFunds: true },
     { sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, fetcher: fetchFabMisrPage, matchAllFunds: true, schedule: "weekly" },
+    { sourceUrl: FAB_MISR_AL_AWAL_SOURCE_URL, parserName: FAB_MISR_AL_AWAL_PARSER_NAME, parse: parseFabMisrAlAwal, fetcher: fetchFabMisrPage, matchAllFunds: true, schedule: "daily" },
     { sourceUrl: ABK_EQUITY_SOURCE_URL, parserName: "abk_official_fund_pages_v2", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ABK_MONEY_MARKET_SOURCE_URL, parserName: "abk_official_fund_pages_v2", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ALPHA_ODIN_SOURCE_URL, fetchUrl: ALPHA_ODIN_API_URL, parserName: ALPHA_ODIN_PARSER_NAME, parse: parseAlphaOdinFunds, matchAllFunds: true },

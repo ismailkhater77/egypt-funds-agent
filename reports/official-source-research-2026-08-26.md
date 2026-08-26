@@ -110,7 +110,7 @@ The latest search found an official NI Capital 15/30 fact sheet dated July 2025 
 
 ## Mubasher Capital official-site recheck
 
-The official Mubasher Capital homepage and its `/mutual-funds` section identify a Bahrain-regulated investment firm and describe mutual-fund services, but the accessible content contains no Egypt-specific fund NAV table and no valuation-date field. The site therefore does not qualify as a direct dated NAV source for the Egyptian Mubasher fund records. Mubasherfunds.info and Mubasher news articles remain separate publication channels and were not upgraded to primary-manager status by this inspection.
+The official Mubasher Capital `asset-management` and `/mutual-funds` sections identify a Bahrain-regulated investment firm and describe mutual-fund services, but the accessible content contains no Egypt-specific fund list, NAV table, or valuation-date field. The site therefore does not qualify as a direct dated NAV source for the Egyptian Mubasher fund records. Mubasherfunds.info and Mubasher news articles remain separate publication channels and were not upgraded to primary-manager status by this inspection.
 
 ## BLOM Bank Egypt official-site recheck
 
@@ -160,7 +160,7 @@ The readable EIMA **Performance of Egyptian Mutual Funds** report dated **14-May
 
 ## Beltone live-date-field recheck
 
-The live first-party Beltone Asset Management fund sheet explicitly labels its three relevant columns **Price (EGP)**, **Inception Date**, and **Last Update**. Across the live table, Last Update is **30-Aug-2026**, while the controlled collection as-of date is **26-Aug-2026**; it therefore cannot be an already-realized valuation date. The page offers no separate actual valuation-date field or historical NAV graph. The collector accordingly continues to interpret this as a scheduled/next-update-style date: it may reuse a prior validated actual date only when NAV and currency are unchanged, and rejects changed NAVs before write. No relaxation of the future-date guard is warranted.
+The live first-party Beltone Asset Management fund sheet explicitly labels its three relevant columns **Price (EGP)**, **Inception Date**, and **Last Update**. Across the live table, Last Update is **30-Aug-2026**, while the controlled collection as-of date is **26-Aug-2026**; it therefore cannot be an already-realized valuation date. The page offers no separate actual valuation-date field or historical NAV graph. A linked first-party Google Drive file for **B-Cobonat** is titled as a memorandum of subscription and issuance documents for the second tranche; its cover confirms that it is an offering document, not a historical price statement. The collector accordingly continues to interpret this as a scheduled/next-update-style date: it may reuse a prior validated actual date only when NAV and currency are unchanged, and rejects changed NAVs before write. No relaxation of the future-date guard is warranted.
 
 ## HC live source recheck
 
@@ -272,6 +272,14 @@ Official URL: https://www.fabmisr.com.eg/en/personal-banking/investments-funds/e
 The collector now preserves the official hostname and TLS certificate validation while using DNS-over-HTTPS only as a narrow network-resolution fallback when the runtime resolver fails for `www.fabmisr.com.eg`. A successful live run fetched the bank’s official page, matched `fund_catalog_4401d4d4b9314a90` (`FAB Misr Fund (Ezdhar)`), and inserted the actual 22-Aug-2026 NAV 472.6990 EGP. A second run returned one unchanged record.
 
 For any source explicitly configured as `weekly`, an official NAV whose displayed valuation date is in the future is no longer discarded or treated as a source failure. It is persisted with its unmodified source date and `status=review`, with raw payload marker `observation_state=scheduled_weekly`. It remains excluded from validated coverage and the latest-validated history until its date is no longer future. This retains a verifiable published observation without allowing a scheduled date to corrupt historical `validated` NAVs.
+
+## FABMISR Al Awal — official daily NAV integration
+
+FABMISR’s first-party **Al Awal Fund** page describes a daily cumulative money-market fund and publishes an explicit NAV section: **541.46040 EGP** dated **24 August 2026**. The name, daily-liquidity description, money-market class, and manager match the active catalog record `FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity` / raw name `Fab Misr (Al Awal)` / `HC Securities & Investment`. [5]
+
+The integration creates a separate official-bank source (`src_fab_misr_al_awal`) without overwriting the catalog’s existing HC URL or source. The first live collection inserted the dated validated snapshot once; the immediate second run returned `unchanged=1`. The source uses the existing FABMISR DNS-over-HTTPS fallback only when normal DNS resolution fails, retains TLS hostname validation, and is configured **daily**—therefore it never uses Ezdehar’s weekly `scheduled_weekly` exception.
+
+[5] [FABMISR — Al Awal Investment Fund](https://www.fabmisr.com.eg/en/personal-banking/investments-funds/al-awal-fund)
 
 ## PFI Mawared frequency confirmation
 
