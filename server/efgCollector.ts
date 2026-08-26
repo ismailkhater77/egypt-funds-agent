@@ -18,6 +18,7 @@ const HC_AJAX_URL = "https://www.hc-si.com/wp-admin/admin-ajax.php";
 const AAIM_SOURCE_URL = "https://aaim.com.eg/ar/what-we-offer/funds";
 const AAIM_FETCH_URL = "https://aaim.com.eg/en/what-we-offer/funds";
 const MUBASHER_SOURCE_URL = "https://mubasherfunds.info/";
+const PHAROS_SOURCE_URL = "https://www.facebook.com/AtonPharos/";
 const MUBASHER_DAILY_SOURCE_URL = "https://mubasherfunds.info/8479/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026";
 const MUBASHER_CATEGORY_SOURCE_URLS = [
   MUBASHER_DAILY_SOURCE_URL,
@@ -42,6 +43,7 @@ const NBK_SOURCE_URLS = [
 ] as const;
 const MUBASHER_PARSER_NAME = "mubasher_funds_daily_articles_v1";
 const MUBASHER_DAILY_PARSER_NAME = "mubasher_daily_all_funds_article_v1";
+const PHAROS_PARSER_NAME = "aton_pharos_facebook_post_v1";
 const SCB_PARSER_NAME = "suez_canal_bank_fund_rates_v1";
 const FAISAL_PARSER_NAME = "faisal_bank_mutual_funds_cards_v1";
 const NBK_PARSER_NAME = "nbk_official_fund_detail_v1";
@@ -150,6 +152,39 @@ export function resolvePersistedValuationDate(candidateDate: string, nav: number
 function parseLocalizedNumber(value: string): number {
   const arabicDigits = value.replace(/[٠-٩]/g, digit => String("٠١٢٣٤٥٦٧٨٩".indexOf(digit)));
   return Number(arabicDigits.replace(/,/g, "").replace(/[^0-9.]/g, ""));
+}
+
+const arabicMonthNumbers: Record<string, string> = {
+  يناير: "01", فبراير: "02", مارس: "03", أبريل: "04", ابريل: "04", مايو: "05", يونيو: "06",
+  يوليو: "07", أغسطس: "08", اغسطس: "08", سبتمبر: "09", أكتوبر: "10", اكتوبر: "10", نوفمبر: "11", ديسمبر: "12",
+};
+
+function parseArabicPostDate(dayValue: string, monthName: string, yearValue: string): string | null {
+  const day = parseLocalizedNumber(dayValue);
+  const month = arabicMonthNumbers[monthName];
+  const year = Number(yearValue);
+  if (!month || !Number.isInteger(day) || day < 1 || day > 31 || !Number.isInteger(year) || year < 2000) return null;
+  const isoDate = `${year}-${month}-${String(day).padStart(2, "0")}`;
+  const parsed = new Date(`${isoDate}T00:00:00Z`);
+  return Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== isoDate ? null : isoDate;
+}
+
+/**
+ * Aton Pharos publishes the NAV as a dated Arabic Facebook post. The page may
+ * contain multiple historical posts, so return the newest dated post present
+ * in the fetched HTML and never use the page-modified timestamp as valuation date.
+ */
+export function parseAtonPharosFunds(html: string): EfgRecord[] {
+  const text = stripTags(html);
+  const pattern = /سعر وثيقة\s+صندوق\s+فاروس الأول ذو العائد التراكمي[\s\S]{0,180}?الموافق\s*([٠-٩0-9]{1,2})\s+(يناير|فبراير|مارس|أبريل|ابريل|مايو|يونيو|يوليو|أغسطس|اغسطس|سبتمبر|أكتوبر|اكتوبر|نوفمبر|ديسمبر)\s+(\d{4})[\s\S]{0,120}?سعر الوثيق(?:ة|ه)\s*([٠-٩0-9.,]+)/gi;
+  const candidates: EfgRecord[] = [];
+  for (const match of Array.from(text.matchAll(pattern))) {
+    const valuationDate = parseArabicPostDate(match[1] ?? "", match[2] ?? "", match[3] ?? "");
+    const nav = parseLocalizedNumber(match[4] ?? "");
+    if (!valuationDate || !Number.isFinite(nav) || nav < 0) continue;
+    candidates.push({ name: "Pharos Fund I", rawName: "صندوق فاروس الأول ذو العائد التراكمي", nav, valuationDate, currency: "EGP" });
+  }
+  return candidates.sort((left, right) => right.valuationDate.localeCompare(left.valuationDate)).slice(0, 1);
 }
 
 export function parseScbFundRates(html: string): EfgRecord[] {
@@ -668,6 +703,8 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "MAKASEB 2nd Tranche": "gig makaseb fund second tranche",
     "EDUCATION FOR LIFE": "the charitable education fund",
     "Ezdehar Fund": "fab misr fund (ezdhar)",
+    "صندوق فاروس الأول ذو العائد التراكمي": "pharos fund i",
+    "Pharos Fund I": "pharos fund i",
   };
   for (const fund of funds) {
     byName.set(normalize(fund.canonical_name), fund);
@@ -954,6 +991,11 @@ export function runMubasherDailyCollector(): Promise<RunSummary> {
 export function runMubasherCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: MUBASHER_SOURCE_URL, parserName: MUBASHER_PARSER_NAME, parse: parseMubasherFunds, matchAllFunds: true });
 }
+
+const fetchPharosPage = (url: string) => fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/131 Safari/537.36", Accept: "text/html,application/xhtml+xml", "Accept-Language": "ar,en;q=0.8" } });
+export function runPharosCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: PHAROS_SOURCE_URL, parserName: PHAROS_PARSER_NAME, parse: parseAtonPharosFunds, fetcher: fetchPharosPage, matchAllFunds: true });
+}
 export function runScbCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: SCB_SOURCE_URL, parserName: SCB_PARSER_NAME, parse: parseScbFundRates, matchAllFunds: true });
 }
@@ -996,6 +1038,7 @@ export function getProviderSupportReport() {
     { provider: "Arab African Investment Management (AAIM)", source: AAIM_FETCH_URL, parser: "aaim_fund_cards_v1", status: "implemented" as const, note: "Official fund cards" },
     { provider: "Mubasher Funds", source: MUBASHER_SOURCE_URL, parser: MUBASHER_PARSER_NAME, status: "implemented" as const, note: "Affiliated/publication daily tables; primary manager ownership not independently verified" },
     { provider: "Mubasher Funds Daily Articles", source: MUBASHER_CATEGORY_SOURCE_URLS.join(", "), parser: MUBASHER_DAILY_PARSER_NAME, status: "implemented" as const, note: "Current daily publication category articles; secondary source, not primary manager feed" },
+    { provider: "Aton Pharos Asset Management", source: PHAROS_SOURCE_URL, parser: PHAROS_PARSER_NAME, status: "pending" as const, note: "Official dated post text verified, but server-side Facebook fetch currently returns HTTP 400; not enabled in Run All" },
     { provider: "Suez Canal Bank", source: SCB_SOURCE_URL, parser: SCB_PARSER_NAME, status: "implemented" as const, note: "Official bank page with four NAV cards and valuation dates" },
     { provider: "Faisal Islamic Bank Egypt", source: FAISAL_SOURCE_URL, parser: FAISAL_PARSER_NAME, status: "implemented" as const, note: "Official bank page with two mutual-fund cards and valuation dates" },
     { provider: "National Bank of Kuwait Egypt", source: NBK_SOURCE_URLS.join(", "), parser: NBK_PARSER_NAME, status: "implemented" as const, note: "Official detail pages for Ishraq, Namaa, Al-Hayah, and Al-Mizan" },
@@ -1048,6 +1091,15 @@ export async function manualEfgRunHandler(req: Request, res: ExpressResponse) {
   try {
     await requireAuthenticated(req);
     res.json(await runEfgCollector());
+  } catch (error) {
+    res.status(401).json({ error: error instanceof Error ? error.message : "unauthorized" });
+  }
+}
+
+export async function manualPharosRunHandler(req: Request, res: ExpressResponse) {
+  try {
+    await requireAuthenticated(req);
+    res.json(await runPharosCollector());
   } catch (error) {
     res.status(401).json({ error: error instanceof Error ? error.message : "unauthorized" });
   }

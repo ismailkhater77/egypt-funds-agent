@@ -83,7 +83,7 @@
 - [ ] Verify current PFI prices for Housing & Development Bank (Mawared) and any matched GIG funds
 - [ ] Verify current Azimut prices for Ebank El Khabeer, Bank ABC Fund I, Ebank Fund II, Menthum, and Target Maturity 2027 USD
 - [x] Verify Alpha Odin official NAV/valuation-date evidence for Odin Trend, Maksab tranches, and Al Masry (official page inspected; no current NAV/date exposed, records remain Pending)
-- [x] Verify whether Aton/Pharos links are authoritative and contain current NAV plus valuation dates (identity supported; no current NAV/date published, so Pharos remains Pending)
+- [x] Verify whether Aton/Pharos links are authoritative and contain current NAV plus valuation dates (official Facebook HTML exposed dated NAV text for Pharos Fund I; live server fetch remains blocked)
 - [ ] Add only fully verified new source mappings and refresh coverage; preserve --, stale, or undated records as Pending Verification
 - [x] Reject future-dated Azimut NAV rows and add a regression test before accepting official API records
 - [x] Quarantine previously stored future-dated Azimut snapshots as rejected without deleting audit history, then verify coverage excludes them (metadata quarantine; DB status constraint remains validated-only)
@@ -109,3 +109,12 @@
 - [x] Document provider limitations: Azimut exposes an actual historical graph; current Beltone, HC Securities, and Zaldi payloads expose no separate actual valuation-date field, so changed-NAV future-dated rows remain rejected
 - [x] Rerun Beltone, Azimut, HC Securities, and Zaldi after the date-resolution change and verify zero newly written future validated rows
 - [x] Run All collectors, refresh workbook coverage, and rerun the strict duplicate/conflict audit after the date-resolution change
+
+## Pharos official social-source verification
+- [x] Identify the official Pharos Holding Facebook page and public Pharos Holding LinkedIn page
+- [x] Verify daily Pharos Fund I posts contain NAV, valuation date, and unambiguous fund/manager identity from directly readable post text or first-party files
+- [x] Add a Pharos social-source parser/mapping after the official account and dated NAV post text passed strict verification
+- [ ] Resolve server-side HTTP 400 from the official Pharos Facebook page and prove a stable live fetch before enabling Pharos in Run All
+- [ ] Rerun Pharos live, coverage, duplicate audit, TypeScript, and Vitest after the server-side Facebook fetch is fixed
+
+- [x] Inspect user-confirmed Pharos Facebook URL https://www.facebook.com/share/1bstbdayA7/ and verify it redirects to the official Pharos page before using any posts as source evidence

@@ -111,3 +111,46 @@ The official Mubasher Capital homepage and its `/mutual-funds` section identify 
 ## Follow-up on ABC and ABK
 
 The search located Bank ABC Egypt's official mutual-funds page and ABK's official Equity Fund page, plus an ABK July 2026 monthly report. The available search evidence does not by itself expose a current NAV with an explicit valuation date for Bank ABC Fund I or a separate ABK Fund II; secondary fund pages were not accepted. EIMA's older 2023 performance PDF is stale for the current daily objective. No new validated snapshot was written.
+
+## Pharos official social accounts — identity check
+
+The LinkedIn page `https://www.linkedin.com/company/pharosholding/` identifies **Pharos Holding for Financial Investments** as a Cairo-based financial-services company, links to `www.pharosholding.com`, and describes its investment/asset-management history. The Facebook page `https://www.facebook.com/PharosHoldingEG/about` identifies **Pharos Holding فاروس القابضة**, shows the Cairo address and `pharosholding.com` contact domain, and has approximately 12K followers. These checks support account identity, but the accessible profile/about views did not yet provide a Pharos Fund I NAV with an explicit valuation date. No database mapping or price write was performed.
+
+## User-confirmed Facebook URL redirect
+
+The user-confirmed URL `https://www.facebook.com/share/1bstbdayA7/` redirects to `https://www.facebook.com/AtonPharos`, titled **Aton Pharos Asset Management**. The page identifies itself as a financial service in 6 October City, Egypt, links to `atonholding.godaddysites.com`, provides the email `info@atonpharosam.com`, and links to a LinkedIn company page. This confirms the supplied link points to Aton Pharos Asset Management rather than the generic Pharos Holding page. The accessible post view currently exposes a recent post and photo links but no machine-readable Pharos Fund I NAV plus explicit valuation date yet; no price was written.
+
+## Aton Pharos posts inspection
+
+The user-confirmed URL redirects to the official-looking **Aton Pharos Asset Management** page with a current post and photo links. The public, logged-out page exposes the page identity, contact details, and recent-post timestamps such as `7h`, but the accessible text does not expose a machine-readable Pharos Fund I NAV together with an explicit valuation/as-of date. The visible post image may contain text, but it cannot be treated as verified NAV until the image is read and the fund/date/value are unambiguous. No database write was made.
+
+The attempted image capture from the logged-out Aton page returned a Facebook icon asset rather than the fund-post artwork. It contains no NAV or valuation date and was not used as a financial fixture or database source.
+
+The extracted Aton post-photo URL redirects to Facebook login when opened directly in the public session. Consequently, the post artwork and its caption cannot be independently read here; the page's `7h` timestamp is only a publication timestamp and is not a valuation date. The user-confirmed page is recognized as the official Aton Pharos Asset Management page, but Pharos Fund I remains unverified until a readable post or first-party document exposes NAV and an explicit valuation date.
+
+## User-provided screenshots — Pharos Fund I daily NAV evidence
+
+The user supplied screenshots from the confirmed official **Aton Pharos Asset Management** Facebook page. The screenshots visibly show the Arabic fund name `صندوق فاروس الأول ذو العائد التراكمي` and explicit unit prices with valuation dates:
+
+| Valuation date | Unit price | Evidence |
+|---|---:|---|
+| 2026-08-26 | EGP 792.60 | Official-page post shown in user screenshot |
+| 2026-08-25 | EGP 792.04 | Official-page post shown in user screenshot |
+| 2026-08-24 | EGP 789.45 | Official-page post shown in user screenshot |
+| 2026-08-23 | EGP 791.97 | Official-page post shown in user screenshot |
+| 2026-08-20 | EGP 782.48 | Official-page post shown in user screenshot |
+| 2026-08-19 | EGP 776.30 | Official-page post shown in user screenshot |
+
+These screenshots provide strong first-party evidence for fund identity, NAV, and valuation date. The post publication labels (`7h`, `1d`, `2d`, and similar) are not used as valuation dates. Automated ingestion still requires a stable machine-readable access path or an explicitly approved authenticated connector; the screenshots themselves were not inserted as database rows.
+
+## Pharos catalog match
+
+The read-only Supabase catalog inspection found an exact record: `fund_id=fund_catalog_2d0080f3a14a0fb8`, `canonical_name=Pharos Fund I`, and `eima_name_raw=Pharos Fund I`. Its current `price_update_url` is null, so the Facebook evidence can be matched to the fund identity without changing the database. No NAV snapshot was inserted yet because the public browser session cannot reliably retrieve the post artwork/caption for automated daily ingestion.
+
+## Aton LinkedIn link check
+
+The public URL associated with the Aton Facebook page (`https://www.linkedin.com/company/75557969/`) redirects to LinkedIn's authentication wall in this session and does not expose a public company name or post content. It is therefore not used as an independent NAV source. The Facebook page identity remains supported by the user-provided screenshots and the page's own contact/site details.
+
+## Pharos dated NAV evidence captured from first-party HTML
+
+The fetched first-party Facebook HTML exposed the following post text from actor **Aton Pharos Asset Management**: `سعر وثيقة صندوق فاروس الأول ذو العائد التراكمي يوم الأربعاء الموافق ٢٦ أغسطس 2026` and `EGP سعر الوثيقه 792.60`. The same HTML exposed the public post URL `https://www.facebook.com/AtonPharos/posts/pfbid02fEgT91bngiHSwZQtWAkpJXwsJgjfR1QPaTF1URKBk4x946ubyzTMmN66hdLQfCdhl`. This is sufficient to validate the post's fund identity, NAV, currency, and valuation date for parser testing. However, a direct server-side fetch from the sandbox returned HTTP 400 for the page, the `/posts/` path, the direct post URL, and the mobile page. Consequently, the parser and manual endpoint are present, but Pharos is intentionally excluded from `Run All` until a stable first-party machine-readable fetch path is available.
