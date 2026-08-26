@@ -235,6 +235,8 @@ The public URL associated with the Aton Facebook page (`https://www.linkedin.com
 
 The fetched first-party Facebook HTML exposed the following post text from actor **Aton Pharos Asset Management**: `سعر وثيقة صندوق فاروس الأول ذو العائد التراكمي يوم الأربعاء الموافق ٢٦ أغسطس 2026` and `EGP سعر الوثيقه 792.60`. The same HTML exposed the public post URL `https://www.facebook.com/AtonPharos/posts/pfbid02fEgT91bngiHSwZQtWAkpJXwsJgjfR1QPaTF1URKBk4x946ubyzTMmN66hdLQfCdhl`. This is sufficient to validate the post's fund identity, NAV, currency, and valuation date for parser testing. However, a direct server-side fetch from the sandbox returned HTTP 400 for the page, the `/posts/` path, the direct post URL, and the mobile page. Consequently, the parser and manual endpoint are present, but Pharos is intentionally excluded from `Run All` until a stable first-party machine-readable fetch path is available.
 
+A fresh live server-side collector run after the broader transport issue cleared again returned **HTTP 400** from the same official Facebook page. This isolates the remaining blocker to Facebook’s server-side response rather than a general sandbox network outage; no Pharos snapshot was inserted and the source remains excluded from Run All.
+
 ## Pioneers Funds official-site recheck
 
 Official URL: http://www.pioneersfunds.com/
@@ -282,6 +284,10 @@ FABMISR’s first-party **Al Awal Fund** page describes a daily cumulative money
 The integration creates a separate official-bank source (`src_fab_misr_al_awal`) without overwriting the catalog’s existing HC URL or source. The first live collection inserted the dated validated snapshot once; the immediate second run returned `unchanged=1`. The source uses the existing FABMISR DNS-over-HTTPS fallback only when normal DNS resolution fails, retains TLS hostname validation, and is configured **daily**—therefore it never uses Ezdehar’s weekly `scheduled_weekly` exception.
 
 [5] [FABMISR — Al Awal Investment Fund](https://www.fabmisr.com.eg/en/personal-banking/investments-funds/al-awal-fund)
+
+## Mubasher Asset Management primary-source recheck
+
+The accessible Mubasher Funds news route exposes platform price-category articles and market news, while Mubasher Capital’s public asset-management and mutual-funds pages describe Bahrain-regulated services without an Egyptian fund NAV table or valuation-date field. Neither route supplied a link to an independently accessible Egyptian Mubasher Asset Management primary NAV disclosure. The existing Mubasher publication collectors therefore remain distinctly labeled as affiliated/publication channels rather than being promoted to an unproven primary-manager source.
 
 ## PFI Mawared frequency confirmation
 
