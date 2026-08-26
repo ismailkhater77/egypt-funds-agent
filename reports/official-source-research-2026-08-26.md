@@ -142,7 +142,9 @@ The official page publishes **112.88191 EGP** with date **30-Aug-2026**. Relativ
 
 ## Bank ABC Fund I direct bank-page recheck
 
-Bank ABC Egypt’s first-party mutual-funds page identifies its capital-growth EGP fund (`صندوق استثمار بنك المؤسسة العربية المصرفية ذو النمو الرأسمالي بالجنية المصري`) and separately identifies the daily money-market **Mazaya** fund. This confirms that the catalog’s **Bank ABC Fund I** belongs to the capital-growth product, not Mazaya. The bank page links prospectuses and historic corporate events only; it publishes no current NAV and no valuation date. The primary page therefore improves identity evidence but cannot replace the existing no-price classification or generate a snapshot.
+Bank ABC Egypt’s active mutual-funds page is now `https://www.bank-abc.com/en/CountrySites/Egypt/AboutABC/Pages/ABC-Mutual-Funds.aspx`. It identifies its capital-growth EGP fund (`صندوق استثمار بنك المؤسسة العربية المصرفية ذو النمو الرأسمالي بالجنية المصري`) and separately identifies the daily money-market **Mazaya** fund. This confirms that the catalog’s **Bank ABC Fund I** belongs to the capital-growth product, not Mazaya. The page publishes prospectuses and quarterly financial statements, including the equity fund’s official statements dated **30-Jun-2026**, but it does not display a current NAV or valuation date.
+
+The 30-Jun-2026 primary financial-statement PDF is a signed fund financial-position/income report. Its visible core statements disclose aggregate assets, liabilities, income, and investment gains, but do not state a NAV **per certificate**. No NAV was derived from statement totals or stored. The former short mutual-funds URL returns Bank ABC’s own **Page not found** response, while the active page remains identity and document evidence rather than a current price feed.
 
 ## BLOM Bank I/II successor-record recheck
 
@@ -166,7 +168,7 @@ HC’s first-party home-page list contained a mix of **26-Aug-2026** and **29-Au
 
 ## Pharos non-Facebook first-party route recheck
 
-The official Aton Holding site identifies **Pharos Fund 1** and the **Pharos Company for the Formation and Management of Securities Portfolios and Investment Funds** as subsidiaries, which supports the manager/fund relationship. It does not provide a NAV, valuation date, historical-price document, or machine-readable price endpoint. Pharos Holding’s own current site likewise describes its historical asset-management business but has no fund-price content. Consequently, this first-party route cannot replace the currently blocked Facebook collector; no snapshot was added and Pharos remains excluded from Run All.
+The official Aton Holding site identifies **Pharos Fund 1** (spelled “Pharos Found 1” on the current page) and the **Pharos Company for the Formation and Management of Securities Portfolios and Investment Funds** as subsidiaries, which supports the manager/fund relationship. It does not provide a NAV, valuation date, historical-price document, or machine-readable price endpoint. Pharos Holding’s own current site likewise describes its historical asset-management business but has no fund-price content. Consequently, this first-party route cannot replace the currently blocked Facebook collector; no snapshot was added and Pharos remains excluded from Run All.
 
 ## Arope official fund-page recheck
 
