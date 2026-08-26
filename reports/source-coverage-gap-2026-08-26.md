@@ -1,16 +1,16 @@
 # Source-Coverage Gap Report — 2026-08-26
 
-This report is a **read-only** Supabase audit. “No update source at all” means `price_update_url IS NULL`; it does not mean that an external source can never be found. “Linked but no validated snapshot” means a URL exists in the fund catalog but there is no validated price dated on or before 2026-08-26.
+This report is a **read-only** Supabase audit of active fund records. “No update source at all” means `price_update_url IS NULL`; it does not mean that an external source can never be found. “Linked but no validated snapshot” means a URL exists in the active fund catalog but there is no validated price dated on or before 2026-08-26.
 
 | Category | Count |
 | --- | ---: |
-| Catalog funds | 215 |
-| Funds with no update-source URL at all | 40 |
+| Active catalog funds | 214 |
+| Funds with no update-source URL at all | 39 |
 | Funds linked to a URL but without a validated snapshot as of 2026-08-26 | 2 |
-| Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 25 |
+| Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 24 |
 | Funds with at least one validated snapshot as of 2026-08-26 | 190 |
 
-## A. Funds with no update-source URL at all (40)
+## A. Funds with no update-source URL at all (39)
 
 | Canonical fund name | Imported/EIMA name | Source URL |
 | --- | --- | --- |
@@ -49,7 +49,6 @@ This report is a **read-only** Supabase audit. “No update source at all” mea
 | Pharos Fund I | Pharos Fund I | — |
 | Pioneers Fund I | Pioneers Fund I | — |
 | Prime NMOW | Prime NMOW | — |
-| Sigma Traded Fund | Sigma Traded Fund | — |
 | Stream | Stream | — |
 | Target First Fund | Target First Fund | — |
 | The charitable education Fund | The charitable education Fund | — |
@@ -64,9 +63,9 @@ These are **not** part of the “no source at all” count. They are included so
 | Bank ABC Fund I | Bank ABC Fund I | https://azimut.eg/funds |
 | Zaldi Star Equity | Zaldi Star Equity | https://zaldi-capital.com/ |
 
-## C. Funds with no validated snapshot as of 2026-08-26 (25)
+## C. Funds with no validated snapshot as of 2026-08-26 (24)
 
-This is the operational priority list. It contains all funds not yet covered by a validated NAV snapshot, whether the catalog currently has a source URL or not.
+This is the operational priority list. It contains all active funds not yet covered by a validated NAV snapshot, whether the catalog currently has a source URL or not.
 
 | Canonical fund name | Imported/EIMA name | Linked source URL |
 | --- | --- | --- |
@@ -91,7 +90,6 @@ This is the operational priority list. It contains all funds not yet covered by 
 | Pharos Fund I | Pharos Fund I | null |
 | Pioneers Fund I | Pioneers Fund I | null |
 | Prime NMOW | Prime NMOW | null |
-| Sigma Traded Fund | Sigma Traded Fund | null |
 | Stream | Stream | null |
 | The charitable education Fund | The charitable education Fund | null |
 | Zaldi Star Equity | Zaldi Star Equity | https://zaldi-capital.com/ |

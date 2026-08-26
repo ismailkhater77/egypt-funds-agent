@@ -118,9 +118,19 @@ The accessible BLOM Bank Egypt domain presents a legacy site whose footer states
 
 The official Cairo Capital website identifies Cairo Capital as an Egyptian asset manager but exposes no Momentum product page, NAV table, or valuation-date field. The official `CairoCapitalGP` Facebook post establishes that **Momentum Fund** is associated with Cairo Capital and ranks it in EIMA weekly-equity performance, but publishes neither a NAV nor an explicit valuation date. The available first-party evidence therefore proves a manager/fund relationship but not a validated price observation; no source mapping or snapshot was added.
 
-## Al Baraka Al Motawazen identity reconciliation — pending
+## Al Baraka Al Motawazen identity reconciliation — legal identity verified, no qualified current NAV
 
-EFG’s official mutual-funds table publishes `صندوق استثمار بنك البركة مصر ذو العائد الدوري` at **635.1 EGP** dated **26-Aug-2026**. A regulator search record identifies a similarly named Al Baraka periodic cumulative balanced fund. However, the imported catalog row `Al Baraka Bank Egypt (Al Motawazen)` currently names **Naeem Capital for Investments** as manager, whereas EFG presents the rate in its own manager page. This creates an unresolved manager/identity conflict. The EFG value is documented as evidence only and was **not** written as a snapshot; the provisional source link will be removed unless primary documentation resolves the discrepancy.
+The Financial Regulatory Authority’s directly readable record confirms `صندوق استثمار بنك البركه ذو العائد الدوري التراكمي المتوازن`, English name `صندوق بنك البركة مصر ... المتوازن`, company number **669355**, license **580**, and investment-fund issuance authorization dated **03-May-2010**. Its official contact email is `mohamed.saif@naeemholding.com`. This establishes the legal fund identity and its NAEEM affiliation as the record corresponding to the catalog row `Al Baraka Bank Egypt (Al Motawazen)`.
+
+The official Naeem Holding product page confirms an Egyptian, Sharia-compliant balanced equity fund in EGP with weekly subscription/redemption through Al Baraka Bank, but names **AT Financial Investments** as investment manager and exposes only historical performance through 2020 and a May-2017 fact sheet. It does not publish a current NAV with valuation date. EFG’s table separately publishes a 26-Aug-2026 value for a similarly named Al Baraka periodic fund, but EFG is not the fund/bank/regulator source established above. The provisional EFG link and alias were removed; no snapshot was stored.
+
+## ABK Egypt Fund II regulator recheck
+
+The Financial Regulatory Authority directly identifies company **669288**, licensed on **24-Mar-2009**, as `صندوق استثمار البنك الاهلي الكويتي مصر ذو التوزيع الدوري التراكمي (صندوق بيريرس مصر سابقا)` — a periodic cumulative-distribution fund formerly associated with Piraeus Egypt. This regulatory record does not publish NAV. It also distinguishes this entity from ABK’s separately named Money Market Fund, whose official bank page has a current NAV but no evidence tying it to the catalog’s `Al Ahli Bank of Kuwait - Egypt Fund II` label. The Money Market NAV remains deliberately unmapped; Fund II stays pending until a first-party source names it explicitly and publishes a dated NAV.
+
+## Sigma Traded Fund catalog correction
+
+The Financial Regulatory Authority’s searchable company-register API identifies `شركة صندوق سيجما لاداره الاسهم المتداوله` as a **fund company** and says it is currently **Beltone Investment Funds** (formerly Sigma). This is an asset/fund-management entity, not an investable mutual fund with a certificate NAV. The imported record `Sigma Traded Fund`, whose raw manager is `Sigma Funds Management`, was retained for audit but marked inactive rather than deleted. It is excluded from active collector matching and active-coverage denominators; no NAV source should be sought for it unless the underlying investable fund is identified from primary records.
 
 ## Pharos non-Facebook first-party route recheck
 
@@ -137,6 +147,10 @@ An official Cairo Capital Group Facebook post confirms **Stream Fund** and descr
 ## NI Capital price-table recheck — future dates retained as ineligible daily observations
 
 NI Capital’s first-party price table publishes **29-Aug-2026** alongside the following records: `15/30` at **21.78483 EGP**; `Makaseb — first issue` at **20.64864 EGP**; `Makaseb — second issue` at **20.60258 EGP**; and `Education Hayah Charitable Fund` at **200.4176 EGP**. The same official page describes 15/30 purchases as daily and Makaseb as a daily accumulated-return money-market fund; no official weekly dealing cycle was established for these observations. With the controlled as-of date of **26-Aug-2026**, the values remain future-dated and are not inserted as `validated` or as `scheduled_weekly`; the uncovered classification is therefore `FUTURE_DATE_ONLY`, not stale-source failure.
+
+## Aspire Waffrah Plus official-document recheck
+
+Aspire’s official funds page links a scanned, FRA-stamped PDF for **Waffrah Plus**. Its cover and opening terms identify it as the *first-issue subscription/issuance document* for Aspire Capital’s multi-issue equity fund, not a periodic NAV statement. It states a nominal issue value of **10 EGP per certificate** and says the certificate price is announced daily, but it does not disclose any actual current price/NAV or a corresponding valuation date. The nominal issuance value is not treated as NAV. Accordingly, no price was extracted or stored; the document is retained only as identity evidence while a current official price feed remains unresolved.
 
 ## Follow-up on ABC and ABK
 

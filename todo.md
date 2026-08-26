@@ -135,4 +135,5 @@
 - [x] Integrate Alpha Odin’s official current NAV cards for exact Odin Trend and Al Masry identities, with idempotent writes and tests
 - [x] Aggregate scheduled weekly observations in the combined Run All summary and add regression coverage
 - [x] Integrate exact Alpha Odin Maksab USD and Euro issues after validating their identities, currencies, NAVs, and explicit valuation dates
-- [ ] Resolve the manager and legal-identity conflict for Al Baraka Bank Egypt (Al Motawazen) before enabling any EFG alias or NAV write
+- [x] Verify Al Baraka Al Motawazen’s legal identity and NAEEM affiliation from a directly readable FRA record; retain no alias or NAV write because the manager page lacks a current dated NAV
+- [x] Correct the catalog identity of Sigma Traded Fund after direct FRA evidence showed the name is a fund-management company, not an investable fund

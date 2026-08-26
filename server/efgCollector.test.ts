@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { aggregateRunSummaries, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
+import { aggregateRunSummaries, buildActiveFundsQuery, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -285,6 +285,15 @@ describe("EFG mutual-fund parser", () => {
 
   it("returns no rows for unrelated markup", () => {
     expect(parseEfgMutualFunds("<html><body>No fund table</body></html>")).toEqual([]);
+  });
+
+  it("queries only active catalog funds for matched and match-all collectors", () => {
+    const linked = new URL(`https://example.test${buildActiveFundsQuery("https://efgholding.com/en/our-services/mutual-funds")}`);
+    const all = new URL(`https://example.test${buildActiveFundsQuery("https://abkegypt.com/Business/Treasury/Investments/Equity-Fund", true)}`);
+    expect(linked.searchParams.get("active")).toBe("eq.true");
+    expect(linked.searchParams.get("price_update_url")).toBe("eq.https://efgholding.com/en/our-services/mutual-funds");
+    expect(all.searchParams.get("active")).toBe("eq.true");
+    expect(all.searchParams.has("price_update_url")).toBe(false);
   });
 
   it("matches official CI Menthum and Banque Misr EUR names by exact aliases", () => {

@@ -19,7 +19,7 @@ const category = {
 
 const assignments = new Map([
   ["Al Ahli Bank of Kuwait - Egypt Fund II", "IDENTITY_UNCONFIRMED"],
-  ["Al Baraka Bank Egypt (Al Motawazen)", "OFFICIAL_UNDATED"],
+  ["Al Baraka Bank Egypt (Al Motawazen)", "OFFICIAL_NO_CURRENT_NAV"],
   ["Aman Micro Finance", "OFFICIAL_UNDATED"],
   ["Arope Insurance Misr Fund", "OFFICIAL_UNDATED"],
   ["Aspire Rawajj", "OFFICIAL_UNDATED"],
@@ -39,7 +39,6 @@ const assignments = new Map([
   ["Pharos Fund I", "OFFICIAL_FETCH_BLOCKED"],
   ["Pioneers Fund I", "OFFICIAL_STALE"],
   ["Prime NMOW", "OFFICIAL_UNDATED"],
-  ["Sigma Traded Fund", "NO_OFFICIAL_CURRENT_NAV_FOUND"],
   ["Stream", "OFFICIAL_NO_CURRENT_NAV"],
   ["The charitable education Fund", "FUTURE_DATE_ONLY"],
   ["Zaldi Star Equity", "LINKED_GENERIC_OR_UNMAPPED"],
@@ -52,7 +51,7 @@ async function get(path) {
 }
 
 const [funds, prices] = await Promise.all([
-  get("funds?select=fund_id,canonical_name,eima_name_raw,price_update_url&limit=500"),
+  get("funds?select=fund_id,canonical_name,eima_name_raw,price_update_url&active=eq.true&limit=500"),
   get("fund_prices?select=fund_id,valuation_date,status&status=eq.validated&limit=5000"),
 ]);
 const covered = new Set(prices.filter((row) => row.valuation_date <= asOfDate).map((row) => row.fund_id));

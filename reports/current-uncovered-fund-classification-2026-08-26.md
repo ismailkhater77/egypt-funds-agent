@@ -1,12 +1,12 @@
 # Current Uncovered-Fund Classification — 2026-08-26
 
-This is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before 2026-08-26. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **25**.
+This is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before 2026-08-26. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **24**.
 
 | Metric | Count |
 | --- | ---: |
-| Current funds without a validated snapshot | 25 |
+| Current funds without a validated snapshot | 24 |
 | Recorded catalog URL exists | 2 |
-| Catalog URL is blank | 23 |
+| Catalog URL is blank | 22 |
 | Confirmed parser extraction failures from an otherwise published price/date | 0 |
 | Confirmed future-date-only rejection | 5 |
 
@@ -17,19 +17,19 @@ This is an **exhaustive current** classification of every catalog fund without a
 | LINKED_NO_PUBLISHED_NAV | رابط رسمي قائم لكن لا ينشر NAV/تاريخ قابلًا للاعتماد | 1 |
 | LINKED_GENERIC_OR_UNMAPPED | رابط قائم لكنه صفحة عامة أو غير مثبتة للمنتج المستهدف | 1 |
 | IDENTITY_UNCONFIRMED | يوجد منتج رسمي محتمل لكن هوية Fund II غير مثبتة | 1 |
-| OFFICIAL_UNDATED | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح | 7 |
+| OFFICIAL_UNDATED | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح | 6 |
 | OFFICIAL_STALE | مصدر رسمي موجود لكن NAV/المستند قديم | 2 |
 | FUTURE_DATE_ONLY | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط | 5 |
 | OFFICIAL_FETCH_BLOCKED | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا | 1 |
-| OFFICIAL_NO_CURRENT_NAV | مصدر رسمي مفحوص لا ينشر NAV حاليًا | 3 |
-| NO_OFFICIAL_CURRENT_NAV_FOUND | لم يظهر مصدر رسمي حالي لـNAV بعد البحث | 4 |
+| OFFICIAL_NO_CURRENT_NAV | مصدر رسمي مفحوص لا ينشر NAV حاليًا | 4 |
+| NO_OFFICIAL_CURRENT_NAV_FOUND | لم يظهر مصدر رسمي حالي لـNAV بعد البحث | 3 |
 
 ## Per-fund classification
 
 | Fund | Recorded catalog URL | One controlling reason |
 | --- | --- | --- |
 | Al Ahli Bank of Kuwait - Egypt Fund II | — | يوجد منتج رسمي محتمل لكن هوية Fund II غير مثبتة |
-| Al Baraka Bank Egypt (Al Motawazen) | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
+| Al Baraka Bank Egypt (Al Motawazen) | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
 | Aman Micro Finance | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
 | Arope Insurance Misr Fund | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
 | Aspire Rawajj | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
@@ -49,7 +49,6 @@ This is an **exhaustive current** classification of every catalog fund without a
 | Pharos Fund I | — | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا |
 | Pioneers Fund I | — | مصدر رسمي موجود لكن NAV/المستند قديم |
 | Prime NMOW | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
-| Sigma Traded Fund | — | لم يظهر مصدر رسمي حالي لـNAV بعد البحث |
 | Stream | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
 | The charitable education Fund | — | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |
 | Zaldi Star Equity | https://zaldi-capital.com/ | رابط قائم لكنه صفحة عامة أو غير مثبتة للمنتج المستهدف |

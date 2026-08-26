@@ -842,10 +842,15 @@ export function tallyWriteResult(counters: WriteCounters, result: "inserted" | "
   return { ...counters, [result]: counters[result] + 1 };
 }
 
-async function getFunds(sourceUrl: string, matchAllFunds = false): Promise<FundRow[]> {
+export function buildActiveFundsQuery(sourceUrl: string, matchAllFunds = false): string {
   const params = new URLSearchParams({ select: "fund_id,canonical_name,eima_name_raw,category,price_update_url", limit: "500" });
+  params.set("active", "eq.true");
   if (!matchAllFunds) params.set("price_update_url", `eq.${sourceUrl}`);
-  return supabaseRequest<FundRow[]>(`/rest/v1/funds?${params.toString()}`);
+  return `/rest/v1/funds?${params.toString()}`;
+}
+
+async function getFunds(sourceUrl: string, matchAllFunds = false): Promise<FundRow[]> {
+  return supabaseRequest<FundRow[]>(buildActiveFundsQuery(sourceUrl, matchAllFunds));
 }
 
 async function getSourceId(sourceUrl: string): Promise<string> {
