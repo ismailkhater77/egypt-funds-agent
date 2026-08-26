@@ -53,3 +53,65 @@ A Starta Markets URL tested during discovery pointed to National Bank of Egypt M
 ## PFI live validation
 
 The PFI parser ran against the live official page. Because the system date is 26 August 2026, the three rows dated 29 August 2026 were rejected as future-dated; the GIG Equity Fund row dated 26 August 2026 was matched and inserted successfully. A second run returned one unchanged record with no duplicate snapshot. Workbook coverage consequently improved from 49 to **48 uncovered rows** and validated coverage increased to **150/198**.
+## Granite and EGX checks
+
+Official Granite page: https://www.granite.eg/fund
+
+The page identifies Granite EGP as a daily money-market fund managed by Granite Asset Management, but the displayed NAV is `1 EGP` dated 24 November 2025. It is too stale to use as a current validated snapshot for the uncovered Granite First Fund row; it should remain a potential source endpoint for future updates, subject to confirmation that the catalog name maps to this fund.
+
+EGX mutual-funds page: https://www.egx.com.eg/en/MutulFunds.aspx
+
+The page timed out in the browser during this check, so no data was extracted or stored from it.
+## Delta Life discovery
+
+Search results located the official Delta Life Egypt site but only corporate/news pages, not a current NAV feed. Secondary pages such as FoudaLens and Mubasher publish Delta Life fund values, but their primary ownership/data provenance still requires validation before any snapshot is stored. No Delta Life price was inserted during this check.
+
+Search result references retained for follow-up: https://deltalifeegypt.com/en/news/6 and https://foudalens.com/en/fund/MUB-5808.
+## EFG official page re-check
+
+Official page: https://efgholding.com/en/our-services/mutual-funds
+
+The current DOM exposes live tables with IC Price and As of Date. Relevant rows from the uncovered backlog include:
+
+| Published fund | IC Price | As of Date |
+|---|---:|---|
+| Egyptian Gulf Bank Mutual Fund | 1,374.7 | 20/08/2026 |
+| SAIB’s Third Investment Fund (El Rabeh) | 453.86963 | 25/08/2026 |
+| Egyptian Agricultural Bank (Al Massy) | 76.69 | 20/08/2026 |
+| KFH-Alpha-Shariaa Compliant Equity Fund | 129.29733 | 22/08/2026 |
+| Al Baraka Capital Fund - Manasek | 109.03426 | 25/08/2026 |
+
+The existing EFG parser/source should be re-run against this current page to test whether these rows are being parsed and matched; no new hardcoded values were added from the browser inspection.
+## Mubasher daily category sources discovered
+
+The 25 August 2026 article links to current category pages for real-estate, money-market/fixed-income, equity, dollar, and Islamic funds:
+
+- https://mubasherfunds.info/8481/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D9%81%D9%8A-%D8%A7%D9%84%D8%A3%D8%B3%D9%87%D9%85-%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026
+- https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB27282a-25-%D8%A33A333733-2026
+- https://mubasherfunds.info/8483/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D0646272f4a42-%D8%A74427332a2b452731-%D06414a-%D8%A74423334745-25-%D8%A33a333733-2026
+- https://mubasherfunds.info/8484/article/%D8%A3%D8%B3392731-%D06482b272642-%D8%B546272f4a42-%D8%A74427332a2b452731-%D064427442f484427314a29-25-%D8%A33a333733-2026
+- https://mubasherfunds.info/8487/article/%D8%A333392731-%D06482b272642-%D8%B546272f4a42-%D8%A74427332a2b4527%D8%B1-%D8%A74425334427%D06454A29-25-%D8%A33a333733-2026
+
+All are secondary/publication sources; manager ownership is not treated as independently verified.
+## Bank ABC and Naeem checks
+
+Bank ABC official mutual-funds page: https://www.bank-abc.com/en/CountrySites/Egypt/AboutABC/Pages/ABC-Mutual-Funds.aspx
+
+The browser returned a blank page with no extractable table or current NAV, so no Bank ABC price was stored.
+
+Naeem official funds page: https://www.naeemholding.com/asset-management/investment-offerings/our-funds/
+
+The page exposes two strategy rows, but both have `Last Update` 31/03/2021 (Egypt Equity Growth Islamic NAV 163.43 and Egypt Balanced Islamic NAV 94.91). These are stale and were not inserted as current validated prices for Naeem Misr Fund.
+## Menthum, Odin, and remaining-manager discovery
+
+Search results identified official fund/manager pages for Menthum (https://www.menthum.com/) and Odin Investments (https://www.odin-investments.com/en/investment-funds/ and https://odinfundmanagement.com/our-funds/). These pages are candidates for direct NAV extraction. Search also found current-looking secondary pages for Odin Equity Fund Trend and historical Mubasher/Decypha articles, but those are not yet accepted as current primary feeds. No prices were stored from this search alone.
+## Odin official page check
+
+Official page: https://www.odin-investments.com/en/investment-funds/
+
+The page identifies Odin's KASAB equity fund and Maksab-OZ fixed-income fund, along with real-estate funds, but the current DOM contains no NAV table, valuation date, or usable pricing endpoint. No Odin price was inserted from this page.
+## Snduk secondary source check
+
+URL: https://snduk.com/sa/fund-prices?lang=en
+
+Snduk presents a dedicated daily Egyptian mutual-fund prices page and explicitly references Pharos First Fund and other Egyptian funds in its page navigation. However, the dynamic page returned an empty body to the controlled DOM inspection, so no NAV/date was extracted or stored. A server-side API/network inspection is required before integrating it.

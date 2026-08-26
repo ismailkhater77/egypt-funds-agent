@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherFunds, parseNbkFundPage, parsePfiFunds, parseScbFundRates, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parsePfiFunds, parseScbFundRates, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts a validated fund snapshot from the EFG data payload", () => {
@@ -77,6 +77,15 @@ describe("EFG mutual-fund parser", () => {
     expect(parseFaisalMutualFunds(html)).toEqual([
       { name: "صندوق أمان ذو العائد التراكمى", rawName: "صندوق أمان ذو العائد التراكمى", nav: 525.63, valuationDate: "2026-08-25", currency: "EGP" },
       { name: "صندوق إستثمار بنك فيصل الإسلامى المصرى ذو العائد الدورى", rawName: "صندوق إستثمار بنك فيصل الإسلامى المصرى ذو العائد الدورى", nav: 581.67, valuationDate: "2026-08-23", currency: "EGP" },
+    ]);
+  });
+
+  it("extracts the current Mubasher daily article table", () => {
+    const html = `<p>أسعار وثائق صناديق الاستثمار المصرية بتاريخ 25 أغسطس 2026</p><table><tr><td>24.54846</td><td>Al-Siola Fund-NI Capital</td></tr><tr><td>204.35979</td><td>Delta Life Assurance</td></tr><tr><td>18.969</td><td>GIG Money Market</td></tr></table>`;
+    expect(parseMubasherDailyArticle(html)).toEqual([
+      { name: "Al-Siola Fund-NI Capital", rawName: "Al-Siola Fund-NI Capital", nav: 24.54846, valuationDate: "2026-08-25", currency: "EGP" },
+      { name: "Delta Life Assurance", rawName: "Delta Life Assurance", nav: 204.35979, valuationDate: "2026-08-25", currency: "EGP" },
+      { name: "GIG Money Market", rawName: "GIG Money Market", nav: 18.969, valuationDate: "2026-08-25", currency: "EGP" },
     ]);
   });
 

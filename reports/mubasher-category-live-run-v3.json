@@ -1,0 +1,18 @@
+[OAuth] Initialized with baseURL: https://api.manus.im
+{
+  "runId": "60fac189-7175-455e-821f-6ab740a315b5,ea710d70-89d2-478b-bfa9-6d4f4f8870c1,d8989955-c2ba-4c0d-8ca7-6ccbfd9f6162,c8d49348-90df-44ac-a122-545b2dd22257,62340a8c-7967-4532-b82d-d4e9113f9df0,3ef980d7-1112-4659-924f-cd031d23b703",
+  "startedAt": "2026-08-26T15:35:33.365Z",
+  "status": "failed",
+  "source": "https://mubasherfunds.info/8479/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026",
+  "parser": "mubasher_daily_all_funds_article_v1",
+  "fetchedRecords": 60,
+  "matchedRecords": 0,
+  "matchedFundIds": [],
+  "inserted": 0,
+  "unchanged": 0,
+  "updated": 0,
+  "unmatched": [],
+  "failed": [],
+  "fetchError": "Supabase 401: {\"code\":\"PGRST303\",\"details\":null,\"hint\":null,\"message\":\"JWT issued at future\"}",
+  "finishedAt": "2026-08-26T15:35:35.725Z"
+}

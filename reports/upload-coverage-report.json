@@ -3,10 +3,10 @@
   "sheet": "Sheet1",
   "file_fund_count": 198,
   "database_fund_count": 215,
-  "database_price_row_count": 206,
+  "database_price_row_count": 250,
   "matched_to_database_count": 198,
-  "covered_with_validated_price_count": 150,
-  "not_covered_count": 48,
+  "covered_with_validated_price_count": 157,
+  "not_covered_count": 41,
   "exact_or_confident_match_count": 198,
   "unmatched_or_ambiguous_count": 0,
   "covered": [
@@ -422,12 +422,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_6293926e9cfd4869",
-        "nav": 52.42922,
+        "nav": 52.403,
         "currency": "EGP",
-        "valuation_date": "2026-08-25",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-25T20:30:24.599727+00:00"
+        "collected_at": "2026-08-26T15:45:34.913723+00:00"
       }
     },
     {
@@ -485,12 +485,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_33f6632a1feaada7",
-        "nav": 3179.9201,
+        "nav": 3169.6966,
         "currency": "EGP",
-        "valuation_date": "2026-08-24",
+        "valuation_date": "2026-08-25",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-25T20:30:25.92353+00:00"
+        "collected_at": "2026-08-26T15:45:36.039386+00:00"
       }
     },
     {
@@ -779,12 +779,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_ec01acace56cb648",
-        "nav": 2.04395,
+        "nav": 2.04866,
         "currency": "EGP",
-        "valuation_date": "2026-08-25",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-25T20:30:20.931538+00:00"
+        "collected_at": "2026-08-26T15:45:31.616728+00:00"
       }
     },
     {
@@ -926,12 +926,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_4c30fe8a694e6d87",
-        "nav": 304.15366,
+        "nav": 304.307,
         "currency": "EGP",
-        "valuation_date": "2026-08-25",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_8c91879296604ed3",
-        "collected_at": "2026-08-25T20:16:32.005448+00:00"
+        "collected_at": "2026-08-26T15:46:33.524427+00:00"
       }
     },
     {
@@ -1292,6 +1292,27 @@
       }
     },
     {
+      "row": 81,
+      "file_name": "Siula Money Market",
+      "company": "NI Capital",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_09c739ead1bd42d7",
+      "db_name": "Siula Money Market",
+      "db_raw_name": "Siula Money Market",
+      "db_company": "NI Capital",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_09c739ead1bd42d7",
+        "nav": 24.54846,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:51.078706+00:00"
+      }
+    },
+    {
       "row": 82,
       "file_name": "Misr Life Insurance Fund",
       "company": "CI Asset Management",
@@ -1346,12 +1367,33 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_49ae7cc7867eed20",
-        "nav": 23.43353,
+        "nav": 23.4454,
         "currency": "EGP",
-        "valuation_date": "2026-08-25",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_8c91879296604ed3",
-        "collected_at": "2026-08-25T20:16:32.72025+00:00"
+        "collected_at": "2026-08-26T15:46:33.97529+00:00"
+      }
+    },
+    {
+      "row": 85,
+      "file_name": "Delta Life Insurance",
+      "company": "Alpha Financial Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_2a497fc7469ee7ea",
+      "db_name": "Delta Life Insurance",
+      "db_raw_name": "Delta Life Insurance",
+      "db_company": "Alpha Financial Investment Management",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "nav": 204.35979,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:53.258057+00:00"
       }
     },
     {
@@ -1373,6 +1415,27 @@
         "status": "validated",
         "source_id": "src_6556b18fd56ff738",
         "collected_at": "2026-08-26T13:24:00.743343+00:00"
+      }
+    },
+    {
+      "row": 87,
+      "file_name": "GIG Insurance",
+      "company": "*PFI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+      "db_name": "GIG Insurance",
+      "db_raw_name": "GIG Insurance",
+      "db_company": "*PFI Asset Management",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+        "nav": 18.969,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:54.253218+00:00"
       }
     },
     {
@@ -1430,12 +1493,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_3892077415908a70",
-        "nav": 20.88268,
+        "nav": 20.89333,
         "currency": "EGP",
-        "valuation_date": "2026-08-25",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_8c91879296604ed3",
-        "collected_at": "2026-08-25T20:16:30.847136+00:00"
+        "collected_at": "2026-08-26T15:46:32.533277+00:00"
       }
     },
     {
@@ -1472,12 +1535,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_594b8151365a5058",
-        "nav": 1.7855,
+        "nav": 1.78868,
         "currency": "EGP",
-        "valuation_date": "2026-08-26",
+        "valuation_date": "2026-08-30",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-25T20:30:22.9793+00:00"
+        "collected_at": "2026-08-26T15:45:32.835066+00:00"
       }
     },
     {
@@ -1514,12 +1577,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_3c02c00fe3d0e17f",
-        "nav": 17.33244,
+        "nav": 17.3411,
         "currency": "EGP",
-        "valuation_date": "2026-08-25",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_8c91879296604ed3",
-        "collected_at": "2026-08-25T20:16:31.59706+00:00"
+        "collected_at": "2026-08-26T15:46:33.050732+00:00"
       }
     },
     {
@@ -1586,6 +1649,27 @@
       }
     },
     {
+      "row": 101,
+      "file_name": "Granite First Fund",
+      "company": "Granite Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_bad1022b0ea1c260",
+      "db_name": "Granite First Fund",
+      "db_raw_name": "Granite First Fund",
+      "db_company": "Granite Fund Management",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_bad1022b0ea1c260",
+        "nav": 1.1701,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:56.915224+00:00"
+      }
+    },
+    {
       "row": 102,
       "file_name": "Basata",
       "company": "CI Asset Management",
@@ -1604,6 +1688,27 @@
         "status": "validated",
         "source_id": "src_6556b18fd56ff738",
         "collected_at": "2026-08-26T13:24:03.458008+00:00"
+      }
+    },
+    {
+      "row": 103,
+      "file_name": "PFI Cashi",
+      "company": "PFI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_55de4d996617e8fc",
+      "db_name": "PFI Cashi",
+      "db_raw_name": "PFI Cashi",
+      "db_company": "PFI Asset Management",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_55de4d996617e8fc",
+        "nav": 11.6017,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:56.44154+00:00"
       }
     },
     {
@@ -1724,12 +1829,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_63b2d19280bbf1bb",
-        "nav": 18.1851,
+        "nav": 18.21791,
         "currency": "EGP",
-        "valuation_date": "2026-08-26",
+        "valuation_date": "2026-08-30",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-25T20:30:23.399465+00:00"
+        "collected_at": "2026-08-26T15:45:33.598474+00:00"
       }
     },
     {
@@ -1745,12 +1850,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_9ebcd523fc49a4c3",
-        "nav": 1.315,
+        "nav": 1.3173,
         "currency": "EGP",
-        "valuation_date": "2026-08-26",
+        "valuation_date": "2026-08-30",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-26T13:32:43.166249+00:00"
+        "collected_at": "2026-08-26T15:45:30.942749+00:00"
       }
     },
     {
@@ -1772,6 +1877,48 @@
         "status": "validated",
         "source_id": "src_97d34f55d3f43656",
         "collected_at": "2026-08-25T20:47:06.317315+00:00"
+      }
+    },
+    {
+      "row": 115,
+      "file_name": "SAIB Fund III (Al Rabeh)",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_b433cc6abdcf0a71",
+      "db_name": "SAIB’s Third Investment Fund (El Rabeh)",
+      "db_raw_name": "SAIB Fund III (Al Rabeh)",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_b433cc6abdcf0a71",
+        "nav": 453.86963,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-26T15:24:20.368344+00:00"
+      }
+    },
+    {
+      "row": 116,
+      "file_name": "ALEXBANK Fund III",
+      "company": "Hermes Portfolio and Fund Management",
+      "match_type": "exact",
+      "fund_id": "fund_5468465eb99512e9",
+      "db_name": "Bank of Alexandria Fund No. 3",
+      "db_raw_name": "ALEXBANK Fund III",
+      "db_company": "Hermes Portfolio and Fund Management",
+      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_5468465eb99512e9",
+        "nav": 61.08553,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_97d34f55d3f43656",
+        "collected_at": "2026-08-26T15:24:19.916086+00:00"
       }
     },
     {
@@ -1892,12 +2039,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_5549b9417edff89d",
-        "nav": 21.13012,
+        "nav": 21.16062,
         "currency": "EGP",
-        "valuation_date": "2026-08-26",
+        "valuation_date": "2026-08-30",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-25T20:30:25.039088+00:00"
+        "collected_at": "2026-08-26T15:45:35.368836+00:00"
       }
     },
     {
@@ -1914,11 +2061,11 @@
       "latest_price": {
         "fund_id": "fund_c722efc8d8e6f31a",
         "nav": 221.8695,
-        "currency": "EGP",
+        "currency": "USD",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_ad7b5cd6a2846887",
-        "collected_at": "2026-08-26T13:33:40.58606+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:52.392237+00:00"
       }
     },
     {
@@ -2354,12 +2501,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_98634228c0ad3387",
-        "nav": 38.02,
-        "currency": "EGP",
-        "valuation_date": "2026-08-22",
+        "nav": 38.20546,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_6556b18fd56ff738",
-        "collected_at": "2026-08-26T13:24:09.115138+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:51.950717+00:00"
       }
     },
     {
@@ -2439,11 +2586,11 @@
       "latest_price": {
         "fund_id": "fund_291a3c879cd82808",
         "nav": 181.07,
-        "currency": "EGP",
+        "currency": "USD",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_ad7b5cd6a2846887",
-        "collected_at": "2026-08-26T13:33:43.153956+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:55.56675+00:00"
       }
     },
     {
@@ -2480,12 +2627,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_a68c44781bf3f565",
-        "nav": 1.475,
+        "nav": 1.47538,
         "currency": "EGP",
-        "valuation_date": "2026-08-25",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-25T20:28:22.553883+00:00"
+        "collected_at": "2026-08-26T15:45:30.179716+00:00"
       }
     },
     {
@@ -2711,12 +2858,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_eb6d028c9161f545",
-        "nav": 1.74,
-        "currency": "EGP",
-        "valuation_date": "2026-08-23",
+        "nav": 1.75286,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-25T19:58:45.415853+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:53.686121+00:00"
       }
     },
     {
@@ -2732,12 +2879,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_4ffe13e99f4fc1d7",
-        "nav": 2.05,
-        "currency": "EGP",
-        "valuation_date": "2026-08-23",
+        "nav": 2.07393,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-25T19:58:45.932559+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:56.007172+00:00"
       }
     },
     {
@@ -2753,12 +2900,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_a824eaf1e65870b5",
-        "nav": 1.72,
-        "currency": "EGP",
-        "valuation_date": "2026-08-23",
+        "nav": 1.73719,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-25T19:58:46.650888+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:55.139922+00:00"
       }
     },
     {
@@ -2774,12 +2921,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_677538b0d0f1aac4",
-        "nav": 1.84,
-        "currency": "EGP",
-        "valuation_date": "2026-08-23",
+        "nav": 1.84178,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_7208153dbe9de70c",
-        "collected_at": "2026-08-25T19:58:47.063756+00:00"
+        "source_id": "src_mubasherfunds_daily",
+        "collected_at": "2026-08-26T15:26:52.818013+00:00"
       }
     },
     {
@@ -3026,12 +3173,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_69768837ab21ae45",
-        "nav": 25.2991,
+        "nav": 25.01228,
         "currency": "EGP",
-        "valuation_date": "2026-08-25",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_15c015b322d90eec",
-        "collected_at": "2026-08-25T20:30:22.454801+00:00"
+        "collected_at": "2026-08-26T15:45:32.328425+00:00"
       }
     },
     {
@@ -3068,12 +3215,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_3b007e03cf3d8988",
-        "nav": 189.74037,
+        "nav": 188.46222,
         "currency": "EGP",
-        "valuation_date": "2026-08-25",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_8c91879296604ed3",
-        "collected_at": "2026-08-25T20:16:36.422466+00:00"
+        "collected_at": "2026-08-26T15:46:36.15994+00:00"
       }
     },
     {
@@ -3397,45 +3544,6 @@
       "latest_price": null
     },
     {
-      "row": 81,
-      "file_name": "Siula Money Market",
-      "company": "NI Capital",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_09c739ead1bd42d7",
-      "db_name": "Siula Money Market",
-      "db_raw_name": "Siula Money Market",
-      "db_company": "NI Capital",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 85,
-      "file_name": "Delta Life Insurance",
-      "company": "Alpha Financial Investment Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_2a497fc7469ee7ea",
-      "db_name": "Delta Life Insurance",
-      "db_raw_name": "Delta Life Insurance",
-      "db_company": "Alpha Financial Investment Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 87,
-      "file_name": "GIG Insurance",
-      "company": "*PFI Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_1aa1daa182ccd3f4",
-      "db_name": "GIG Insurance",
-      "db_raw_name": "GIG Insurance",
-      "db_company": "*PFI Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
       "row": 88,
       "file_name": "Aman Micro Finance",
       "company": "Prime Investments",
@@ -3470,32 +3578,6 @@
       "db_name": "Odin 4",
       "db_raw_name": "Odin 4",
       "db_company": "Alpha Financial Investment Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 101,
-      "file_name": "Granite First Fund",
-      "company": "Granite Fund Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_bad1022b0ea1c260",
-      "db_name": "Granite First Fund",
-      "db_raw_name": "Granite First Fund",
-      "db_company": "Granite Fund Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 103,
-      "file_name": "PFI Cashi",
-      "company": "PFI Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_55de4d996617e8fc",
-      "db_name": "PFI Cashi",
-      "db_raw_name": "PFI Cashi",
-      "db_company": "PFI Asset Management",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null
@@ -3536,32 +3618,6 @@
       "db_raw_name": "GIG Makaseb Fund Second Tranche",
       "db_company": "NI Capital",
       "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 115,
-      "file_name": "SAIB Fund III (Al Rabeh)",
-      "company": "Hermes Portfolio and Fund Management",
-      "match_type": "exact",
-      "fund_id": "fund_b433cc6abdcf0a71",
-      "db_name": "SAIB’s Third Investment Fund (El Rabeh)",
-      "db_raw_name": "SAIB Fund III (Al Rabeh)",
-      "db_company": "Hermes Portfolio and Fund Management",
-      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 116,
-      "file_name": "ALEXBANK Fund III",
-      "company": "Hermes Portfolio and Fund Management",
-      "match_type": "exact",
-      "fund_id": "fund_5468465eb99512e9",
-      "db_name": "Bank of Alexandria Fund No. 3",
-      "db_raw_name": "ALEXBANK Fund III",
-      "db_company": "Hermes Portfolio and Fund Management",
-      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
       "has_price": false,
       "latest_price": null
     },

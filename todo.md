@@ -46,3 +46,6 @@
 - [ ] Research official NAV sources for the uncovered bank, asset-manager, and independent-fund groups in priority order
 - [ ] Add only verified source mappings/parsers and preserve explicit pending status where no reliable source exists
 - [ ] Re-run all collectors and refresh workbook coverage after each completed source group
+- [x] Re-run EFG official parser after tolerating whitespace in IC Price headers and link additional EFG-mapped funds
+- [x] Add Mubasher daily article/category parsers with EGP/USD separation, date validation, aliases, and source provenance
+- [x] Validate Mubasher/EFG changes with TypeScript, 14 collector tests, Supabase secret test, and live Run All
