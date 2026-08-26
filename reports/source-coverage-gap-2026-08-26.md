@@ -4,13 +4,13 @@ This report is a **read-only** Supabase audit of active fund records. “No upda
 
 | Category | Count |
 | --- | ---: |
-| Active catalog funds | 214 |
-| Funds with no update-source URL at all | 39 |
+| Active catalog funds | 213 |
+| Funds with no update-source URL at all | 38 |
 | Funds linked to a URL but without a validated snapshot as of 2026-08-26 | 2 |
-| Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 24 |
+| Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 23 |
 | Funds with at least one validated snapshot as of 2026-08-26 | 190 |
 
-## A. Funds with no update-source URL at all (39)
+## A. Funds with no update-source URL at all (38)
 
 | Canonical fund name | Imported/EIMA name | Source URL |
 | --- | --- | --- |
@@ -35,7 +35,6 @@ This report is a **read-only** Supabase audit of active fund records. “No upda
 | GIG Makaseb Fund Second Tranche | GIG Makaseb Fund Second Tranche | — |
 | Granite First Fund | Granite First Fund | — |
 | Housing & Development Bank (Mawared) | Housing & Development Bank (Mawared) | — |
-| Market Return | Market Return | — |
 | Momentum | Momentum | — |
 | Naeem Misr Fund | Naeem Misr Fund | — |
 | National Bank of Kuwait (Hayat) | National Bank of Kuwait (Hayat) | — |
@@ -63,7 +62,7 @@ These are **not** part of the “no source at all” count. They are included so
 | Bank ABC Fund I | Bank ABC Fund I | https://azimut.eg/funds |
 | Zaldi Star (Money Market) | Zaldi Star Equity | https://zaldi-capital.com/zaldi-star/ |
 
-## C. Funds with no validated snapshot as of 2026-08-26 (24)
+## C. Funds with no validated snapshot as of 2026-08-26 (23)
 
 This is the operational priority list. It contains all active funds not yet covered by a validated NAV snapshot, whether the catalog currently has a source URL or not.
 
@@ -83,7 +82,6 @@ This is the operational priority list. It contains all active funds not yet cove
 | GIG Makaseb Fund First Tranche | GIG Makaseb Fund First Tranche | null |
 | GIG Makaseb Fund Second Tranche | GIG Makaseb Fund Second Tranche | null |
 | Housing & Development Bank (Mawared) | Housing & Development Bank (Mawared) | null |
-| Market Return | Market Return | null |
 | Momentum | Momentum | null |
 | Naeem Misr Fund | Naeem Misr Fund | null |
 | NI Capital 15/30 | NI Capital 15/30 | null |

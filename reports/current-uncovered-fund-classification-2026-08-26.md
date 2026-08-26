@@ -1,12 +1,12 @@
 # Current Uncovered-Fund Classification — 2026-08-26
 
-This is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before 2026-08-26. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **24**.
+This is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before 2026-08-26. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **23**.
 
 | Metric | Count |
 | --- | ---: |
-| Current funds without a validated snapshot | 24 |
+| Current funds without a validated snapshot | 23 |
 | Recorded catalog URL exists | 2 |
-| Catalog URL is blank | 22 |
+| Catalog URL is blank | 21 |
 | Confirmed parser extraction failures from an otherwise published price/date | 0 |
 | Confirmed future-date-only rejection | 6 |
 
@@ -42,7 +42,6 @@ This is an **exhaustive current** classification of every catalog fund without a
 | GIG Makaseb Fund First Tranche | — | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |
 | GIG Makaseb Fund Second Tranche | — | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |
 | Housing & Development Bank (Mawared) | — | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |
-| Market Return | — | لم يظهر مصدر رسمي حالي لـNAV بعد البحث |
 | Momentum | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
 | Naeem Misr Fund | — | مصدر رسمي موجود لكن NAV/المستند قديم |
 | NI Capital 15/30 | — | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |

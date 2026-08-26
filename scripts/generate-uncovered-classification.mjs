@@ -32,7 +32,6 @@ const assignments = new Map([
   ["GIG Makaseb Fund First Tranche", "FUTURE_DATE_ONLY"],
   ["GIG Makaseb Fund Second Tranche", "FUTURE_DATE_ONLY"],
   ["Housing & Development Bank (Mawared)", "FUTURE_DATE_ONLY"],
-  ["Market Return", "NO_OFFICIAL_CURRENT_NAV_FOUND"],
   ["Momentum", "OFFICIAL_NO_CURRENT_NAV"],
   ["Naeem Misr Fund", "OFFICIAL_STALE"],
   ["NI Capital 15/30", "FUTURE_DATE_ONLY"],

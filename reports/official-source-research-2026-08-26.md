@@ -150,9 +150,17 @@ The EIMA performance report dated **14-May-2026** directly resolves the ordinal 
 
 The EIMA figures are stale relative to the controlled 26-Aug-2026 as-of date and EIMA is not a manager/bank/regulator price publisher under the project rule. Neither NAV was persisted, and no price URL or source link was assigned. The funds remain pending current primary NAV publication.
 
-## Market Return recheck — unresolved catalog identity
+## Market Return catalog correction
 
-The imported record `Market Return` has `EGX 30` in its manager field, which is not a fund manager. An EIMA performance-report result suggests that “Market Return” may be the EGX30 benchmark column rather than a fund name, but the underlying report could not be retrieved as a readable file in the server environment: both direct HTTP and HTTPS downloads returned empty files. The browser preview alone is insufficient to reconstruct the row. No catalog change, source link, or NAV write was made; the record remains an explicitly unresolved identity rather than being treated as a verified fund.
+The readable EIMA **Performance of Egyptian Mutual Funds** report dated **14-May-2026** lists `Market Return` as **EGX 30**, inception **Jan-1999**, base value **1000**. It is the benchmark row, not an investable mutual fund or a fund-management entity. The imported record has `EGX 30` in its manager field, corroborating that it was imported from a benchmark column. The record had no price source or price history and was therefore marked inactive, not deleted; active NAV coverage and the collector now exclude it.
+
+## Beltone live-date-field recheck
+
+The live first-party Beltone Asset Management fund sheet explicitly labels its three relevant columns **Price (EGP)**, **Inception Date**, and **Last Update**. Across the live table, Last Update is **30-Aug-2026**, while the controlled collection as-of date is **26-Aug-2026**; it therefore cannot be an already-realized valuation date. The page offers no separate actual valuation-date field or historical NAV graph. The collector accordingly continues to interpret this as a scheduled/next-update-style date: it may reuse a prior validated actual date only when NAV and currency are unchanged, and rejects changed NAVs before write. No relaxation of the future-date guard is warranted.
+
+## HC live source recheck
+
+HC’s first-party home-page list contained a mix of **26-Aug-2026** and **29-Aug-2026** fund dates. A source-only HC run matched all seven records. The three rows carrying 26-Aug dates (Suez Canal Bank Fund No. 1, Misr Al Mostakbal, and Credit Agricole Egypt Fund IV/Al Thiqa) were correctly classified as **unchanged** against their existing validated snapshots. The four changed-NAV rows dated 29-Aug-2026 (Agricultural Bank Al Hasad Al Yaumy, FAB Al Awal, QNB Tadawol, and FAB Etm’nan) were rejected before write. No future value became validated, and the run added no duplicate data.
 
 ## Pharos non-Facebook first-party route recheck
 
