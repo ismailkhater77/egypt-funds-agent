@@ -11,7 +11,7 @@
 - [ ] Rotate the Supabase secret key that was exposed in chat before configuring the collector
 - [ ] Confirm the compromised Supabase secret was revoked and document that only the replacement key is active
 - [x] Add Vitest coverage for fund-name matching, idempotent unchanged writes, and run-summary counters
-- [ ] Implement and validate CI Capital fund-price parser for all mapped CI records
+- [x] Implement and validate CI Capital fund-price parser for all mapped CI records
 - [ ] Resolve Beltone ADIB Islamic and Beltone Gems USD records with explicit source mappings before final provider validation
 - [x] Implement and validate AFIM fund-price parser for all mapped AFIM records
 - [x] Correct and validate Zaldi fund-specific mappings and parsers
@@ -23,3 +23,7 @@
 - [x] Add Vitest coverage for AFIM parsing and AFIM fund-name matching using real-like HTML/detail fixtures
 - [x] Emit exact matched-fund counts and matched fund IDs in provider run summaries for precise coverage reporting
 - [x] Re-check AAIM official NAV source and implement or explicitly document unavailable status
+- [x] Re-check CI Capital official TLS, HTTP, and alternate-domain endpoints and implement a secure verified fallback if available
+- [ ] Verify CI completeness against all funds mapped to the CI source and add an idempotent second-run assertion
+- [ ] Replace CI card parser with the official Fund Type/Fund Name/Price table parser and add a real HTML fixture test
+- [ ] Add explicit CI mappings for Banque Misr Money Market Fund (EUR) and PBD & Banque du Caire (Al Wefak), then rerun completeness validation

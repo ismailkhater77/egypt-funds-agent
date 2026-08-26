@@ -1,4 +1,7 @@
-import type { Request, Response } from "express";
+import type { Request, Response as ExpressResponse } from "express";
+import { readFileSync } from "node:fs";
+import { request as httpsRequest } from "node:https";
+import { rootCertificates } from "node:tls";
 import { sdk } from "./_core/sdk";
 
 const EFG_URL = "https://efgholding.com/en/our-services/mutual-funds";
@@ -21,6 +24,7 @@ const ZALDI_PARSER_NAME = "zaldi_detail_page_v1";
 const AZIMUT_PARSER_NAME = "azimut_fund_api_v1";
 const HC_PARSER_NAME = "hc_sponsor_ajax_v1";
 const BELTONE_PARSER_NAME = "beltone_fund_sheet_v1";
+const CI_INTERMEDIATE_CA = readFileSync(new URL("./certs/digicert-global-g2-tls-rsa-sha256-2020-ca1.pem", import.meta.url));
 
 type EfgRecord = {
   name: string;
@@ -123,7 +127,7 @@ async function supabaseRequest<T>(path: string, init: RequestInit = {}): Promise
 }
 
 function stripTags(value: string): string {
-  return value.replace(/<[^>]+>/g, " ").replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'").replace(/&amp;/gi, "&").replace(/&nbsp;/gi, " ").replace(/\s+/g, " ").trim();
+  return value.replace(/<[^>]+>/g, " ").replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'").replace(/&amp;/gi, "&").replace(/&nbsp;/gi, " ").replace(/&#(\d+);/g, (_, code: string) => String.fromCodePoint(Number(code))).replace(/&#x([0-9a-f]+);/gi, (_, code: string) => String.fromCodePoint(parseInt(code, 16))).replace(/\s+/g, " ").trim();
 }
 
 function parseCiDate(html: string): string {
@@ -141,9 +145,10 @@ export function parseCiCapitalFunds(html: string): EfgRecord[] {
   for (const match of Array.from(html.matchAll(rowPattern))) {
     const cellMatches = Array.from(match[0].matchAll(new RegExp(String.raw`<td\b[^>]*>([\s\S]*?)</td>`, "gi"))) as RegExpMatchArray[];
     const cells = cellMatches.map((cell) => stripTags(cell[1] ?? ""));
-    if (cells.length < 3) continue;
-    const name = cells[1];
-    const nav = Number(cells[2].replace(/,/g, ""));
+    if (cells.length < 2) continue;
+    const name = cells.length >= 3 ? cells[1] : cells[0];
+    const navText = cells.length >= 3 ? cells[2] : cells[1];
+    const nav = Number(navText.replace(/,/g, ""));
     if (!name || !Number.isFinite(nav) || nav < 0 || !/[A-Za-z]/.test(name)) continue;
     records.push({ name, rawName: name, nav, valuationDate, currency: "EGP" });
   }
@@ -403,7 +408,22 @@ async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string,
   return "inserted";
 }
 
-type CollectorConfig = { sourceUrl: string; fetchUrl?: string; parserName: string; parse: (html: string) => EfgRecord[] | Promise<EfgRecord[]> };
+type CollectorConfig = { sourceUrl: string; fetchUrl?: string; parserName: string; parse: (html: string) => EfgRecord[] | Promise<EfgRecord[]>; fetcher?: (url: string) => Promise<globalThis.Response> };
+
+function fetchCiCapital(url: string): Promise<globalThis.Response> {
+  return new Promise((resolve, reject) => {
+    const req = httpsRequest(url, { ca: [...rootCertificates, CI_INTERMEDIATE_CA], headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "text/html" } }, (res) => {
+      const chunks: Buffer[] = [];
+      res.on("data", (chunk: Buffer) => chunks.push(chunk));
+      res.on("end", () => {
+        const body = Buffer.concat(chunks).toString("utf8");
+        resolve(new globalThis.Response(body, { status: res.statusCode ?? 0, headers: { "content-type": String(res.headers["content-type"] ?? "text/html") } }));
+      });
+    });
+    req.on("error", reject);
+    req.end();
+  });
+}
 
 async function runCombinedCollectors(configs: CollectorConfig[]): Promise<RunSummary> {
   const summaries = await Promise.all(configs.map(runCollector));
@@ -431,7 +451,7 @@ async function runCollector(config: CollectorConfig): Promise<RunSummary> {
   };
   lastRun = run;
   try {
-    const response = await fetch(config.fetchUrl ?? config.sourceUrl, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "application/json, text/html" } });
+    const response = config.fetcher ? await config.fetcher(config.fetchUrl ?? config.sourceUrl) : await fetch(config.fetchUrl ?? config.sourceUrl, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "application/json, text/html" } });
     if (!response.ok) throw new Error(`Provider source returned HTTP ${response.status}`);
     const html = await response.text();
     const records = await config.parse(html);
@@ -469,7 +489,7 @@ export function runBeltoneCollector(): Promise<RunSummary> {
 }
 
 export function runCiCollector(): Promise<RunSummary> {
-  return runCollector({ sourceUrl: CI_URL, parserName: CI_PARSER_NAME, parse: parseCiCapitalFunds });
+  return runCollector({ sourceUrl: CI_URL, parserName: CI_PARSER_NAME, parse: parseCiCapitalFunds, fetcher: fetchCiCapital });
 }
 
 export function runAfimCollector(): Promise<RunSummary> {
@@ -535,7 +555,7 @@ async function requireAuthenticated(req: Request) {
   return user;
 }
 
-export async function manualEfgRunHandler(req: Request, res: Response) {
+export async function manualEfgRunHandler(req: Request, res: ExpressResponse) {
   try {
     await requireAuthenticated(req);
     res.json(await runEfgCollector());
@@ -544,7 +564,7 @@ export async function manualEfgRunHandler(req: Request, res: Response) {
   }
 }
 
-export async function manualBeltoneRunHandler(req: Request, res: Response) {
+export async function manualBeltoneRunHandler(req: Request, res: ExpressResponse) {
   try {
     await requireAuthenticated(req);
     res.json(await runBeltoneCollector());
@@ -553,7 +573,7 @@ export async function manualBeltoneRunHandler(req: Request, res: Response) {
   }
 }
 
-export async function manualAfimRunHandler(req: Request, res: Response) {
+export async function manualAfimRunHandler(req: Request, res: ExpressResponse) {
   try {
     await requireAuthenticated(req);
     res.json(await runAfimCollector());
@@ -562,7 +582,7 @@ export async function manualAfimRunHandler(req: Request, res: Response) {
   }
 }
 
-export async function manualCiRunHandler(req: Request, res: Response) {
+export async function manualCiRunHandler(req: Request, res: ExpressResponse) {
   try {
     await requireAuthenticated(req);
     res.json(await runCiCollector());
@@ -571,7 +591,7 @@ export async function manualCiRunHandler(req: Request, res: Response) {
   }
 }
 
-export async function allCollectorsHandler(req: Request, res: Response) {
+export async function allCollectorsHandler(req: Request, res: ExpressResponse) {
   try {
     await requireAuthenticated(req);
     res.json(await runAllCollectors());
@@ -580,7 +600,7 @@ export async function allCollectorsHandler(req: Request, res: Response) {
   }
 }
 
-export async function providerSupportHandler(req: Request, res: Response) {
+export async function providerSupportHandler(req: Request, res: ExpressResponse) {
   try {
     await requireAuthenticated(req);
     res.json({ generatedAt: new Date().toISOString(), providers: getProviderSupportReport() });
@@ -589,7 +609,7 @@ export async function providerSupportHandler(req: Request, res: Response) {
   }
 }
 
-export async function efgStatusHandler(req: Request, res: Response) {
+export async function efgStatusHandler(req: Request, res: ExpressResponse) {
   try {
     await requireAuthenticated(req);
     res.json({ source: EFG_URL, parser: EFG_PARSER_NAME, lastRun });
@@ -598,7 +618,7 @@ export async function efgStatusHandler(req: Request, res: Response) {
   }
 }
 
-export async function scheduledEfgHandler(req: Request, res: Response) {
+export async function scheduledEfgHandler(req: Request, res: ExpressResponse) {
   try {
     const user = await sdk.authenticateRequest(req);
     if (!user.isCron || !user.taskUid) return res.status(403).json({ error: "cron-only" });
@@ -608,7 +628,7 @@ export async function scheduledEfgHandler(req: Request, res: Response) {
   }
 }
 
-export async function scheduledAllCollectorsHandler(req: Request, res: Response) {
+export async function scheduledAllCollectorsHandler(req: Request, res: ExpressResponse) {
   try {
     const user = await sdk.authenticateRequest(req);
     if (!user.isCron || !user.taskUid) return res.status(403).json({ error: "cron-only" });

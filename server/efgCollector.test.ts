@@ -1,5 +1,6 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseEfgMutualFunds, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts a validated fund snapshot from the EFG data payload", () => {
@@ -14,6 +15,14 @@ describe("EFG mutual-fund parser", () => {
         currency: "EGP",
       },
     ]);
+  });
+
+  it("extracts all rows from the official CI Capital table, including rowspan continuation rows", () => {
+    const html = readFileSync(new URL("./fixtures/ci-fundprice.html", import.meta.url), "utf8");
+    const result = parseCiCapitalFunds(html);
+    expect(result).toHaveLength(41);
+    expect(result[1]).toMatchObject({ name: "CIB Money Market Fund (Ossoul)", nav: 1102.56, valuationDate: "2026-08-22" });
+    expect(result).toContainEqual({ name: "Menthum Fixed Income Fund – USD", rawName: "Menthum Fixed Income Fund – USD", nav: 1.1116, valuationDate: "2026-08-22", currency: "EGP" });
   });
 
   it("extracts Beltone price and last-update date from a fund-sheet row", () => {
