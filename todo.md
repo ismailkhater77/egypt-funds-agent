@@ -98,15 +98,17 @@
 - [x] Add exact CI Capital aliases for Menthum USD and Banque Misr Money Market EUR, validate dated NAVs, and rerun CI idempotently
 
 ## Regression: actual NAV date versus next update date
-- [ ] Inspect Beltone, Azimut, HC Securities, and Zaldi parsers and identify the exact actual-date field versus next-update field
-- [ ] Fix the four parsers to persist the latest actual NAV date and ignore next-update dates
+- [x] Inspect Beltone, Azimut, HC Securities, and Zaldi parsers and identify the exact actual-date field versus next-update field
+- [x] Fix date persistence behavior: Azimut uses official historical graph dates; Beltone/HC/Zaldi reuse the prior validated date only for unchanged NAV/currency and reject changed future-dated rows
 - [x] Add B-Cobonat regression fixtures proving two identical prices retain the actual date rather than changing to the future date
 - [x] Rerun the four collectors, Run All, coverage, duplicate audit, TypeScript, and Vitest after the date-field fix
 
-- [ ] Add a regression invariant across Beltone 30/60, Azimut 5/30, HC Securities 4/14, and Zaldi 2/4: identical NAV values must not receive a future next-update date; preserve the last verified actual valuation date instead
+- [x] Add a regression invariant across Beltone 30/60, Azimut 5/30, HC Securities 4/14, and Zaldi 2/4: identical NAV values must not receive a future next-update date; preserve the last verified actual valuation date instead
 
 - [x] Add an end-to-end B-Cobonat persistence test proving a future scheduled date reuses the prior same-NAV/same-currency validated date without POSTing a new snapshot
 - [x] Document provider limitations: Azimut exposes an actual historical graph; current Beltone, HC Securities, and Zaldi payloads expose no separate actual valuation-date field, so changed-NAV future-dated rows remain rejected
+- [ ] Find a first-party actual valuation-date field or alternate official endpoint for Beltone, HC Securities, and Zaldi
+- [x] Add explicit regression tests proving changed-NAV future-dated Beltone/HC/Zaldi rows are rejected without a database write (Beltone, HC, and Zaldi collector-level mocks assert zero POST/PATCH)
 - [x] Rerun Beltone, Azimut, HC Securities, and Zaldi after the date-resolution change and verify zero newly written future validated rows
 - [x] Run All collectors, refresh workbook coverage, and rerun the strict duplicate/conflict audit after the date-resolution change
 

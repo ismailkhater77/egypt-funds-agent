@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, runFabMisrCollector, runBeltoneCollector, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -73,6 +73,51 @@ describe("EFG mutual-fund parser", () => {
     const zaldi = parseZaldiFund(`<h1>Zaldi Star _IC</h1><div>NAV/UNIT : 112.65609 EGP</div><div>Date: 30/8/2026</div>`)[0];
     expect(chooseActualValuationDate(hc.valuationDate, "2026-08-22", "2026-08-26")).toBe("2026-08-22");
     expect(chooseActualValuationDate(zaldi.valuationDate, "2026-08-26", "2026-08-26")).toBe("2026-08-26");
+  });
+
+  it("keeps all four provider regressions off future next-update dates", () => {
+    const beltone = parseBeltoneFunds(`<div class="flex items-center justify-between w-full"><a><p>B-Cobonat</p></a><div><p>1.02</p><p>2005-07-01</p><p>2026-08-30</p></div></div>`)[0];
+    const azimut = parseAzimutFunds(JSON.stringify({ response: { funds: { dataList: [{ name: "az- حالا", currency: { symbol: "EGP" }, last_nav: { nav: 1.81142, date: "2026-08-30" }, graph: [[Date.parse("2026-08-23T12:00:00Z"), 1.81142]] }] } } }))[0];
+    const hc = parseHcSponsor(`<h3>FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity</h3><div>Price per certificate as of Date 540.95951 - 2026-08-29</div>`)[0];
+    const zaldi = parseZaldiFund(`<h1>Zaldi Star _IC</h1><div>NAV/UNIT : 112.65609 EGP</div><div>Date: 30/8/2026</div>`)[0];
+    expect(chooseActualValuationDate(beltone.valuationDate, "2026-08-23", "2026-08-26")).toBe("2026-08-23");
+    expect(azimut).toMatchObject({ valuationDate: "2026-08-23", nav: 1.81142 });
+    expect(chooseActualValuationDate(hc.valuationDate, "2026-08-22", "2026-08-26")).toBe("2026-08-22");
+    expect(chooseActualValuationDate(zaldi.valuationDate, "2026-08-26", "2026-08-26")).toBe("2026-08-26");
+  });
+
+  it("rejects changed-NAV future dates for Beltone, HC, and Zaldi", () => {
+    const beltone = parseBeltoneFunds(`<div class="flex items-center justify-between w-full"><a><p>B-Cobonat</p></a><div><p>1.03</p><p>2005-07-01</p><p>2026-08-30</p></div></div>`)[0];
+    const hc = parseHcSponsor(`<h3>FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity</h3><div>Price per certificate as of Date 541.10000 - 2026-08-29</div>`)[0];
+    const zaldi = parseZaldiFund(`<h1>Zaldi Star _IC</h1><div>NAV/UNIT : 113.00000 EGP</div><div>Date: 30/8/2026</div>`)[0];
+    expect(resolvePersistedValuationDate(beltone.valuationDate, beltone.nav, beltone.currency, [{ nav: 1.02, currency: "EGP", valuation_date: "2026-08-23" }], "2026-08-26")).toBeNull();
+    expect(resolvePersistedValuationDate(hc.valuationDate, hc.nav, hc.currency, [{ nav: 540.95951, currency: "EGP", valuation_date: "2026-08-22" }], "2026-08-26")).toBeNull();
+    expect(resolvePersistedValuationDate(zaldi.valuationDate, zaldi.nav, zaldi.currency, [{ nav: 112.65609, currency: "EGP", valuation_date: "2026-08-26" }], "2026-08-26")).toBeNull();
+  });
+
+  it("rejects changed future HC and Zaldi snapshots before any database write", async () => {
+    const hcHtml = `<div class="click_sponsor bank" data-id="1" data-slug="fabmisr"></div>`;
+    const hcSponsor = `<h3>FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity</h3><div>Price per certificate as of Date 541.10000 - 2999-12-30</div>`;
+    const zaldiHtml = `<h1>Zaldi Star _IC</h1><div>NAV/UNIT : 113.00000 EGP</div><div>Date: 30/12/2999</div>`;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("hc-si.com/Service/asset-management")) return new Response(hcHtml, { status: 200 });
+      if (url.includes("hc-si.com/wp-admin/admin-ajax.php")) return new Response(hcSponsor, { status: 200 });
+      if (url.includes("zaldi-capital.com/zaldi-star") || url.includes("zaldi-capital.com/zaldi-elmasry")) return new Response(zaldiHtml, { status: 200 });
+      if (url.includes("/rest/v1/funds?")) return new Response(JSON.stringify([{ fund_id: "fund-future", canonical_name: url.includes("hc-si") ? "FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity" : "Zaldi Star", eima_name_raw: null, category: null, price_update_url: url.includes("hc-si") ? "https://www.hc-si.com/Service/asset-management#funds" : url.includes("zaldi-star") ? "https://zaldi-capital.com/zaldi-star/" : "https://zaldi-capital.com/zaldi-elmasry/" }]), { status: 200 });
+      if (url.includes("/rest/v1/sources?")) return new Response(JSON.stringify([{ source_id: "source-future" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?") && url.includes("status=eq.validated")) return new Response(JSON.stringify([{ nav: url.includes("zaldi") ? 112.65609 : 540.95951, currency: "EGP", valuation_date: "2026-08-26" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices") && (init?.method === "POST" || init?.method === "PATCH")) throw new Error(`unexpected write: ${url}`);
+      return new Response(JSON.stringify([]), { status: 200 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const hcSummary = await runHcCollector();
+    const zaldiSummary = await runZaldiStarCollector();
+    expect(hcSummary.failed).toHaveLength(1);
+    expect(zaldiSummary).toMatchObject({ status: "partial", outcome: "new_valuation" });
+    expect(zaldiSummary.failed.length).toBeGreaterThanOrEqual(1);
+    expect(fetchMock.mock.calls.some(([input, init]) => String(input).includes("/rest/v1/fund_prices") && (init?.method === "POST" || init?.method === "PATCH"))).toBe(false);
+    vi.unstubAllGlobals();
   });
 
   it("uses Azimut graph's latest actual NAV instead of future last_nav date", () => {

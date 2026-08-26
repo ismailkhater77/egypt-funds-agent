@@ -1019,6 +1019,10 @@ export function runNbkCollector(): Promise<RunSummary> {
   return runCombinedCollectors(NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })));
 }
 
+export function runZaldiStarCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund });
+}
+
 export function runZaldiCollector(): Promise<RunSummary> {
   return runCombinedCollectors([
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },

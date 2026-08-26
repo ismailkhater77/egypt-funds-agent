@@ -154,3 +154,15 @@ The public URL associated with the Aton Facebook page (`https://www.linkedin.com
 ## Pharos dated NAV evidence captured from first-party HTML
 
 The fetched first-party Facebook HTML exposed the following post text from actor **Aton Pharos Asset Management**: `سعر وثيقة صندوق فاروس الأول ذو العائد التراكمي يوم الأربعاء الموافق ٢٦ أغسطس 2026` and `EGP سعر الوثيقه 792.60`. The same HTML exposed the public post URL `https://www.facebook.com/AtonPharos/posts/pfbid02fEgT91bngiHSwZQtWAkpJXwsJgjfR1QPaTF1URKBk4x946ubyzTMmN66hdLQfCdhl`. This is sufficient to validate the post's fund identity, NAV, currency, and valuation date for parser testing. However, a direct server-side fetch from the sandbox returned HTTP 400 for the page, the `/posts/` path, the direct post URL, and the mobile page. Consequently, the parser and manual endpoint are present, but Pharos is intentionally excluded from `Run All` until a stable first-party machine-readable fetch path is available.
+
+## Pioneers Funds official-site recheck
+
+Official URL: http://www.pioneersfunds.com/
+
+The first-party Pioneers Funds site identifies Pioneers Funds as a subsidiary of Pioneers Holding and describes the fund issuer/manager structure. It exposes an `AL-Raeed Fund's Price` of 90.33 LE with date 2011-05-26. Because the displayed valuation is materially stale and no current NAV/as-of field was exposed, the source is not eligible for the daily 2026 objective. No current secondary value was substituted and the Pioneers record remains Pending Verification.
+
+## BLOM official-site recheck
+
+Official URL: https://www.blombank.com/english/products-and-services/investment-services
+
+The official page identifies BLOM Bank and links to BLOMINVEST Bank, but the page is a Lebanon/Levant investment-services overview. It does not publish an Egypt-specific fund NAV, valuation date, or a current BLOM Egypt fund price. The CAPTCHA encountered during access was not bypassed, and no secondary value was accepted. BLOM-related uncovered records therefore remain Pending Verification.
