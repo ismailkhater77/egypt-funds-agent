@@ -544,6 +544,7 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "beltone fixed income fund b secure": "b secure",
     "beltone 2nd tranche b couponat fund": "b couponat",
     "beltone 2nd tranche b cobonat fund": "b couponat",
+    "az–استحقاق t27 usd": "azimut target maturity fund-target 2027 usd",
     "az–استحقاق t30 usd": "azimut target maturity fund-target 2030 usd",
     "az–استحقاق t29 usd": "azimut target maturity fund-target 2029 usd",
     "az- فرص الشريعة": "az-foras shariah",

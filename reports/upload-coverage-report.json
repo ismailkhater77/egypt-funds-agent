@@ -4,10 +4,10 @@
   "as_of_date": "2026-08-26",
   "file_fund_count": 198,
   "database_fund_count": 215,
-  "database_price_row_count": 313,
+  "database_price_row_count": 314,
   "matched_to_database_count": 198,
-  "covered_with_validated_price_count": 165,
-  "not_covered_count": 33,
+  "covered_with_validated_price_count": 166,
+  "not_covered_count": 32,
   "exact_or_confident_match_count": 198,
   "unmatched_or_ambiguous_count": 0,
   "covered": [
@@ -3246,6 +3246,27 @@
       }
     },
     {
+      "row": 185,
+      "file_name": "Azimut Target Maturity Fund-Target 2027 USD",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_0b35a6355a36769f",
+      "db_name": "Azimut Target Maturity Fund-Target 2027 USD",
+      "db_raw_name": "Azimut Target Maturity Fund-Target 2027 USD",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_0b35a6355a36769f",
+        "nav": 10.50287,
+        "currency": "USD",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_15c015b322d90eec",
+        "collected_at": "2026-08-26T18:34:19.173953+00:00"
+      }
+    },
+    {
       "row": 186,
       "file_name": "Azimut Target Maturity Fund-Target 2029 USD",
       "company": "Azimut Egypt Asset Management",
@@ -3852,19 +3873,6 @@
       "db_raw_name": "Maksab Second Tranche (Euro)",
       "db_company": "Alpha Financial Investments Management & Zaldi Investments",
       "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 185,
-      "file_name": "Azimut Target Maturity Fund-Target 2027 USD",
-      "company": "Azimut Egypt Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_0b35a6355a36769f",
-      "db_name": "Azimut Target Maturity Fund-Target 2027 USD",
-      "db_raw_name": "Azimut Target Maturity Fund-Target 2027 USD",
-      "db_company": "Azimut Egypt Asset Management",
-      "price_update_url": "https://azimut.eg/funds",
       "has_price": false,
       "latest_price": null
     },

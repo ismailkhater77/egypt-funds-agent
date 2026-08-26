@@ -54,3 +54,9 @@ The post-EBank Run All completed with the coverage report as of 2026-08-26 showi
 ## PFI official funds page — current validation
 
 The current official PFI page showed GIG Equity Fund NAV 1,387.99 dated 26 August 2026. The live collector fetched and matched one record and returned `inserted: 0`, `unchanged: 1`, with no unmatched or failed records. Mawared Money Market, GIG Money Market, and PFI Cashi displayed 29 August 2026 values and were correctly rejected as future-dated as of 26 August 2026.
+
+## Azimut Target Maturity T27 mapping correction
+
+The official Azimut row `az– استحقاق T27 USD` was initially present in parser output but did not map to the workbook record because its exact alias was missing. The alias `az–استحقاق t27 usd` → `Azimut Target Maturity Fund-Target 2027 USD` was added. The next live run fetched 14 non-future records, matched all 14, inserted 1 new validated snapshot, and returned 13 unchanged with no unmatched or failed records. The T27 snapshot is now linked to the correct workbook fund_id.
+
+The coverage refresh after the T27 correction reports **166/198** validated workbook funds and 32 remaining, with all 198 workbook rows matched exactly and zero unmatched or ambiguous rows. The database contains 314 price rows. The duplicate audit remains unchanged: zero same-source duplicate groups, 22 multi-source groups, and one documented Delta NAV conflict.

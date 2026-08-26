@@ -94,3 +94,4 @@
 - [x] Implement and validate the official EBank Market Updates parser for Khabeer, Money Market, and Konooz with future-date rejection and idempotent writes
 - [x] Re-run the official EBank collector and prove 3 unchanged with zero new inserts
 - [x] Add an EBank idempotency regression test or saved run artifact for the three official fund records
+- [x] Reconcile Azimut Target Maturity 2027 USD: verify the valid 25-Aug NAV maps to the workbook fund_id and is included in coverage
