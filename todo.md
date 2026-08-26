@@ -79,9 +79,9 @@
 - [x] Make FABMISR parser recognize the official NAV section before classifying an empty result as weekly no-new-valuation
 
 ## User-provided source batch
-- [ ] Verify current NI Capital prices for Sahmy, Sahmy 70, 15/30, GIG Makaseb tranches, and Education for Life
-- [ ] Verify current PFI prices for Housing & Development Bank (Mawared) and any matched GIG funds
-- [ ] Verify current Azimut prices for Ebank El Khabeer, Bank ABC Fund I, Ebank Fund II, Menthum, and Target Maturity 2027 USD
+- [x] Verify current NI Capital prices for Sahmy, Sahmy 70, 15/30, GIG Makaseb tranches, and Education for Life; accept only as-of-valid rows and reject future-dated rows
+- [x] Verify current PFI prices for Housing & Development Bank (Mawared) and any matched GIG funds; retain valid GIG Equity and reject future-dated rows
+- [x] Verify current Azimut prices for Ebank El Khabeer, Bank ABC Fund I, Ebank Fund II, Menthum, and Target Maturity 2027 USD; use historical graph dates and reject future rows
 - [x] Verify Alpha Odin official NAV/valuation-date evidence for Odin Trend, Maksab tranches, and Al Masry (official page inspected; no current NAV/date exposed, records remain Pending)
 - [x] Verify whether Aton/Pharos links are authoritative and contain current NAV plus valuation dates (official Facebook HTML exposed dated NAV text for Pharos Fund I; live server fetch remains blocked)
 - [ ] Add only fully verified new source mappings and refresh coverage; preserve --, stale, or undated records as Pending Verification
@@ -107,7 +107,7 @@
 
 - [x] Add an end-to-end B-Cobonat persistence test proving a future scheduled date reuses the prior same-NAV/same-currency validated date without POSTing a new snapshot
 - [x] Document provider limitations: Azimut exposes an actual historical graph; current Beltone, HC Securities, and Zaldi payloads expose no separate actual valuation-date field, so changed-NAV future-dated rows remain rejected
-- [ ] Find a first-party actual valuation-date field or alternate official endpoint for Beltone, HC Securities, and Zaldi
+- [ ] Find a first-party actual valuation-date field or alternate official endpoint for Beltone, HC Securities, and Zaldi (HC partially resolved via Credit Agricole Al Thiqa endpoint)
 - [x] Add explicit regression tests proving changed-NAV future-dated Beltone/HC/Zaldi rows are rejected without a database write (Beltone, HC, and Zaldi collector-level mocks assert zero POST/PATCH)
 - [x] Rerun Beltone, Azimut, HC Securities, and Zaldi after the date-resolution change and verify zero newly written future validated rows
 - [x] Run All collectors, refresh workbook coverage, and rerun the strict duplicate/conflict audit after the date-resolution change

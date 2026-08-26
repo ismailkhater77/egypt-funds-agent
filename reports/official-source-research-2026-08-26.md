@@ -166,3 +166,13 @@ The first-party Pioneers Funds site identifies Pioneers Funds as a subsidiary of
 Official URL: https://www.blombank.com/english/products-and-services/investment-services
 
 The official page identifies BLOM Bank and links to BLOMINVEST Bank, but the page is a Lebanon/Levant investment-services overview. It does not publish an Egypt-specific fund NAV, valuation date, or a current BLOM Egypt fund price. The CAPTCHA encountered during access was not bypassed, and no secondary value was accepted. BLOM-related uncovered records therefore remain Pending Verification.
+
+## Credit Agricole Egypt / HC official cross-source evidence
+
+Official URL: https://www.ca-egypt.com/en/bank-product/cae-mutual-fund-number-4-al-thiqa/
+
+Credit Agricole Egypt's official Mutual Fund Number 4 – Al Thiqa page exposes a performance snapshot `As of closing: 23 August 2026` with `IC Price: EGP 903.73`. The same page states that the fund is professionally managed by HC Securities & Investment and that NAV execution is based on values announced at the end of Sunday or Wednesday. This is a first-party bank page with an explicit current valuation date, NAV, and manager identity. It should be used as a validated alternate official source only after confirming the catalog fund/source mapping and avoiding duplicate same-source writes.
+
+## Credit Agricole Al Thiqa integration result
+
+The official Credit Agricole source was added idempotently as `src_credit_agricole_thiqa`. The live collector fetched one record, matched `fund_7d36b894257db9f9` (`Crédit Agricole – Egypt Fund No.4 Balanced Fund (Al Thiqa)`), and inserted one validated snapshot: NAV 903.73 EGP, valuation date 2026-08-23. This is an independent official bank-source snapshot; the existing HC source mapping was preserved.

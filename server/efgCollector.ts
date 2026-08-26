@@ -15,6 +15,7 @@ const AZIMUT_API_URL = "https://app.azimut.eg/api/fund/list?size=100&web=true";
 const HC_SOURCE_URL = "https://www.hc-si.com/Service/asset-management#funds";
 const HC_FETCH_URL = "https://www.hc-si.com/Service/asset-management";
 const HC_AJAX_URL = "https://www.hc-si.com/wp-admin/admin-ajax.php";
+const CREDIT_AGRICOLE_THIQA_SOURCE_URL = "https://www.ca-egypt.com/en/bank-product/cae-mutual-fund-number-4-al-thiqa/";
 const AAIM_SOURCE_URL = "https://aaim.com.eg/ar/what-we-offer/funds";
 const AAIM_FETCH_URL = "https://aaim.com.eg/en/what-we-offer/funds";
 const MUBASHER_SOURCE_URL = "https://mubasherfunds.info/";
@@ -57,6 +58,7 @@ const AFIM_PARSER_NAME = "afim_detail_pages_v1";
 const ZALDI_PARSER_NAME = "zaldi_detail_page_v1";
 const AZIMUT_PARSER_NAME = "azimut_fund_api_v1";
 const HC_PARSER_NAME = "hc_sponsor_ajax_v1";
+const CREDIT_AGRICOLE_THIQA_PARSER_NAME = "credit_agricole_thiqa_official_snapshot_v1";
 const BELTONE_PARSER_NAME = "beltone_fund_sheet_v1";
 const CI_INTERMEDIATE_CA = readFileSync(new URL("./certs/digicert-global-g2-tls-rsa-sha256-2020-ca1.pem", import.meta.url));
 
@@ -490,6 +492,17 @@ export function parseHcSponsor(html: string): EfgRecord[] {
   const nav = Number(priceLine[1].replace(/,/g, ""));
   if (!Number.isFinite(nav) || nav < 0) return [];
   return [{ name: title, rawName: title, nav, valuationDate: priceLine[2], currency: "EGP" }];
+}
+
+export function parseCreditAgricoleThiqa(html: string): EfgRecord[] {
+  const text = stripTags(html).replace(/\s+/g, " ");
+  const dateMatch = text.match(/As of closing:\s*(\d{1,2}\s+[A-Za-z]+\s+\d{4})/i);
+  const priceMatch = text.match(/IC Price:\s*(?:EGP\s*)?([0-9.,]+)/i);
+  if (!dateMatch || !priceMatch) return [];
+  const valuationDate = parseEnglishDate(dateMatch[1]);
+  const nav = Number(priceMatch[1].replace(/,/g, ""));
+  if (!valuationDate || !Number.isFinite(nav) || nav < 0 || valuationDate > asOfDate()) return [];
+  return [{ name: "Crédit Agricole – Egypt Fund No.4 Balanced Fund (Al Thiqa)", rawName: "CAE Mutual Fund Number 4 – Al Thiqa", nav, valuationDate, currency: "EGP" }];
 }
 
 export async function parseHcFunds(listingHtml: string): Promise<EfgRecord[]> {
@@ -1023,6 +1036,10 @@ export function runZaldiStarCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund });
 }
 
+export function runCreditAgricoleCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: CREDIT_AGRICOLE_THIQA_SOURCE_URL, parserName: CREDIT_AGRICOLE_THIQA_PARSER_NAME, parse: parseCreditAgricoleThiqa, matchAllFunds: true });
+}
+
 export function runZaldiCollector(): Promise<RunSummary> {
   return runCombinedCollectors([
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
@@ -1038,6 +1055,7 @@ export function getProviderSupportReport() {
     { provider: "Zaldi", source: `${ZALDI_STAR_URL}, ${ZALDI_ELMASRY_URL}`, parser: ZALDI_PARSER_NAME, status: "implemented" as const, note: "Official fund pages" },
     { provider: "Azimut", source: AZIMUT_API_URL, parser: AZIMUT_PARSER_NAME, status: "implemented" as const, note: "Official API" },
     { provider: "HC Securities", source: HC_SOURCE_URL, parser: HC_PARSER_NAME, status: "implemented" as const, note: "Official AJAX listing" },
+    { provider: "Credit Agricole Egypt / HC Al Thiqa", source: CREDIT_AGRICOLE_THIQA_SOURCE_URL, parser: CREDIT_AGRICOLE_THIQA_PARSER_NAME, status: "implemented" as const, note: "Official Credit Agricole Egypt page; explicit as-of closing date and IC Price; HC named as manager" },
     { provider: "CI Capital", source: CI_URL, parser: CI_PARSER_NAME, status: "implemented" as const, note: "Official Fund Type/Fund Name/Price table; secure DigiCert chain completion" },
     { provider: "Arab African Investment Management (AAIM)", source: AAIM_FETCH_URL, parser: "aaim_fund_cards_v1", status: "implemented" as const, note: "Official fund cards" },
     { provider: "Mubasher Funds", source: MUBASHER_SOURCE_URL, parser: MUBASHER_PARSER_NAME, status: "implemented" as const, note: "Affiliated/publication daily tables; primary manager ownership not independently verified" },
@@ -1066,6 +1084,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: CI_URL, parserName: CI_PARSER_NAME, parse: parseCiCapitalFunds },
     { sourceUrl: AFIM_URL, parserName: AFIM_PARSER_NAME, parse: parseAfimFunds },
     { sourceUrl: HC_SOURCE_URL, fetchUrl: HC_FETCH_URL, parserName: HC_PARSER_NAME, parse: parseHcFunds },
+    { sourceUrl: CREDIT_AGRICOLE_THIQA_SOURCE_URL, parserName: CREDIT_AGRICOLE_THIQA_PARSER_NAME, parse: parseCreditAgricoleThiqa, matchAllFunds: true },
     { sourceUrl: AZIMUT_SOURCE_URL, fetchUrl: AZIMUT_API_URL, parserName: AZIMUT_PARSER_NAME, parse: parseAzimutFunds, fetcher: fetchAzimutWithHistory },
     { sourceUrl: AAIM_SOURCE_URL, fetchUrl: AAIM_FETCH_URL, parserName: "aaim_fund_cards_v1", parse: parseAaimFunds },
     { sourceUrl: MUBASHER_SOURCE_URL, parserName: MUBASHER_PARSER_NAME, parse: parseMubasherFunds },
