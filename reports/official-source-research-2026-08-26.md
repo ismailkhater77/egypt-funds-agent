@@ -63,3 +63,9 @@ The official Bokra website confirms the regulated savings platform and lists `ا
 Official URL: https://pfi-am.com.eg/funds/
 
 The current PFI page explicitly labels NAV per certificate and dates. GIG Equity Fund shows 1,387.99 dated 26-08-2026 and is already covered/unchanged. GIG Money Market shows 18.9972 dated 29-08-2026, Mawared shows 71.4934 dated 29-08-2026, and PFI Cashi shows 11.6242 dated 29-08-2026. Those future-dated values were rejected as of 2026-08-26 and were not stored.
+
+## Al Baraka Al Motawazen
+
+Official URL: https://www.naeemholding.com/asset-management/investment-offerings/our-funds/al-baraka-fund/
+
+The official Naeem page identifies Al Baraka Fund as an open-ended Egyptian balanced Sharia-compliant fund, managed by AT Financial Investments, with weekly subscription/redemption through Al Baraka Bank. It publishes historical return statistics and a 2017 fact sheet link, but no current NAV or explicit current valuation date. The catalog record `Al Baraka Bank Egypt (Al Motawazen)` remains Pending Verification; no third-party NAV was used.
