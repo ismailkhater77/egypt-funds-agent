@@ -1,10 +1,10 @@
 # تقرير مقارنة ملف الصناديق مع قاعدة البيانات
 
-تاريخ التحليل: 2026-08-26T18:04:34.541773+00:00
+تاريخ التحليل: 2026-08-26T18:27:32.007473+00:00
 
 ## الخلاصة التنفيذية
 
-يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **215 سجل صندوق** و**310 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **198 صندوقًا** بقاعدة البيانات، ومن بينها **162 صندوقًا** لها سجل سعر بحالة `validated`. توجد **36 صناديق غير مغطاة حاليًا** ضمن الملف: **36** موجودة في قاعدة البيانات بلا سجل سعر validated، و**0** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
+يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **215 سجل صندوق** و**313 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **198 صندوقًا** بقاعدة البيانات، ومن بينها **165 صندوقًا** لها سجل سعر بحالة `validated`. توجد **33 صناديق غير مغطاة حاليًا** ضمن الملف: **33** موجودة في قاعدة البيانات بلا سجل سعر validated، و**0** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
 
 ## ما تم بناؤه في قاعدة البيانات
 
@@ -12,22 +12,21 @@
 |---|---:|
 | صفوف الصناديق في الملف | 198 |
 | سجلات الصناديق في Supabase | 215 |
-| سجلات الأسعار في Supabase | 310 |
+| سجلات الأسعار في Supabase | 313 |
 | صفوف الملف المرتبطة بسجل صندوق | 198 |
-| صفوف الملف ذات سعر `validated` | 162 |
-| صفوف الملف غير المغطاة | 36 |
+| صفوف الملف ذات سعر `validated` | 165 |
+| صفوف الملف غير المغطاة | 33 |
 
 > التغطية هنا تعني وجود صندوق مطابق في قاعدة البيانات مع سجل سعر بحالة `validated`. وجود الصندوق في جدول `funds` وحده لا يعني أن الوكيل حدّث سعره.
 
 ## الصناديق المغطاة
 
-تم العثور على سجل سعر validated لـ **162** صندوقًا من الملف. التفاصيل الكاملة محفوظة في ملف JSON الداعم، وتتضمن اسم الملف واسم قاعدة البيانات و`fund_id` وآخر سعر وتاريخ التقييم.
+تم العثور على سجل سعر validated لـ **165** صندوقًا من الملف. التفاصيل الكاملة محفوظة في ملف JSON الداعم، وتتضمن اسم الملف واسم قاعدة البيانات و`fund_id` وآخر سعر وتاريخ التقييم.
 
 ## موجودة في قاعدة البيانات ولكن بلا سعر validated
 
 | صف Excel | اسم الصندوق في الملف | الاسم في قاعدة البيانات | الشركة المديرة |
 |---:|---|---|---|
-| 8 | Ebank Fund (El Khabeer) | Ebank Fund (El Khabeer) | Azimut Egypt Asset Management |
 | 20 | Bank ABC Fund I | Bank ABC Fund I | Azimut Egypt Asset Management |
 | 22 | Blom Bank Fund I | Blom Bank Fund I | CFH Asset Management |
 | 23 | Pharos Fund I | Pharos Fund I | Pharos Asset Management |
@@ -37,7 +36,6 @@
 | 38 | Aspire Waffrah Plus | Aspire Waffrah Plus | Amwal for Financial Investments |
 | 48 | Naeem Misr Fund | Naeem Misr Fund | Naeem for Financial Investments |
 | 49 | Agriculural Bank of Egypt (Al Wefak) | Agriculural Bank of Egypt (Al Wefak) | CI Asset Management |
-| 59 | Ebank Fund II | Ebank Fund II | Azimut Egypt Asset Management |
 | 63 | Al Ahli Bank of Kuwait - Egypt Fund II | Al Ahli Bank of Kuwait - Egypt Fund II | Sigma Asset Management |
 | 66 | Blom Bank Fund II | Blom Bank Fund II | CFH Asset Management |
 | 69 | Housing & Development Bank (Mawared) | Housing & Development Bank (Mawared) | PFI Asset Management |
@@ -54,7 +52,6 @@
 | 146 | Al Baraka Bank Egypt (Al Motawazen) | Al Baraka Bank Egypt (Al Motawazen) | Naeem Capital for Investments |
 | 147 | FAB Misr Fund (Ezdhar) | FAB Misr Fund (Ezdhar) | Acumen Asset Management |
 | 149 | Sigma Traded Fund | Sigma Traded Fund | Sigma Funds Management |
-| 150 | Ebank Fund III (Konooz) | Ebank Fund III (Konooz) | Prime Investments |
 | 159 | Prime NMOW | Prime NMOW | Prime Investments |
 | 178 | Misr Money Market (Euro) | Misr Money Market (Euro) | CI Asset Management |
 | 180 | Maksab First Tranche USD $ | Maksab First Tranche USD $ | Alpha Financial Investments Management & Zaldi Investments |

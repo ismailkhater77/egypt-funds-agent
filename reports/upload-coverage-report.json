@@ -4,10 +4,10 @@
   "as_of_date": "2026-08-26",
   "file_fund_count": 198,
   "database_fund_count": 215,
-  "database_price_row_count": 310,
+  "database_price_row_count": 313,
   "matched_to_database_count": 198,
-  "covered_with_validated_price_count": 162,
-  "not_covered_count": 36,
+  "covered_with_validated_price_count": 165,
+  "not_covered_count": 33,
   "exact_or_confident_match_count": 198,
   "unmatched_or_ambiguous_count": 0,
   "covered": [
@@ -135,6 +135,27 @@
         "status": "validated",
         "source_id": "src_97d34f55d3f43656",
         "collected_at": "2026-08-25T19:30:54.976457+00:00"
+      }
+    },
+    {
+      "row": 8,
+      "file_name": "Ebank Fund (El Khabeer)",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_a786beb77a2a6a85",
+      "db_name": "Ebank Fund (El Khabeer)",
+      "db_raw_name": "Ebank Fund (El Khabeer)",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_a786beb77a2a6a85",
+        "nav": 677.3,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_ebank_market_updates",
+        "collected_at": "2026-08-26T18:19:54.597571+00:00"
       }
     },
     {
@@ -996,6 +1017,27 @@
         "status": "validated",
         "source_id": "src_97d34f55d3f43656",
         "collected_at": "2026-08-25T20:47:05.061496+00:00"
+      }
+    },
+    {
+      "row": 59,
+      "file_name": "Ebank Fund II",
+      "company": "Azimut Egypt Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_cc427cc3701e7509",
+      "db_name": "Ebank Fund II",
+      "db_raw_name": "Ebank Fund II",
+      "db_company": "Azimut Egypt Asset Management",
+      "price_update_url": "https://azimut.eg/funds",
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_cc427cc3701e7509",
+        "nav": 949.6679,
+        "currency": "EGP",
+        "valuation_date": "2026-08-26",
+        "status": "validated",
+        "source_id": "src_ebank_market_updates",
+        "collected_at": "2026-08-26T18:19:55.026984+00:00"
       }
     },
     {
@@ -2553,6 +2595,27 @@
       }
     },
     {
+      "row": 150,
+      "file_name": "Ebank Fund III (Konooz)",
+      "company": "Prime Investments",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_b4f8cf2ed93a265a",
+      "db_name": "Ebank Fund III (Konooz)",
+      "db_raw_name": "Ebank Fund III (Konooz)",
+      "db_company": "Prime Investments",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_b4f8cf2ed93a265a",
+        "nav": 873.2525,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_ebank_market_updates",
+        "collected_at": "2026-08-26T18:19:55.463305+00:00"
+      }
+    },
+    {
       "row": 151,
       "file_name": "National Bank of Egypt VII",
       "company": "Al Ahly Financial Investments Management",
@@ -3416,19 +3479,6 @@
   ],
   "not_covered": [
     {
-      "row": 8,
-      "file_name": "Ebank Fund (El Khabeer)",
-      "company": "Azimut Egypt Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_a786beb77a2a6a85",
-      "db_name": "Ebank Fund (El Khabeer)",
-      "db_raw_name": "Ebank Fund (El Khabeer)",
-      "db_company": "Azimut Egypt Asset Management",
-      "price_update_url": "https://azimut.eg/funds",
-      "has_price": false,
-      "latest_price": null
-    },
-    {
       "row": 20,
       "file_name": "Bank ABC Fund I",
       "company": "Azimut Egypt Asset Management",
@@ -3542,19 +3592,6 @@
       "db_raw_name": "Agriculural Bank of Egypt (Al Wefak)",
       "db_company": "CI Asset Management",
       "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 59,
-      "file_name": "Ebank Fund II",
-      "company": "Azimut Egypt Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_cc427cc3701e7509",
-      "db_name": "Ebank Fund II",
-      "db_raw_name": "Ebank Fund II",
-      "db_company": "Azimut Egypt Asset Management",
-      "price_update_url": "https://azimut.eg/funds",
       "has_price": false,
       "latest_price": null
     },
@@ -3762,19 +3799,6 @@
       "db_name": "Sigma Traded Fund",
       "db_raw_name": "Sigma Traded Fund",
       "db_company": "Sigma Funds Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 150,
-      "file_name": "Ebank Fund III (Konooz)",
-      "company": "Prime Investments",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_b4f8cf2ed93a265a",
-      "db_name": "Ebank Fund III (Konooz)",
-      "db_raw_name": "Ebank Fund III (Konooz)",
-      "db_company": "Prime Investments",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null

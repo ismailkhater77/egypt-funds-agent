@@ -91,3 +91,6 @@
 - [x] Classify the 22 duplicate fund/date price groups by source and NAV, then flag only same-source duplicates as integrity violations
 - [x] Produce a duplicate-price audit artifact and preserve legitimate multi-source snapshots without deleting data blindly
 - [x] Remove the ambiguous Mubasher alias mapping for Delta Life cash fund and document the existing conflicting snapshot as pending identity review
+- [x] Implement and validate the official EBank Market Updates parser for Khabeer, Money Market, and Konooz with future-date rejection and idempotent writes
+- [x] Re-run the official EBank collector and prove 3 unchanged with zero new inserts
+- [x] Add an EBank idempotency regression test or saved run artifact for the three official fund records

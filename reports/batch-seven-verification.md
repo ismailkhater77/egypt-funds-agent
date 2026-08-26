@@ -40,3 +40,17 @@ Ezdehar is now configured with `schedule: "weekly"`. An HTTP-successful page tha
 The official Azimut API returned 19 records on the first successful matching run. After adding the future-date guard, 14 records remained valid as of 2026-08-26; five rows dated 2026-08-30 are now rejected by the parser. The official `az– استحقاق T27 USD` row is valid at NAV 10.50287 USD dated 2026-08-25 and matched the existing catalog record unchanged. The API response did not contain names for Ebank El Khabeer, Bank ABC Fund I, Ebank Fund II, or Menthum, so those remain pending rather than being inferred from the manager label.
 
 The official Alpha Odin page loaded successfully but exposed no current fund NAV/date rows in the live DOM, so Odin Trend, Maksab, and Al Masry remain pending. The coverage report now explicitly uses `as_of_date=2026-08-26` and excludes future-dated validated rows.
+
+## EBank official Market Updates — 26 August 2026
+
+The first-party EBank Market Updates page returned three current fund records: El Khabeer NAV 677.3 with closing date 20 August 2026, Money Market Fund NAV 949.6679 as at 26 August 2026, and Konooz Fund NAV 873.2525 with closing date 25 August 2026. All three matched exact catalog records and were inserted into Supabase by `ebank_official_market_updates_v1`; no unmatched or failed records were reported. The source is official EBank, while El Khabeer remains a weekly-priced fund and is not expected to publish a new value every day.
+
+The EBank collector was rerun twice after the initial insertion. Both reruns fetched and matched 3 records and returned `inserted: 0`, `unchanged: 3`, `updated: 0`, `unmatched: []`, and `failed: []`. This proves idempotent persistence for the three official EBank fund snapshots; the raw run outputs were saved under `/tmp/ebank-run-second.json` and `/tmp/ebank-run-third.json` during validation.
+
+## Run All after EBank integration
+
+The post-EBank Run All completed with the coverage report as of 2026-08-26 showing 165 of 198 workbook funds with validated prices, 33 not covered, and zero unmatched or ambiguous workbook rows. The database contains 215 fund records and 313 price rows. The classified duplicate audit still reports zero same-source duplicate groups, 22 legitimate multi-source fund/date groups, and one NAV conflict requiring identity review for Delta Life Insurance.
+
+## PFI official funds page — current validation
+
+The current official PFI page showed GIG Equity Fund NAV 1,387.99 dated 26 August 2026. The live collector fetched and matched one record and returned `inserted: 0`, `unchanged: 1`, with no unmatched or failed records. Mawared Money Market, GIG Money Market, and PFI Cashi displayed 29 August 2026 values and were correctly rejected as future-dated as of 26 August 2026.

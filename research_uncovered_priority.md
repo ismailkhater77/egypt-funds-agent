@@ -149,3 +149,17 @@ The official page https://alpha-odin.com/funds/ loaded successfully and identifi
 ## Aton Pharos direct verification — 26 August 2026
 
 The official-looking Aton Holding site https://atonholding.godaddysites.com/ identifies Aton Holding Company for Financial Investments and explicitly lists subsidiaries including Pharos Fund 1 and the Pharos company for formation and management of securities portfolios and investment funds. It also publishes contact details and the Aton Pharos email. However, the inspected page contains no current Pharos Fund I NAV, valuation date, or pricing table. This establishes a strong manager-identity lead but does not satisfy the NAV verification rule; Pharos Fund I remains Pending Verification.
+
+## EBank market-updates verification — 26 August 2026
+
+The official EBank page `https://ebank.com.eg/market-updates/` is the relevant first-party source. Search indexing exposes a line indicating `Price khabeer fund ICs price closing 20-08-2026`, but the dynamic page rendered no accessible elements in the browser view. The saved raw HTML must be inspected for the actual NAV and date before this can satisfy the user's 100% verification rule.
+
+## BLOM direct verification — 26 August 2026
+
+The official BLOMINVEST Bank page https://www.blominvestbank.com/BlomInvest/BLOM-Pyramids-Fund displays BLOM Pyramids Balanced Fund with NAV 5,111.71 USD and a page date of 10 February 2016. It describes a Lebanese-regulated fund managed by BLOMINVEST Bank s.a.l., with daily NAV and weekly subscription/redemption. This is not current Egyptian NAV evidence for the user's BLOM Bank Egypt Fund I/II records, so both Egyptian catalog funds remain Pending Verification.
+
+The BLOM page was directly inspected and is not usable for current Egyptian fund NAV: it shows a 2016 Lebanese USD fund page. EBank's browser page remains visually empty while text extraction exposes current fund rows, indicating that the fund table is rendered through a dynamic resource; network-resource inspection is the next step before implementing the parser.
+
+## PFI current verification — 26 August 2026
+
+The official PFI funds page currently exposes GIG Equity Fund NAV 1,387.99 dated 26 August 2026, while Mawared Money Market NAV 71.4934, GIG Money Market NAV 18.9972, and PFI Cashi NAV 11.6242 are dated 29 August 2026 and must be rejected as future-dated as of the analysis date. The existing PFI collector can accept the GIG Equity record and reject the future-dated rows.

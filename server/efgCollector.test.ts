@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseScbFundRates, runFabMisrCollector, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseScbFundRates, runFabMisrCollector, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -119,6 +119,15 @@ describe("EFG mutual-fund parser", () => {
       { name: "NI Capital EGX 70", rawName: "SAHMY 70 FUND", nav: 22.4184, valuationDate: "2026-08-26", currency: "EGP" },
     ]);
   });
+  it("extracts official EBank fund prices and valuation dates", () => {
+    const html = `<table><tr><td><strong>khabeer fund</strong><br>ICs price closing 20-08-2026</td><td>677.3</td></tr><tr><td><strong>Money market fund</strong><br>ICs price as at 26-08-2026</td><td>949.6679</td></tr><tr><td><strong>konooz fund</strong><br>ICs price closing 25-08-2026</td><td>873.2525</td></tr></table>`;
+    expect(parseEbankMarketUpdates(html)).toEqual([
+      { name: "Ebank Fund (El Khabeer)", rawName: "khabeer fund", nav: 677.3, valuationDate: "2026-08-20", currency: "EGP" },
+      { name: "Ebank Fund II", rawName: "money market fund", nav: 949.6679, valuationDate: "2026-08-26", currency: "EGP" },
+      { name: "Ebank Fund III (Konooz)", rawName: "konooz fund", nav: 873.2525, valuationDate: "2026-08-25", currency: "EGP" },
+    ]);
+  });
+
   it("extracts FAB Misr official Ezdehar NAV and valuation date", () => {
     const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>22 August 2026</td></tr><tr><td>Currency (EGP)</td><td>472.6990</td></tr></table>`;
     expect(parseFabMisrEzdehar(html)).toEqual([{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav: 472.699, valuationDate: "2026-08-22", currency: "EGP" }]);

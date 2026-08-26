@@ -32,6 +32,7 @@ const FAISAL_SOURCE_URL = "https://www.faisalbank.com.eg/ar/Retail/Mutual-Funds"
 const PFI_SOURCE_URL = "https://pfi-am.com.eg/funds/";
 const NI_CAPITAL_SOURCE_URL = "https://nicapital.com.eg/lines-of-business/asset-management/";
 const FAB_MISR_EZDEHAR_SOURCE_URL = "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund";
+const EBANK_SOURCE_URL = "https://ebank.com.eg/market-updates/";
 const ABK_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Equity-Fund?r=2";
 const NBK_SOURCE_URLS = [
   "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/ishraq.html",
@@ -47,6 +48,7 @@ const NBK_PARSER_NAME = "nbk_official_fund_detail_v1";
 const PFI_PARSER_NAME = "pfi_official_funds_v1";
 const NI_CAPITAL_PARSER_NAME = "ni_capital_official_funds_v1";
 const FAB_MISR_PARSER_NAME = "fab_misr_official_ezdehar_v1";
+const EBANK_PARSER_NAME = "ebank_official_market_updates_v1";
 const EFG_PARSER_NAME = "efg_html_table_v1";
 const CI_PARSER_NAME = "ci_capital_fundprice_v1";
 const AFIM_PARSER_NAME = "afim_detail_pages_v1";
@@ -371,6 +373,34 @@ export function parseAzimutFunds(payload: string): EfgRecord[] {
   });
 }
 
+export function parseEbankMarketUpdates(html: string): EfgRecord[] {
+  const text = stripTags(html).replace(/\s+/g, " ");
+  const labels = [
+    ["khabeer fund", "Ebank Fund (El Khabeer)"],
+    ["money market fund", "Ebank Fund II"],
+    ["konooz fund", "Ebank Fund III (Konooz)"],
+  ] as const;
+  const records: EfgRecord[] = [];
+  for (const [label, name] of labels) {
+    const start = text.toLowerCase().indexOf(label);
+    if (start < 0) continue;
+    const next = labels.map(([other]) => text.toLowerCase().indexOf(other, start + label.length)).filter(index => index >= 0).sort((a, b) => a - b)[0];
+    const segment = text.slice(start, next ?? start + 500);
+    const dateMatch = segment.match(/(\d{2})-(\d{2})-(\d{4})/);
+    if (!dateMatch) continue;
+    const valuationDate = `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}`;
+    if (valuationDate > new Date().toISOString().slice(0, 10)) continue;
+    const afterDate = segment.slice((dateMatch.index ?? 0) + dateMatch[0].length);
+    const numbers = Array.from(afterDate.matchAll(/\b\d+(?:\.\d+)?\b/g)).map(match => Number(match[0])).filter(value => Number.isFinite(value));
+    const nav = numbers.at(-1);
+    if (!Number.isFinite(nav) || (nav ?? 0) < 0) continue;
+    records.push({ name, rawName: label, nav: nav as number, valuationDate, currency: "EGP" });
+  }
+  if (!records.length && /khabeer fund|money market fund|konooz fund/i.test(text)) return [];
+  if (!records.length) throw new Error("EBank page has no recognized fund update section");
+  return records;
+}
+
 export function parseHcSponsor(html: string): EfgRecord[] {
   const title = html.match(/<h3>\s*([^<]+?)\s*<\/h3>/i)?.[1]?.trim();
   const priceLine = stripTags(html).match(/Price per certificate as of Date\s*([0-9.,]+)\s*-\s*(\d{4}-\d{2}-\d{2})/i);
@@ -577,6 +607,9 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "ادخار - AZFI": "edkhar",
     "جي أي جي النقدي": "gig insurance",
     "ABK-Egypt Equity Fund": "al ahli bank of kuwait - egypt fund i",
+    "khabeer fund": "ebank fund el khabeer",
+    "money market fund": "ebank fund ii",
+    "konooz fund": "ebank fund iii konooz",
     "NI Capital (Sahmy Fund)": "ni capital (sahmy fund)",
     "SAHMY FUND": "ni capital (sahmy fund)",
     "SAHMY 70 FUND": "ni capital egx 70",
@@ -821,6 +854,10 @@ export function runPfiCollector(): Promise<RunSummary> {
 export function runNiCapitalCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: NI_CAPITAL_SOURCE_URL, parserName: NI_CAPITAL_PARSER_NAME, parse: parseNiCapitalFunds, matchAllFunds: true });
 }
+export function runEbankCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: EBANK_SOURCE_URL, parserName: EBANK_PARSER_NAME, parse: parseEbankMarketUpdates, matchAllFunds: true });
+}
+
 export function runFabMisrCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true, schedule: "weekly" });
 }
@@ -853,6 +890,7 @@ export function getProviderSupportReport() {
     { provider: "PFI Asset Management", source: PFI_SOURCE_URL, parser: PFI_PARSER_NAME, status: "implemented" as const, note: "Official funds page; future-dated rows are rejected" },
     { provider: "NI Capital", source: NI_CAPITAL_SOURCE_URL, parser: NI_CAPITAL_PARSER_NAME, status: "implemented" as const, note: "Official asset-management page; future-dated rows are rejected" },
     { provider: "FAB Misr", source: FAB_MISR_EZDEHAR_SOURCE_URL, parser: FAB_MISR_PARSER_NAME, status: "implemented" as const, note: "Official bank fund page; NAV/date extracted and future-dated values rejected" },
+    { provider: "EBank", source: EBANK_SOURCE_URL, parser: EBANK_PARSER_NAME, status: "implemented" as const, note: "Official Market Updates page; Khabeer/Money Market/Konooz NAV and valuation dates" },
     { provider: "ABK-Egypt", source: ABK_SOURCE_URL, parser: "abk_official_equity_fund_v1", status: "implemented" as const, note: "Official equity-fund page; TLS uses trusted DigiCert intermediate" },
   ];
 }
@@ -878,6 +916,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     ...NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })),
     { sourceUrl: PFI_SOURCE_URL, parserName: PFI_PARSER_NAME, parse: parsePfiFunds, matchAllFunds: true },
     { sourceUrl: NI_CAPITAL_SOURCE_URL, parserName: NI_CAPITAL_PARSER_NAME, parse: parseNiCapitalFunds, matchAllFunds: true },
+    { sourceUrl: EBANK_SOURCE_URL, parserName: EBANK_PARSER_NAME, parse: parseEbankMarketUpdates, matchAllFunds: true },
     { sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true, schedule: "weekly" },
     { sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
