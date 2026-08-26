@@ -4,14 +4,14 @@
 
 This classification distinguishes catalog metadata from live collection behavior. A blank `price_update_url` means that no URL has been recorded in the `funds` row; it does **not** prove that no first-party page exists anywhere. A “future-date rejection” requires a price and a valuation date that are both present, where the valuation date is after the controlled as-of date.
 
-The Source-Coverage Gap report initially contained **31** funds with no validated snapshot. Subsequent verified integrations, including Banque du Caire Al Wefak, FABMISR Ezdehar, and four exact Alpha Odin products, raised validated coverage. One preserved workbook row, `Sigma Traded Fund`, was later confirmed by the FRA to be a fund-management company rather than an investable fund and was marked inactive without deletion. The current operational universe is therefore **214 active funds**, of which **190** have a validated snapshot and **24** remain uncovered as of 26-Aug-2026.
+The Source-Coverage Gap report initially contained **31** funds with no validated snapshot. Subsequent verified integrations, including Banque du Caire Al Wefak, FABMISR Ezdehar, four exact Alpha Odin products, and ABK Egypt Fund II, raised validated coverage. Two preserved workbook rows, `Sigma Traded Fund` and `Market Return`, were later confirmed to be, respectively, a fund-management company and the EGX30 benchmark rather than investable funds; both were marked inactive without deletion. The current operational universe is therefore **213 active funds**, of which **191** have a validated snapshot and **22** remain uncovered as of 26-Aug-2026.
 
 | Requested measure | Count from the original 31-gap report | Current count after all verified integrations | Evidence / interpretation |
 | --- | ---: | ---: | --- |
 | Has a recorded `price_update_url` but no validated snapshot | 2 | 2 | Bank ABC Fund I and Zaldi Star (Money Market) |
 | Fails because the parser cannot extract an otherwise published NAV/date | 0 | 0 | Bank ABC’s official API has no usable NAV/date; Zaldi’s official page publishes a price/date and is parsed, but its date is in the future |
 | Rejected only because a dated NAV is future relative to 26-Aug-2026 | 1 confirmed | 6 confirmed | Daily funds: Mawared, NI Capital 15/30, both GIG Makaseb tranches, the charitable education fund, and Zaldi Star |
-| Blank `price_update_url` in the catalog | 29 | 22 within the remaining active uncovered set | This is a metadata count, **not** a claim that no official source exists |
+| Blank `price_update_url` in the catalog | 29 | 20 within the remaining active uncovered set | This is a metadata count, **not** a claim that no official source exists |
 
 ## Linked but unvalidated records
 

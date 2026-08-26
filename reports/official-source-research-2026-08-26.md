@@ -182,7 +182,7 @@ NI Capital’s first-party price table publishes **29-Aug-2026** alongside the f
 
 ## Aspire Waffrah Plus official-document recheck
 
-Aspire’s official funds page links a scanned, FRA-stamped PDF for **Waffrah Plus**. Its cover and opening terms identify it as the *first-issue subscription/issuance document* for Aspire Capital’s multi-issue equity fund, not a periodic NAV statement. It states a nominal issue value of **10 EGP per certificate** and says the certificate price is announced daily, but it does not disclose any actual current price/NAV or a corresponding valuation date. The nominal issuance value is not treated as NAV. Accordingly, no price was extracted or stored; the document is retained only as identity evidence while a current official price feed remains unresolved.
+Aspire’s official funds page links a scanned, FRA-stamped PDF for **Waffrah Plus**. Visual review of its cover and opening terms identifies it as the *first-issue subscription/issuance document* for Aspire Capital’s multi-issue equity fund, not a periodic NAV statement. It states a nominal issue value of **10 EGP per certificate** and says the certificate price is announced daily, but it does not disclose any actual current price/NAV or a corresponding valuation date. The nominal issuance value is not treated as NAV. Accordingly, no price was extracted or stored; the document is retained only as identity evidence while a current official price feed remains unresolved.
 
 ## Follow-up on ABC and ABK
 
@@ -297,17 +297,23 @@ AROPE Life Insurance Egypt’s official page confirms that Arope Money Market Fu
 
 [4] [AROPE Life Insurance Egypt — Arope Money Market Fund](https://aropeegypt.com.eg/Life/en/arope-money-market-fund/)
 
+## EGBank Tharaa — identity confirmed, NAV absent
+
+EGBank’s official Personal Banking → Funds section names **THARAA** as a money-market fund sponsored by EGBANK, managed by **Prime Investment Asset Management**, with inception in **July 2010** and purchases through EGBANK branches. The directly accessible official section contains no NAV, price-history table, or valuation/as-of date. The source therefore confirms the catalog identity but cannot support a validated snapshot; no price, source mapping, or date was inferred from third-party results. [5]
+
+[5] [EGBank — Personal Banking Funds](https://www.eg-bank.com/En/Personal)
+
 ## Aspire Rawajj and Waffrah Plus — current official fact-sheet route found
 
-Aspire Holding’s official funds page directly links to PDFs for Rawajj and Waffrah Plus, both hosted on the company’s current 2026 website. These first-party files are the correct next sources to inspect for NAV and valuation-date evidence; no third-party price was accepted at this stage. [5]
+Aspire Holding’s official funds page directly links to PDFs for Rawajj and Waffrah Plus, both hosted on the company’s current 2026 website. These first-party files are the correct next sources to inspect for NAV and valuation-date evidence; no third-party price was accepted at this stage. [6]
 
-[5] [Aspire Holding — Aspire Funds](https://aspireholding.com/business/aspire-funds/)
+[6] [Aspire Holding — Aspire Funds](https://aspireholding.com/business/aspire-funds/)
 
 ### Rawajj document check
 
-The current Aspire-linked Rawajj PDF is a 28-page scanned legal/prospectus document. It does not yield machine-readable NAV, as-of date, or price-table text, and the public funds page itself contains only document links rather than current prices. No Rawajj NAV was persisted. The Waffrah Plus document remains a first-party candidate for separate review, but neither fund is promoted without a current dated NAV. [6]
+The current Aspire-linked Rawajj PDF is a 28-page scanned legal/prospectus document. Visual review of its opening cover, index, and legal-terms pages confirms that it is a formation/subscription document for the multi-issue equity fund, not a current price statement. It does not yield machine-readable NAV, as-of date, or price-table text, and the public funds page itself contains only document links rather than current prices. No Rawajj NAV was persisted. The Waffrah Plus document remains a first-party candidate for separate review, but neither fund is promoted without a current dated NAV. [7]
 
-[6] [Aspire Holding — Rawajj official PDF](https://aspireholding.com/app/uploads/2026/02/rawajj.pdf)
+[7] [Aspire Holding — Rawajj official PDF](https://aspireholding.com/app/uploads/2026/02/rawajj.pdf)
 
 ## Market Return — identity requires correction before source discovery
 
