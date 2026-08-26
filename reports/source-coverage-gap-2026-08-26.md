@@ -61,7 +61,7 @@ These are **not** part of the “no source at all” count. They are included so
 | Canonical fund name | Imported/EIMA name | Linked source URL |
 | --- | --- | --- |
 | Bank ABC Fund I | Bank ABC Fund I | https://azimut.eg/funds |
-| Zaldi Star Equity | Zaldi Star Equity | https://zaldi-capital.com/ |
+| Zaldi Star (Money Market) | Zaldi Star Equity | https://zaldi-capital.com/zaldi-star/ |
 
 ## C. Funds with no validated snapshot as of 2026-08-26 (24)
 
@@ -92,4 +92,4 @@ This is the operational priority list. It contains all active funds not yet cove
 | Prime NMOW | Prime NMOW | null |
 | Stream | Stream | null |
 | The charitable education Fund | The charitable education Fund | null |
-| Zaldi Star Equity | Zaldi Star Equity | https://zaldi-capital.com/ |
+| Zaldi Star (Money Market) | Zaldi Star Equity | https://zaldi-capital.com/zaldi-star/ |

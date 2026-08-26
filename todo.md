@@ -137,3 +137,4 @@
 - [x] Integrate exact Alpha Odin Maksab USD and Euro issues after validating their identities, currencies, NAVs, and explicit valuation dates
 - [x] Verify Al Baraka Al Motawazen’s legal identity and NAEEM affiliation from a directly readable FRA record; retain no alias or NAV write because the manager page lacks a current dated NAV
 - [x] Correct the catalog identity of Sigma Traded Fund after direct FRA evidence showed the name is a fund-management company, not an investable fund
+- [x] Resolve the Zaldi Star Equity versus official Zaldi Star Money Market identity conflict; correct the catalog and reject the official daily future-dated NAV

@@ -8,21 +8,21 @@ This is an **exhaustive current** classification of every catalog fund without a
 | Recorded catalog URL exists | 2 |
 | Catalog URL is blank | 22 |
 | Confirmed parser extraction failures from an otherwise published price/date | 0 |
-| Confirmed future-date-only rejection | 5 |
+| Confirmed future-date-only rejection | 6 |
 
 ## Category totals
 
 | Category | Meaning | Count |
 | --- | --- | ---: |
-| LINKED_NO_PUBLISHED_NAV | رابط رسمي قائم لكن لا ينشر NAV/تاريخ قابلًا للاعتماد | 1 |
-| LINKED_GENERIC_OR_UNMAPPED | رابط قائم لكنه صفحة عامة أو غير مثبتة للمنتج المستهدف | 1 |
-| IDENTITY_UNCONFIRMED | يوجد منتج رسمي محتمل لكن هوية Fund II غير مثبتة | 1 |
-| OFFICIAL_UNDATED | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح | 6 |
-| OFFICIAL_STALE | مصدر رسمي موجود لكن NAV/المستند قديم | 2 |
-| FUTURE_DATE_ONLY | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط | 5 |
-| OFFICIAL_FETCH_BLOCKED | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا | 1 |
-| OFFICIAL_NO_CURRENT_NAV | مصدر رسمي مفحوص لا ينشر NAV حاليًا | 4 |
-| NO_OFFICIAL_CURRENT_NAV_FOUND | لم يظهر مصدر رسمي حالي لـNAV بعد البحث | 3 |
+| LINKED_NO_PUBLISHED_NAV | رابط رسمي قائم لكن لا ينشر NAV/تاريخ قابلًا للاعتماد |
+| LINKED_GENERIC_OR_UNMAPPED | رابط قائم لكنه صفحة عامة أو غير مثبتة للمنتج المستهدف |
+| IDENTITY_UNCONFIRMED | يوجد منتج رسمي محتمل لكن هوية Fund II غير مثبتة |
+| OFFICIAL_UNDATED | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
+| OFFICIAL_STALE | مصدر رسمي موجود لكن NAV/المستند قديم |
+| FUTURE_DATE_ONLY | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |
+| OFFICIAL_FETCH_BLOCKED | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا |
+| OFFICIAL_NO_CURRENT_NAV | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
+| NO_OFFICIAL_CURRENT_NAV_FOUND | لم يظهر مصدر رسمي حالي لـNAV بعد البحث |
 
 ## Per-fund classification
 
@@ -51,8 +51,8 @@ This is an **exhaustive current** classification of every catalog fund without a
 | Prime NMOW | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
 | Stream | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
 | The charitable education Fund | — | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |
-| Zaldi Star Equity | https://zaldi-capital.com/ | رابط قائم لكنه صفحة عامة أو غير مثبتة للمنتج المستهدف |
+| Zaldi Star (Money Market) | https://zaldi-capital.com/zaldi-star/ | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |
 
 ## Interpretation
 
-A blank catalog URL does **not** prove that an official source does not exist. Some blank-URL rows have already been researched and assigned a reason such as stale official evidence, an undated official table, or a blocked official endpoint. The current `FUTURE_DATE_ONLY` set contains five daily funds: Mawared from PFI, plus NI Capital 15/30, the two GIG Makaseb tranches, and the charitable education fund from NI Capital. Their official dates are later than the controlled as-of date, so none is validated or treated as scheduled-weekly.
+A blank catalog URL does **not** prove that an official source does not exist. Some blank-URL rows have already been researched and assigned a reason such as stale official evidence, an undated official table, or a blocked official endpoint. The current `FUTURE_DATE_ONLY` set contains six daily funds: Mawared from PFI; NI Capital 15/30; the two GIG Makaseb tranches; the charitable education fund from NI Capital; and Zaldi Star from Zaldi Investments. Their official dates are later than the controlled as-of date, so none is validated or treated as scheduled-weekly.

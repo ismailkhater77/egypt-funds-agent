@@ -132,6 +132,12 @@ The Financial Regulatory Authority directly identifies company **669288**, licen
 
 The Financial Regulatory Authority’s searchable company-register API identifies `شركة صندوق سيجما لاداره الاسهم المتداوله` as a **fund company** and says it is currently **Beltone Investment Funds** (formerly Sigma). This is an asset/fund-management entity, not an investable mutual fund with a certificate NAV. The imported record `Sigma Traded Fund`, whose raw manager is `Sigma Funds Management`, was retained for audit but marked inactive rather than deleted. It is excluded from active collector matching and active-coverage denominators; no NAV source should be sought for it unless the underlying investable fund is identified from primary records.
 
+## Zaldi Star identity correction and future-date handling
+
+The Financial Regulatory Authority directly identifies company **669776** as `صندوق استثمار زالدي النقدي ذو العائد اليومي التراكمي والدوري (ZALDI STAR)`, licensed on **15-Apr-2025**. Zaldi Investments’ first-party product page likewise describes **Zaldi Star** as a money-market fund with daily accumulated returns, not an equity fund. The imported canonical name and category were therefore corrected to **Zaldi Star (Money Market)** / **Open End – Money Market Funds**, while the original workbook value `Zaldi Star Equity` remains preserved in `eima_name_raw`.
+
+The official page publishes **112.88191 EGP** with date **30-Aug-2026**. Relative to the controlled as-of date **26-Aug-2026**, that date is future-dated. Since the official description is daily rather than weekly, the collector correctly rejects it from `validated` and does not create a `scheduled_weekly` review observation. The live source-only run made no NAV write.
+
 ## Pharos non-Facebook first-party route recheck
 
 The official Aton Holding site identifies **Pharos Fund 1** and the **Pharos Company for the Formation and Management of Securities Portfolios and Investment Funds** as subsidiaries, which supports the manager/fund relationship. It does not provide a NAV, valuation date, historical-price document, or machine-readable price endpoint. Pharos Holding’s own current site likewise describes its historical asset-management business but has no fund-price content. Consequently, this first-party route cannot replace the currently blocked Facebook collector; no snapshot was added and Pharos remains excluded from Run All.

@@ -310,6 +310,17 @@ describe("EFG mutual-fund parser", () => {
     expect(result.unmatched).toEqual([]);
   });
 
+  it("maps the official Zaldi Star name only to the corrected money-market catalog identity", () => {
+    const funds = [
+      { fund_id: "zaldi-star-mm", canonical_name: "Zaldi Star (Money Market)", eima_name_raw: "Zaldi Star Equity", category: "Open End- Money Market Funds", price_update_url: "https://zaldi-capital.com/zaldi-star/" },
+      { fund_id: "zaldi-star-equity", canonical_name: "Zaldi Star Equity", eima_name_raw: "Zaldi Star Equity", category: "Open End- Equity Funds", price_update_url: null },
+    ];
+    const records = [{ name: "Zaldi Star", rawName: "Zaldi Star", nav: 112.88191, valuationDate: "2026-08-30", currency: "EGP" }];
+    const result = matchEfgRecords(records, funds);
+    expect(result.matched.map(({ fund }) => fund.fund_id)).toEqual(["zaldi-star-mm"]);
+    expect(result.unmatched).toEqual([]);
+  });
+
   it("matches canonical and raw EIMA names and reports unmatched rows", () => {
     const funds = [
       { fund_id: "f1", canonical_name: "EFG Hermes Equity Fund", eima_name_raw: "Hermes Equity", category: null, price_update_url: null },
