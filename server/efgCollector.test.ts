@@ -1,8 +1,19 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parsePfiFunds, parseScbFundRates, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parsePfiFunds, parseScbFundRates, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
+  it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
+    const html = readFileSync(new URL("./fixtures/abk-equity-fund.html", import.meta.url), "utf8");
+    expect(parseAbkFund(html)).toEqual([{
+      name: "ABK-Egypt Equity Fund",
+      rawName: "ABK-Egypt Equity Fund",
+      nav: 410.52,
+      valuationDate: "2026-08-26",
+      currency: "EGP",
+    }]);
+  });
+
   it("extracts a validated fund snapshot from the EFG data payload", () => {
     const html = `<table><tbody><tr><td data-before="Conventional Equity Funds"><a href="/en/our-services/mutual-funds/EFG-Hermes-EQ">EFG Hermes Equity Fund</a></td><td data-before="IC Price">118.84</td><td data-before="As of Date">24/08/2026</td></tr></tbody></table>`;
     const result = parseEfgMutualFunds(html);
@@ -87,6 +98,11 @@ describe("EFG mutual-fund parser", () => {
       { name: "Delta Life Assurance", rawName: "Delta Life Assurance", nav: 204.35979, valuationDate: "2026-08-25", currency: "EGP" },
       { name: "GIG Money Market", rawName: "GIG Money Market", nav: 18.969, valuationDate: "2026-08-25", currency: "EGP" },
     ]);
+  });
+
+  it("accepts a shortened Mubasher date and preserves USD table currency", () => {
+    const html = `<p>أسعار وثائق صناديق الاستثمار في الأسهم العقارية بتاريخ 25 أغسطس.</p><table><tr><td>1.18033</td><td>Maksab OZ USD</td></tr></table><p>أسعار وثائق بالدولار 25 أغسطس 2026</p><table><tr><td>1.18033</td><td>Maksab OZ USD</td></tr></table>`;
+    expect(parseMubasherDailyArticle(html)).toContainEqual({ name: "Maksab OZ USD", rawName: "Maksab OZ USD", nav: 1.18033, valuationDate: "2026-08-25", currency: "USD" });
   });
 
   it("extracts PFI funds and rejects future-dated rows", () => {

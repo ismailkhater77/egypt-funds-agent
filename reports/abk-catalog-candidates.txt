@@ -1,0 +1,88 @@
+
+TERM abk
+
+TERM ahli
+{"fund_id":"fund_e6b8f19b34ef9ea5","canonical_name":"KFH-Tharwa-Shariaa-Compliant Money Market Fund","eima_name_raw":"Ahli United Bank (Tharwa)","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_dacab30de94875f4","canonical_name":"QNB Al Ahli Money Market Fund (Themar)","eima_name_raw":"QNB AlAhli (Themar)","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_d276dbadffdb507f","canonical_name":"صندوق استثمار بنك قطر الوطني الأهلي الثاني ذو العائد الدوري التراكمي بالجنيه المصري - توازن","eima_name_raw":"QNB Al Ahli (Tawazon)","price_update_url":"https://www.beltoneholding.com/business-line/asset-management-1"}
+{"fund_id":"fund_8267d32e1a907f71","canonical_name":"QNB Al Ahli Fund No.3 Periodic Cumulative Return, (Tadawol)","eima_name_raw":"QNB AlAHLI (Tadawol)","price_update_url":"https://www.hc-si.com/Service/asset-management#funds"}
+{"fund_id":"fund_catalog_196096d8c91019c6","canonical_name":"Al Ahli Bank of Kuwait - Egypt Fund I","eima_name_raw":"Al Ahli Bank of Kuwait - Egypt Fund I","price_update_url":null}
+{"fund_id":"fund_catalog_8cb45ae0c96c7f90","canonical_name":"Al Ahli Bank of Kuwait - Egypt Fund II","eima_name_raw":"Al Ahli Bank of Kuwait - Egypt Fund II","price_update_url":null}
+
+TERM bank
+{"fund_id":"fund_7799d127d2e3fafa","canonical_name":"Al Baraka Bank Islamic Fund","eima_name_raw":"Al Baraka Bank Egypt","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_3284023fbe6c1899","canonical_name":"Al Baraka Bank Islamic Money Market Fund (Al Barakat)","eima_name_raw":"Al Baraka Bank Egypt (Al Barakat)","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_19d6487e194e32b5","canonical_name":"BANK NXT (Helal) Fund 2","eima_name_raw":"Bank Nxt Fund II (Helal)","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_3e250209bb10955c","canonical_name":"BANK NXT Money Market Fund","eima_name_raw":"Bank Nxt Fund I","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_5468465eb99512e9","canonical_name":"Bank of Alexandria Fund No. 3","eima_name_raw":"ALEXBANK Fund III","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_75f480cb1cc5346b","canonical_name":"Bank of Alexandria Mutual Fund No. 1","eima_name_raw":"ALEXBANK Fund I","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_f8f71290ee431793","canonical_name":"Bank of Alexandria Mutual Fund No. 2","eima_name_raw":"ALEXBANK Fund II","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_addb8d2de283e26b","canonical_name":"Egyptian Agricultural Bank (Al Massy)","eima_name_raw":"Agricultural Bank of Egypt Fund (Al Massy)","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_e23ea10475bd65e7","canonical_name":"Egyptian Gulf Bank Mutual Fund","eima_name_raw":"Egyptian Gulf Bank Fund I","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_44166931f38ee123","canonical_name":"Faisal Islamic Bank of Egypt Fund","eima_name_raw":"Faisal Islamic Bank of Egypt Fund","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_aebc19e10d1526dd","canonical_name":"HSBC Money Market Fund","eima_name_raw":"HSBC Egypt Bank Fund","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_c89c74ac6157383b","canonical_name":"KFH-Alpha-Shariaa Compliant Equity Fund","eima_name_raw":"KFH Bank (Alpha)","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_e6b8f19b34ef9ea5","canonical_name":"KFH-Tharwa-Shariaa-Compliant Money Market Fund","eima_name_raw":"Ahli United Bank (Tharwa)","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_4924d1368f6343dc","canonical_name":"Arab African International Bank (Shield)","eima_name_raw":"Arab African International Bank (Shield)","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+{"fund_id":"fund_8e638aeb2853a1a5","canonical_name":"Housing & Development Bank ( AL Tameer)","eima_name_raw":"Housing & Development Bank ( AL Tameer)","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+{"fund_id":"fund_17c89daa3d4a1923","canonical_name":"Arab African International Bank (Juman)","eima_name_raw":"Arab African International Bank (Juman)","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+{"fund_id":"fund_a61e15ee9305ebc6","canonical_name":"Arab African International Bank (Guard)","eima_name_raw":"Arab African International Bank (Guard)","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+{"fund_id":"fund_a786beb77a2a6a85","canonical_name":"Ebank Fund (El Khabeer)","eima_name_raw":"Ebank Fund (El Khabeer)","price_update_url":"https://azimut.eg/funds"}
+{"fund_id":"fund_e813d653742781f5","canonical_name":"Bank ABC Fund I","eima_name_raw":"Bank ABC Fund I","price_update_url":"https://azimut.eg/funds"}
+{"fund_id":"fund_cc427cc3701e7509","canonical_name":"Ebank Fund II","eima_name_raw":"Ebank Fund II","price_update_url":"https://azimut.eg/funds"}
+{"fund_id":"fund_d5278f42f53f168d","canonical_name":"Bank Nxt Fund III (Sanady)","eima_name_raw":"Bank Nxt Fund III (Sanady)","price_update_url":"https://azimut.eg/funds"}
+{"fund_id":"fund_46ddc8f193e74f70","canonical_name":"Suez Canale Bank Money Market Fund","eima_name_raw":"Suez Canal Bank ( Al Suez Al Youmi)","price_update_url":"https://www.cicapital.com/fundprice/"}
+{"fund_id":"fund_dbbed067d20f4b66","canonical_name":"United Bank Egypt Money Market Fund (Rakhaa)","eima_name_raw":"The United Bank Fund (Rakhaa)","price_update_url":"https://www.cicapital.com/fundprice/"}
+{"fund_id":"fund_e42f345f7bffd172","canonical_name":"صندوق الواعد – دخل ثابت","eima_name_raw":"National Bank of Egypt VIII","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+{"fund_id":"fund_4c30fe8a694e6d87","canonical_name":"الصندوق الرابع – نقدى","eima_name_raw":"National Bank of Egypt Fund IV","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+{"fund_id":"fund_61b3c8b926dce88d","canonical_name":"صندوق بشائر – أسهم اسلامي","eima_name_raw":"NBE & Al Baraka Bank Egypt Fund (Bashayer)","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+{"fund_id":"fund_93b839afbc5e4290","canonical_name":"الصندوق الأول – متوازن","eima_name_raw":"National Bank of Egypt Fund I","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+{"fund_id":"fund_ecdb9f8262d72ce7","canonical_name":"الصندوق الثاني – أسهم","eima_name_raw":"National Bank of Egypt Fund II","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+{"fund_id":"fund_29d32f37da9ab72a","canonical_name":"الصندوق الثالث – أسهم","eima_name_raw":"National Bank of Egypt Fund III","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+{"fund_id":"fund_31ea749d92554ea8","canonical_name":"الصندوق الخامس – أسهم","eima_name_raw":"National Bank of Egypt Fund V","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+{"fund_id":"fund_be23bf789e4c5d6b","canonical_name":"الصندوق السابع","eima_name_raw":"National Bank of Egypt VII","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+{"fund_id":"fund_5138e12acac03d95","canonical_name":"صندوق استثمار ميدبنك الأول ذو العائد التراكمي والتوزيع الدوري","eima_name_raw":"MID Bank Fund I","price_update_url":"https://www.beltoneholding.com/business-line/asset-management-1"}
+{"fund_id":"fund_58307ef8e9ea2272","canonical_name":"(صندوق استثمار بنك قناة السويس الثاني للاسهم (الأجيال","eima_name_raw":"Suez Canal Bank Fund II (Al Agial)","price_update_url":"https://www.beltoneholding.com/business-line/asset-management-1"}
+{"fund_id":"fund_c330bbe2271df519","canonical_name":"صندوق استثمار ميدبنك الثاني النقدي (ذو العائد اليومي والتوزيع الدوري)","eima_name_raw":"MID Bank Fund II","price_update_url":"https://www.beltoneholding.com/business-line/asset-management-1"}
+{"fund_id":"fund_ddc5d394505a99b7","canonical_name":"صندوق بنك المؤسسة العربية المصرفية Bank ABC بالجنيه المصري ذو العائد اليومي التراكمي \" مزايا\"","eima_name_raw":"Bank ABC Fund (Mazaya)","price_update_url":"https://www.beltoneholding.com/business-line/asset-management-1"}
+{"fund_id":"fund_d248d4b02433f626","canonical_name":"صندوق البنك العربي النقدي بالجنيه المصري ذو العائد اليومي التراكمي \"يوماتي\"","eima_name_raw":"Arab Bank Fund (Yomaty)","price_update_url":"https://www.beltoneholding.com/business-line/asset-management-1"}
+{"fund_id":"fund_458f7f604809eb89","canonical_name":"صندوق استثمار التجاري وفا بنك إيجبت النقدي بالجنيه المصري \"رصيدي اليوم\"","eima_name_raw":"Attijariwafa BankFund","price_update_url":"https://www.beltoneholding.com/business-line/asset-management-1"}
+{"fund_id":"fund_911baed193599096","canonical_name":"Agricultural Bank of Egypt Fund No.2 (Al Hasad Al Yaumy)","eima_name_raw":"Agricultural Bank of Egypt (Al Hasad Al Yaumy)","price_update_url":"https://www.hc-si.com/Service/asset-management#funds"}
+{"fund_id":"fund_472ddcd8c94d7ed3","canonical_name":"Suez Canal Bank (Fund No.1)","eima_name_raw":"Suez Canal Bank Fund I","price_update_url":"https://www.hc-si.com/Service/asset-management#funds"}
+{"fund_id":"fund_catalog_196096d8c91019c6","canonical_name":"Al Ahli Bank of Kuwait - Egypt Fund I","eima_name_raw":"Al Ahli Bank of Kuwait - Egypt Fund I","price_update_url":null}
+{"fund_id":"fund_catalog_5e23d437b00dd28f","canonical_name":"Blom Bank Fund I","eima_name_raw":"Blom Bank Fund I","price_update_url":null}
+{"fund_id":"fund_catalog_fbdb62734b9d2bc8","canonical_name":"National Bank of Kuwait Fund (Namaa)","eima_name_raw":"National Bank of Kuwait Fund (Namaa)","price_update_url":null}
+{"fund_id":"fund_catalog_27773e8d07295e89","canonical_name":"National Bank of Kuwait (Hayat)","eima_name_raw":"National Bank of Kuwait (Hayat)","price_update_url":null}
+{"fund_id":"fund_catalog_505f20f4ff52058b","canonical_name":"Agriculural Bank of Egypt (Al Wefak)","eima_name_raw":"Agriculural Bank of Egypt (Al Wefak)","price_update_url":null}
+{"fund_id":"fund_catalog_8cb45ae0c96c7f90","canonical_name":"Al Ahli Bank of Kuwait - Egypt Fund II","eima_name_raw":"Al Ahli Bank of Kuwait - Egypt Fund II","price_update_url":null}
+{"fund_id":"fund_catalog_6003f4e5a46235cf","canonical_name":"Blom Bank Fund II","eima_name_raw":"Blom Bank Fund II","price_update_url":null}
+{"fund_id":"fund_catalog_e4c9c101a3374b3d","canonical_name":"National Bank of Kuwait Fund (Ishraq)","eima_name_raw":"National Bank of Kuwait Fund (Ishraq)","price_update_url":null}
+{"fund_id":"fund_catalog_7a2bb4bbf55e9560","canonical_name":"Housing & Development Bank (Mawared)","eima_name_raw":"Housing & Development Bank (Mawared)","price_update_url":null}
+{"fund_id":"fund_catalog_2770d5bf37ce5dc4","canonical_name":"Egyptian Gulf Bank (Tharaa)","eima_name_raw":"Egyptian Gulf Bank (Tharaa)","price_update_url":null}
+{"fund_id":"fund_catalog_65fc778135774384","canonical_name":"Egyptian Arab Land Bank Fund (Al Masry)","eima_name_raw":"Egyptian Arab Land Bank Fund (Al Masry)","price_update_url":null}
+{"fund_id":"fund_catalog_a54635b361da0832","canonical_name":"*National Bank of Kuwait (Al Mizan)","eima_name_raw":"*National Bank of Kuwait (Al Mizan)","price_update_url":null}
+{"fund_id":"fund_catalog_8890fe5997836df8","canonical_name":"Al Baraka Bank Egypt (Al Motawazen)","eima_name_raw":"Al Baraka Bank Egypt (Al Motawazen)","price_update_url":null}
+{"fund_id":"fund_catalog_b4f8cf2ed93a265a","canonical_name":"Ebank Fund III (Konooz)","eima_name_raw":"Ebank Fund III (Konooz)","price_update_url":null}
+
+TERM kuwait
+{"fund_id":"fund_catalog_196096d8c91019c6","canonical_name":"Al Ahli Bank of Kuwait - Egypt Fund I","eima_name_raw":"Al Ahli Bank of Kuwait - Egypt Fund I","price_update_url":null}
+{"fund_id":"fund_catalog_fbdb62734b9d2bc8","canonical_name":"National Bank of Kuwait Fund (Namaa)","eima_name_raw":"National Bank of Kuwait Fund (Namaa)","price_update_url":null}
+{"fund_id":"fund_catalog_27773e8d07295e89","canonical_name":"National Bank of Kuwait (Hayat)","eima_name_raw":"National Bank of Kuwait (Hayat)","price_update_url":null}
+{"fund_id":"fund_catalog_8cb45ae0c96c7f90","canonical_name":"Al Ahli Bank of Kuwait - Egypt Fund II","eima_name_raw":"Al Ahli Bank of Kuwait - Egypt Fund II","price_update_url":null}
+{"fund_id":"fund_catalog_e4c9c101a3374b3d","canonical_name":"National Bank of Kuwait Fund (Ishraq)","eima_name_raw":"National Bank of Kuwait Fund (Ishraq)","price_update_url":null}
+{"fund_id":"fund_catalog_a54635b361da0832","canonical_name":"*National Bank of Kuwait (Al Mizan)","eima_name_raw":"*National Bank of Kuwait (Al Mizan)","price_update_url":null}
+
+TERM equity
+{"fund_id":"fund_8890dc47a4febaea","canonical_name":"EFG Hermes Equity Fund","eima_name_raw":"Hermes Equity","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_d1eb6c122d182dcb","canonical_name":"EFG Hermes Islamic Equity Fund","eima_name_raw":"Hermes Shariah","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_c89c74ac6157383b","canonical_name":"KFH-Alpha-Shariaa Compliant Equity Fund","eima_name_raw":"KFH Bank (Alpha)","price_update_url":"https://efgholding.com/en/our-services/mutual-funds"}
+{"fund_id":"fund_585e5ab0b900073b","canonical_name":"Kenz Foras Equity","eima_name_raw":"Kenz Foras Equity","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+{"fund_id":"fund_18c27c04454a5e14","canonical_name":"Gosour Equity","eima_name_raw":"Gosour Equity","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+{"fund_id":"fund_98634228c0ad3387","canonical_name":"Misr Equity Fund","eima_name_raw":"CIAM Misr Equity","price_update_url":"https://www.cicapital.com/fundprice/"}
+{"fund_id":"fund_edd9ee4031222463","canonical_name":"CIAM Shariaa Index Equity Fund (EGX 33)","eima_name_raw":"CIAM Misr Shariah Equity","price_update_url":"https://www.cicapital.com/fundprice/"}
+{"fund_id":"fund_deba41285f829ec4","canonical_name":"Zaldi Star Equity","eima_name_raw":"Zaldi Star Equity","price_update_url":"https://zaldi-capital.com/"}
+{"fund_id":"fund_catalog_8f87165f1dc5f1b3","canonical_name":"Mubasher Equity","eima_name_raw":"Mubasher Equity","price_update_url":"https://mubasherfunds.info/"}
+{"fund_id":"fund_beltone_d3305e307b8aebbf","canonical_name":"Beltone Gems Equity Fund- USD","eima_name_raw":"Beltone Gems Equity Fund- USD","price_update_url":"https://www.beltoneholding.com/business-line/asset-management-1"}
+
+TERM sigma
+{"fund_id":"fund_catalog_7c9cd45a3eb4f4c2","canonical_name":"Sigma Traded Fund","eima_name_raw":"Sigma Traded Fund","price_update_url":null}

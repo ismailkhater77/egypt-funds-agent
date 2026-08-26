@@ -1,0 +1,36 @@
+
+TERM siula
+{"fund_id":"fund_catalog_09c739ead1bd42d7","canonical_name":"Siula Money Market","eima_name_raw":"Siula Money Market","price_update_url":null}
+
+TERM horus
+
+TERM aafaq
+
+TERM gig
+{"fund_id":"fund_catalog_cb37d8a8ab14a079","canonical_name":"GIG Insurance - Egypt Fund I","eima_name_raw":"GIG Insurance - Egypt Fund I","price_update_url":null}
+{"fund_id":"fund_catalog_1aa1daa182ccd3f4","canonical_name":"GIG Insurance","eima_name_raw":"GIG Insurance","price_update_url":null}
+{"fund_id":"fund_catalog_7c6c6f87a110bc05","canonical_name":"GIG Makaseb Fund First Tranche","eima_name_raw":"GIG Makaseb Fund First Tranche","price_update_url":null}
+{"fund_id":"fund_catalog_ab8f6b89e48300e6","canonical_name":"GIG Makaseb Fund Second Tranche","eima_name_raw":"GIG Makaseb Fund Second Tranche","price_update_url":null}
+
+TERM edkhar
+{"fund_id":"fund_5549b9417edff89d","canonical_name":"Edkhar","eima_name_raw":"Edkhar","price_update_url":"https://azimut.eg/funds"}
+
+TERM weladna
+
+TERM misr insurance
+{"fund_id":"fund_c722efc8d8e6f31a","canonical_name":"Misr Insurance (Istithmar and Aman)","eima_name_raw":"Misr Insurance (Istithmar and Aman)","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+{"fund_id":"fund_b312b6dcabf028f6","canonical_name":"صندوق استثمار مصر للتأمين النقدي للسيولة ذو العائد اليومي التراكمي \"الحصن اليومي\"","eima_name_raw":"Misr Insurance Fund","price_update_url":"https://www.beltoneholding.com/business-line/asset-management-1"}
+
+TERM target first
+{"fund_id":"fund_catalog_c1a54a18b309eebb","canonical_name":"Target First Fund","eima_name_raw":"Target First Fund","price_update_url":null}
+
+TERM mubasher
+{"fund_id":"fund_catalog_8f87165f1dc5f1b3","canonical_name":"Mubasher Equity","eima_name_raw":"Mubasher Equity","price_update_url":"https://mubasherfunds.info/"}
+{"fund_id":"fund_catalog_ec35b86a2af66e66","canonical_name":"Cash Mubasher","eima_name_raw":"Cash Mubasher","price_update_url":"https://mubasherfunds.info/"}
+{"fund_id":"fund_catalog_ce8809c05bb69e89","canonical_name":"Mubasher Gold","eima_name_raw":"Mubasher Gold","price_update_url":"https://mubasherfunds.info/"}
+
+TERM kash
+
+TERM cash
+{"fund_id":"fund_catalog_55de4d996617e8fc","canonical_name":"PFI Cashi","eima_name_raw":"PFI Cashi","price_update_url":null}
+{"fund_id":"fund_catalog_ec35b86a2af66e66","canonical_name":"Cash Mubasher","eima_name_raw":"Cash Mubasher","price_update_url":"https://mubasherfunds.info/"}

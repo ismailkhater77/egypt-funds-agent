@@ -1,45 +1,27 @@
 {
   "source_report": "reports/upload-coverage-report.json",
-  "uncovered_count": 53,
+  "uncovered_count": 41,
   "group_counts": {
-    "ALEXBANK": 1,
     "Agricultural Bank of Egypt": 1,
-    "Al Ahli Bank of Kuwait": 4,
+    "Al Ahli Bank of Kuwait": 2,
     "Arope Insurance": 1,
     "Aspire": 2,
     "Azimut": 2,
     "Blom Bank": 2,
     "Charity/Education": 1,
-    "Delta Life": 1,
     "Ebank": 3,
     "Egyptian Arab Land Bank": 1,
     "FAB Misr": 1,
-    "GIG / PFI": 5,
-    "Independent/unknown": 13,
+    "GIG / PFI": 2,
+    "Independent/unknown": 12,
     "Menthum": 1,
-    "NI Capital": 5,
+    "NI Capital": 4,
     "Naeem": 2,
-    "National Bank of Kuwait": 2,
     "Odin": 2,
     "Prime": 1,
-    "SAIB": 1,
     "Sigma": 1
   },
   "funds": [
-    {
-      "row": 4,
-      "file_name": "GIG Insurance - Egypt Fund I",
-      "company": "*PFI Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_cb37d8a8ab14a079",
-      "db_name": "GIG Insurance - Egypt Fund I",
-      "db_raw_name": "GIG Insurance - Egypt Fund I",
-      "db_company": "*PFI Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "GIG / PFI"
-    },
     {
       "row": 8,
       "file_name": "Ebank Fund (El Khabeer)",
@@ -125,20 +107,6 @@
       "priority_group": "Independent/unknown"
     },
     {
-      "row": 26,
-      "file_name": "National Bank of Kuwait Fund (Namaa)",
-      "company": "NBK Capital Asset Management Egypt",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_fbdb62734b9d2bc8",
-      "db_name": "National Bank of Kuwait Fund (Namaa)",
-      "db_raw_name": "National Bank of Kuwait Fund (Namaa)",
-      "db_company": "NBK Capital Asset Management Egypt",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "National Bank of Kuwait"
-    },
-    {
       "row": 28,
       "file_name": "NI Capital (Sahmy Fund)",
       "company": "NI Capital",
@@ -193,20 +161,6 @@
       "has_price": false,
       "latest_price": null,
       "priority_group": "Aspire"
-    },
-    {
-      "row": 46,
-      "file_name": "National Bank of Kuwait (Hayat)",
-      "company": "NBK Capital Asset Management Egypt",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_27773e8d07295e89",
-      "db_name": "National Bank of Kuwait (Hayat)",
-      "db_raw_name": "National Bank of Kuwait (Hayat)",
-      "db_company": "NBK Capital Asset Management Egypt",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "Al Ahli Bank of Kuwait"
     },
     {
       "row": 48,
@@ -279,20 +233,6 @@
       "priority_group": "Blom Bank"
     },
     {
-      "row": 67,
-      "file_name": "National Bank of Kuwait Fund (Ishraq)",
-      "company": "NBK Capital Asset Management Egypt",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_e4c9c101a3374b3d",
-      "db_name": "National Bank of Kuwait Fund (Ishraq)",
-      "db_raw_name": "National Bank of Kuwait Fund (Ishraq)",
-      "db_company": "NBK Capital Asset Management Egypt",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "National Bank of Kuwait"
-    },
-    {
       "row": 69,
       "file_name": "Housing & Development Bank (Mawared)",
       "company": "PFI Asset Management",
@@ -333,48 +273,6 @@
       "has_price": false,
       "latest_price": null,
       "priority_group": "Arope Insurance"
-    },
-    {
-      "row": 81,
-      "file_name": "Siula Money Market",
-      "company": "NI Capital",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_09c739ead1bd42d7",
-      "db_name": "Siula Money Market",
-      "db_raw_name": "Siula Money Market",
-      "db_company": "NI Capital",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "NI Capital"
-    },
-    {
-      "row": 85,
-      "file_name": "Delta Life Insurance",
-      "company": "Alpha Financial Investment Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_2a497fc7469ee7ea",
-      "db_name": "Delta Life Insurance",
-      "db_raw_name": "Delta Life Insurance",
-      "db_company": "Alpha Financial Investment Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "Delta Life"
-    },
-    {
-      "row": 87,
-      "file_name": "GIG Insurance",
-      "company": "*PFI Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_1aa1daa182ccd3f4",
-      "db_name": "GIG Insurance",
-      "db_raw_name": "GIG Insurance",
-      "db_company": "*PFI Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "GIG / PFI"
     },
     {
       "row": 88,
@@ -419,34 +317,6 @@
       "priority_group": "Odin"
     },
     {
-      "row": 101,
-      "file_name": "Granite First Fund",
-      "company": "Granite Fund Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_bad1022b0ea1c260",
-      "db_name": "Granite First Fund",
-      "db_raw_name": "Granite First Fund",
-      "db_company": "Granite Fund Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "Independent/unknown"
-    },
-    {
-      "row": 103,
-      "file_name": "PFI Cashi",
-      "company": "PFI Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_55de4d996617e8fc",
-      "db_name": "PFI Cashi",
-      "db_raw_name": "PFI Cashi",
-      "db_company": "PFI Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "GIG / PFI"
-    },
-    {
       "row": 105,
       "file_name": "Aspire Rawajj",
       "company": "Amwal for Financial Investments",
@@ -487,34 +357,6 @@
       "has_price": false,
       "latest_price": null,
       "priority_group": "GIG / PFI"
-    },
-    {
-      "row": 115,
-      "file_name": "SAIB Fund III (Al Rabeh)",
-      "company": "Hermes Portfolio and Fund Management",
-      "match_type": "exact",
-      "fund_id": "fund_b433cc6abdcf0a71",
-      "db_name": "SAIB’s Third Investment Fund (El Rabeh)",
-      "db_raw_name": "SAIB Fund III (Al Rabeh)",
-      "db_company": "Hermes Portfolio and Fund Management",
-      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "SAIB"
-    },
-    {
-      "row": 116,
-      "file_name": "ALEXBANK Fund III",
-      "company": "Hermes Portfolio and Fund Management",
-      "match_type": "exact",
-      "fund_id": "fund_5468465eb99512e9",
-      "db_name": "Bank of Alexandria Fund No. 3",
-      "db_raw_name": "ALEXBANK Fund III",
-      "db_company": "Hermes Portfolio and Fund Management",
-      "price_update_url": "https://efgholding.com/en/our-services/mutual-funds",
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "ALEXBANK"
     },
     {
       "row": 119,
@@ -571,20 +413,6 @@
       "has_price": false,
       "latest_price": null,
       "priority_group": "Independent/unknown"
-    },
-    {
-      "row": 139,
-      "file_name": "*National Bank of Kuwait (Al Mizan)",
-      "company": "NBK Capital Asset Management Egypt",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_a54635b361da0832",
-      "db_name": "*National Bank of Kuwait (Al Mizan)",
-      "db_raw_name": "*National Bank of Kuwait (Al Mizan)",
-      "db_company": "NBK Capital Asset Management Egypt",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null,
-      "priority_group": "Al Ahli Bank of Kuwait"
     },
     {
       "row": 146,

@@ -1,0 +1,23 @@
+{
+  "uncovered_count": 41,
+  "group_counts": {
+    "Agricultural Bank of Egypt": 1,
+    "Al Ahli Bank of Kuwait": 2,
+    "Arope Insurance": 1,
+    "Aspire": 2,
+    "Azimut": 2,
+    "Blom Bank": 2,
+    "Charity/Education": 1,
+    "Ebank": 3,
+    "Egyptian Arab Land Bank": 1,
+    "FAB Misr": 1,
+    "GIG / PFI": 2,
+    "Independent/unknown": 12,
+    "Menthum": 1,
+    "NI Capital": 4,
+    "Naeem": 2,
+    "Odin": 2,
+    "Prime": 1,
+    "Sigma": 1
+  }
+}

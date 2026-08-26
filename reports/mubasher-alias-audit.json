@@ -1,0 +1,286 @@
+{
+  "generated_at": "2026-08-26T16:32:06.079Z",
+  "policy": "Mubasher-only audit of names observed in current category articles. Every row has an exact catalog fund_id and canonical_name; no fuzzy matching is used for approval.",
+  "source_provenance": "Affiliated/publication source; primary manager ownership is not independently verified.",
+  "count": 22,
+  "aliases": [
+    {
+      "published_name": "Al-Siola Fund-NI Capital",
+      "catalog_alias_target": "siula money market",
+      "fund_id": "fund_catalog_09c739ead1bd42d7",
+      "canonical_name": "Siula Money Market",
+      "eima_name_raw": "Siula Money Market",
+      "nav": 24.54846,
+      "currency": "USD",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8479/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "Istsmar w Aman",
+      "catalog_alias_target": "misr insurance istithmar and aman",
+      "fund_id": "fund_c722efc8d8e6f31a",
+      "canonical_name": "Misr Insurance (Istithmar and Aman)",
+      "eima_name_raw": "Misr Insurance (Istithmar and Aman)",
+      "nav": 221.8695,
+      "currency": "USD",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8479/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "Delta Life Assurance",
+      "catalog_alias_target": "delta life insurance",
+      "fund_id": "fund_catalog_2a497fc7469ee7ea",
+      "canonical_name": "Delta Life Insurance",
+      "eima_name_raw": "Delta Life Insurance",
+      "nav": 204.35979,
+      "currency": "USD",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8479/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "GIG Money Market",
+      "catalog_alias_target": "gig insurance",
+      "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+      "canonical_name": "GIG Insurance",
+      "eima_name_raw": "GIG Insurance",
+      "nav": 18.969,
+      "currency": "USD",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8479/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "Kenz Shariah",
+      "catalog_alias_target": "kenoz egx33 shariah index tracker shariah",
+      "fund_id": "fund_291a3c879cd82808",
+      "canonical_name": "Kenoz EGX33 Shariah Index Tracker – Shariah",
+      "eima_name_raw": "Kenoz EGX33 Shariah Index Tracker – Shariah",
+      "nav": 181.07,
+      "currency": "USD",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8479/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "PFI Cashi fund",
+      "catalog_alias_target": "pfi cashi",
+      "fund_id": "fund_catalog_55de4d996617e8fc",
+      "canonical_name": "PFI Cashi",
+      "eima_name_raw": "PFI Cashi",
+      "nav": 11.6017,
+      "currency": "USD",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8479/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "Granite fund",
+      "catalog_alias_target": "granite first fund",
+      "fund_id": "fund_catalog_bad1022b0ea1c260",
+      "canonical_name": "Granite First Fund",
+      "eima_name_raw": "Granite First Fund",
+      "nav": 1.1701,
+      "currency": "USD",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8479/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "ادخار - AZFI",
+      "catalog_alias_target": "edkhar",
+      "fund_id": "fund_5549b9417edff89d",
+      "canonical_name": "Edkhar",
+      "eima_name_raw": "Edkhar",
+      "nav": 21.13012,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "سيولة",
+      "catalog_alias_target": "siula money market",
+      "fund_id": "fund_catalog_09c739ead1bd42d7",
+      "canonical_name": "Siula Money Market",
+      "eima_name_raw": "Siula Money Market",
+      "nav": 24.54846,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "استثمار وأمان لمصر للتأمين",
+      "catalog_alias_target": "misr insurance istithmar and aman",
+      "fund_id": "fund_c722efc8d8e6f31a",
+      "canonical_name": "Misr Insurance (Istithmar and Aman)",
+      "eima_name_raw": "Misr Insurance (Istithmar and Aman)",
+      "nav": 221.8695,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "إسكان للتأمين (كل يوم)",
+      "catalog_alias_target": "iskan insurance",
+      "fund_id": "fund_0b5432fffbaa9c8c",
+      "canonical_name": "Iskan Insurance",
+      "eima_name_raw": "Iskan Insurance",
+      "nav": 19.74624,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "الدلتا لتأمينات الحياة النقدى",
+      "catalog_alias_target": "delta life insurance",
+      "fund_id": "fund_catalog_2a497fc7469ee7ea",
+      "canonical_name": "Delta Life Insurance",
+      "eima_name_raw": "Delta Life Insurance",
+      "nav": 188.46222,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "جي أي جي النقدي",
+      "catalog_alias_target": "gig insurance",
+      "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+      "canonical_name": "GIG Insurance",
+      "eima_name_raw": "GIG Insurance",
+      "nav": 18.969,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8487/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "الفنار",
+      "catalog_alias_target": "fanar",
+      "fund_id": "fund_e89bbc9d85ecf407",
+      "canonical_name": "Fanar",
+      "eima_name_raw": "Fanar",
+      "nav": 175.30857,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "أودن الرابع",
+      "catalog_alias_target": "odin 4",
+      "fund_id": "fund_catalog_228c50577ac34cf2",
+      "canonical_name": "Odin 4",
+      "eima_name_raw": "Odin 4",
+      "nav": 1.25639,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "زالدي ستار",
+      "catalog_alias_target": "zaldi star",
+      "fund_id": "fund_3729c5fb2587a803",
+      "canonical_name": "Zaldi Star- EGP",
+      "eima_name_raw": "Zaldi Star",
+      "nav": 112.65609,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "صندوق تارجت الأول للدخل الثابت",
+      "catalog_alias_target": "target first fund",
+      "fund_id": "fund_catalog_c1a54a18b309eebb",
+      "canonical_name": "Target First Fund",
+      "eima_name_raw": "Target First Fund",
+      "nav": 11.92955,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "إشراق",
+      "catalog_alias_target": "national bank of kuwait fund (ishraq)",
+      "fund_id": "fund_catalog_e4c9c101a3374b3d",
+      "canonical_name": "National Bank of Kuwait Fund (Ishraq)",
+      "eima_name_raw": "National Bank of Kuwait Fund (Ishraq)",
+      "nav": 69.92017,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "بريق",
+      "catalog_alias_target": "bareeq",
+      "fund_id": "fund_4d3e4c02b52413fb",
+      "canonical_name": "Bareeq",
+      "eima_name_raw": "Bareeq",
+      "nav": 212.86535,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "كاشي",
+      "catalog_alias_target": "pfi cashi",
+      "fund_id": "fund_catalog_55de4d996617e8fc",
+      "canonical_name": "PFI Cashi",
+      "eima_name_raw": "PFI Cashi",
+      "nav": 11.6017,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "جرانيت",
+      "catalog_alias_target": "granite first fund",
+      "fund_id": "fund_catalog_bad1022b0ea1c260",
+      "canonical_name": "Granite First Fund",
+      "eima_name_raw": "Granite First Fund",
+      "nav": 1.1701,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    },
+    {
+      "published_name": "Az- جولد",
+      "catalog_alias_target": "az gold",
+      "fund_id": "fund_69768837ab21ae45",
+      "canonical_name": "AZ Gold",
+      "eima_name_raw": "AZ Gold",
+      "nav": 25.2991,
+      "currency": "EGP",
+      "valuation_date": "2026-08-25",
+      "evidence_source": "Current Mubasher daily/category article parsed and matched by explicit alias; catalog record returned by exact normalized alias lookup",
+      "source_url": "https://mubasherfunds.info/8487/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026"
+    }
+  ],
+  "excluded_unproven_aliases": [
+    {
+      "catalog_name": "aafaq investment fund",
+      "reason": "Observed in Mubasher output but no exact current catalog record was proven"
+    },
+    {
+      "catalog_name": "horus - afim",
+      "reason": "Observed in Mubasher output but no exact current catalog record was proven"
+    },
+    {
+      "catalog_name": "weladna charity fund",
+      "reason": "Observed in Mubasher output but no exact current catalog record was proven"
+    }
+  ]
+}

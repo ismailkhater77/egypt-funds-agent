@@ -45,7 +45,17 @@
 - [x] Re-freeze the current 53 uncovered workbook funds and classify each by provider/manager before source discovery
 - [ ] Research official NAV sources for the uncovered bank, asset-manager, and independent-fund groups in priority order
 - [ ] Add only verified source mappings/parsers and preserve explicit pending status where no reliable source exists
-- [ ] Re-run all collectors and refresh workbook coverage after each completed source group
+- [x] Re-run all collectors and refresh workbook coverage after each completed source group
 - [x] Re-run EFG official parser after tolerating whitespace in IC Price headers and link additional EFG-mapped funds
 - [x] Add Mubasher daily article/category parsers with EGP/USD separation, date validation, aliases, and source provenance
 - [x] Validate Mubasher/EFG changes with TypeScript, 14 collector tests, Supabase secret test, and live Run All
+- [x] Add regression coverage for Mubasher articles whose date omits the year and for USD category tables
+- [x] Rerun the expanded Mubasher category set twice and confirm zero new duplicates on the second run
+- [x] Resolve only evidence-backed Mubasher Arabic/English aliases from the current catalog, with no fuzzy or ambiguous matches
+- [x] Re-run Mubasher categories after approved aliases and verify source-level idempotency
+- [x] Add and validate the official ABK-Egypt Equity Fund NAV parser/source for ABK Fund I
+- [x] Confirm ABK Fund II remains pending unless a separate verified NAV endpoint is found
+- [x] Remove unsupported Mubasher aliases such as Aafaq, Horus, and Weladna unless exact catalog records are proven
+- [x] Produce a Mubasher alias-audit artifact with published name, exact catalog record, and evidence source
+- [x] Recheck official/public sources for EBank El Khabeer, BLOM, Pharos, and Pioneers; reject stale, secondary, or identity-mismatched values
+- [x] Document why the four rechecked groups remain pending rather than storing unsupported current prices

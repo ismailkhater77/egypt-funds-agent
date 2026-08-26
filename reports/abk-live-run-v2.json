@@ -1,0 +1,18 @@
+[OAuth] Initialized with baseURL: https://api.manus.im
+{
+  "runId": "19c352f0-5f86-4a41-86fc-c9ec98267c6c",
+  "startedAt": "2026-08-26T16:20:19.750Z",
+  "status": "failed",
+  "source": "https://w.abkegypt.com/Business/Treasury/Investments/Equity-Fund",
+  "parser": "abk_official_equity_fund_v1",
+  "fetchedRecords": 0,
+  "matchedRecords": 0,
+  "matchedFundIds": [],
+  "inserted": 0,
+  "unchanged": 0,
+  "updated": 0,
+  "unmatched": [],
+  "failed": [],
+  "fetchError": "Hostname/IP does not match certificate's altnames: Host: w.abkegypt.com. is not in the cert's altnames: DNS:www.abkegypt.com, DNS:abkegypt.com",
+  "finishedAt": "2026-08-26T16:20:22.078Z"
+}

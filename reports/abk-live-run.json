@@ -1,0 +1,18 @@
+[OAuth] Initialized with baseURL: https://api.manus.im
+{
+  "runId": "a1845516-bed5-4418-9cc6-3c289c989454",
+  "startedAt": "2026-08-26T16:18:59.559Z",
+  "status": "failed",
+  "source": "https://w.abkegypt.com/Business/Treasury/Investments/Equity-Fund",
+  "parser": "abk_official_equity_fund_v1",
+  "fetchedRecords": 0,
+  "matchedRecords": 0,
+  "matchedFundIds": [],
+  "inserted": 0,
+  "unchanged": 0,
+  "updated": 0,
+  "unmatched": [],
+  "failed": [],
+  "fetchError": "fetch failed",
+  "finishedAt": "2026-08-26T16:19:02.102Z"
+}

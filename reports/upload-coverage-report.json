@@ -3,10 +3,10 @@
   "sheet": "Sheet1",
   "file_fund_count": 198,
   "database_fund_count": 215,
-  "database_price_row_count": 250,
+  "database_price_row_count": 276,
   "matched_to_database_count": 198,
-  "covered_with_validated_price_count": 157,
-  "not_covered_count": 41,
+  "covered_with_validated_price_count": 160,
+  "not_covered_count": 38,
   "exact_or_confident_match_count": 198,
   "unmatched_or_ambiguous_count": 0,
   "covered": [
@@ -149,12 +149,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_472ddcd8c94d7ed3",
-        "nav": 2043.56,
+        "nav": 2043.81,
         "currency": "EGP",
-        "valuation_date": "2026-08-20",
+        "valuation_date": "2026-08-26",
         "status": "validated",
-        "source_id": "src_scb_fund_rates",
-        "collected_at": "2026-08-26T14:40:12.477324+00:00"
+        "source_id": "src_6f46003eeee91384",
+        "collected_at": "2026-08-26T16:13:39.647388+00:00"
       }
     },
     {
@@ -326,6 +326,27 @@
       }
     },
     {
+      "row": 18,
+      "file_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
+      "company": "Sigma Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_196096d8c91019c6",
+      "db_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
+      "db_raw_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
+      "db_company": "Sigma Asset Management",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_196096d8c91019c6",
+        "nav": 410.52,
+        "currency": "EGP",
+        "valuation_date": "2026-08-26",
+        "status": "validated",
+        "source_id": "src_abk_egypt_equity",
+        "collected_at": "2026-08-26T16:24:29.145239+00:00"
+      }
+    },
+    {
       "row": 19,
       "file_name": "Housing & Development Bank ( AL Tameer)",
       "company": "Arab African Investment Management",
@@ -380,12 +401,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_db51b3c5dedb115e",
-        "nav": 87.93,
+        "nav": 87.94,
         "currency": "EGP",
-        "valuation_date": "2026-08-20",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-25T20:41:14.689977+00:00"
+        "collected_at": "2026-08-26T16:13:40.108304+00:00"
       }
     },
     {
@@ -447,8 +468,8 @@
         "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_mubasherfunds_daily",
-        "collected_at": "2026-08-26T14:18:54.78077+00:00"
+        "source_id": "src_mubasher_daily_equity_2026_08_25",
+        "collected_at": "2026-08-26T16:05:04.228209+00:00"
       }
     },
     {
@@ -590,12 +611,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_8267d32e1a907f71",
-        "nav": 1061.11653,
+        "nav": 1058.7272,
         "currency": "EGP",
-        "valuation_date": "2026-08-22",
+        "valuation_date": "2026-08-29",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-25T20:41:15.094815+00:00"
+        "collected_at": "2026-08-26T16:13:40.727528+00:00"
       }
     },
     {
@@ -1077,8 +1098,8 @@
         "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_nbk_ishraq",
-        "collected_at": "2026-08-26T15:01:22.10145+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:27.510735+00:00"
       }
     },
     {
@@ -1115,12 +1136,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_911baed193599096",
-        "nav": 73.26781,
+        "nav": 73.52118,
         "currency": "EGP",
-        "valuation_date": "2026-08-22",
+        "valuation_date": "2026-08-29",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-25T20:41:12.524183+00:00"
+        "collected_at": "2026-08-26T16:13:38.482995+00:00"
       }
     },
     {
@@ -1157,12 +1178,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_572c49594f78c71c",
-        "nav": 540.95951,
+        "nav": 542.75187,
         "currency": "EGP",
-        "valuation_date": "2026-08-22",
+        "valuation_date": "2026-08-29",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-25T20:41:13.553779+00:00"
+        "collected_at": "2026-08-26T16:13:39.165718+00:00"
       }
     },
     {
@@ -1305,11 +1326,11 @@
       "latest_price": {
         "fund_id": "fund_catalog_09c739ead1bd42d7",
         "nav": 24.54846,
-        "currency": "USD",
+        "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_mubasherfunds_daily",
-        "collected_at": "2026-08-26T15:26:51.078706+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:23.253373+00:00"
       }
     },
     {
@@ -1388,12 +1409,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_catalog_2a497fc7469ee7ea",
-        "nav": 204.35979,
-        "currency": "USD",
+        "nav": 188.46222,
+        "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_mubasherfunds_daily",
-        "collected_at": "2026-08-26T15:26:53.258057+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:24.685542+00:00"
       }
     },
     {
@@ -1431,11 +1452,11 @@
       "latest_price": {
         "fund_id": "fund_catalog_1aa1daa182ccd3f4",
         "nav": 18.969,
-        "currency": "USD",
+        "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_mubasherfunds_daily",
-        "collected_at": "2026-08-26T15:26:54.253218+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:25.164881+00:00"
       }
     },
     {
@@ -1560,8 +1581,8 @@
         "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_ad7b5cd6a2846887",
-        "collected_at": "2026-08-26T13:33:38.26456+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:24.218563+00:00"
       }
     },
     {
@@ -1623,8 +1644,29 @@
         "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_ad7b5cd6a2846887",
-        "collected_at": "2026-08-26T13:33:41.974634+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:25.631053+00:00"
+      }
+    },
+    {
+      "row": 99,
+      "file_name": "Odin 4",
+      "company": "Alpha Financial Investment Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_228c50577ac34cf2",
+      "db_name": "Odin 4",
+      "db_raw_name": "Odin 4",
+      "db_company": "Alpha Financial Investment Management",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_228c50577ac34cf2",
+        "nav": 1.25639,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:26.135462+00:00"
       }
     },
     {
@@ -1662,11 +1704,11 @@
       "latest_price": {
         "fund_id": "fund_catalog_bad1022b0ea1c260",
         "nav": 1.1701,
-        "currency": "USD",
+        "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_mubasherfunds_daily",
-        "collected_at": "2026-08-26T15:26:56.915224+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:28.880409+00:00"
       }
     },
     {
@@ -1704,11 +1746,11 @@
       "latest_price": {
         "fund_id": "fund_catalog_55de4d996617e8fc",
         "nav": 11.6017,
-        "currency": "USD",
+        "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_mubasherfunds_daily",
-        "collected_at": "2026-08-26T15:26:56.44154+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:28.423373+00:00"
       }
     },
     {
@@ -2061,11 +2103,11 @@
       "latest_price": {
         "fund_id": "fund_c722efc8d8e6f31a",
         "nav": 221.8695,
-        "currency": "USD",
+        "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_mubasherfunds_daily",
-        "collected_at": "2026-08-26T15:26:52.392237+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:23.752256+00:00"
       }
     },
     {
@@ -2085,8 +2127,8 @@
         "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_ad7b5cd6a2846887",
-        "collected_at": "2026-08-26T13:33:41.509199+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:27.973539+00:00"
       }
     },
     {
@@ -2106,8 +2148,8 @@
         "currency": "EGP",
         "valuation_date": "2026-08-25",
         "status": "validated",
-        "source_id": "src_mubasherfunds_daily",
-        "collected_at": "2026-08-26T14:18:55.298717+00:00"
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:07:18.174383+00:00"
       }
     },
     {
@@ -2171,6 +2213,27 @@
         "status": "validated",
         "source_id": "src_6556b18fd56ff738",
         "collected_at": "2026-08-26T06:16:00.61712+00:00"
+      }
+    },
+    {
+      "row": 132,
+      "file_name": "Target First Fund",
+      "company": "Target Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_c1a54a18b309eebb",
+      "db_name": "Target First Fund",
+      "db_raw_name": "Target First Fund",
+      "db_company": "Target Asset Management",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_c1a54a18b309eebb",
+        "nav": 11.92955,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "collected_at": "2026-08-26T16:11:27.056416+00:00"
       }
     },
     {
@@ -2249,12 +2312,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_a489be10a3161f80",
-        "nav": 344.70308,
+        "nav": 345.49207,
         "currency": "EGP",
-        "valuation_date": "2026-08-22",
+        "valuation_date": "2026-08-29",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-25T20:41:15.575547+00:00"
+        "collected_at": "2026-08-26T16:13:41.227912+00:00"
       }
     },
     {
@@ -2354,12 +2417,12 @@
       "has_price": true,
       "latest_price": {
         "fund_id": "fund_7d36b894257db9f9",
-        "nav": 896.73,
+        "nav": 899.6,
         "currency": "EGP",
-        "valuation_date": "2026-08-20",
+        "valuation_date": "2026-08-26",
         "status": "validated",
         "source_id": "src_6f46003eeee91384",
-        "collected_at": "2026-08-25T20:43:10.233971+00:00"
+        "collected_at": "2026-08-26T16:13:41.700674+00:00"
       }
     },
     {
@@ -3323,19 +3386,6 @@
       "latest_price": null
     },
     {
-      "row": 18,
-      "file_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
-      "company": "Sigma Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_196096d8c91019c6",
-      "db_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
-      "db_raw_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
-      "db_company": "Sigma Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
       "row": 20,
       "file_name": "Bank ABC Fund I",
       "company": "Azimut Egypt Asset Management",
@@ -3570,19 +3620,6 @@
       "latest_price": null
     },
     {
-      "row": 99,
-      "file_name": "Odin 4",
-      "company": "Alpha Financial Investment Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_228c50577ac34cf2",
-      "db_name": "Odin 4",
-      "db_raw_name": "Odin 4",
-      "db_company": "Alpha Financial Investment Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
       "row": 105,
       "file_name": "Aspire Rawajj",
       "company": "Amwal for Financial Investments",
@@ -3656,19 +3693,6 @@
       "db_name": "Stream",
       "db_raw_name": "Stream",
       "db_company": "CFH Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 132,
-      "file_name": "Target First Fund",
-      "company": "Target Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_c1a54a18b309eebb",
-      "db_name": "Target First Fund",
-      "db_raw_name": "Target First Fund",
-      "db_company": "Target Asset Management",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null

@@ -1,0 +1,8 @@
+{
+  "markdown": "reports/upload-coverage-report.md",
+  "json": "reports/upload-coverage-report.json",
+  "covered": 159,
+  "matched_without_price": 39,
+  "unmatched": 0,
+  "not_covered": 39
+}

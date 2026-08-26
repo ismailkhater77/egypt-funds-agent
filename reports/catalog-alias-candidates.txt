@@ -1,0 +1,60 @@
+
+TERM aafaq
+
+TERM wethaq
+{"fund_id":"fund_49ae7cc7867eed20","canonical_name":"صندوق وثاق – نقدى","eima_name_raw":"Wethaq","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+
+TERM horus
+
+TERM tamayoz
+{"fund_id":"fund_3c02c00fe3d0e17f","canonical_name":"صندوق تميز – نقدى","eima_name_raw":"Tamayoz","price_update_url":"https://www.afim.com.eg/public/index.php/investment"}
+
+TERM iskan
+{"fund_id":"fund_0b5432fffbaa9c8c","canonical_name":"Iskan Insurance","eima_name_raw":"Iskan Insurance","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+
+TERM delta
+{"fund_id":"fund_catalog_2a497fc7469ee7ea","canonical_name":"Delta Life Insurance","eima_name_raw":"Delta Life Insurance","price_update_url":null}
+
+TERM fanar
+{"fund_id":"fund_e89bbc9d85ecf407","canonical_name":"Fanar","eima_name_raw":"Fanar","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+
+TERM odin
+{"fund_id":"fund_catalog_fd33cc2b398c2dfc","canonical_name":"Odin Trend","eima_name_raw":"Odin Trend","price_update_url":null}
+{"fund_id":"fund_catalog_228c50577ac34cf2","canonical_name":"Odin 4","eima_name_raw":"Odin 4","price_update_url":null}
+
+TERM zaldi
+{"fund_id":"fund_1e30d07a3be5bc69","canonical_name":"Zaldi-Elmasry","eima_name_raw":"Zaldi El Masry","price_update_url":"https://zaldi-capital.com/zaldi-elmasry/"}
+{"fund_id":"fund_3729c5fb2587a803","canonical_name":"Zaldi Star- EGP","eima_name_raw":"Zaldi Star","price_update_url":"https://zaldi-capital.com/zaldi-star/"}
+{"fund_id":"fund_deba41285f829ec4","canonical_name":"Zaldi Star Equity","eima_name_raw":"Zaldi Star Equity","price_update_url":"https://zaldi-capital.com/"}
+
+TERM target
+{"fund_id":"fund_0b35a6355a36769f","canonical_name":"Azimut Target Maturity Fund-Target 2027 USD","eima_name_raw":"Azimut Target Maturity Fund-Target 2027 USD","price_update_url":"https://azimut.eg/funds"}
+{"fund_id":"fund_98e4d067c5c77b65","canonical_name":"Azimut Target Maturity Fund-Target 2029 USD","eima_name_raw":"Azimut Target Maturity Fund-Target 2029 USD","price_update_url":"https://azimut.eg/funds"}
+{"fund_id":"fund_d2870f20c8658b00","canonical_name":"Azimut Target Maturity Fund-Target 2030 USD","eima_name_raw":"Azimut Target Maturity Fund-Target 2030 USD","price_update_url":"https://azimut.eg/funds"}
+{"fund_id":"fund_catalog_c1a54a18b309eebb","canonical_name":"Target First Fund","eima_name_raw":"Target First Fund","price_update_url":null}
+
+TERM stream
+{"fund_id":"fund_catalog_5832f921b015e253","canonical_name":"Stream","eima_name_raw":"Stream","price_update_url":null}
+
+TERM ishraq
+{"fund_id":"fund_catalog_e4c9c101a3374b3d","canonical_name":"National Bank of Kuwait Fund (Ishraq)","eima_name_raw":"National Bank of Kuwait Fund (Ishraq)","price_update_url":null}
+
+TERM bareeq
+{"fund_id":"fund_4d3e4c02b52413fb","canonical_name":"Bareeq","eima_name_raw":"Bareeq","price_update_url":"https://aaim.com.eg/ar/what-we-offer/funds"}
+
+TERM cashi
+{"fund_id":"fund_catalog_55de4d996617e8fc","canonical_name":"PFI Cashi","eima_name_raw":"PFI Cashi","price_update_url":null}
+
+TERM granite
+{"fund_id":"fund_catalog_bad1022b0ea1c260","canonical_name":"Granite First Fund","eima_name_raw":"Granite First Fund","price_update_url":null}
+
+TERM dollar
+
+TERM maksab
+{"fund_id":"fund_catalog_cb2fa7631c7099b1","canonical_name":"Maksab First Tranche USD $","eima_name_raw":"Maksab First Tranche USD $","price_update_url":null}
+{"fund_id":"fund_catalog_3cf867a117ae80dd","canonical_name":"Maksab Second Tranche (Euro)","eima_name_raw":"Maksab Second Tranche (Euro)","price_update_url":null}
+
+TERM momentum
+{"fund_id":"fund_catalog_506d6004db598cdc","canonical_name":"Momentum","eima_name_raw":"Momentum","price_update_url":null}
+
+TERM kasab

@@ -1,10 +1,10 @@
 # تقرير مقارنة ملف الصناديق مع قاعدة البيانات
 
-تاريخ التحليل: 2026-08-26T15:46:47.525020+00:00
+تاريخ التحليل: 2026-08-26T16:12:33.896250+00:00
 
 ## الخلاصة التنفيذية
 
-يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **215 سجل صندوق** و**250 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **198 صندوقًا** بقاعدة البيانات، ومن بينها **157 صندوقًا** لها سجل سعر بحالة `validated`. توجد **41 صناديق غير مغطاة حاليًا** ضمن الملف: **41** موجودة في قاعدة البيانات بلا سجل سعر validated، و**0** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
+يحتوي الملف المرفق على **198 صندوقًا/صفًا**. تحتوي قاعدة البيانات الحالية على **215 سجل صندوق** و**268 سجل سعر**. بعد توحيد الأسماء ومقارنتها مع `canonical_name` و`eima_name_raw`، تم ربط **198 صندوقًا** بقاعدة البيانات، ومن بينها **159 صندوقًا** لها سجل سعر بحالة `validated`. توجد **39 صناديق غير مغطاة حاليًا** ضمن الملف: **39** موجودة في قاعدة البيانات بلا سجل سعر validated، و**0** لم يتم العثور على سجل قاعدة بيانات مطابق لها.
 
 ## ما تم بناؤه في قاعدة البيانات
 
@@ -12,16 +12,16 @@
 |---|---:|
 | صفوف الصناديق في الملف | 198 |
 | سجلات الصناديق في Supabase | 215 |
-| سجلات الأسعار في Supabase | 250 |
+| سجلات الأسعار في Supabase | 268 |
 | صفوف الملف المرتبطة بسجل صندوق | 198 |
-| صفوف الملف ذات سعر `validated` | 157 |
-| صفوف الملف غير المغطاة | 41 |
+| صفوف الملف ذات سعر `validated` | 159 |
+| صفوف الملف غير المغطاة | 39 |
 
 > التغطية هنا تعني وجود صندوق مطابق في قاعدة البيانات مع سجل سعر بحالة `validated`. وجود الصندوق في جدول `funds` وحده لا يعني أن الوكيل حدّث سعره.
 
 ## الصناديق المغطاة
 
-تم العثور على سجل سعر validated لـ **157** صندوقًا من الملف. التفاصيل الكاملة محفوظة في ملف JSON الداعم، وتتضمن اسم الملف واسم قاعدة البيانات و`fund_id` وآخر سعر وتاريخ التقييم.
+تم العثور على سجل سعر validated لـ **159** صندوقًا من الملف. التفاصيل الكاملة محفوظة في ملف JSON الداعم، وتتضمن اسم الملف واسم قاعدة البيانات و`fund_id` وآخر سعر وتاريخ التقييم.
 
 ## موجودة في قاعدة البيانات ولكن بلا سعر validated
 
@@ -47,14 +47,12 @@
 | 76 | Arope Insurance Misr Fund | Arope Insurance Misr Fund | CFH Asset Management |
 | 88 | Aman Micro Finance | Aman Micro Finance | Prime Investments |
 | 89 | Menthum | Menthum | Azimut Egypt Asset Management |
-| 99 | Odin 4 | Odin 4 | Alpha Financial Investment Management |
 | 105 | Aspire Rawajj | Aspire Rawajj | Amwal for Financial Investments |
 | 110 | GIG Makaseb Fund First Tranche | GIG Makaseb Fund First Tranche | NI Capital |
 | 111 | GIG Makaseb Fund Second Tranche | GIG Makaseb Fund Second Tranche | NI Capital |
 | 119 | Egyptian Arab Land Bank Fund (Al Masry) | Egyptian Arab Land Bank Fund (Al Masry) | Alpha Financial Investment Management |
 | 125 | NI Capital 15/30 | NI Capital 15/30 | NI Capital |
 | 131 | Stream | Stream | CFH Asset Management |
-| 132 | Target First Fund | Target First Fund | Target Asset Management |
 | 146 | Al Baraka Bank Egypt (Al Motawazen) | Al Baraka Bank Egypt (Al Motawazen) | Naeem Capital for Investments |
 | 147 | FAB Misr Fund (Ezdhar) | FAB Misr Fund (Ezdhar) | Acumen Asset Management |
 | 149 | Sigma Traded Fund | Sigma Traded Fund | Sigma Funds Management |

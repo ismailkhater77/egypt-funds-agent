@@ -25,11 +25,12 @@ const MUBASHER_CATEGORY_SOURCE_URLS = [
   "https://mubasherfunds.info/8482/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D9%86%D9%82%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AF%D8%AE%D9%84-%D8%A7%D9%84%D8%AB%D8%A7%D8%A8%D8%AA-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026",
   "https://mubasherfunds.info/8483/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D9%81%D9%8A-%D8%A7%D9%84%D8%A3%D8%B3%D9%87%D9%85-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026",
   "https://mubasherfunds.info/8484/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D8%A7%D8%B1%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026",
-  "https://mubasherfunds.info/8487/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%Bس-2026",
+  "https://mubasherfunds.info/8487/article/%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%B5%D9%86%D8%A7%D8%AF%D9%8A%D9%82-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A%D8%A9-25-%D8%A3%D8%BA%D8%B3%D8%B7%D8%B3-2026",
 ] as const;
 const SCB_SOURCE_URL = "https://scbank.com.eg/Ar/Fund_Rates.aspx";
 const FAISAL_SOURCE_URL = "https://www.faisalbank.com.eg/ar/Retail/Mutual-Funds";
 const PFI_SOURCE_URL = "https://pfi-am.com.eg/funds/";
+const ABK_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Equity-Fund?r=2";
 const NBK_SOURCE_URLS = [
   "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/ishraq.html",
   "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/namaa.html",
@@ -303,6 +304,17 @@ export function parseAaimFunds(html: string): EfgRecord[] {
   return Array.from(unique.values());
 }
 
+export function parseAbkFund(html: string): EfgRecord[] {
+  const text = stripTags(html);
+  const match = text.match(/Today's ABK-Egypt Equity Fund Price:\s*Price\s+Last Update\s+([0-9.,]+)\s+(\d{1,2}\/\d{1,2}\/\d{4})/i);
+  if (!match) return [];
+  const nav = Number(match[1].replace(/,/g, ""));
+  const date = match[2].split("/");
+  if (!Number.isFinite(nav) || nav < 0 || date.length !== 3) return [];
+  const [month, day, year] = date;
+  return [{ name: "ABK-Egypt Equity Fund", rawName: "ABK-Egypt Equity Fund", nav, valuationDate: `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`, currency: "EGP" }];
+}
+
 export function parseAzimutFunds(payload: string): EfgRecord[] {
   const parsed = JSON.parse(payload) as { response?: { funds?: { dataList?: Array<{ name?: string; currency?: { symbol?: string }; last_nav?: { nav?: number; date?: string } }> } } };
   const funds = parsed.response?.funds?.dataList ?? [];
@@ -353,7 +365,6 @@ function parseMubasherArticle(html: string): EfgRecord[] {
     if (!cells[0] || !Number.isFinite(nav) || nav < 0) continue;
     const rawName = cells[0].trim();
     const mappedName = normalize(rawName) === normalize("أسهم مباشر") ? "Mubasher Equity" : normalize(rawName) === normalize("كاش مباشر") ? "Cash Mubasher" : normalize(rawName) === normalize("دهب مباشر") ? "Mubasher Gold" : rawName;
-    if (!["Mubasher Equity", "Cash Mubasher", "Mubasher Gold"].includes(mappedName)) continue;
     records.push({ name: mappedName, rawName, nav, valuationDate, currency: "EGP" });
   }
   return records;
@@ -370,17 +381,24 @@ export function parseMubasherDailyArticle(html: string): EfgRecord[] {
   const cellPattern = new RegExp(String.raw`<td\b[^>]*>([\s\S]*?)</td>`, "gi");
   for (const table of Array.from(html.matchAll(tablePattern))) {
     const tableText = stripTags(table[0]);
-    const currency = /بالدولار|السعر بالدولار/i.test(tableText) ? "USD" : "EGP";
+    const tableStart = table.index ?? 0;
+    const nearbyHeading = stripTags(html.slice(Math.max(0, tableStart - 500), tableStart));
+    const currency = /بالدولار|السعر بالدولار/i.test(`${nearbyHeading} ${tableText}`) ? "USD" : "EGP";
     const rowPattern = new RegExp(String.raw`<tr\b[\s\S]*?</tr>`, "gi");
     for (const row of Array.from(table[0].matchAll(rowPattern))) {
       const cells = Array.from(row[0].matchAll(cellPattern)).map((m) => stripTags(m[1] ?? ""));
       if (cells.length < 2) continue;
-      const rawNav = (cells[0] ?? "").trim();
-      const rawName = (cells[1] ?? "").trim();
-      if (!/^\s*[0-9]/.test(rawNav) || !/[A-Za-z\u0600-\u06FF]/.test(rawName) || rawName === "اسم الصندوق" || rawName === "الصندوق") continue;
-      const nav = Number(rawNav.replace(/,/g, "").replace(/[^0-9.]/g, ""));
-      if (!Number.isFinite(nav) || nav < 0) continue;
-      records.push({ name: rawName, rawName, nav, valuationDate, currency });
+      const numericCells = cells.map((cell) => {
+        const cleaned = cell.replace(/,/g, "").replace(/[^0-9.]/g, "");
+        return /\d/.test(cleaned) ? Number(cleaned) : Number.NaN;
+      });
+      const navIndex = numericCells.findIndex((value) => Number.isFinite(value) && value >= 0);
+      if (navIndex < 0) continue;
+      const nav = numericCells[navIndex];
+      const rawName = cells[navIndex === 0 ? 1 : 0].trim();
+      if (!rawName || /^(اسم الصندوق|الصندوق|سعر الوثيقة)/.test(rawName) || !/[A-Za-z\u0600-\u06FF]/.test(rawName)) continue;
+      const mappedName = normalize(rawName) === normalize("أسهم مباشر") ? "Mubasher Equity" : normalize(rawName) === normalize("كاش مباشر") ? "Cash Mubasher" : normalize(rawName) === normalize("دهب مباشر") ? "Mubasher Gold" : rawName;
+      records.push({ name: mappedName, rawName, nav, valuationDate, currency });
     }
   }
   return records;
@@ -499,6 +517,24 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "gig money market": "gig insurance",
     "pfi cashi fund": "pfi cashi",
     "granite fund": "granite first fund",
+    "وثاق": "wethaq investment",
+    "استثمار وأمان لمصر للتأمين": "misr insurance istithmar and aman",
+    "تميز": "tamayoz - afim",
+    "إسكان للتأمين (كل يوم)": "iskan insurance",
+    "مصر اليومي": "ciam - misr al youmy",
+    "الدلتا لتأمينات الحياة النقدى": "delta life insurance",
+    "الفنار": "fanar",
+    "أودن الرابع": "odin 4",
+    "زالدي ستار": "zaldi star",
+    "صندوق تارجت الأول للدخل الثابت": "target first fund",
+    "سيولة": "siula money market",
+    "إشراق": "national bank of kuwait fund (ishraq)",
+    "بريق": "bareeq",
+    "كاشي": "pfi cashi",
+    "جرانيت": "granite first fund",
+    "ادخار - AZFI": "edkhar",
+    "جي أي جي النقدي": "gig insurance",
+    "ABK-Egypt Equity Fund": "al ahli bank of kuwait - egypt fund i",
   };
   for (const fund of funds) {
     byName.set(normalize(fund.canonical_name), fund);
@@ -584,6 +620,18 @@ async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string,
 }
 
 type CollectorConfig = { sourceUrl: string; fetchUrl?: string; parserName: string; parse: (html: string) => EfgRecord[] | Promise<EfgRecord[]>; fetcher?: (url: string) => Promise<globalThis.Response>; matchAllFunds?: boolean };
+
+function fetchWithDigicertChain(url: string): Promise<globalThis.Response> {
+  return new Promise((resolve, reject) => {
+    const req = httpsRequest(url, { ca: [...rootCertificates, CI_INTERMEDIATE_CA], headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "text/html" } }, (res) => {
+      const chunks: Buffer[] = [];
+      res.on("data", (chunk: Buffer) => chunks.push(chunk));
+      res.on("end", () => resolve(new globalThis.Response(Buffer.concat(chunks).toString("utf8"), { status: res.statusCode ?? 0, headers: { "content-type": String(res.headers["content-type"] ?? "text/html") } })));
+    });
+    req.on("error", reject);
+    req.end();
+  });
+}
 
 function fetchCiCapital(url: string): Promise<globalThis.Response> {
   return new Promise((resolve, reject) => {
@@ -680,12 +728,21 @@ export function runAzimutCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: AZIMUT_SOURCE_URL, fetchUrl: AZIMUT_API_URL, parserName: AZIMUT_PARSER_NAME, parse: parseAzimutFunds });
 }
 
+export function runAbkCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true });
+}
+
 export function runAaimCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: AAIM_SOURCE_URL, fetchUrl: AAIM_FETCH_URL, parserName: "aaim_fund_cards_v1", parse: parseAaimFunds });
 }
 
+const fetchMubasherArticle = (url: string) => fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/131 Safari/537.36", Accept: "text/html,application/xhtml+xml", "Accept-Language": "ar,en;q=0.8" } });
+const mubasherCategoryConfigs = () => MUBASHER_CATEGORY_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: MUBASHER_DAILY_PARSER_NAME, parse: parseMubasherDailyArticle, fetcher: fetchMubasherArticle, matchAllFunds: true }));
+export function runMubasherCategoryCollectors(): Promise<RunSummary[]> {
+  return Promise.all(mubasherCategoryConfigs().map(runCollector));
+}
 export function runMubasherDailyCollector(): Promise<RunSummary> {
-  return runCombinedCollectors(MUBASHER_CATEGORY_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: MUBASHER_DAILY_PARSER_NAME, parse: parseMubasherDailyArticle, matchAllFunds: true })));
+  return runCombinedCollectors(mubasherCategoryConfigs());
 }
 export function runMubasherCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: MUBASHER_SOURCE_URL, parserName: MUBASHER_PARSER_NAME, parse: parseMubasherFunds, matchAllFunds: true });
@@ -726,6 +783,7 @@ export function getProviderSupportReport() {
     { provider: "Faisal Islamic Bank Egypt", source: FAISAL_SOURCE_URL, parser: FAISAL_PARSER_NAME, status: "implemented" as const, note: "Official bank page with two mutual-fund cards and valuation dates" },
     { provider: "National Bank of Kuwait Egypt", source: NBK_SOURCE_URLS.join(", "), parser: NBK_PARSER_NAME, status: "implemented" as const, note: "Official detail pages for Ishraq, Namaa, Al-Hayah, and Al-Mizan" },
     { provider: "PFI Asset Management", source: PFI_SOURCE_URL, parser: PFI_PARSER_NAME, status: "implemented" as const, note: "Official funds page; future-dated rows are rejected" },
+    { provider: "ABK-Egypt", source: ABK_SOURCE_URL, parser: "abk_official_equity_fund_v1", status: "implemented" as const, note: "Official equity-fund page; TLS uses trusted DigiCert intermediate" },
   ];
 }
 
@@ -749,6 +807,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: FAISAL_SOURCE_URL, parserName: FAISAL_PARSER_NAME, parse: parseFaisalMutualFunds, matchAllFunds: true },
     ...NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })),
     { sourceUrl: PFI_SOURCE_URL, parserName: PFI_PARSER_NAME, parse: parsePfiFunds, matchAllFunds: true },
+    { sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
   ]).then(summary => {

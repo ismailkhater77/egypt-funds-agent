@@ -115,3 +115,15 @@ The page identifies Odin's KASAB equity fund and Maksab-OZ fixed-income fund, al
 URL: https://snduk.com/sa/fund-prices?lang=en
 
 Snduk presents a dedicated daily Egyptian mutual-fund prices page and explicitly references Pharos First Fund and other Egyptian funds in its page navigation. However, the dynamic page returned an empty body to the controlled DOM inspection, so no NAV/date was extracted or stored. A server-side API/network inspection is required before integrating it.
+## ABK-Egypt official fund-price source
+
+Official URL: https://w.abkegypt.com/Business/Treasury/Investments/Equity-Fund
+
+The page reports Today's ABK-Egypt Equity Fund Price as 410.52 EGP with Last Update 8/26/2026 and identifies Sigma Asset Management as fund manager. This is a primary source for the ABK Egypt Fund I catalog row. The page does not establish a separate current NAV endpoint for ABK Egypt Fund II.
+
+## Priority-group recheck — 26 August 2026
+
+- **BLOMINVEST Pyramids Fund:** the official page `https://www.blominvestbank.com/BlomInvest/BLOM-Pyramids-Fund` identifies a USD balanced fund and displays NAV 5,111.71, but the page's displayed date is 10 February 2016. It is not a current Egyptian BLOM Bank Fund I/II NAV feed, so no snapshot was stored.
+- **EBank El Khabeer:** EBank's official homepage was unreachable during the controlled check. EIMA search results identify the fund and provide historical performance PDFs, but not a current official daily NAV endpoint. No current snapshot was stored.
+- **Pharos Fund I / Pioneers Fund I:** Pharos's official site `https://www.pharosholding.com/` confirms the holding company and services but exposes no current fund NAV table in the inspected page. EGX PDFs and third-party tracking pages contain historical or secondary values, not a current primary manager feed. No snapshot was stored.
+- **Data-integrity decision:** these groups remain `pending` rather than accepting stale, secondary, or identity-mismatched values. This is intentional and avoids fabricating a current valuation date.
