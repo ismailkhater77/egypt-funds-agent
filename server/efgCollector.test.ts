@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { aggregateRunSummaries, buildActiveFundsQuery, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseFabMisrAlAwal, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runFabMisrAlAwalCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
+import { aggregateRunSummaries, buildActiveFundsQuery, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseFabMisrAlAwal, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runFabMisrAlAwalCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, fetchFabMisrPage, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -320,6 +320,21 @@ describe("EFG mutual-fund parser", () => {
     expect(selectDnsARecord({ Answer: [{ type: 28, data: "2001:db8::1" }, { type: 1, data: "41.33.19.60" }] })).toBe("41.33.19.60");
     expect(selectDnsARecord({ Answer: [{ type: 1, data: "999.33.19.60" }] })).toBeNull();
     expect(selectDnsARecord({ Answer: [] })).toBeNull();
+  });
+  it("uses direct-IP DNS-over-HTTPS when local DNS cannot resolve both FABMISR and Cloudflare", async () => {
+    const fetchImpl = vi.fn(async () => { throw new Error("getaddrinfo EAI_AGAIN"); });
+    const fetchViaResolvedIpv4Impl = vi.fn(async (url: string, address: string) => {
+      if (url.includes("cloudflare-dns.com")) {
+        expect(address).toBe("1.1.1.1");
+        return new Response(JSON.stringify({ Answer: [{ type: 1, data: "41.33.19.60" }] }), { status: 200 });
+      }
+      expect(url).toContain("fabmisr.com.eg/en/personal-banking/investments-funds/al-awal-fund");
+      expect(address).toBe("41.33.19.60");
+      return new Response("<div>Al Awal Daily Money Market Fund (NAV)</div>", { status: 200 });
+    });
+    await expect(fetchFabMisrPage("https://www.fabmisr.com.eg/en/personal-banking/investments-funds/al-awal-fund", { fetchImpl, fetchViaResolvedIpv4Impl })).resolves.toMatchObject({ status: 200 });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(fetchViaResolvedIpv4Impl).toHaveBeenCalledTimes(2);
   });
   it("rejects future-dated Azimut API rows while retaining current official NAV rows", () => {
     const payload = JSON.stringify({ response: { funds: { dataList: [

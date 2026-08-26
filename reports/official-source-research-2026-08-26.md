@@ -58,7 +58,7 @@ The database record for `Aman Micro Finance` explicitly lists `Prime Investments
 
 Official URL: https://bokra.com/
 
-The official Bokra website confirms the regulated savings platform and lists `الشكمجية` among products, but the public page does not publish a fund NAV or valuation date. The current official evidence is insufficient for a validated price snapshot, so `Bokra Shakmagia` remains Pending Verification and third-party values were not used.
+The official Bokra website confirms the regulated savings platform and lists `الشكمجية` among products, but the public page does not publish a fund NAV or valuation date. Its official newsroom contains general media-relations content rather than a dated fund-price disclosure. The current official evidence is insufficient for a validated price snapshot, so `Bokra Shakmagia` remains Pending Verification and third-party values were not used.
 
 ## PFI official page recheck
 
@@ -86,7 +86,9 @@ The official Cairo Capital Group website loads the firm's verticals, insights/ne
 
 ## FABMISR endpoint probe
 
-The configured first-party URL `https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund` still fails DNS resolution from the server environment (`curl: Resolving timed out`). The parser and weekly valuation policy remain implemented, but a live snapshot cannot be claimed until the official endpoint is reachable; no value was inserted from a cached or secondary source.
+FABMISR transport availability is intermittent in the server environment. A targeted official-bank fetch succeeded for Al Awal through the guarded DNS fallback and inserted the dated 24-Aug-2026 snapshot recorded below. Later, an aggregate Run All invocation experienced fetch failures across many unrelated providers; a subsequent connectivity probe returned HTTP 200 from EFG but a DNS-resolution failure for `www.fabmisr.com.eg`. This is therefore tracked as a transport-retry condition, not as a parser or price-validation conclusion. Ezdehar’s weekly parser and Al Awal’s daily parser remain distinct; no cached or secondary value is used when the official endpoint is unreachable.
+
+After adding a direct-IP Cloudflare DNS-over-HTTPS fallback with preserved SNI/TLS validation, the targeted Al Awal collector again completed `unchanged=1`. The subsequent aggregate Run All completed with **415** fetched records and no recorded transport/parser failures; its `partial` status was driven by unmatched records rather than network errors. The post-run audit retained **0** future-dated validated NAVs and **0** same-source duplicate groups.
 
 ## Prime official funds table — identity resolution
 

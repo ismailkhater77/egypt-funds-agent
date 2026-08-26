@@ -36,6 +36,8 @@ const PFI_SOURCE_URL = "https://pfi-am.com.eg/funds/";
 const NI_CAPITAL_SOURCE_URL = "https://nicapital.com.eg/lines-of-business/asset-management/";
 const FAB_MISR_EZDEHAR_SOURCE_URL = "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund";
 const FAB_MISR_AL_AWAL_SOURCE_URL = "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/al-awal-fund";
+const CLOUDFLARE_DOH_URL = "https://cloudflare-dns.com/dns-query?name=www.fabmisr.com.eg&type=A";
+const CLOUDFLARE_DOH_IPV4 = "1.1.1.1";
 const EBANK_SOURCE_URL = "https://ebank.com.eg/market-updates/";
 const ABK_EQUITY_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Equity-Fund?r=2";
 const ABK_MONEY_MARKET_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Money-Market-Fund?r=2";
@@ -1026,20 +1028,36 @@ function fetchHttpsViaResolvedIpv4(url: string, address: string): Promise<global
   });
 }
 
-async function fetchFabMisrPage(url: string): Promise<globalThis.Response> {
+type FabMisrFetchDependencies = {
+  fetchImpl?: typeof fetch;
+  fetchViaResolvedIpv4Impl?: (url: string, address: string) => Promise<globalThis.Response>;
+};
+
+export async function fetchFabMisrPage(url: string, dependencies: FabMisrFetchDependencies = {}): Promise<globalThis.Response> {
+  const fetchImpl = dependencies.fetchImpl ?? fetch;
+  const fetchViaResolvedIpv4Impl = dependencies.fetchViaResolvedIpv4Impl ?? fetchHttpsViaResolvedIpv4;
   try {
-    return await fetch(url, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "text/html" } });
+    return await fetchImpl(url, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "text/html" } });
   } catch (directError) {
     try {
-      const dnsResponse = await fetch("https://cloudflare-dns.com/dns-query?name=www.fabmisr.com.eg&type=A", { headers: { Accept: "application/dns-json" } });
+      const dnsResponse = await fetchImpl(CLOUDFLARE_DOH_URL, { headers: { Accept: "application/dns-json" } });
       if (!dnsResponse.ok) throw new Error(`DNS-over-HTTPS returned HTTP ${dnsResponse.status}`);
       const address = selectDnsARecord(await dnsResponse.json() as { Answer?: Array<{ type?: number; data?: string }> });
       if (!address) throw new Error("DNS-over-HTTPS returned no valid IPv4 A record");
-      return await fetchHttpsViaResolvedIpv4(url, address);
+      return await fetchViaResolvedIpv4Impl(url, address);
     } catch (fallbackError) {
-      const directMessage = directError instanceof Error ? directError.message : String(directError);
-      const fallbackMessage = fallbackError instanceof Error ? fallbackError.message : String(fallbackError);
-      throw new Error(`FABMISR direct fetch failed: ${directMessage}; DNS fallback failed: ${fallbackMessage}`);
+      try {
+        const dnsResponse = await fetchViaResolvedIpv4Impl(CLOUDFLARE_DOH_URL, CLOUDFLARE_DOH_IPV4);
+        if (!dnsResponse.ok) throw new Error(`Direct-IP DNS-over-HTTPS returned HTTP ${dnsResponse.status}`);
+        const address = selectDnsARecord(await dnsResponse.json() as { Answer?: Array<{ type?: number; data?: string }> });
+        if (!address) throw new Error("Direct-IP DNS-over-HTTPS returned no valid IPv4 A record");
+        return await fetchViaResolvedIpv4Impl(url, address);
+      } catch (directIpFallbackError) {
+        const directMessage = directError instanceof Error ? directError.message : String(directError);
+        const fallbackMessage = fallbackError instanceof Error ? fallbackError.message : String(fallbackError);
+        const directIpFallbackMessage = directIpFallbackError instanceof Error ? directIpFallbackError.message : String(directIpFallbackError);
+        throw new Error(`FABMISR direct fetch failed: ${directMessage}; DNS fallback failed: ${fallbackMessage}; direct-IP DNS fallback failed: ${directIpFallbackMessage}`);
+      }
     }
   }
 }

@@ -143,3 +143,5 @@
 - [x] Integrate ABK Egypt Fund II from the official Money Market Fund page after exact identity reconciliation through Sigma Asset Management, May-2009 inception, and EGP 10 nominal value
 - [ ] Complete the next official-source discovery pass for the 22 active funds without a validated NAV, prioritizing directly publishable bank and manager feeds
 - [x] Integrate FABMISR Al Awal from its official daily fund page only after exact catalog identity, source link, idempotent live write, and regression tests are confirmed
+- [x] Re-run the aggregate Run All job after the sandbox-wide external fetch outage clears, and distinguish transport failures from source/parser failures
+- [x] Add a TLS-validated direct-IP DNS-over-HTTPS fallback for FABMISR when the standard Cloudflare hostname lookup also depends on failed local DNS
