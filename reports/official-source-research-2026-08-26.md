@@ -85,3 +85,9 @@ The official Cairo Capital Group website loads the firm's verticals, insights/ne
 ## FABMISR endpoint probe
 
 The configured first-party URL `https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund` still fails DNS resolution from the server environment (`curl: Resolving timed out`). The parser and weekly valuation policy remain implemented, but a live snapshot cannot be claimed until the official endpoint is reachable; no value was inserted from a cached or secondary source.
+
+## Prime official funds table — identity resolution
+
+Official URL: https://primeholdingco.com/asset-management/
+
+After opening the official Funds tab, Prime publishes a table that identifies `Aman Micro Finance` as the sponsor and `Aman Money Market Fund` as the fund name, with NAV **1.84978**. The same official table lists Tharaa at 45.8342 and Prime NMW at 12.8894. However, the table does not state a valuation date or an as-of timestamp. Under the strict policy, these values are not validated snapshots and were not inserted. This resolves the Aman identity mismatch for future dated-source work, while current verification remains pending.
