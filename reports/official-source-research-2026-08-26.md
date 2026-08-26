@@ -194,3 +194,59 @@ Official URL: https://www.fabmisr.com.eg/en/personal-banking/investments-funds/e
 The collector now preserves the official hostname and TLS certificate validation while using DNS-over-HTTPS only as a narrow network-resolution fallback when the runtime resolver fails for `www.fabmisr.com.eg`. A successful live run fetched the bank’s official page, matched `fund_catalog_4401d4d4b9314a90` (`FAB Misr Fund (Ezdhar)`), and inserted the actual 22-Aug-2026 NAV 472.6990 EGP. A second run returned one unchanged record.
 
 For any source explicitly configured as `weekly`, an official NAV whose displayed valuation date is in the future is no longer discarded or treated as a source failure. It is persisted with its unmodified source date and `status=review`, with raw payload marker `observation_state=scheduled_weekly`. It remains excluded from validated coverage and the latest-validated history until its date is no longer future. This retains a verifiable published observation without allowing a scheduled date to corrupt historical `validated` NAVs.
+
+## PFI Mawared frequency confirmation
+
+PFI’s official **Mawared Money Market Fund Term Sheet** identifies the vehicle as an **open-ended daily money market fund** and states that subscriptions and redemptions are available **daily**. Accordingly, the future-dated Mawared NAV does not qualify for the weekly scheduled-observation policy. It remains an official source observation, but it cannot be stored as a historical validated NAV until the displayed valuation date is current. [1]
+
+### References
+
+[1] [PFI Asset Management — Mawared Money Market Fund Term Sheet](https://pfi-am.com.eg/wp-content/uploads/2025/02/HDBK-Mawared-Term-Sheet-EN.pdf)
+
+## Al Baraka Al Motawazen — weekly identity confirmed, NAV absent
+
+Naeem Holding’s official Al Baraka Fund page confirms that the fund is an open-ended Egyptian balanced Sharia-compliant fund and that subscription/redemption occur **weekly through Al Baraka Bank**. The page does not display a current NAV, valuation date, or downloadable current price file; its linked fact sheet is from 2017. The fund is therefore eligible for the `scheduled_weekly` policy only if a first-party Al Baraka/Naeem page later publishes a NAV with a future displayed date. It remains uncovered today because no current dated NAV is available. [2]
+
+[2] [Naeem Holding — Al Baraka Fund](https://www.naeemholding.com/asset-management/investment-offerings/our-funds/al-baraka-fund/)
+
+## Bokra Shakmagia — official platform identity, no public NAV
+
+The official Bokra platform identifies itself as an FRA-regulated Egyptian digital savings platform and links the Shakmagia product only through its mobile application. Its public website does not publish a Shakmagia NAV, as-of date, price history, or a public fund-price endpoint. The fund remains Pending Verification; secondary published NAVs were not used. [3]
+
+[3] [Bokra — official platform](https://bokra.com/)
+
+## Arope Money Market Fund — identity confirmed, NAV absent
+
+AROPE Life Insurance Egypt’s official page confirms that Arope Money Market Fund is an Egyptian EGP open-ended fund, managed by **ABC Egypt Investments**, with subscriptions/redemptions through ABC Bank Egypt. It describes a daily accumulated-return objective, but supplies neither NAV nor a valuation/as-of date. The fund is therefore not a weekly-policy candidate and remains Pending Verification until ABC Egypt Investments or AROPE publishes a current dated NAV. [4]
+
+[4] [AROPE Life Insurance Egypt — Arope Money Market Fund](https://aropeegypt.com.eg/Life/en/arope-money-market-fund/)
+
+## Aspire Rawajj and Waffrah Plus — current official fact-sheet route found
+
+Aspire Holding’s official funds page directly links to PDFs for Rawajj and Waffrah Plus, both hosted on the company’s current 2026 website. These first-party files are the correct next sources to inspect for NAV and valuation-date evidence; no third-party price was accepted at this stage. [5]
+
+[5] [Aspire Holding — Aspire Funds](https://aspireholding.com/business/aspire-funds/)
+
+### Rawajj document check
+
+The current Aspire-linked Rawajj PDF is a 28-page scanned legal/prospectus document. It does not yield machine-readable NAV, as-of date, or price-table text, and the public funds page itself contains only document links rather than current prices. No Rawajj NAV was persisted. The Waffrah Plus document remains a first-party candidate for separate review, but neither fund is promoted without a current dated NAV. [6]
+
+[6] [Aspire Holding — Rawajj official PDF](https://aspireholding.com/app/uploads/2026/02/rawajj.pdf)
+
+## Market Return — identity requires correction before source discovery
+
+The imported record `fund_catalog_b54758ef8387b610` contains canonical and raw name “Market Return” but records `management_company_raw = EGX 30`, which is an Egyptian Exchange index rather than an asset manager. Public official EGX material describes EGX30 as an index, not as an investment fund manager or NAV publisher. No first-party NAV source can be safely mapped until the workbook identity is corrected or an authoritative fund manager is supplied. [7]
+
+[7] [The Egyptian Exchange — EGX30 Overview](https://www.egx.com.eg/en/OverviewEGX30.aspx)
+
+## NI Capital Siula — official source mapped, current daily future date retained as non-validated
+
+NI Capital’s current official Funds Certificates Prices section lists **SIULA MONEY MARKET FUND** at **24.59694 EGP** with displayed date **29 August 2026**. Its official fund description states daily purchases and redemptions, so it is not eligible for the weekly scheduled-observation policy. The collector now recognizes and maps the SIULA publication name to `Siula Money Market` and the catalog record is linked to NI Capital’s official page; the future-dated daily value remains outside `validated` storage until its displayed date becomes current. [8]
+
+[8] [NI Capital — Asset Management and Funds Certificates Prices](https://nicapital.com.eg/lines-of-business/asset-management/)
+
+## Naeem Misr — weekly dealing confirmed, NAV absent and dedicated domain unavailable
+
+Naeem Holding’s official page confirms that NAEEM Misr is an EGP Sharia-compliant equity fund managed by NAEEM Financial Investments, with weekly subscription/redemption through Egyptian Gulf Bank. It publishes no current NAV or valuation date. The page links to `naeemmisrfund.com`, but the linked hostname did not resolve from the research environment; no alternate current first-party NAV page was established. The fund should be eligible for `scheduled_weekly` only after a working official page publishes an observable NAV/date. [9]
+
+[9] [Naeem Holding — NAEEM Misr Fund](https://www.naeemholding.com/asset-management/investment-offerings/our-funds/naeem-misr-fund/)

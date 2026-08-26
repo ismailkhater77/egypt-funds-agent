@@ -5,12 +5,12 @@ This report is a **read-only** Supabase audit. “No update source at all” mea
 | Category | Count |
 | --- | ---: |
 | Catalog funds | 215 |
-| Funds with no update-source URL at all | 45 |
+| Funds with no update-source URL at all | 44 |
 | Funds linked to a URL but without a validated snapshot as of 2026-08-26 | 2 |
 | Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 29 |
 | Funds with at least one validated snapshot as of 2026-08-26 | 186 |
 
-## A. Funds with no update-source URL at all (45)
+## A. Funds with no update-source URL at all (44)
 
 | Canonical fund name | Imported/EIMA name | Source URL |
 | --- | --- | --- |
@@ -54,7 +54,6 @@ This report is a **read-only** Supabase audit. “No update source at all” mea
 | Pioneers Fund I | Pioneers Fund I | — |
 | Prime NMOW | Prime NMOW | — |
 | Sigma Traded Fund | Sigma Traded Fund | — |
-| Siula Money Market | Siula Money Market | — |
 | Stream | Stream | — |
 | Target First Fund | Target First Fund | — |
 | The charitable education Fund | The charitable education Fund | — |

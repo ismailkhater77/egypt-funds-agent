@@ -131,3 +131,4 @@
 - [x] Re-run PFI, NI Capital, FABMISR, coverage, and duplicate audits under the scheduled-weekly policy
 - [x] Add fixture-backed integration coverage proving persisted scheduled-weekly review rows are excluded from latest-validated, coverage, and duplicate checks
 - [x] Add a fixture-backed duplicate-audit test proving scheduled-weekly review rows are excluded or handled without false same-source duplicate violations
+- [x] Map NI Capital Siula to the official funds-prices feed, add parser coverage, and retain daily future-date rejection

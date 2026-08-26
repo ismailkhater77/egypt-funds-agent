@@ -265,6 +265,7 @@ export function parsePfiFunds(html: string): EfgRecord[] {
 export function parseNiCapitalFunds(html: string): EfgRecord[] {
   const text = stripTags(html);
   const definitions = [
+    ["SIULA MONEY MARKET FUND", "Siula Money Market"],
     ["SAHMY FUND", "NI Capital (Sahmy Fund)"],
     ["SAHMY 70 FUND", "NI Capital EGX 70"],
     ["15/30 Fixed Income Fund", "NI Capital 15/30"],

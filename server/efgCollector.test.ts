@@ -206,8 +206,9 @@ describe("EFG mutual-fund parser", () => {
   });
 
   it("extracts NI Capital official funds and rejects future-dated rows", () => {
-    const html = `<section>SAHMY FUND 26 August 2026 Certificate Price EGP 40.7555</section><section>SAHMY 70 FUND 26 August 2026 Certificate Price EGP 22.4184</section><section>15/30 Fixed Income Fund 29 August 2026 Certificate Price EGP 21.78483</section><section>MAKASEB 1st Tranche 29 August 2026 Certificate Price EGP 20.64864</section><section>MAKASEB 2nd Tranche 29 August 2026 Certificate Price EGP 20.60258</section><section>EDUCATION FOR LIFE 29 August 2026 Certificate Price EGP 200.417</section>`;
+    const html = `<section>SIULA MONEY MARKET FUND 26 August 2026 Certificate Price EGP 24.55001</section><section>SAHMY FUND 26 August 2026 Certificate Price EGP 40.7555</section><section>SAHMY 70 FUND 26 August 2026 Certificate Price EGP 22.4184</section><section>15/30 Fixed Income Fund 29 August 2026 Certificate Price EGP 21.78483</section><section>MAKASEB 1st Tranche 29 August 2026 Certificate Price EGP 20.64864</section><section>MAKASEB 2nd Tranche 29 August 2026 Certificate Price EGP 20.60258</section><section>EDUCATION FOR LIFE 29 August 2026 Certificate Price EGP 200.417</section>`;
     expect(parseNiCapitalFunds(html)).toEqual([
+      { name: "Siula Money Market", rawName: "SIULA MONEY MARKET FUND", nav: 24.55001, valuationDate: "2026-08-26", currency: "EGP" },
       { name: "NI Capital (Sahmy Fund)", rawName: "SAHMY FUND", nav: 40.7555, valuationDate: "2026-08-26", currency: "EGP" },
       { name: "NI Capital EGX 70", rawName: "SAHMY 70 FUND", nav: 22.4184, valuationDate: "2026-08-26", currency: "EGP" },
     ]);
