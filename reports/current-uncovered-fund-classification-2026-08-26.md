@@ -1,12 +1,12 @@
 # Current Uncovered-Fund Classification — 2026-08-26
 
-This is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before 2026-08-26. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **30**.
+This is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before 2026-08-26. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **29**.
 
 | Metric | Count |
 | --- | ---: |
-| Current funds without a validated snapshot | 30 |
+| Current funds without a validated snapshot | 29 |
 | Recorded catalog URL exists | 2 |
-| Catalog URL is blank | 28 |
+| Catalog URL is blank | 27 |
 | Confirmed parser extraction failures from an otherwise published price/date | 0 |
 | Confirmed future-date-only rejection | 1 |
 
@@ -20,7 +20,7 @@ This is an **exhaustive current** classification of every catalog fund without a
 | OFFICIAL_UNDATED | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح | 7 |
 | OFFICIAL_STALE | مصدر رسمي موجود لكن NAV/المستند قديم | 6 |
 | FUTURE_DATE_ONLY | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط | 1 |
-| OFFICIAL_FETCH_BLOCKED | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا | 2 |
+| OFFICIAL_FETCH_BLOCKED | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا | 1 |
 | OFFICIAL_NO_CURRENT_NAV | مصدر رسمي مفحوص لا ينشر NAV حاليًا | 6 |
 | NO_OFFICIAL_CURRENT_NAV_FOUND | لم يظهر مصدر رسمي حالي لـNAV بعد البحث | 5 |
 
@@ -40,7 +40,6 @@ This is an **exhaustive current** classification of every catalog fund without a
 | Bokra Shakmagia | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
 | Egyptian Arab Land Bank Fund (Al Masry) | — | مصدر رسمي مفحوص لا ينشر NAV حاليًا |
 | Egyptian Gulf Bank (Tharaa) | — | مصدر رسمي يعرض منتجًا/سعرًا بلا تاريخ تقييم صريح |
-| FAB Misr Fund (Ezdhar) | — | مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا |
 | GIG Makaseb Fund First Tranche | — | مصدر رسمي موجود لكن NAV/المستند قديم |
 | GIG Makaseb Fund Second Tranche | — | مصدر رسمي موجود لكن NAV/المستند قديم |
 | Housing & Development Bank (Mawared) | — | NAV رسمي منشور لكن تاريخ التقييم مستقبلي فقط |

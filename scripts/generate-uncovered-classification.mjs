@@ -30,7 +30,6 @@ const assignments = new Map([
   ["Bokra Shakmagia", "OFFICIAL_NO_CURRENT_NAV"],
   ["Egyptian Arab Land Bank Fund (Al Masry)", "OFFICIAL_NO_CURRENT_NAV"],
   ["Egyptian Gulf Bank (Tharaa)", "OFFICIAL_UNDATED"],
-  ["FAB Misr Fund (Ezdhar)", "OFFICIAL_FETCH_BLOCKED"],
   ["GIG Makaseb Fund First Tranche", "OFFICIAL_STALE"],
   ["GIG Makaseb Fund Second Tranche", "OFFICIAL_STALE"],
   ["Housing & Development Bank (Mawared)", "FUTURE_DATE_ONLY"],

@@ -180,3 +180,17 @@ The official Credit Agricole source was added idempotently as `src_credit_agrico
 ## Run All after Credit Agricole integration
 
 A live Run All completed with status `partial` because unresolved/unavailable source rows remain, while the Pharos Facebook source remains intentionally excluded. The aggregate reported 422 fetched records, 170 matched records, 8 inserts, 118 unchanged records, 0 updates, 252 unmatched records, and 44 failed records. A subsequent read-only Supabase audit reported 215 catalog funds, 184 funds covered as of 2026-08-26, 297 validated rows, 0 future-dated validated rows, 0 same-source duplicate groups, and 46 funds without a `price_update_url`. The Al Thiqa source remained idempotent and did not create a duplicate on its second standalone run.
+
+## EFG official mutual-funds table — identity boundaries
+
+Official URL: https://efgholding.com/en/our-services/mutual-funds. The current first-party EFG table publishes `Egyptian Gulf Bank Mutual Fund` at 1,384.44 EGP as of 26-Aug-2026, and `Al Baraka Bank Islamic Fund` at 635.10 EGP as of 26-Aug-2026. It also lists a distinct `Al Baraka Bank Islamic Money Market Fund (Al Barakat)` dated 29-Aug-2026. These are usable source records only for exact catalog identities. They were not mapped to `Egyptian Gulf Bank (Tharaa)` because Tharaa is identified elsewhere as a money-market fund and the EFG record is an equity fund. They were also not mapped to `Al Baraka Bank Egypt (Al Motawazen)` without an exact manager/fund-name bridge. No price was written from these similarly named but unproven identities.
+
+## FABMISR Ezdehar live-access recheck
+
+Official URL: https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund. The public official page currently exposes Ezdehar NAV **472.6990 EGP** with an actual valuation date of **22 August 2026**, and states that subscription/redemption circulate weekly. However, the application/server runtime still cannot resolve `www.fabmisr.com.eg` (`getent` returned no address; `curl` timed out during DNS resolution), despite the page being viewable through the research browser. The server-side collector therefore remains correctly disabled from creating a live snapshot: browser-only visibility is not a stable production ingestion path. This remains a network/DNS blocker rather than a validation or weekly-pricing failure.
+
+## FABMISR DNS fallback and weekly scheduled policy
+
+The collector now preserves the official hostname and TLS certificate validation while using DNS-over-HTTPS only as a narrow network-resolution fallback when the runtime resolver fails for `www.fabmisr.com.eg`. A successful live run fetched the bank’s official page, matched `fund_catalog_4401d4d4b9314a90` (`FAB Misr Fund (Ezdhar)`), and inserted the actual 22-Aug-2026 NAV 472.6990 EGP. A second run returned one unchanged record.
+
+For any source explicitly configured as `weekly`, an official NAV whose displayed valuation date is in the future is no longer discarded or treated as a source failure. It is persisted with its unmodified source date and `status=review`, with raw payload marker `observation_state=scheduled_weekly`. It remains excluded from validated coverage and the latest-validated history until its date is no longer future. This retains a verifiable published observation without allowing a scheduled date to corrupt historical `validated` NAVs.

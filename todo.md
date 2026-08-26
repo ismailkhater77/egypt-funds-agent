@@ -123,3 +123,11 @@
 - [x] Produce an exact Supabase list of funds with no `price_update_url`, and separately classify linked-but-ineligible sources
 - [x] Add Banque du Caire’s official Al Wefak price feed after confirming the Agricultural Bank of Egypt / Banque du Caire fund identity; validate an idempotent snapshot write
 - [x] Classify every current no-validated-snapshot fund by linked URL, extraction failure, future-date rejection, or no source URL and report exact counts
+- [x] Add a scheduled-weekly NAV persistence state that stores official future-dated weekly NAVs separately from `validated` snapshots
+- [x] Update the FABMISR weekly collector to retain scheduled NAV observations instead of classifying them as failures
+- [x] Add FABMISR regression tests proving a scheduled weekly NAV preserves its official future date with `status=review`
+- [x] Apply and rerun the scheduled-weekly policy for the currently confirmed weekly source (FABMISR); PFI and NI Capital retain normal future-date rejection because they are not configured as weekly
+- [x] Add automated tests and a read-only audit proving scheduled weekly review rows are excluded from coverage, latest-validated history, future-validated checks, and duplicate integrity checks
+- [x] Re-run PFI, NI Capital, FABMISR, coverage, and duplicate audits under the scheduled-weekly policy
+- [x] Add fixture-backed integration coverage proving persisted scheduled-weekly review rows are excluded from latest-validated, coverage, and duplicate checks
+- [x] Add a fixture-backed duplicate-audit test proving scheduled-weekly review rows are excluded or handled without false same-source duplicate violations

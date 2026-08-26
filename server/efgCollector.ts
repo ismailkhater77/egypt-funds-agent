@@ -93,6 +93,7 @@ export type RunSummary = {
   matchedRecords: number;
   matchedFundIds: string[];
   inserted: number;
+  scheduled?: number;
   unchanged: number;
   updated: number;
   unmatched: string[];
@@ -132,6 +133,21 @@ function asOfDate(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+export function isCoverageEligibleSnapshot(status: string, valuationDate: string, asOf = asOfDate()): boolean {
+  return status === "validated" && valuationDate <= asOf;
+}
+
+export type SnapshotAuditRow = { fund_id: string; source_id: string; valuation_date: string; status: string };
+
+export function findSameSourceDuplicateGroups(rows: SnapshotAuditRow[]): Array<{ key: string; count: number }> {
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    const key = `${row.fund_id}|${row.source_id}|${row.valuation_date}|${row.status}`;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  return Array.from(counts.entries()).filter(([, count]) => count > 1).map(([key, count]) => ({ key, count }));
+}
+
 /**
  * A provider may publish the next scheduled update date beside an unchanged NAV.
  * Never promote that future date to a valuation date. If the NAV is unchanged,
@@ -144,6 +160,12 @@ export function chooseActualValuationDate(candidateDate: string, previousValidat
 }
 
 type PriorValidatedSnapshot = { nav: number; currency: string; valuation_date: string };
+
+export function selectLatestValidatedSnapshots<T extends PriorValidatedSnapshot & { status?: string }>(rows: T[], asOf = asOfDate()): T[] {
+  return rows
+    .filter((row) => isCoverageEligibleSnapshot(row.status ?? "validated", row.valuation_date, asOf))
+    .sort((left, right) => right.valuation_date.localeCompare(left.valuation_date));
+}
 
 export function resolvePersistedValuationDate(candidateDate: string, nav: number, currency: string, previous: PriorValidatedSnapshot[], asOf = asOfDate()): string | null {
   const sameNav = previous
@@ -269,7 +291,7 @@ export function parseFabMisrEzdehar(html: string): EfgRecord[] {
   if (!match) return [];
   const nav = parseLocalizedNumber(match[2]);
   const valuationDate = parseEnglishDateStrict(match[1]);
-  if (!Number.isFinite(nav) || nav < 0 || valuationDate > new Date().toISOString().slice(0, 10)) return [];
+  if (!Number.isFinite(nav) || nav < 0) return [];
   return [{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav, valuationDate, currency: "EGP" }];
 }
 export function parseNbkFundPage(html: string): EfgRecord[] {
@@ -778,32 +800,36 @@ async function getSourceId(sourceUrl: string): Promise<string> {
 
 async function fetchExisting(fundId: string, valuationDate: string, sourceId: string) {
   const params = new URLSearchParams({
-    select: "id,nav",
+    select: "id,nav,status",
     fund_id: `eq.${fundId}`,
     valuation_date: `eq.${valuationDate}`,
     source_id: `eq.${sourceId}`,
     limit: "1",
   });
-  const rows = await supabaseRequest<Array<{ id: string; nav: number }>>(`/rest/v1/fund_prices?${params.toString()}`);
+  const rows = await supabaseRequest<Array<{ id: string; nav: number; status?: string }>>(`/rest/v1/fund_prices?${params.toString()}`);
   return rows[0];
 }
 
 async function fetchLatestValidated(fundId: string, sourceId: string) {
   const params = new URLSearchParams({
-    select: "nav,currency,valuation_date",
+    select: "nav,currency,valuation_date,status",
     fund_id: `eq.${fundId}`,
     source_id: `eq.${sourceId}`,
     status: "eq.validated",
     order: "valuation_date.desc",
     limit: "50",
   });
-  return supabaseRequest<Array<{ nav: number; currency: string; valuation_date: string }>>(`/rest/v1/fund_prices?${params.toString()}`);
+  const rows = await supabaseRequest<Array<PriorValidatedSnapshot & { status?: string }>>(`/rest/v1/fund_prices?${params.toString()}`);
+  return selectLatestValidatedSnapshots(rows);
 }
 
-async function resolveRecordForPersistence(record: EfgRecord, fund: FundRow, sourceId: string, parserName: string): Promise<{ record: EfgRecord; candidateDate: string; dateResolution: string }> {
+async function resolveRecordForPersistence(record: EfgRecord, fund: FundRow, sourceId: string, parserName: string, schedule?: "daily" | "weekly"): Promise<{ record: EfgRecord; candidateDate: string; dateResolution: string; status: "validated" | "review" }> {
   const candidateDate = record.valuationDate;
+  if (candidateDate > asOfDate() && schedule === "weekly") {
+    return { record, candidateDate, dateResolution: "scheduled_weekly_future_source_date", status: "review" };
+  }
   const shouldCheckPrior = candidateDate > asOfDate() || parserName === AZIMUT_PARSER_NAME;
-  if (!shouldCheckPrior) return { record, candidateDate, dateResolution: "provider_actual_date" };
+  if (!shouldCheckPrior) return { record, candidateDate, dateResolution: "provider_actual_date", status: "validated" };
 
   const previous = await fetchLatestValidated(fund.fund_id, sourceId);
   const persistedDate = resolvePersistedValuationDate(candidateDate, record.nav, record.currency, previous);
@@ -814,14 +840,15 @@ async function resolveRecordForPersistence(record: EfgRecord, fund: FundRow, sou
     record: persistedDate === candidateDate ? record : { ...record, valuationDate: persistedDate },
     candidateDate,
     dateResolution: persistedDate === candidateDate ? "provider_actual_date" : candidateDate > asOfDate() ? "prior_validated_date_for_future_schedule" : "existing_validated_date_for_same_nav",
+    status: "validated",
   };
 }
 
-async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string, sourceUrl: string, parserName: string): Promise<"inserted" | "unchanged" | "updated"> {
-  const resolved = await resolveRecordForPersistence(record, fund, sourceId, parserName);
+async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string, sourceUrl: string, parserName: string, schedule?: "daily" | "weekly"): Promise<"inserted" | "scheduled" | "unchanged" | "updated"> {
+  const resolved = await resolveRecordForPersistence(record, fund, sourceId, parserName, schedule);
   const persistedRecord = resolved.record;
   const existing = await fetchExisting(fund.fund_id, persistedRecord.valuationDate, sourceId);
-  if (existing && Number(existing.nav) === persistedRecord.nav) return "unchanged";
+  if (existing && Number(existing.nav) === persistedRecord.nav && (existing.status ?? "validated") === resolved.status) return resolved.status === "review" ? "scheduled" : "unchanged";
   const payload = {
     fund_id: fund.fund_id,
     nav: persistedRecord.nav,
@@ -829,13 +856,14 @@ async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string,
     valuation_date: persistedRecord.valuationDate,
     source_id: sourceId,
     parser_name: parserName,
-    status: "validated",
+    status: resolved.status,
     raw_name: persistedRecord.rawName,
     raw_payload: {
       source_url: sourceUrl,
       extracted_name: persistedRecord.rawName,
       candidate_valuation_date: resolved.candidateDate,
       date_resolution: resolved.dateResolution,
+      observation_state: resolved.status === "review" ? "scheduled_weekly" : "validated_actual_or_resolved_date",
     },
   };
   if (existing) {
@@ -851,7 +879,7 @@ async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string,
     headers: { Prefer: "return=minimal" },
     body: JSON.stringify(payload),
   });
-  return "inserted";
+  return resolved.status === "review" ? "scheduled" : "inserted";
 }
 
 type CollectorConfig = { sourceUrl: string; fetchUrl?: string; parserName: string; parse: (html: string) => EfgRecord[] | Promise<EfgRecord[]>; fetcher?: (url: string) => Promise<globalThis.Response>; matchAllFunds?: boolean; schedule?: "daily" | "weekly" };
@@ -881,6 +909,53 @@ function fetchCiCapital(url: string): Promise<globalThis.Response> {
     req.on("error", reject);
     req.end();
   });
+}
+
+export function selectDnsARecord(payload: { Answer?: Array<{ type?: number; data?: string }> }): string | null {
+  const address = payload.Answer?.find((answer) => answer.type === 1 && /^\d{1,3}(?:\.\d{1,3}){3}$/.test(answer.data ?? ""))?.data;
+  if (!address) return null;
+  return address.split(".").every((part) => Number(part) >= 0 && Number(part) <= 255) ? address : null;
+}
+
+function fetchHttpsViaResolvedIpv4(url: string, address: string): Promise<globalThis.Response> {
+  const target = new URL(url);
+  return new Promise((resolve, reject) => {
+    const req = httpsRequest(target, {
+      servername: target.hostname,
+      lookup: (_hostname, options: { all?: boolean }, callback: (error: Error | null, result: string | Array<{ address: string; family: number }>, family?: number) => void) => {
+        if (options?.all) callback(null, [{ address, family: 4 }]);
+        else callback(null, address, 4);
+      },
+      headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "text/html" },
+    }, (res) => {
+      const chunks: Buffer[] = [];
+      res.on("data", (chunk: Buffer) => chunks.push(chunk));
+      res.on("end", () => resolve(new globalThis.Response(Buffer.concat(chunks).toString("utf8"), {
+        status: res.statusCode ?? 0,
+        headers: { "content-type": String(res.headers["content-type"] ?? "text/html") },
+      })));
+    });
+    req.on("error", reject);
+    req.end();
+  });
+}
+
+async function fetchFabMisrPage(url: string): Promise<globalThis.Response> {
+  try {
+    return await fetch(url, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "text/html" } });
+  } catch (directError) {
+    try {
+      const dnsResponse = await fetch("https://cloudflare-dns.com/dns-query?name=www.fabmisr.com.eg&type=A", { headers: { Accept: "application/dns-json" } });
+      if (!dnsResponse.ok) throw new Error(`DNS-over-HTTPS returned HTTP ${dnsResponse.status}`);
+      const address = selectDnsARecord(await dnsResponse.json() as { Answer?: Array<{ type?: number; data?: string }> });
+      if (!address) throw new Error("DNS-over-HTTPS returned no valid IPv4 A record");
+      return await fetchHttpsViaResolvedIpv4(url, address);
+    } catch (fallbackError) {
+      const directMessage = directError instanceof Error ? directError.message : String(directError);
+      const fallbackMessage = fallbackError instanceof Error ? fallbackError.message : String(fallbackError);
+      throw new Error(`FABMISR direct fetch failed: ${directMessage}; DNS fallback failed: ${fallbackMessage}`);
+    }
+  }
 }
 
 async function fetchAzimutWithHistory(url: string): Promise<globalThis.Response> {
@@ -932,7 +1007,7 @@ async function runCollector(config: CollectorConfig): Promise<RunSummary> {
   const run: RunSummary = {
     runId: crypto.randomUUID(), startedAt: new Date().toISOString(), status: "running",
     source: config.sourceUrl, parser: config.parserName, schedule: config.schedule, fetchedRecords: 0, matchedRecords: 0, matchedFundIds: [], inserted: 0, unchanged: 0,
-    updated: 0, unmatched: [], failed: [],
+    updated: 0, scheduled: 0, unmatched: [], failed: [],
   };
   lastRun = run;
   try {
@@ -957,7 +1032,7 @@ async function runCollector(config: CollectorConfig): Promise<RunSummary> {
     run.unmatched.push(...matching.unmatched);
     for (const { record, fund } of matching.matched) {
       try {
-        const result = await writeSnapshot(record, fund, sourceId, config.sourceUrl, config.parserName);
+        const result = await writeSnapshot(record, fund, sourceId, config.sourceUrl, config.parserName, config.schedule);
         run[result] += 1;
       } catch (error) {
         run.failed.push({ name: record.name, error: error instanceof Error ? error.message : String(error) });
@@ -1039,7 +1114,7 @@ export function runEbankCollector(): Promise<RunSummary> {
 }
 
 export function runFabMisrCollector(): Promise<RunSummary> {
-  return runCollector({ sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true, schedule: "weekly" });
+  return runCollector({ sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, fetcher: fetchFabMisrPage, matchAllFunds: true, schedule: "weekly" });
 }
 export function runNbkCollector(): Promise<RunSummary> {
   return runCombinedCollectors(NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })));
@@ -1114,7 +1189,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: PFI_SOURCE_URL, parserName: PFI_PARSER_NAME, parse: parsePfiFunds, matchAllFunds: true },
     { sourceUrl: NI_CAPITAL_SOURCE_URL, parserName: NI_CAPITAL_PARSER_NAME, parse: parseNiCapitalFunds, matchAllFunds: true },
     { sourceUrl: EBANK_SOURCE_URL, parserName: EBANK_PARSER_NAME, parse: parseEbankMarketUpdates, matchAllFunds: true },
-    { sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, matchAllFunds: true, schedule: "weekly" },
+    { sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, fetcher: fetchFabMisrPage, matchAllFunds: true, schedule: "weekly" },
     { sourceUrl: ABK_SOURCE_URL, parserName: "abk_official_equity_fund_v1", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },

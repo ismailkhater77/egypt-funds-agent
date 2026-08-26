@@ -7,8 +7,8 @@ This report is a **read-only** Supabase audit. “No update source at all” mea
 | Catalog funds | 215 |
 | Funds with no update-source URL at all | 45 |
 | Funds linked to a URL but without a validated snapshot as of 2026-08-26 | 2 |
-| Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 30 |
-| Funds with at least one validated snapshot as of 2026-08-26 | 185 |
+| Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 29 |
+| Funds with at least one validated snapshot as of 2026-08-26 | 186 |
 
 ## A. Funds with no update-source URL at all (45)
 
@@ -69,7 +69,7 @@ These are **not** part of the “no source at all” count. They are included so
 | Bank ABC Fund I | Bank ABC Fund I | https://azimut.eg/funds |
 | Zaldi Star Equity | Zaldi Star Equity | https://zaldi-capital.com/ |
 
-## C. Funds with no validated snapshot as of 2026-08-26 (30)
+## C. Funds with no validated snapshot as of 2026-08-26 (29)
 
 This is the operational priority list. It contains all funds not yet covered by a validated NAV snapshot, whether the catalog currently has a source URL or not.
 
@@ -87,7 +87,6 @@ This is the operational priority list. It contains all funds not yet covered by 
 | Bokra Shakmagia | Bokra Shakmagia | null |
 | Egyptian Arab Land Bank Fund (Al Masry) | Egyptian Arab Land Bank Fund (Al Masry) | null |
 | Egyptian Gulf Bank (Tharaa) | Egyptian Gulf Bank (Tharaa) | null |
-| FAB Misr Fund (Ezdhar) | FAB Misr Fund (Ezdhar) | null |
 | GIG Makaseb Fund First Tranche | GIG Makaseb Fund First Tranche | null |
 | GIG Makaseb Fund Second Tranche | GIG Makaseb Fund Second Tranche | null |
 | Housing & Development Bank (Mawared) | Housing & Development Bank (Mawared) | null |

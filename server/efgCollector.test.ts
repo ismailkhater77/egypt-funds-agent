@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -225,6 +225,15 @@ describe("EFG mutual-fund parser", () => {
     const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>22 August 2026</td></tr><tr><td>Currency (EGP)</td><td>472.6990</td></tr></table>`;
     expect(parseFabMisrEzdehar(html)).toEqual([{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav: 472.699, valuationDate: "2026-08-22", currency: "EGP" }]);
   });
+  it("preserves a future weekly FABMISR source date for scheduled review instead of discarding the official NAV", () => {
+    const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>29 August 2026</td></tr><tr><td>Currency (EGP)</td><td>480.1000</td></tr></table>`;
+    expect(parseFabMisrEzdehar(html)).toEqual([{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav: 480.1, valuationDate: "2026-08-29", currency: "EGP" }]);
+  });
+  it("accepts only valid IPv4 A records for the FABMISR DNS fallback", () => {
+    expect(selectDnsARecord({ Answer: [{ type: 28, data: "2001:db8::1" }, { type: 1, data: "41.33.19.60" }] })).toBe("41.33.19.60");
+    expect(selectDnsARecord({ Answer: [{ type: 1, data: "999.33.19.60" }] })).toBeNull();
+    expect(selectDnsARecord({ Answer: [] })).toBeNull();
+  });
   it("rejects future-dated Azimut API rows while retaining current official NAV rows", () => {
     const payload = JSON.stringify({ response: { funds: { dataList: [
       { name: "az– استحقاق T27 USD", currency: { symbol: "USD" }, last_nav: { nav: 10.50287, date: "2026-08-25" } },
@@ -334,15 +343,78 @@ describe("EFG mutual-fund parser", () => {
     expect(emptyRecordsOutcome()).toBe("error");
   });
 
+  it("excludes scheduled weekly review observations from validated coverage", () => {
+    expect(isCoverageEligibleSnapshot("review", "2026-08-29", "2026-08-26")).toBe(false);
+    expect(isCoverageEligibleSnapshot("validated", "2026-08-29", "2026-08-26")).toBe(false);
+    expect(isCoverageEligibleSnapshot("validated", "2026-08-22", "2026-08-26")).toBe(true);
+  });
+
+  it("excludes persisted scheduled review fixtures from latest-validated selection and source-date duplicate keys", () => {
+    const rows = [
+      { nav: 480.1, currency: "EGP", valuation_date: "2026-08-29", status: "review", source_id: "fab", fund_id: "ezdehar" },
+      { nav: 472.699, currency: "EGP", valuation_date: "2026-08-22", status: "validated", source_id: "fab", fund_id: "ezdehar" },
+    ];
+    expect(selectLatestValidatedSnapshots(rows, "2026-08-26")).toEqual([rows[1]]);
+    expect(rows.filter((row) => isCoverageEligibleSnapshot(row.status, row.valuation_date, "2026-08-26"))).toEqual([rows[1]]);
+    expect(findSameSourceDuplicateGroups(rows)).toEqual([]);
+  });
+
+  it("keeps scheduled weekly review state separate while still flagging a true duplicate within that same state", () => {
+    const scheduled = { fund_id: "ezdehar", source_id: "fab", valuation_date: "2026-08-29", status: "review" };
+    const validated = { fund_id: "ezdehar", source_id: "fab", valuation_date: "2026-08-22", status: "validated" };
+    expect(findSameSourceDuplicateGroups([scheduled, validated])).toEqual([]);
+    expect(findSameSourceDuplicateGroups([scheduled, { ...scheduled }])).toEqual([{ key: "ezdehar|fab|2026-08-29|review", count: 2 }]);
+  });
+
   it("classifies a recognized weekly page with no current valuation as successful no-new-valuation", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => new Response("<div>Ezdehar Fund (NAV)</div>", { status: 200 })));
     await expect(runFabMisrCollector()).resolves.toMatchObject({ status: "success", outcome: "no_new_valuation", schedule: "weekly", fetchedRecords: 0 });
     vi.unstubAllGlobals();
   });
 
+  it("stores a future-dated official weekly NAV as review without promoting it to validated", async () => {
+    const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>29 August 2026</td></tr><tr><td>Currency (EGP)</td><td>480.1000</td></tr></table>`;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/rest/v1/funds?")) return new Response(JSON.stringify([{ fund_id: "fab-ezdehar", canonical_name: "FAB Misr Fund (Ezdhar)", eima_name_raw: null, category: null, price_update_url: "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund" }]), { status: 200 });
+      if (url.includes("/rest/v1/sources?")) return new Response(JSON.stringify([{ source_id: "source-fab" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?")) return new Response(JSON.stringify([]), { status: 200 });
+      if (url.endsWith("/rest/v1/fund_prices") && init?.method === "POST") return new Response(null, { status: 204 });
+      if (url.includes("fabmisr.com.eg")) return new Response(html, { status: 200 });
+      return new Response(JSON.stringify([]), { status: 200 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const summary = await runFabMisrCollector();
+    expect(summary).toMatchObject({ status: "success", fetchedRecords: 1, matchedRecords: 1, inserted: 0, scheduled: 1, failed: [] });
+    const write = fetchMock.mock.calls.find(([input, init]) => String(input).endsWith("/rest/v1/fund_prices") && init?.method === "POST");
+    const payload = JSON.parse(String(write?.[1]?.body));
+    expect(payload).toMatchObject({ valuation_date: "2026-08-29", status: "review", raw_payload: { observation_state: "scheduled_weekly" } });
+    vi.unstubAllGlobals();
+  });
+
+  it("promotes an unchanged weekly review observation to validated after its displayed date becomes current", async () => {
+    const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>22 August 2026</td></tr><tr><td>Currency (EGP)</td><td>472.6990</td></tr></table>`;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/rest/v1/funds?")) return new Response(JSON.stringify([{ fund_id: "fab-ezdehar", canonical_name: "FAB Misr Fund (Ezdhar)", eima_name_raw: null, category: null, price_update_url: "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund" }]), { status: 200 });
+      if (url.includes("/rest/v1/sources?")) return new Response(JSON.stringify([{ source_id: "source-fab" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?") && url.includes("status=eq.validated")) return new Response(JSON.stringify([]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?")) return new Response(JSON.stringify([{ id: "review-fab", nav: 472.699, status: "review" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?id=eq.review-fab") && init?.method === "PATCH") return new Response(null, { status: 204 });
+      if (url.includes("fabmisr.com.eg")) return new Response(html, { status: 200 });
+      return new Response(JSON.stringify([]), { status: 200 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const summary = await runFabMisrCollector();
+    expect(summary).toMatchObject({ status: "success", inserted: 0, updated: 1, scheduled: 0, failed: [] });
+    const promote = fetchMock.mock.calls.find(([input, init]) => String(input).includes("/rest/v1/fund_prices?id=eq.review-fab") && init?.method === "PATCH");
+    expect(JSON.parse(String(promote?.[1]?.body))).toMatchObject({ status: "validated", valuation_date: "2026-08-22" });
+    vi.unstubAllGlobals();
+  });
+
   it("keeps real FABMISR fetch and source-structure failures as errors", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => { throw new Error("DNS unavailable"); }));
-    await expect(runFabMisrCollector()).resolves.toMatchObject({ status: "failed", outcome: "error", fetchError: "DNS unavailable" });
+    await expect(runFabMisrCollector()).resolves.toMatchObject({ status: "failed", outcome: "error", fetchError: expect.stringContaining("DNS unavailable") });
     vi.stubGlobal("fetch", vi.fn(async () => new Response("<html>changed markup</html>", { status: 200 })));
     await expect(runFabMisrCollector()).resolves.toMatchObject({ status: "failed", outcome: "error" });
     vi.unstubAllGlobals();
