@@ -25,3 +25,9 @@ The catalog contains `Al Ahli Bank of Kuwait - Egypt Fund II` managed by Sigma A
 Official URL: https://www.naeemholding.com/asset-management/investment-offerings/our-funds/
 
 Naeem's official funds page identifies NAEEM MISR FUND and shows NAV values of 163.43 and 94.91 with `Last Update` = 31/3/2021. The linked detail URL currently returns Page not found. Because the official evidence is materially stale and no current valuation date is available, Naeem Misr Fund remains Pending Verification.
+
+## Aspire Funds
+
+Official URL: https://aspireholding.com/business/aspire-funds/
+
+The official Aspire Funds page links to first-party PDFs for Rawajj and Waffrah Plus. The PDFs describe the funds and valuation/publication policy, but text extraction did not expose a current NAV with a usable valuation date. Therefore Aspire Waffrah Plus and Aspire Rawajj remain Pending Verification; third-party values were not substituted.
