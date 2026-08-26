@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T05:28:08.512Z",
+  "generatedAt": "2026-08-26T05:45:40.084Z",
   "purpose": "Final pre-deployment multi-provider validation",
   "policy": "Only official provider data is persisted; blocked or unavailable sources are reported and never fabricated.",
   "providers": [
@@ -10,8 +10,8 @@
       "status": "implemented",
       "note": "Official HTML table",
       "run": {
-        "runId": "39738bd9-ea50-425b-849d-f74a284713f7",
-        "startedAt": "2026-08-26T05:26:16.785Z",
+        "runId": "c7105809-f2a9-404c-b044-2de87b1a75bd",
+        "startedAt": "2026-08-26T05:43:44.304Z",
         "status": "success",
         "source": "https://efgholding.com/en/our-services/mutual-funds",
         "parser": "efg_html_table_v1",
@@ -50,7 +50,7 @@
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-26T05:26:28.464Z"
+        "finishedAt": "2026-08-26T05:43:54.614Z"
       }
     },
     {
@@ -60,8 +60,8 @@
       "status": "implemented",
       "note": "Official fund sheet",
       "run": {
-        "runId": "d5350cc3-6fee-4843-ae2f-a2a2f4be45ec",
-        "startedAt": "2026-08-26T05:26:28.464Z",
+        "runId": "3d09eadd-758d-4e4d-a01d-65a8f4b1b6b6",
+        "startedAt": "2026-08-26T05:43:54.614Z",
         "status": "partial",
         "source": "https://www.beltoneholding.com/business-line/asset-management-1",
         "parser": "beltone_fund_sheet_v1",
@@ -105,7 +105,7 @@
           "Beltone Gems Equity Fund- USD"
         ],
         "failed": [],
-        "finishedAt": "2026-08-26T05:26:40.671Z"
+        "finishedAt": "2026-08-26T05:44:07.447Z"
       }
     },
     {
@@ -115,8 +115,8 @@
       "status": "implemented",
       "note": "Official detail pages",
       "run": {
-        "runId": "71623530-ccf8-442e-b2f5-eff144244e25",
-        "startedAt": "2026-08-26T05:26:40.671Z",
+        "runId": "4c072eda-37da-4bdf-8feb-20442aee3fca",
+        "startedAt": "2026-08-26T05:44:07.448Z",
         "status": "success",
         "source": "https://www.afim.com.eg/public/index.php/investment",
         "parser": "afim_detail_pages_v1",
@@ -142,7 +142,7 @@
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-26T05:27:46.787Z"
+        "finishedAt": "2026-08-26T05:45:08.008Z"
       }
     },
     {
@@ -152,8 +152,8 @@
       "status": "implemented",
       "note": "Official fund pages",
       "run": {
-        "runId": "01151b8f-8e2e-4c35-997e-a03ed4429676,77a28608-4b79-4b67-96da-80ec2b07e7ef",
-        "startedAt": "2026-08-26T05:27:46.787Z",
+        "runId": "b034beb3-a3a2-42d6-b9f8-bb8ca1e70d53,aafd3e65-2d12-426d-8a2a-fab8fd0fd26e",
+        "startedAt": "2026-08-26T05:45:08.009Z",
         "status": "success",
         "source": "https://zaldi-capital.com/zaldi-star/",
         "parser": "zaldi_detail_page_v1",
@@ -168,7 +168,7 @@
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-26T05:27:50.485Z"
+        "finishedAt": "2026-08-26T05:45:11.590Z"
       }
     },
     {
@@ -178,8 +178,8 @@
       "status": "implemented",
       "note": "Official API",
       "run": {
-        "runId": "e29efc0f-a9ef-4296-b81e-05f694b3045f",
-        "startedAt": "2026-08-26T05:27:51.229Z",
+        "runId": "51c0feda-e833-4f0d-ae26-46175da4ff30",
+        "startedAt": "2026-08-26T05:45:12.059Z",
         "status": "success",
         "source": "https://azimut.eg/funds",
         "parser": "azimut_fund_api_v1",
@@ -211,7 +211,7 @@
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-26T05:27:59.131Z"
+        "finishedAt": "2026-08-26T05:45:20.737Z"
       }
     },
     {
@@ -221,8 +221,8 @@
       "status": "implemented",
       "note": "Official AJAX listing",
       "run": {
-        "runId": "d00ba3ed-28ae-41e1-b0d7-06b8f5a5c648",
-        "startedAt": "2026-08-26T05:27:59.131Z",
+        "runId": "23b58785-0ea3-434a-a37a-e17d03ee8130",
+        "startedAt": "2026-08-26T05:45:20.737Z",
         "status": "success",
         "source": "https://www.hc-si.com/Service/asset-management#funds",
         "parser": "hc_sponsor_ajax_v1",
@@ -242,7 +242,7 @@
         "updated": 0,
         "unmatched": [],
         "failed": [],
-        "finishedAt": "2026-08-26T05:28:06.082Z"
+        "finishedAt": "2026-08-26T05:45:28.833Z"
       }
     },
     {
@@ -252,8 +252,8 @@
       "status": "blocked",
       "note": "Official host currently fails TLS certificate validation; no alternate verified endpoint",
       "run": {
-        "runId": "ba19953c-b5a6-4895-9851-33dbaea3c2d3",
-        "startedAt": "2026-08-26T05:28:06.082Z",
+        "runId": "22396a7c-c0ce-4d8e-b08b-0f5169a2a03b",
+        "startedAt": "2026-08-26T05:45:28.834Z",
         "status": "failed",
         "source": "https://www.cicapital.com/fundprice/",
         "parser": "ci_capital_fundprice_v1",
@@ -266,28 +266,50 @@
         "unmatched": [],
         "failed": [],
         "fetchError": "fetch failed",
-        "finishedAt": "2026-08-26T05:28:08.512Z"
+        "finishedAt": "2026-08-26T05:45:30.973Z"
       }
     },
     {
       "provider": "Arab African Investment Management (AAIM)",
-      "source": "https://aaim.com.eg/",
-      "parser": null,
-      "status": "unavailable",
-      "note": "No official public NAV table or API was verified; collector does not fabricate prices",
+      "source": "https://aaim.com.eg/en/what-we-offer/funds",
+      "parser": "aaim_fund_cards_v1",
+      "status": "implemented",
+      "note": "Official fund cards",
       "run": {
-        "status": "unavailable",
-        "fetchedRecords": 0,
+        "runId": "fd76f710-8e9b-4031-8da4-2414fdfc89a6",
+        "startedAt": "2026-08-26T05:45:30.974Z",
+        "status": "success",
+        "source": "https://aaim.com.eg/ar/what-we-offer/funds",
+        "parser": "aaim_fund_cards_v1",
+        "fetchedRecords": 19,
+        "matchedRecords": 19,
+        "matchedFundIds": [
+          "fund_4924d1368f6343dc",
+          "fund_17c89daa3d4a1923",
+          "fund_0b5432fffbaa9c8c",
+          "fund_05a1f20e1c5b16d1",
+          "fund_6c6c8859d82febfc",
+          "fund_a61e15ee9305ebc6",
+          "fund_62ec8b7e2c9716ff",
+          "fund_c722efc8d8e6f31a",
+          "fund_a9311525e8341ee9",
+          "fund_4d3e4c02b52413fb",
+          "fund_e89bbc9d85ecf407",
+          "fund_8e638aeb2853a1a5",
+          "fund_585e5ab0b900073b",
+          "fund_291a3c879cd82808",
+          "fund_902d8a9ccc91c398",
+          "fund_18c27c04454a5e14",
+          "fund_81ea87492cdbab5e",
+          "fund_aaim_2a52e400c4e3abea",
+          "fund_aaim_214b485f7a0bda30"
+        ],
         "inserted": 0,
-        "unchanged": 0,
+        "unchanged": 19,
         "updated": 0,
         "unmatched": [],
-        "failed": [
-          {
-            "name": "Arab African Investment Management (AAIM)",
-            "error": "No official public NAV table or API was verified; collector does not fabricate prices"
-          }
-        ]
+        "failed": [],
+        "finishedAt": "2026-08-26T05:45:40.083Z"
       }
     }
   ]

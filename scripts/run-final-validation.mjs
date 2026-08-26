@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import {
   getProviderSupportReport,
   runAfimCollector,
+  runAaimCollector,
   runAzimutCollector,
   runBeltoneCollector,
   runCiCollector,
@@ -17,6 +18,7 @@ const runners = {
   AFIM: runAfimCollector,
   Zaldi: runZaldiCollector,
   Azimut: runAzimutCollector,
+  "Arab African Investment Management (AAIM)": runAaimCollector,
   "HC Securities": runHcCollector,
   "CI Capital": runCiCollector,
 };

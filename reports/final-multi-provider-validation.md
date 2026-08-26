@@ -1,6 +1,6 @@
 # Final Multi-Provider Validation
 
-Generated: 2026-08-26T05:28:08.512Z
+Generated: 2026-08-26T05:45:40.084Z
 
 | Provider | Support | Run status | Fetched | Inserted | Unchanged | Updated | Unmatched | Failed / reason |
 |---|---|---:|---:|---:|---:|---:|---:|---|
@@ -11,7 +11,7 @@ Generated: 2026-08-26T05:28:08.512Z
 | Azimut | implemented | success | 19 | 0 | 19 | 0 | 0 | — |
 | HC Securities | implemented | success | 7 | 0 | 7 | 0 | 0 | — |
 | CI Capital | blocked | failed | 0 | 0 | 0 | 0 | 0 | fetch failed |
-| Arab African Investment Management (AAIM) | unavailable | unavailable | 0 | 0 | 0 | 0 | 0 | No official public NAV table or API was verified; collector does not fabricate prices |
+| Arab African Investment Management (AAIM) | implemented | success | 19 | 0 | 19 | 0 | 0 | — |
 
 ## Unmatched records
 
