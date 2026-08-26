@@ -20,9 +20,18 @@ const AAIM_FETCH_URL = "https://aaim.com.eg/en/what-we-offer/funds";
 const MUBASHER_SOURCE_URL = "https://mubasherfunds.info/";
 const SCB_SOURCE_URL = "https://scbank.com.eg/Ar/Fund_Rates.aspx";
 const FAISAL_SOURCE_URL = "https://www.faisalbank.com.eg/ar/Retail/Mutual-Funds";
+const PFI_SOURCE_URL = "https://pfi-am.com.eg/funds/";
+const NBK_SOURCE_URLS = [
+  "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/ishraq.html",
+  "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/namaa.html",
+  "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/al-hayah.html",
+  "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/mizan.html",
+] as const;
 const MUBASHER_PARSER_NAME = "mubasher_funds_daily_articles_v1";
 const SCB_PARSER_NAME = "suez_canal_bank_fund_rates_v1";
 const FAISAL_PARSER_NAME = "faisal_bank_mutual_funds_cards_v1";
+const NBK_PARSER_NAME = "nbk_official_fund_detail_v1";
+const PFI_PARSER_NAME = "pfi_official_funds_v1";
 const EFG_PARSER_NAME = "efg_html_table_v1";
 const CI_PARSER_NAME = "ci_capital_fundprice_v1";
 const AFIM_PARSER_NAME = "afim_detail_pages_v1";
@@ -125,6 +134,32 @@ export function parseFaisalMutualFunds(html: string): EfgRecord[] {
     records.push({ name, rawName: name, nav, valuationDate: (match[3] ?? "").replace(/\//g, "-"), currency: "EGP" });
   }
   return records;
+}
+
+export function parsePfiFunds(html: string): EfgRecord[] {
+  const text = stripTags(html);
+  const fundNames = ["GIG Money Market Fund", "GIG Equity Fund", "Mawared Money Market Fund", "PFI Cashi Money Market Fund"];
+  const records: EfgRecord[] = [];
+  for (const name of fundNames) {
+    const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const match = text.match(new RegExp(`${escaped}.*?NAV Per Certificate\\s+([0-9.,]+)\\s+(\\d{2})-(\\d{2})-(\\d{4})`, "i"));
+    if (!match) continue;
+    const nav = parseLocalizedNumber(match[1]);
+    const valuationDate = `${match[4]}-${match[3]}-${match[2]}`;
+    if (!Number.isFinite(nav) || nav < 0 || valuationDate > new Date().toISOString().slice(0, 10)) continue;
+    records.push({ name, rawName: name, nav, valuationDate, currency: "EGP" });
+  }
+  return records;
+}
+
+export function parseNbkFundPage(html: string): EfgRecord[] {
+  const title = html.match(/<h1[^>]*>\s*(Ishraq|Namaa|Al-Hayah|Al-Mizan)\s*<\/h1>/i)?.[1];
+  const text = stripTags(html);
+  const priceMatch = text.match(/EGP\s*([0-9.,]+)\s+(\d{2}\/\d{2}\/\d{4})/i);
+  if (!title || !priceMatch) return [];
+  const nav = parseLocalizedNumber(priceMatch[1]);
+  if (!Number.isFinite(nav) || nav < 0) return [];
+  return [{ name: title, rawName: title, nav, valuationDate: parseDate(priceMatch[2]), currency: "EGP" }];
 }
 
 export function parseEfgMutualFunds(html: string): EfgRecord[] {
@@ -410,6 +445,14 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "صندوق استثمار السويس اليومى": "suez canal bank al suez al youmi",
     "صندوق أمان ذو العائد التراكمى": "fibe & cib aman",
     "صندوق إستثمار بنك فيصل الإسلامى المصرى ذو العائد الدورى": "faisal islamic bank of egypt fund",
+    "ishraq": "national bank of kuwait fund ishraq",
+    "namaa": "national bank of kuwait fund namaa",
+    "al hayah": "national bank of kuwait hayat",
+    "al mizan": "*national bank of kuwait al mizan",
+    "gig money market fund": "gig insurance",
+    "gig equity fund": "gig insurance egypt fund i",
+    "mawared money market fund": "housing development bank mawared",
+    "pfi cashi money market fund": "pfi cashi",
   };
   for (const fund of funds) {
     byName.set(normalize(fund.canonical_name), fund);
@@ -603,6 +646,12 @@ export function runScbCollector(): Promise<RunSummary> {
 export function runFaisalCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: FAISAL_SOURCE_URL, parserName: FAISAL_PARSER_NAME, parse: parseFaisalMutualFunds, matchAllFunds: true });
 }
+export function runPfiCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: PFI_SOURCE_URL, parserName: PFI_PARSER_NAME, parse: parsePfiFunds, matchAllFunds: true });
+}
+export function runNbkCollector(): Promise<RunSummary> {
+  return runCombinedCollectors(NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })));
+}
 
 export function runZaldiCollector(): Promise<RunSummary> {
   return runCombinedCollectors([
@@ -624,6 +673,8 @@ export function getProviderSupportReport() {
     { provider: "Mubasher Funds", source: MUBASHER_SOURCE_URL, parser: MUBASHER_PARSER_NAME, status: "implemented" as const, note: "Affiliated/publication daily tables; primary manager ownership not independently verified" },
     { provider: "Suez Canal Bank", source: SCB_SOURCE_URL, parser: SCB_PARSER_NAME, status: "implemented" as const, note: "Official bank page with four NAV cards and valuation dates" },
     { provider: "Faisal Islamic Bank Egypt", source: FAISAL_SOURCE_URL, parser: FAISAL_PARSER_NAME, status: "implemented" as const, note: "Official bank page with two mutual-fund cards and valuation dates" },
+    { provider: "National Bank of Kuwait Egypt", source: NBK_SOURCE_URLS.join(", "), parser: NBK_PARSER_NAME, status: "implemented" as const, note: "Official detail pages for Ishraq, Namaa, Al-Hayah, and Al-Mizan" },
+    { provider: "PFI Asset Management", source: PFI_SOURCE_URL, parser: PFI_PARSER_NAME, status: "implemented" as const, note: "Official funds page; future-dated rows are rejected" },
   ];
 }
 
@@ -644,6 +695,8 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: MUBASHER_SOURCE_URL, parserName: MUBASHER_PARSER_NAME, parse: parseMubasherFunds },
     { sourceUrl: SCB_SOURCE_URL, parserName: SCB_PARSER_NAME, parse: parseScbFundRates, matchAllFunds: true },
     { sourceUrl: FAISAL_SOURCE_URL, parserName: FAISAL_PARSER_NAME, parse: parseFaisalMutualFunds, matchAllFunds: true },
+    ...NBK_SOURCE_URLS.map(sourceUrl => ({ sourceUrl, parserName: NBK_PARSER_NAME, parse: parseNbkFundPage, matchAllFunds: true })),
+    { sourceUrl: PFI_SOURCE_URL, parserName: PFI_PARSER_NAME, parse: parsePfiFunds, matchAllFunds: true },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
   ]).then(summary => {

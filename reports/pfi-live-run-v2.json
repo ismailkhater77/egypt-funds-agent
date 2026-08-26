@@ -1,0 +1,18 @@
+[OAuth] Initialized with baseURL: https://api.manus.im
+{
+  "runId": "198e9d01-43c4-4e03-8d1d-bab52e4d5178",
+  "startedAt": "2026-08-26T15:07:54.300Z",
+  "status": "failed",
+  "source": "https://pfi-am.com.eg/funds/",
+  "parser": "pfi_official_funds_v1",
+  "fetchedRecords": 1,
+  "matchedRecords": 0,
+  "matchedFundIds": [],
+  "inserted": 0,
+  "unchanged": 0,
+  "updated": 0,
+  "unmatched": [],
+  "failed": [],
+  "fetchError": "EFG source is not present in Supabase sources table",
+  "finishedAt": "2026-08-26T15:08:12.931Z"
+}

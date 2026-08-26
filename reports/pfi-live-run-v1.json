@@ -1,0 +1,18 @@
+[OAuth] Initialized with baseURL: https://api.manus.im
+{
+  "runId": "91a2b654-812d-42d5-817d-d27c87102204",
+  "startedAt": "2026-08-26T15:06:15.067Z",
+  "status": "failed",
+  "source": "https://pfi-am.com.eg/funds/",
+  "parser": "pfi_official_funds_v1",
+  "fetchedRecords": 0,
+  "matchedRecords": 0,
+  "matchedFundIds": [],
+  "inserted": 0,
+  "unchanged": 0,
+  "updated": 0,
+  "unmatched": [],
+  "failed": [],
+  "fetchError": "EFG parser found no validated mutual-fund rows",
+  "finishedAt": "2026-08-26T15:06:31.510Z"
+}

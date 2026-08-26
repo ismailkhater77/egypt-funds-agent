@@ -1,0 +1,56 @@
+[
+  {
+    "source_id": "src_scb_fund_rates",
+    "source_name": "Suez Canal Bank Fund Rates",
+    "source_url": "https://scbank.com.eg/Ar/Fund_Rates.aspx",
+    "source_kind": "official_bank_fund_rates",
+    "active": true,
+    "created_at": "2026-08-26T14:39:49.531394+00:00",
+    "updated_at": "2026-08-26T14:39:49.531394+00:00"
+  },
+  {
+    "source_id": "src_faisal_mutual_funds",
+    "source_name": "Faisal Islamic Bank Mutual Funds",
+    "source_url": "https://www.faisalbank.com.eg/ar/Retail/Mutual-Funds",
+    "source_kind": "official_bank_fund_rates",
+    "active": true,
+    "created_at": "2026-08-26T14:39:49.531394+00:00",
+    "updated_at": "2026-08-26T14:39:49.531394+00:00"
+  },
+  {
+    "source_id": "src_nbk_ishraq",
+    "source_name": "NBK Egypt Ishraq Fund",
+    "source_url": "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/ishraq.html",
+    "source_kind": "official_bank_fund_rates",
+    "active": true,
+    "created_at": "2026-08-26T15:01:13.063922+00:00",
+    "updated_at": "2026-08-26T15:01:13.063922+00:00"
+  },
+  {
+    "source_id": "src_nbk_namaa",
+    "source_name": "NBK Egypt Namaa Fund",
+    "source_url": "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/namaa.html",
+    "source_kind": "official_bank_fund_rates",
+    "active": true,
+    "created_at": "2026-08-26T15:01:13.063922+00:00",
+    "updated_at": "2026-08-26T15:01:13.063922+00:00"
+  },
+  {
+    "source_id": "src_nbk_al_hayah",
+    "source_name": "NBK Egypt Al-Hayah Fund",
+    "source_url": "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/al-hayah.html",
+    "source_kind": "official_bank_fund_rates",
+    "active": true,
+    "created_at": "2026-08-26T15:01:13.063922+00:00",
+    "updated_at": "2026-08-26T15:01:13.063922+00:00"
+  },
+  {
+    "source_id": "src_nbk_mizan",
+    "source_name": "NBK Egypt Al-Mizan Fund",
+    "source_url": "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/mizan.html",
+    "source_kind": "official_bank_fund_rates",
+    "active": true,
+    "created_at": "2026-08-26T15:01:13.063922+00:00",
+    "updated_at": "2026-08-26T15:01:13.063922+00:00"
+  }
+]

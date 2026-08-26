@@ -1,0 +1,19 @@
+[OAuth] Initialized with baseURL: https://api.manus.im
+{
+  "runId": "5eaca770-e000-4016-ac0a-348ce18db740",
+  "startedAt": "2026-08-26T15:10:44.165Z",
+  "status": "success",
+  "source": "https://pfi-am.com.eg/funds/",
+  "parser": "pfi_official_funds_v1",
+  "fetchedRecords": 1,
+  "matchedRecords": 1,
+  "matchedFundIds": [
+    "fund_catalog_cb37d8a8ab14a079"
+  ],
+  "inserted": 0,
+  "unchanged": 1,
+  "updated": 0,
+  "unmatched": [],
+  "failed": [],
+  "finishedAt": "2026-08-26T15:11:03.544Z"
+}

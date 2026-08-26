@@ -1,0 +1,23 @@
+[OAuth] Initialized with baseURL: https://api.manus.im
+{
+  "runId": "5fe15263-f5c1-4c21-b9a6-a6c39d8ffd17,71cfd09c-3af1-42e5-9c08-1e3380b66242,5ab61d68-36c0-475b-a3ea-a81079957033,edd26451-eb37-4699-8a19-094a3f272f06",
+  "startedAt": "2026-08-26T15:01:15.273Z",
+  "status": "partial",
+  "source": "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/ishraq.html",
+  "parser": "nbk_official_fund_detail_v1",
+  "fetchedRecords": 4,
+  "matchedRecords": 3,
+  "matchedFundIds": [
+    "fund_catalog_e4c9c101a3374b3d",
+    "fund_catalog_fbdb62734b9d2bc8",
+    "fund_catalog_27773e8d07295e89"
+  ],
+  "inserted": 3,
+  "unchanged": 0,
+  "updated": 0,
+  "unmatched": [
+    "Al-Mizan"
+  ],
+  "failed": [],
+  "finishedAt": "2026-08-26T15:01:23.326Z"
+}

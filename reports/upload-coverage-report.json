@@ -3,10 +3,10 @@
   "sheet": "Sheet1",
   "file_fund_count": 198,
   "database_fund_count": 215,
-  "database_price_row_count": 201,
+  "database_price_row_count": 206,
   "matched_to_database_count": 198,
-  "covered_with_validated_price_count": 145,
-  "not_covered_count": 53,
+  "covered_with_validated_price_count": 150,
+  "not_covered_count": 48,
   "exact_or_confident_match_count": 198,
   "unmatched_or_ambiguous_count": 0,
   "covered": [
@@ -50,6 +50,27 @@
         "status": "validated",
         "source_id": "src_97d34f55d3f43656",
         "collected_at": "2026-08-25T19:30:53.080102+00:00"
+      }
+    },
+    {
+      "row": 4,
+      "file_name": "GIG Insurance - Egypt Fund I",
+      "company": "*PFI Asset Management",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_cb37d8a8ab14a079",
+      "db_name": "GIG Insurance - Egypt Fund I",
+      "db_raw_name": "GIG Insurance - Egypt Fund I",
+      "db_company": "*PFI Asset Management",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_cb37d8a8ab14a079",
+        "nav": 1387.99,
+        "currency": "EGP",
+        "valuation_date": "2026-08-26",
+        "status": "validated",
+        "source_id": "src_pfi_funds",
+        "collected_at": "2026-08-26T15:08:55.361933+00:00"
       }
     },
     {
@@ -368,6 +389,27 @@
       }
     },
     {
+      "row": 26,
+      "file_name": "National Bank of Kuwait Fund (Namaa)",
+      "company": "NBK Capital Asset Management Egypt",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_fbdb62734b9d2bc8",
+      "db_name": "National Bank of Kuwait Fund (Namaa)",
+      "db_raw_name": "National Bank of Kuwait Fund (Namaa)",
+      "db_company": "NBK Capital Asset Management Egypt",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_fbdb62734b9d2bc8",
+        "nav": 82.61618,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_nbk_namaa",
+        "collected_at": "2026-08-26T15:01:22.330098+00:00"
+      }
+    },
+    {
       "row": 27,
       "file_name": "AZ Foras",
       "company": "Azimut Egypt Asset Management",
@@ -683,6 +725,27 @@
       }
     },
     {
+      "row": 46,
+      "file_name": "National Bank of Kuwait (Hayat)",
+      "company": "NBK Capital Asset Management Egypt",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_27773e8d07295e89",
+      "db_name": "National Bank of Kuwait (Hayat)",
+      "db_raw_name": "National Bank of Kuwait (Hayat)",
+      "db_company": "NBK Capital Asset Management Egypt",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_27773e8d07295e89",
+        "nav": 95.38395,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_nbk_al_hayah",
+        "collected_at": "2026-08-26T15:01:22.454163+00:00"
+      }
+    },
+    {
       "row": 47,
       "file_name": "Bank Nxt Fund II (Helal)",
       "company": "Hermes Portfolio and Fund Management",
@@ -995,6 +1058,27 @@
         "status": "validated",
         "source_id": "src_7208153dbe9de70c",
         "collected_at": "2026-08-25T20:00:48.254803+00:00"
+      }
+    },
+    {
+      "row": 67,
+      "file_name": "National Bank of Kuwait Fund (Ishraq)",
+      "company": "NBK Capital Asset Management Egypt",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_e4c9c101a3374b3d",
+      "db_name": "National Bank of Kuwait Fund (Ishraq)",
+      "db_raw_name": "National Bank of Kuwait Fund (Ishraq)",
+      "db_company": "NBK Capital Asset Management Egypt",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_e4c9c101a3374b3d",
+        "nav": 69.92017,
+        "currency": "EGP",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "source_id": "src_nbk_ishraq",
+        "collected_at": "2026-08-26T15:01:22.10145+00:00"
       }
     },
     {
@@ -2069,6 +2153,27 @@
       }
     },
     {
+      "row": 139,
+      "file_name": "*National Bank of Kuwait (Al Mizan)",
+      "company": "NBK Capital Asset Management Egypt",
+      "match_type": "exact",
+      "fund_id": "fund_catalog_a54635b361da0832",
+      "db_name": "*National Bank of Kuwait (Al Mizan)",
+      "db_raw_name": "*National Bank of Kuwait (Al Mizan)",
+      "db_company": "NBK Capital Asset Management Egypt",
+      "price_update_url": null,
+      "has_price": true,
+      "latest_price": {
+        "fund_id": "fund_catalog_a54635b361da0832",
+        "nav": 12.87255,
+        "currency": "EGP",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "source_id": "src_nbk_mizan",
+        "collected_at": "2026-08-26T15:02:10.024911+00:00"
+      }
+    },
+    {
       "row": 140,
       "file_name": "Agricultural Bank of Egypt Fund (Al Massy)",
       "company": "Hermes Portfolio and Fund Management",
@@ -3058,19 +3163,6 @@
   ],
   "not_covered": [
     {
-      "row": 4,
-      "file_name": "GIG Insurance - Egypt Fund I",
-      "company": "*PFI Asset Management",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_cb37d8a8ab14a079",
-      "db_name": "GIG Insurance - Egypt Fund I",
-      "db_raw_name": "GIG Insurance - Egypt Fund I",
-      "db_company": "*PFI Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
       "row": 8,
       "file_name": "Ebank Fund (El Khabeer)",
       "company": "Azimut Egypt Asset Management",
@@ -3149,19 +3241,6 @@
       "latest_price": null
     },
     {
-      "row": 26,
-      "file_name": "National Bank of Kuwait Fund (Namaa)",
-      "company": "NBK Capital Asset Management Egypt",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_fbdb62734b9d2bc8",
-      "db_name": "National Bank of Kuwait Fund (Namaa)",
-      "db_raw_name": "National Bank of Kuwait Fund (Namaa)",
-      "db_company": "NBK Capital Asset Management Egypt",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
       "row": 28,
       "file_name": "NI Capital (Sahmy Fund)",
       "company": "NI Capital",
@@ -3209,19 +3288,6 @@
       "db_name": "Aspire Waffrah Plus",
       "db_raw_name": "Aspire Waffrah Plus",
       "db_company": "Amwal for Financial Investments",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 46,
-      "file_name": "National Bank of Kuwait (Hayat)",
-      "company": "NBK Capital Asset Management Egypt",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_27773e8d07295e89",
-      "db_name": "National Bank of Kuwait (Hayat)",
-      "db_raw_name": "National Bank of Kuwait (Hayat)",
-      "db_company": "NBK Capital Asset Management Egypt",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null
@@ -3287,19 +3353,6 @@
       "db_name": "Blom Bank Fund II",
       "db_raw_name": "Blom Bank Fund II",
       "db_company": "CFH Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 67,
-      "file_name": "National Bank of Kuwait Fund (Ishraq)",
-      "company": "NBK Capital Asset Management Egypt",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_e4c9c101a3374b3d",
-      "db_name": "National Bank of Kuwait Fund (Ishraq)",
-      "db_raw_name": "National Bank of Kuwait Fund (Ishraq)",
-      "db_company": "NBK Capital Asset Management Egypt",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null
@@ -3560,19 +3613,6 @@
       "db_name": "Target First Fund",
       "db_raw_name": "Target First Fund",
       "db_company": "Target Asset Management",
-      "price_update_url": null,
-      "has_price": false,
-      "latest_price": null
-    },
-    {
-      "row": 139,
-      "file_name": "*National Bank of Kuwait (Al Mizan)",
-      "company": "NBK Capital Asset Management Egypt",
-      "match_type": "exact",
-      "fund_id": "fund_catalog_a54635b361da0832",
-      "db_name": "*National Bank of Kuwait (Al Mizan)",
-      "db_raw_name": "*National Bank of Kuwait (Al Mizan)",
-      "db_company": "NBK Capital Asset Management Egypt",
       "price_update_url": null,
       "has_price": false,
       "latest_price": null

@@ -8,7 +8,7 @@
 - [ ] Add daily scheduled callback after the expected EFG publication window
 - [x] Add unit tests for parsing, matching, idempotency, and run summaries
 - [ ] Verify the manual run and scheduled callback in the deployed environment
-- [ ] Rotate the Supabase secret key that was exposed in chat before configuring the collector
+- [x] Rotate the Supabase secret key that was exposed in chat before configuring the collector
 - [ ] Confirm the compromised Supabase secret was revoked and document that only the replacement key is active
 - [x] Add Vitest coverage for fund-name matching, idempotent unchanged writes, and run-summary counters
 - [x] Implement and validate CI Capital fund-price parser for all mapped CI records
@@ -42,3 +42,7 @@
 - [x] Produce a final SCB/Faisal validation report with aliases and matched fund IDs
 - [x] Run strict cross-field duplicate audit using canonical_name and eima_name_raw with exact and normalized keys, and save an artifact
 - [x] Add an explicit SCB/Faisal alias mapping table to the final validation report
+- [x] Re-freeze the current 53 uncovered workbook funds and classify each by provider/manager before source discovery
+- [ ] Research official NAV sources for the uncovered bank, asset-manager, and independent-fund groups in priority order
+- [ ] Add only verified source mappings/parsers and preserve explicit pending status where no reliable source exists
+- [ ] Re-run all collectors and refresh workbook coverage after each completed source group

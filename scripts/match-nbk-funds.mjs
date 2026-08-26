@@ -1,0 +1,10 @@
+const baseUrl = process.env.SUPABASE_URL;
+const secret = process.env.SUPABASE_SERVICE_ROLE_KEY;
+if (!baseUrl || !secret) throw new Error('Supabase server configuration is missing');
+const headers = { apikey: secret, Authorization: `Bearer ${secret}` };
+const response = await fetch(`${baseUrl}/rest/v1/funds?select=fund_id,canonical_name,eima_name_raw,management_company_raw,source_id,price_update_url&limit=1000`, { headers });
+if (!response.ok) throw new Error(`Supabase ${response.status}: ${(await response.text()).slice(0, 500)}`);
+const rows = await response.json();
+const terms = ['Ishraq', 'Namaa', 'Hayat', 'Hayah', 'Mizan', 'Mizan'];
+const matches = rows.filter(row => terms.some(term => `${row.canonical_name} ${row.eima_name_raw ?? ''} ${row.management_company_raw ?? ''}`.toLowerCase().includes(term.toLowerCase())));
+console.log(JSON.stringify(matches, null, 2));

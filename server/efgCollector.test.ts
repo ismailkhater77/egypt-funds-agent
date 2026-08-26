@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherFunds, parseScbFundRates, tallyWriteResult } from "./efgCollector";
+import { collectorStatus, matchEfgRecords, normalize, parseAfimFunds, parseBeltoneFunds, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherFunds, parseNbkFundPage, parsePfiFunds, parseScbFundRates, tallyWriteResult } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts a validated fund snapshot from the EFG data payload", () => {
@@ -78,6 +78,20 @@ describe("EFG mutual-fund parser", () => {
       { name: "صندوق أمان ذو العائد التراكمى", rawName: "صندوق أمان ذو العائد التراكمى", nav: 525.63, valuationDate: "2026-08-25", currency: "EGP" },
       { name: "صندوق إستثمار بنك فيصل الإسلامى المصرى ذو العائد الدورى", rawName: "صندوق إستثمار بنك فيصل الإسلامى المصرى ذو العائد الدورى", nav: 581.67, valuationDate: "2026-08-23", currency: "EGP" },
     ]);
+  });
+
+  it("extracts PFI funds and rejects future-dated rows", () => {
+    const html = `<h2>GIG Equity Fund</h2><div>About NAV Per Certificate 1,387.99 26-08-2026</div><h2>GIG Money Market Fund</h2><div>About NAV Per Certificate 18.9972 29-08-2026</div>`;
+    expect(parsePfiFunds(html)).toEqual([{
+      name: "GIG Equity Fund", rawName: "GIG Equity Fund", nav: 1387.99, valuationDate: "2026-08-26", currency: "EGP",
+    }]);
+  });
+
+  it("extracts an official NBK detail-page NAV and closing date", () => {
+    const html = `<h1>Ishraq</h1><table><tr><th>Pricing</th><th>Closing date</th></tr><tr><td>EGP 69.92017</td><td>25/08/2026</td></tr></table><p>Ishraq Fund Unit Price</p>`;
+    expect(parseNbkFundPage(html)).toEqual([{
+      name: "Ishraq", rawName: "Ishraq", nav: 69.92017, valuationDate: "2026-08-25", currency: "EGP",
+    }]);
   });
 
   it("returns no rows for unrelated markup", () => {
