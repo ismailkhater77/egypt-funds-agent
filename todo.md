@@ -88,3 +88,6 @@
 - [x] Reject future-dated Azimut NAV rows and add a regression test before accepting official API records
 - [x] Quarantine previously stored future-dated Azimut snapshots as rejected without deleting audit history, then verify coverage excludes them (metadata quarantine; DB status constraint remains validated-only)
 - [x] Exclude future-dated validated snapshots from workbook coverage calculations and document the as-of date
+- [x] Classify the 22 duplicate fund/date price groups by source and NAV, then flag only same-source duplicates as integrity violations
+- [x] Produce a duplicate-price audit artifact and preserve legitimate multi-source snapshots without deleting data blindly
+- [x] Remove the ambiguous Mubasher alias mapping for Delta Life cash fund and document the existing conflicting snapshot as pending identity review

@@ -565,7 +565,6 @@ export function matchEfgRecords(records: EfgRecord[], funds: FundRow[]) {
     "تميز": "tamayoz - afim",
     "إسكان للتأمين (كل يوم)": "iskan insurance",
     "مصر اليومي": "ciam - misr al youmy",
-    "الدلتا لتأمينات الحياة النقدى": "delta life insurance",
     "الفنار": "fanar",
     "أودن الرابع": "odin 4",
     "زالدي ستار": "zaldi star",

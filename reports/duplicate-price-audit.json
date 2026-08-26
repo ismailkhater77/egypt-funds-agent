@@ -1,0 +1,1140 @@
+{
+  "fund_count": 215,
+  "price_count": 310,
+  "duplicate_canonical_name_groups": {},
+  "duplicate_normalized_name_groups": {},
+  "duplicate_price_snapshot_groups": {
+    "fund_44166931f38ee123|2026-08-23": [
+      {
+        "id": "7b1251b1-f65e-45a0-bd29-3dfc1b23867e",
+        "fund_id": "fund_44166931f38ee123",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "nav": 581.67,
+        "source_id": "src_97d34f55d3f43656",
+        "parser_name": "efg_html_table_v1"
+      },
+      {
+        "id": "0ce80096-d305-4f28-bb50-60920a55dd64",
+        "fund_id": "fund_44166931f38ee123",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "nav": 581.67,
+        "source_id": "src_faisal_mutual_funds",
+        "parser_name": "faisal_bank_mutual_funds_cards_v1"
+      }
+    ],
+    "fund_69768837ab21ae45|2026-08-25": [
+      {
+        "id": "09a92254-31c0-4bd9-9983-5969720fd13c",
+        "fund_id": "fund_69768837ab21ae45",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 25.2991,
+        "source_id": "src_15c015b322d90eec",
+        "parser_name": "azimut_fund_api_v1"
+      },
+      {
+        "id": "d09ce31c-c73c-4083-8b4a-7e3f3f18a8d4",
+        "fund_id": "fund_69768837ab21ae45",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 25.2991,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "e77cd5f6-fbe8-454e-9872-bfd1b06df92d",
+        "fund_id": "fund_69768837ab21ae45",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 25.2991,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "10c7ee19-5bc0-4cf5-bfa6-98b80d607cbb",
+        "fund_id": "fund_69768837ab21ae45",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 25.2991,
+        "source_id": "src_mubasher_daily_islamic_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_6293926e9cfd4869|2026-08-25": [
+      {
+        "id": "f5d2f60b-af5f-47d8-b95f-fcf088524870",
+        "fund_id": "fund_6293926e9cfd4869",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 52.42922,
+        "source_id": "src_15c015b322d90eec",
+        "parser_name": "azimut_fund_api_v1"
+      },
+      {
+        "id": "7c24db9b-9ac7-4cec-87b8-4065aa3b35ff",
+        "fund_id": "fund_6293926e9cfd4869",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 52.42922,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "c672846d-437c-4bb6-a4ae-edfe1dff965b",
+        "fund_id": "fund_6293926e9cfd4869",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 52.42922,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_472ddcd8c94d7ed3|2026-08-20": [
+      {
+        "id": "e72228f0-4ef0-4365-a829-9d513cb42854",
+        "fund_id": "fund_472ddcd8c94d7ed3",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "nav": 2043.56,
+        "source_id": "src_6f46003eeee91384",
+        "parser_name": "hc_sponsor_ajax_v1"
+      },
+      {
+        "id": "3e3a2d80-d31b-45e8-b8ea-a1d53c6672d1",
+        "fund_id": "fund_472ddcd8c94d7ed3",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "nav": 2043.56,
+        "source_id": "src_scb_fund_rates",
+        "parser_name": "suez_canal_bank_fund_rates_v1"
+      }
+    ],
+    "fund_0b5432fffbaa9c8c|2026-08-25": [
+      {
+        "id": "9c7a254a-3563-4c85-8d7e-3110d258d238",
+        "fund_id": "fund_0b5432fffbaa9c8c",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 19.74624,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "ca2571fc-a1cb-49ff-bf0c-997863d4cdde",
+        "fund_id": "fund_0b5432fffbaa9c8c",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 19.74624,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_c722efc8d8e6f31a|2026-08-25": [
+      {
+        "id": "28dc4237-8b01-4cab-95c6-c5ce8fb82049",
+        "fund_id": "fund_c722efc8d8e6f31a",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 221.8695,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "ac3b0579-a0a0-4ee7-a709-f66f0b3accc5",
+        "fund_id": "fund_c722efc8d8e6f31a",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 221.8695,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "b493d97d-6b13-4e6c-a8e9-255aeaf5632f",
+        "fund_id": "fund_c722efc8d8e6f31a",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 221.8695,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "17d1d82e-6883-41aa-8a87-aefb64874d3f",
+        "fund_id": "fund_c722efc8d8e6f31a",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 221.8695,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_4d3e4c02b52413fb|2026-08-25": [
+      {
+        "id": "154758a1-232b-4613-bd52-9fd1cc1ff4ea",
+        "fund_id": "fund_4d3e4c02b52413fb",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 212.86535,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "a6cae242-47ad-41d9-a229-2f1b16e43a7c",
+        "fund_id": "fund_4d3e4c02b52413fb",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 212.86535,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_e89bbc9d85ecf407|2026-08-25": [
+      {
+        "id": "4a6a0583-e17b-4a2b-8faf-3df4926da096",
+        "fund_id": "fund_e89bbc9d85ecf407",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 175.30857,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "073a9cb8-87fc-42c1-9e80-cf101596bc39",
+        "fund_id": "fund_e89bbc9d85ecf407",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 175.30857,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_291a3c879cd82808|2026-08-25": [
+      {
+        "id": "a13d77fc-a390-44a7-96d9-b5abb0b70c09",
+        "fund_id": "fund_291a3c879cd82808",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 181.07,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "b3489f9d-2e70-457c-9c2b-9af94d082bc7",
+        "fund_id": "fund_291a3c879cd82808",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 181.07,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "34775bbe-81ba-4263-a405-c2721e6fa489",
+        "fund_id": "fund_291a3c879cd82808",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 181.07,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_catalog_8f87165f1dc5f1b3|2026-08-25": [
+      {
+        "id": "94a8a036-36d7-46bc-93b6-341d69c1d150",
+        "fund_id": "fund_catalog_8f87165f1dc5f1b3",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 2.0182,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "2763e8ae-66e5-4851-8788-59dbd35c0983",
+        "fund_id": "fund_catalog_8f87165f1dc5f1b3",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 2.0182,
+        "source_id": "src_mubasher_daily_equity_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_catalog_ec35b86a2af66e66|2026-08-25": [
+      {
+        "id": "9e31b6f4-08b3-4c60-98c9-f27f7549d502",
+        "fund_id": "fund_catalog_ec35b86a2af66e66",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.03852,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "5b2ef6e9-36bc-46af-89c8-48d09103fe4f",
+        "fund_id": "fund_catalog_ec35b86a2af66e66",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.03852,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_catalog_e4c9c101a3374b3d|2026-08-25": [
+      {
+        "id": "b036770f-8d23-4aee-b316-0be3c4f1e6cb",
+        "fund_id": "fund_catalog_e4c9c101a3374b3d",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 69.92017,
+        "source_id": "src_nbk_ishraq",
+        "parser_name": "nbk_official_fund_detail_v1"
+      },
+      {
+        "id": "0b763df9-db45-4314-af32-3d3cdd6b8930",
+        "fund_id": "fund_catalog_e4c9c101a3374b3d",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 69.92017,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_catalog_09c739ead1bd42d7|2026-08-25": [
+      {
+        "id": "06fd84b8-1888-4a89-8b4e-65b287d06b2a",
+        "fund_id": "fund_catalog_09c739ead1bd42d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.54846,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "15331111-d9ac-41d3-a741-7d22cc7ba635",
+        "fund_id": "fund_catalog_09c739ead1bd42d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.54846,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "b0a4b0b5-704c-4bf7-9ea1-198b454dafb0",
+        "fund_id": "fund_catalog_09c739ead1bd42d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.54846,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_98634228c0ad3387|2026-08-25": [
+      {
+        "id": "c9729022-eafd-41bd-b9ea-07ef29f842d1",
+        "fund_id": "fund_98634228c0ad3387",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 38.20546,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "488e0fad-4c65-4204-95f2-b6c2dbeac18c",
+        "fund_id": "fund_98634228c0ad3387",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 38.20546,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_677538b0d0f1aac4|2026-08-25": [
+      {
+        "id": "7f99a7ad-ed2f-4448-b7df-d7eca3669e41",
+        "fund_id": "fund_677538b0d0f1aac4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.84178,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "4696b16f-52d3-447b-9214-f8bf91ebf0fa",
+        "fund_id": "fund_677538b0d0f1aac4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.84178,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_catalog_2a497fc7469ee7ea|2026-08-25": [
+      {
+        "id": "204c23bc-9621-432c-a620-b23544a1894d",
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 204.35979,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "95f453ff-e059-4a83-80a8-effc7abb6fed",
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 204.35979,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "b553385b-bde3-4eb0-9c7f-d9931cb9af0c",
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 188.46222,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_eb6d028c9161f545|2026-08-25": [
+      {
+        "id": "3529b701-0aca-41aa-8cb9-f6b4f513c83b",
+        "fund_id": "fund_eb6d028c9161f545",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.75286,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "09b909e8-3067-41db-af13-c02a900f3edf",
+        "fund_id": "fund_eb6d028c9161f545",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.75286,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_catalog_1aa1daa182ccd3f4|2026-08-25": [
+      {
+        "id": "388ad5eb-3b26-4613-bbdc-74efa41095bb",
+        "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 18.969,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "747c1134-92b2-4b65-9746-54ca0fecba64",
+        "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 18.969,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "7ee0aa64-7c87-4497-b7de-5dd8233abdcd",
+        "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 18.969,
+        "source_id": "src_mubasher_daily_islamic_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "48fb4d96-a3ca-46e7-87b7-ebbe02630f68",
+        "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 18.969,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_a824eaf1e65870b5|2026-08-25": [
+      {
+        "id": "b2d4a94c-bea4-4573-86b1-bfaf445a697d",
+        "fund_id": "fund_a824eaf1e65870b5",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.73719,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "85df3527-802e-4f0c-bd44-9d92844f14c7",
+        "fund_id": "fund_a824eaf1e65870b5",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.73719,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_4ffe13e99f4fc1d7|2026-08-25": [
+      {
+        "id": "a8fcdd5f-03bc-42f4-9fa7-510fbbf95e87",
+        "fund_id": "fund_4ffe13e99f4fc1d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 2.07393,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "5dc1650a-5452-403c-87ae-a26af121ca41",
+        "fund_id": "fund_4ffe13e99f4fc1d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 2.07393,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_catalog_55de4d996617e8fc|2026-08-25": [
+      {
+        "id": "77dd6203-ab98-423b-95e4-76e260c5e8f6",
+        "fund_id": "fund_catalog_55de4d996617e8fc",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 11.6017,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "065e4d79-6016-4ed9-b181-ecbcd1a3b4b2",
+        "fund_id": "fund_catalog_55de4d996617e8fc",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 11.6017,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "85167633-0400-44c0-9e99-657d306f1014",
+        "fund_id": "fund_catalog_55de4d996617e8fc",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 11.6017,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_catalog_bad1022b0ea1c260|2026-08-25": [
+      {
+        "id": "2f2812d3-4b90-4d96-9754-dfbfe9b614c5",
+        "fund_id": "fund_catalog_bad1022b0ea1c260",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.1701,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "d2c17ee5-9e64-455e-a4da-82a1b00dfb05",
+        "fund_id": "fund_catalog_bad1022b0ea1c260",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.1701,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "d8eab88d-6e9a-490d-9f91-1ca3abd8f61d",
+        "fund_id": "fund_catalog_bad1022b0ea1c260",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.1701,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ]
+  },
+  "same_source_price_duplicate_groups": {},
+  "multi_source_price_groups": {
+    "fund_44166931f38ee123|2026-08-23": [
+      {
+        "id": "7b1251b1-f65e-45a0-bd29-3dfc1b23867e",
+        "fund_id": "fund_44166931f38ee123",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "nav": 581.67,
+        "source_id": "src_97d34f55d3f43656",
+        "parser_name": "efg_html_table_v1"
+      },
+      {
+        "id": "0ce80096-d305-4f28-bb50-60920a55dd64",
+        "fund_id": "fund_44166931f38ee123",
+        "valuation_date": "2026-08-23",
+        "status": "validated",
+        "nav": 581.67,
+        "source_id": "src_faisal_mutual_funds",
+        "parser_name": "faisal_bank_mutual_funds_cards_v1"
+      }
+    ],
+    "fund_69768837ab21ae45|2026-08-25": [
+      {
+        "id": "09a92254-31c0-4bd9-9983-5969720fd13c",
+        "fund_id": "fund_69768837ab21ae45",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 25.2991,
+        "source_id": "src_15c015b322d90eec",
+        "parser_name": "azimut_fund_api_v1"
+      },
+      {
+        "id": "d09ce31c-c73c-4083-8b4a-7e3f3f18a8d4",
+        "fund_id": "fund_69768837ab21ae45",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 25.2991,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "e77cd5f6-fbe8-454e-9872-bfd1b06df92d",
+        "fund_id": "fund_69768837ab21ae45",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 25.2991,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "10c7ee19-5bc0-4cf5-bfa6-98b80d607cbb",
+        "fund_id": "fund_69768837ab21ae45",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 25.2991,
+        "source_id": "src_mubasher_daily_islamic_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_6293926e9cfd4869|2026-08-25": [
+      {
+        "id": "f5d2f60b-af5f-47d8-b95f-fcf088524870",
+        "fund_id": "fund_6293926e9cfd4869",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 52.42922,
+        "source_id": "src_15c015b322d90eec",
+        "parser_name": "azimut_fund_api_v1"
+      },
+      {
+        "id": "7c24db9b-9ac7-4cec-87b8-4065aa3b35ff",
+        "fund_id": "fund_6293926e9cfd4869",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 52.42922,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "c672846d-437c-4bb6-a4ae-edfe1dff965b",
+        "fund_id": "fund_6293926e9cfd4869",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 52.42922,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_472ddcd8c94d7ed3|2026-08-20": [
+      {
+        "id": "e72228f0-4ef0-4365-a829-9d513cb42854",
+        "fund_id": "fund_472ddcd8c94d7ed3",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "nav": 2043.56,
+        "source_id": "src_6f46003eeee91384",
+        "parser_name": "hc_sponsor_ajax_v1"
+      },
+      {
+        "id": "3e3a2d80-d31b-45e8-b8ea-a1d53c6672d1",
+        "fund_id": "fund_472ddcd8c94d7ed3",
+        "valuation_date": "2026-08-20",
+        "status": "validated",
+        "nav": 2043.56,
+        "source_id": "src_scb_fund_rates",
+        "parser_name": "suez_canal_bank_fund_rates_v1"
+      }
+    ],
+    "fund_0b5432fffbaa9c8c|2026-08-25": [
+      {
+        "id": "9c7a254a-3563-4c85-8d7e-3110d258d238",
+        "fund_id": "fund_0b5432fffbaa9c8c",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 19.74624,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "ca2571fc-a1cb-49ff-bf0c-997863d4cdde",
+        "fund_id": "fund_0b5432fffbaa9c8c",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 19.74624,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_c722efc8d8e6f31a|2026-08-25": [
+      {
+        "id": "28dc4237-8b01-4cab-95c6-c5ce8fb82049",
+        "fund_id": "fund_c722efc8d8e6f31a",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 221.8695,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "ac3b0579-a0a0-4ee7-a709-f66f0b3accc5",
+        "fund_id": "fund_c722efc8d8e6f31a",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 221.8695,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "b493d97d-6b13-4e6c-a8e9-255aeaf5632f",
+        "fund_id": "fund_c722efc8d8e6f31a",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 221.8695,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "17d1d82e-6883-41aa-8a87-aefb64874d3f",
+        "fund_id": "fund_c722efc8d8e6f31a",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 221.8695,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_4d3e4c02b52413fb|2026-08-25": [
+      {
+        "id": "154758a1-232b-4613-bd52-9fd1cc1ff4ea",
+        "fund_id": "fund_4d3e4c02b52413fb",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 212.86535,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "a6cae242-47ad-41d9-a229-2f1b16e43a7c",
+        "fund_id": "fund_4d3e4c02b52413fb",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 212.86535,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_e89bbc9d85ecf407|2026-08-25": [
+      {
+        "id": "4a6a0583-e17b-4a2b-8faf-3df4926da096",
+        "fund_id": "fund_e89bbc9d85ecf407",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 175.30857,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "073a9cb8-87fc-42c1-9e80-cf101596bc39",
+        "fund_id": "fund_e89bbc9d85ecf407",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 175.30857,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_291a3c879cd82808|2026-08-25": [
+      {
+        "id": "a13d77fc-a390-44a7-96d9-b5abb0b70c09",
+        "fund_id": "fund_291a3c879cd82808",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 181.07,
+        "source_id": "src_ad7b5cd6a2846887",
+        "parser_name": "aaim_fund_cards_v1"
+      },
+      {
+        "id": "b3489f9d-2e70-457c-9c2b-9af94d082bc7",
+        "fund_id": "fund_291a3c879cd82808",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 181.07,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "34775bbe-81ba-4263-a405-c2721e6fa489",
+        "fund_id": "fund_291a3c879cd82808",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 181.07,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_catalog_8f87165f1dc5f1b3|2026-08-25": [
+      {
+        "id": "94a8a036-36d7-46bc-93b6-341d69c1d150",
+        "fund_id": "fund_catalog_8f87165f1dc5f1b3",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 2.0182,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "2763e8ae-66e5-4851-8788-59dbd35c0983",
+        "fund_id": "fund_catalog_8f87165f1dc5f1b3",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 2.0182,
+        "source_id": "src_mubasher_daily_equity_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_catalog_ec35b86a2af66e66|2026-08-25": [
+      {
+        "id": "9e31b6f4-08b3-4c60-98c9-f27f7549d502",
+        "fund_id": "fund_catalog_ec35b86a2af66e66",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.03852,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "5b2ef6e9-36bc-46af-89c8-48d09103fe4f",
+        "fund_id": "fund_catalog_ec35b86a2af66e66",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.03852,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_catalog_e4c9c101a3374b3d|2026-08-25": [
+      {
+        "id": "b036770f-8d23-4aee-b316-0be3c4f1e6cb",
+        "fund_id": "fund_catalog_e4c9c101a3374b3d",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 69.92017,
+        "source_id": "src_nbk_ishraq",
+        "parser_name": "nbk_official_fund_detail_v1"
+      },
+      {
+        "id": "0b763df9-db45-4314-af32-3d3cdd6b8930",
+        "fund_id": "fund_catalog_e4c9c101a3374b3d",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 69.92017,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_catalog_09c739ead1bd42d7|2026-08-25": [
+      {
+        "id": "06fd84b8-1888-4a89-8b4e-65b287d06b2a",
+        "fund_id": "fund_catalog_09c739ead1bd42d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.54846,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "15331111-d9ac-41d3-a741-7d22cc7ba635",
+        "fund_id": "fund_catalog_09c739ead1bd42d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.54846,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "b0a4b0b5-704c-4bf7-9ea1-198b454dafb0",
+        "fund_id": "fund_catalog_09c739ead1bd42d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 24.54846,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_98634228c0ad3387|2026-08-25": [
+      {
+        "id": "c9729022-eafd-41bd-b9ea-07ef29f842d1",
+        "fund_id": "fund_98634228c0ad3387",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 38.20546,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "488e0fad-4c65-4204-95f2-b6c2dbeac18c",
+        "fund_id": "fund_98634228c0ad3387",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 38.20546,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_677538b0d0f1aac4|2026-08-25": [
+      {
+        "id": "7f99a7ad-ed2f-4448-b7df-d7eca3669e41",
+        "fund_id": "fund_677538b0d0f1aac4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.84178,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "4696b16f-52d3-447b-9214-f8bf91ebf0fa",
+        "fund_id": "fund_677538b0d0f1aac4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.84178,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_catalog_2a497fc7469ee7ea|2026-08-25": [
+      {
+        "id": "204c23bc-9621-432c-a620-b23544a1894d",
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 204.35979,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "95f453ff-e059-4a83-80a8-effc7abb6fed",
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 204.35979,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "b553385b-bde3-4eb0-9c7f-d9931cb9af0c",
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 188.46222,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_eb6d028c9161f545|2026-08-25": [
+      {
+        "id": "3529b701-0aca-41aa-8cb9-f6b4f513c83b",
+        "fund_id": "fund_eb6d028c9161f545",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.75286,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "09b909e8-3067-41db-af13-c02a900f3edf",
+        "fund_id": "fund_eb6d028c9161f545",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.75286,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_catalog_1aa1daa182ccd3f4|2026-08-25": [
+      {
+        "id": "388ad5eb-3b26-4613-bbdc-74efa41095bb",
+        "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 18.969,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "747c1134-92b2-4b65-9746-54ca0fecba64",
+        "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 18.969,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "7ee0aa64-7c87-4497-b7de-5dd8233abdcd",
+        "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 18.969,
+        "source_id": "src_mubasher_daily_islamic_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "48fb4d96-a3ca-46e7-87b7-ebbe02630f68",
+        "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 18.969,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_a824eaf1e65870b5|2026-08-25": [
+      {
+        "id": "b2d4a94c-bea4-4573-86b1-bfaf445a697d",
+        "fund_id": "fund_a824eaf1e65870b5",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.73719,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "85df3527-802e-4f0c-bd44-9d92844f14c7",
+        "fund_id": "fund_a824eaf1e65870b5",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.73719,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_4ffe13e99f4fc1d7|2026-08-25": [
+      {
+        "id": "a8fcdd5f-03bc-42f4-9fa7-510fbbf95e87",
+        "fund_id": "fund_4ffe13e99f4fc1d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 2.07393,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "5dc1650a-5452-403c-87ae-a26af121ca41",
+        "fund_id": "fund_4ffe13e99f4fc1d7",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 2.07393,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      }
+    ],
+    "fund_catalog_55de4d996617e8fc|2026-08-25": [
+      {
+        "id": "77dd6203-ab98-423b-95e4-76e260c5e8f6",
+        "fund_id": "fund_catalog_55de4d996617e8fc",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 11.6017,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "065e4d79-6016-4ed9-b181-ecbcd1a3b4b2",
+        "fund_id": "fund_catalog_55de4d996617e8fc",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 11.6017,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "85167633-0400-44c0-9e99-657d306f1014",
+        "fund_id": "fund_catalog_55de4d996617e8fc",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 11.6017,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ],
+    "fund_catalog_bad1022b0ea1c260|2026-08-25": [
+      {
+        "id": "2f2812d3-4b90-4d96-9754-dfbfe9b614c5",
+        "fund_id": "fund_catalog_bad1022b0ea1c260",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.1701,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "d2c17ee5-9e64-455e-a4da-82a1b00dfb05",
+        "fund_id": "fund_catalog_bad1022b0ea1c260",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.1701,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "d8eab88d-6e9a-490d-9f91-1ca3abd8f61d",
+        "fund_id": "fund_catalog_bad1022b0ea1c260",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 1.1701,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ]
+  },
+  "multi_source_nav_conflict_groups": {
+    "fund_catalog_2a497fc7469ee7ea|2026-08-25": [
+      {
+        "id": "204c23bc-9621-432c-a620-b23544a1894d",
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 204.35979,
+        "source_id": "src_mubasher_daily_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      },
+      {
+        "id": "95f453ff-e059-4a83-80a8-effc7abb6fed",
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 204.35979,
+        "source_id": "src_mubasherfunds_daily",
+        "parser_name": "mubasher_funds_daily_articles_v1"
+      },
+      {
+        "id": "b553385b-bde3-4eb0-9c7f-d9931cb9af0c",
+        "fund_id": "fund_catalog_2a497fc7469ee7ea",
+        "valuation_date": "2026-08-25",
+        "status": "validated",
+        "nav": 188.46222,
+        "source_id": "src_mubasher_daily_fixed_income_2026_08_25",
+        "parser_name": "mubasher_daily_all_funds_article_v1"
+      }
+    ]
+  },
+  "has_fund_duplicates": false,
+  "has_price_duplicates": false
+}
