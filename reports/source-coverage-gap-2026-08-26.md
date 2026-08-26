@@ -5,17 +5,16 @@ This report is a **read-only** Supabase audit. “No update source at all” mea
 | Category | Count |
 | --- | ---: |
 | Catalog funds | 215 |
-| Funds with no update-source URL at all | 46 |
+| Funds with no update-source URL at all | 45 |
 | Funds linked to a URL but without a validated snapshot as of 2026-08-26 | 2 |
 | Funds with no validated snapshot as of 2026-08-26 (functional coverage gap) | 30 |
 | Funds with at least one validated snapshot as of 2026-08-26 | 185 |
 
-## A. Funds with no update-source URL at all (46)
+## A. Funds with no update-source URL at all (45)
 
 | Canonical fund name | Imported/EIMA name | Source URL |
 | --- | --- | --- |
 | *National Bank of Kuwait (Al Mizan) | *National Bank of Kuwait (Al Mizan) | — |
-| Agriculural Bank of Egypt (Al Wefak) | Agriculural Bank of Egypt (Al Wefak) | — |
 | Al Ahli Bank of Kuwait - Egypt Fund I | Al Ahli Bank of Kuwait - Egypt Fund I | — |
 | Al Ahli Bank of Kuwait - Egypt Fund II | Al Ahli Bank of Kuwait - Egypt Fund II | — |
 | Al Baraka Bank Egypt (Al Motawazen) | Al Baraka Bank Egypt (Al Motawazen) | — |
