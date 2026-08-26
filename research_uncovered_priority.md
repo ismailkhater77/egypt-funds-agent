@@ -163,3 +163,11 @@ The BLOM page was directly inspected and is not usable for current Egyptian fund
 ## PFI current verification — 26 August 2026
 
 The official PFI funds page currently exposes GIG Equity Fund NAV 1,387.99 dated 26 August 2026, while Mawared Money Market NAV 71.4934, GIG Money Market NAV 18.9972, and PFI Cashi NAV 11.6242 are dated 29 August 2026 and must be rejected as future-dated as of the analysis date. The existing PFI collector can accept the GIG Equity record and reject the future-dated rows.
+
+## Bank ABC official page — 26 August 2026
+
+The official Bank ABC Egypt Mutual Funds page was opened directly. It establishes the bank's mutual-fund offering, but the current rendered page did not expose a current NAV and valuation date for ABC Fund I. No value will be accepted from secondary trackers; the fund remains Pending Verification until an official dated NAV row or official endpoint is found.
+
+## Pioneers Funds official page — 26 August 2026
+
+The official Pioneers Funds site was opened directly. It identifies Pioneers Funds and displays Al-Raeed Fund's Price 90.33 with date 2011-05-26. This is official but stale and not a current valuation; it is therefore rejected for current validated coverage and the workbook Pioneers record remains Pending Verification. No secondary tracker value is substituted.
