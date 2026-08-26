@@ -31,3 +31,15 @@ Naeem's official funds page identifies NAEEM MISR FUND and shows NAV values of 1
 Official URL: https://aspireholding.com/business/aspire-funds/
 
 The official Aspire Funds page links to first-party PDFs for Rawajj and Waffrah Plus. The PDFs describe the funds and valuation/publication policy, but text extraction did not expose a current NAV with a usable valuation date. Therefore Aspire Waffrah Plus and Aspire Rawajj remain Pending Verification; third-party values were not substituted.
+
+## Prime Nمو
+
+Official URL: https://primeholdingco.com/asset-management/ph_1st_equity_fund/
+
+Prime's official page identifies the first Prime equity issue (Prime Nمو) and explains daily purchase/redemption and NAV calculation, but it does not publish a current NAV value or explicit valuation date. The record `Prime NMOW` therefore remains Pending Verification; no third-party price was accepted.
+
+## Arope and Aman identity review
+
+The official AROPE Life Insurance Egypt page confirms Arope Money Market Fund and states that it is managed by ABC Egypt Investments, but it publishes no NAV or valuation date. It remains Pending Verification.
+
+The official CIB Aman page confirms Aman Fund as an Islamic equity fund sponsored by CIB and Faisal Bank and managed by CI Capital Asset Management. It provides a fact-sheet link and product details but no current NAV or explicit valuation date in the page content. This identity does not prove the separate workbook record `Aman Micro Finance`, so no value was mapped or stored.
