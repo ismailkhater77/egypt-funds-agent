@@ -149,3 +149,7 @@
 - [x] Import only EIMA historical NAV rows that pass source, identity, valuation-date, and idempotency validation without replacing current collector sources
 - [x] Reconcile the user-confirmed 31 EIMA weekly report dates with the imported CSV manifest and document any date correction explicitly
 - [x] Enrich the inactive EIMA historical source with the official reports page and the reconciled report-date manifest, without changing review-only status
+- [x] Model and import EIMA periodic fund-return observations by fund, report date, and horizon without duplicating NAV snapshots
+- [x] Model and import EIMA macroeconomic and market indicators by report date/reference period, linked to the corresponding periodic report
+- [x] Audit the historical performance and indicator imports for date completeness, idempotency, and relational integrity
+- [x] Widen historical performance NAV precision beyond four decimals and reconcile the preliminary rounded EIMA rows from the original CSV

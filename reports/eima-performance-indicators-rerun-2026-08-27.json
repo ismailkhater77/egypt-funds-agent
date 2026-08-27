@@ -1,0 +1,128 @@
+{
+  "mode": "apply",
+  "reports_index_url": "https://eima.org.eg/?page_id=1886",
+  "csv_rows": 52920,
+  "performance_rows": 52920,
+  "report_rows": 31,
+  "indicator_rows": 569,
+  "unlinked_performance_rows_by_identity_status": {
+    "UNMATCHED": 201,
+    "EXACT_INACTIVE": 276,
+    "FUZZY_REVIEW": 18
+  },
+  "performance_rows_with_nav": 51210,
+  "performance_rows_with_return": 34100,
+  "source_row_key_duplicate_count": 0,
+  "performance_inserted": 0,
+  "performance_legacy_rows_enriched": 0,
+  "performance_unchanged": 38382,
+  "performance_conflicts_not_overwritten": 14538,
+  "performance_conflicts_sample": [
+    {
+      "source_row_key": "eima-performance:e7e3d6e15715e4571c875a0032aba436457e018fa38eaa3967378352601ed2c9",
+      "existing_id": 49
+    },
+    {
+      "source_row_key": "eima-performance:1d8bfbcd2bbc5e44864f7047dfdd959255a0209141f4947bddff26ceceb94a93",
+      "existing_id": 50
+    },
+    {
+      "source_row_key": "eima-performance:af54d79e8dd9c0d28f9cd9707854b23aec47b74779c6af27a83d1fc98216f079",
+      "existing_id": 51
+    },
+    {
+      "source_row_key": "eima-performance:c804e53fc5bffe817d1fb16c705fa751a4880363958d9c0ba58a35a737e205bd",
+      "existing_id": 52
+    },
+    {
+      "source_row_key": "eima-performance:36f983a3a2a7d2616ce9143d6d6d463f1b1f632bd987be89a5f6a93426bf904d",
+      "existing_id": 53
+    },
+    {
+      "source_row_key": "eima-performance:b8e88a5f97e257fbeacada69399a44e489a197f0ed2c4194b8e67718df132a28",
+      "existing_id": 54
+    },
+    {
+      "source_row_key": "eima-performance:92e674e8bf22c3b448803a126bdff59ab023744a6563d6e206e0ce79ecce986d",
+      "existing_id": 55
+    },
+    {
+      "source_row_key": "eima-performance:e073f14ee1abc3f0da318ebad41d601bfe7a6168aa5389861420640e5fd51231",
+      "existing_id": 56
+    },
+    {
+      "source_row_key": "eima-performance:87bb311c3c77c407ac2db6c619921f5bad60b6a176d11fb0cdc43b73e0e0038c",
+      "existing_id": 57
+    },
+    {
+      "source_row_key": "eima-performance:769dfe4921e9dff5c59e027dfb59dd47e207aafe9792a1e92f474e3e136552d9",
+      "existing_id": 58
+    },
+    {
+      "source_row_key": "eima-performance:1fb29a8c2b74fc7c4d040f1b1640384a0a352b7aeef72c851c9743ea2776ffed",
+      "existing_id": 59
+    },
+    {
+      "source_row_key": "eima-performance:801163ac362c683d14cca05fbf4c869a3bf0815bc4699a30cddc0ad5640de0c4",
+      "existing_id": 60
+    },
+    {
+      "source_row_key": "eima-performance:31983fd94a02aefcb2dae558b0f035249593565647ae4b7368e25c5cd68d83ff",
+      "existing_id": 67
+    },
+    {
+      "source_row_key": "eima-performance:1d9c57aeca3ce05219f9fabf485b110c4b1917be46aa44f84eabe5abacb79fb6",
+      "existing_id": 8
+    },
+    {
+      "source_row_key": "eima-performance:9fd4b99e4b077232915ba9e5f8742f0ecb9186753860cfa38ee0e05dd0150798",
+      "existing_id": 9
+    },
+    {
+      "source_row_key": "eima-performance:9c003fca13a43fb1d329744452af58a6f0acbae86bb9aad804966c446dd3aced",
+      "existing_id": 10
+    },
+    {
+      "source_row_key": "eima-performance:f3bc56166a65c658416ac31729f6ddd2ebf399961b54a0e4adcf89599837faee",
+      "existing_id": 68
+    },
+    {
+      "source_row_key": "eima-performance:82073ffd39fe843e4ae3dee1069a450acd625eb0a53d14cce787cf5a6d1782f3",
+      "existing_id": 69
+    },
+    {
+      "source_row_key": "eima-performance:a2b68ac7f32fc1bfdfe84a3c9e38e2010417f8069300a22a5b51d09e176c0695",
+      "existing_id": 70
+    },
+    {
+      "source_row_key": "eima-performance:179f42224d70e51bff7c265f5d4a9fc457aacba1b62fc1d9063292bc4d329e10",
+      "existing_id": 71
+    },
+    {
+      "source_row_key": "eima-performance:ee1e87e827062cf3256f1919ed54d30487eb753307532d52c62a641bef5e3e4a",
+      "existing_id": 72
+    },
+    {
+      "source_row_key": "eima-performance:001c325b76f01857e26b09cf9ddebf2f3838128f3aa92375ca1962b2bd5d90a0",
+      "existing_id": 73
+    },
+    {
+      "source_row_key": "eima-performance:794367e7d3ea870592c2080d0be9a20fd85b514fb1d09c4c695975a2fbaab302",
+      "existing_id": 74
+    },
+    {
+      "source_row_key": "eima-performance:5b9068039790cf3b528417ae8b83287919e42ec51a831bfd9b0aab15fd6a303d",
+      "existing_id": 75
+    },
+    {
+      "source_row_key": "eima-performance:526acce58ad778b96b581203dfa29539003a5ff6a7ba35ad39bfc51b372ec304",
+      "existing_id": 76
+    }
+  ],
+  "reports_inserted": 0,
+  "reports_unchanged": 31,
+  "report_conflicts_not_overwritten": [],
+  "indicators_inserted": 0,
+  "indicators_unchanged": 569,
+  "indicator_conflicts_not_overwritten": 0
+}

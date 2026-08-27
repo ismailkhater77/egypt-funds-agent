@@ -1,0 +1,27 @@
+{
+  "mode": "apply",
+  "reports_index_url": "https://eima.org.eg/?page_id=1886",
+  "csv_rows": 52920,
+  "performance_rows": 52920,
+  "report_rows": 31,
+  "indicator_rows": 569,
+  "unlinked_performance_rows_by_identity_status": {
+    "UNMATCHED": 201,
+    "EXACT_INACTIVE": 276,
+    "FUZZY_REVIEW": 18
+  },
+  "performance_rows_with_nav": 51210,
+  "performance_rows_with_return": 34100,
+  "source_row_key_duplicate_count": 0,
+  "performance_inserted_or_reconciled": 0,
+  "performance_legacy_rows_enriched": 0,
+  "performance_unchanged": 52920,
+  "performance_conflicts_not_overwritten": 0,
+  "performance_conflicts_sample": [],
+  "reports_inserted": 0,
+  "reports_unchanged": 31,
+  "report_conflicts_not_overwritten": [],
+  "indicators_inserted": 0,
+  "indicators_unchanged": 569,
+  "indicator_conflicts_not_overwritten": 0
+}
