@@ -166,3 +166,5 @@
 - [x] Populate only empty `price_update_url` fields for 14 Snduk-covered funds after a dry-run; preserve Zaldi Star's existing official link
 - [x] Replace UTC calendar-date guards with a tested Egypt-local business date across collection, coverage, and audit scripts
 - [x] Re-run future-date, coverage, scheduled-weekly, and duplicate audits under the Egypt-local business date and document any eligibility change
+- [ ] Re-verify Pharos Fund I through public Facebook, then LinkedIn, then the already-authorized Snduk record; retain only an accessible dated source and preserve explicit provenance
+- [ ] Discover, verify, and integrate a dated third-party NAV source for each of the seven remaining funds, using exact fund/tranche identity and explicit external provenance only
