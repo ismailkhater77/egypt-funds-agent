@@ -217,3 +217,4 @@
 - [x] Create a reusable Product North Star prompt explaining Nile Market Intelligence's why, core problem, principles, and non-goals
 - [x] Convert Data → Information → Context → Intelligence → Decision into visible in-product flows, contextual explanations, evidence states, and research decision support rather than standalone goal documentation
 - [x] Replace the homepage explanatory journey cards with a real evidence-based fund-category heatmap using validated NAV/performance/SmartScore data only
+- [x] Reposition the category heatmap as the homepage's primary analytical entry point and redesign the first-screen flow around market structure before detail cards
