@@ -577,11 +577,8 @@ describe("EFG mutual-fund parser", () => {
   });
 
   it("keeps real FABMISR fetch and source-structure failures as errors", async () => {
-    vi.stubGlobal("fetch", vi.fn(async () => { throw new Error("DNS unavailable"); }));
-    await expect(runFabMisrCollector()).resolves.toMatchObject({ status: "failed", outcome: "error", fetchError: expect.stringContaining("DNS unavailable") });
-    vi.stubGlobal("fetch", vi.fn(async () => new Response("<html>changed markup</html>", { status: 200 })));
-    await expect(runFabMisrCollector()).resolves.toMatchObject({ status: "failed", outcome: "error" });
-    vi.unstubAllGlobals();
+    await expect(runFabMisrCollector(async () => { throw new Error("DNS unavailable"); })).resolves.toMatchObject({ status: "failed", outcome: "error", fetchError: expect.stringContaining("DNS unavailable") });
+    await expect(runFabMisrCollector(async () => new Response("<html>changed markup</html>", { status: 200 }))).resolves.toMatchObject({ status: "failed", outcome: "error" });
   });
 
   it("marks clean runs successful and incomplete runs partial", () => {

@@ -177,3 +177,8 @@
 - [x] Replace the paid Twelve Data plus MSCI API proposal with a free-only source plan; document any exact required indicator that has no compliant free API rather than substituting an ETF, CFD, or estimate
 - [x] Add parser and credential tests plus protected manual and cron-only market-data handlers; keep the production schedule inactive until the user publishes
 - [x] Replace the paid Twelve Data plus MSCI API proposal with a verified free-only source plan that retains exact EGX30 and MSCI EM symbols
+- [x] Build the RTL Nile Market Intelligence dashboard shell with fixed right navigation, top status bar, IBM Plex Arabic typography, and the specified Neo-Brutalist Financial Editorial palette
+- [x] Add authenticated server read procedures for market indicators, market observations, fund coverage, source health, and collector run history without exposing API credentials
+- [x] Implement the live market overview, searchable fund table, source-health panel, and agent-update audit log using real Supabase data and truthful empty states
+- [x] Implement normalized time-series comparison and investment-amount simulation only over the actual shared history range, with inflation and methodology disclosures and no investment recommendation
+- [x] Verify desktop and mobile RTL layouts, data/error states, accessibility, unit tests, and screenshots before saving the dashboard checkpoint

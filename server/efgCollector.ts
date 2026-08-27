@@ -1314,8 +1314,8 @@ export function runEbankCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: EBANK_SOURCE_URL, parserName: EBANK_PARSER_NAME, parse: parseEbankMarketUpdates, matchAllFunds: true });
 }
 
-export function runFabMisrCollector(): Promise<RunSummary> {
-  return runCollector({ sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, fetcher: fetchFabMisrPage, matchAllFunds: true, schedule: "weekly" });
+export function runFabMisrCollector(fetcher: (url: string) => Promise<globalThis.Response> = fetchFabMisrPage): Promise<RunSummary> {
+  return runCollector({ sourceUrl: FAB_MISR_EZDEHAR_SOURCE_URL, parserName: FAB_MISR_PARSER_NAME, parse: parseFabMisrEzdehar, fetcher, matchAllFunds: true, schedule: "weekly" });
 }
 
 export function runFabMisrAlAwalCollector(): Promise<RunSummary> {
