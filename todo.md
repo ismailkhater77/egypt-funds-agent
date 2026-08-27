@@ -214,3 +214,4 @@
 - [x] Prepare monitoring for performance, SmartScore, confidence, benchmark, and risk changes with no schedule activation before publication and explicit user approval
 - [x] Add unit and integration tests for all new data selectors, access controls, filters, rankings, comparisons, profile outputs, and decision-support persistence
 - [x] Verify the complete platform visually on desktop and mobile, preserve the private admin sources route, run full tests, and save a stable checkpoint without publishing
+- [x] Create a reusable Product North Star prompt explaining Nile Market Intelligence's why, core problem, principles, and non-goals
