@@ -214,3 +214,5 @@
 - [x] Prepare monitoring for performance, SmartScore, confidence, benchmark, and risk changes with no schedule activation before publication and explicit user approval
 - [x] Add unit and integration tests for all new data selectors, access controls, filters, rankings, comparisons, profile outputs, and decision-support persistence
 - [x] Verify the complete platform visually on desktop and mobile, preserve the private admin sources route, run full tests, and save a stable checkpoint without publishing
+
+- [x] Diagnose stale market cards, run a verified manual refresh, and expose truthful freshness/inactive-scheduler status without hardcoded or estimated prices
