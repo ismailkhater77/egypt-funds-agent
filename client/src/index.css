@@ -547,3 +547,30 @@
 .journey-arrow { position: absolute; left: -.55rem; top: 50%; color: #19c39a; font-size: 1rem; transform: translateY(-50%); }
 @media (max-width: 900px) { .product-journey { grid-template-columns: 1fr; } .journey-steps { grid-template-columns: repeat(5, minmax(130px, 1fr)); overflow-x: auto; padding-bottom: .25rem; } }
 @media (max-width: 560px) { .product-journey { padding: 1rem; } .journey-steps { grid-template-columns: repeat(5, 145px); } }
+
+.category-heatmap-section { margin: 1.5rem 0; }
+.category-heatmap-panel { padding: 1rem; }
+.heatmap-explainer { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.heatmap-explainer strong { color: #eef8f4; font-size: .9rem; }
+.heatmap-explainer p { max-width: 680px; margin-top: .35rem; color: #95b4ad; font-size: .76rem; line-height: 1.7; }
+.heatmap-legend { display: flex; flex-wrap: wrap; gap: .7rem; color: #95b4ad; font-size: .68rem; white-space: nowrap; }
+.heatmap-legend span { display: inline-flex; align-items: center; gap: .3rem; }
+.heatmap-legend i { display: inline-block; width: .65rem; height: .65rem; border: 1px solid rgba(255,255,255,.15); }
+.heatmap-scroll { overflow-x: auto; }
+.category-heatmap { min-width: 760px; border-top: 1px solid #35606a; }
+.heatmap-row { display: grid; grid-template-columns: 1.35fr repeat(5, 1fr); gap: .35rem; padding: .35rem 0; border-bottom: 1px solid rgba(53, 96, 106, .45); }
+.heatmap-row > span { min-height: 52px; padding: .65rem .55rem; }
+.heatmap-header { color: #648f89; font-size: .67rem; text-align: center; }
+.heatmap-header > span:first-child { text-align: right; }
+.heatmap-category { display: flex; flex-direction: column; justify-content: center; gap: .25rem; }
+.heatmap-category strong { color: #eef8f4; font-size: .75rem; }
+.heatmap-category small, .heatmap-cell small { color: #95b4ad; font-size: .62rem; }
+.heatmap-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; border: 1px solid rgba(255,255,255,.08); color: #eef8f4; }
+.heatmap-cell b { font-family: "IBM Plex Mono", monospace; font-size: .72rem; }
+.heatmap-negative { background: rgba(190, 91, 92, .35); }
+.heatmap-positive { background: rgba(25, 195, 154, .25); }
+.heatmap-positive-strong { background: rgba(25, 195, 154, .55); }
+.heatmap-neutral { background: rgba(231, 189, 100, .3); }
+.heatmap-empty { background: rgba(100, 143, 137, .08); color: #648f89; }
+.heatmap-disclosure { margin-top: .8rem; font-size: .68rem; }
+@media (max-width: 700px) { .heatmap-explainer { flex-direction: column; } .heatmap-legend { white-space: normal; } .category-heatmap-panel { padding: .75rem; } }
