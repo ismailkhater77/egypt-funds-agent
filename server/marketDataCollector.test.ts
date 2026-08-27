@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { marketIndicatorSpecs, parseFrankfurterUsdEgp, parseGoldApiSpot, parseYahooDailyChart, parseYahooDailyHistory, recentMarketHistoryRange } from "./marketDataCollector";
+import { isActiveScheduledMarketJob, marketIndicatorSpecs, parseFrankfurterUsdEgp, parseGoldApiSpot, parseYahooDailyChart, parseYahooDailyHistory, recentMarketHistoryRange } from "./marketDataCollector";
 
 describe("market data catalog", () => {
   it("contains each requested indicator exactly once with no ETF, CFD, or futures substitute", () => {
@@ -16,6 +16,14 @@ describe("free historical-import bounds", () => {
 
   it("rejects a history request that would exceed the free metals budget", () => {
     expect(() => recentMarketHistoryRange(8, "2026-08-27")).toThrow("1 to 7 calendar days");
+  });
+});
+
+describe("scheduled job guard", () => {
+  it("runs only a job explicitly marked active after production scheduling", () => {
+    expect(isActiveScheduledMarketJob(undefined)).toBe(false);
+    expect(isActiveScheduledMarketJob({ active: false })).toBe(false);
+    expect(isActiveScheduledMarketJob({ active: true })).toBe(true);
   });
 });
 

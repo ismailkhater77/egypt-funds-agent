@@ -370,7 +370,7 @@ async function upsertCatalog(): Promise<void> {
   });
   await supabaseRequest("/rest/v1/market_data_jobs?on_conflict=job_key", {
     method: "POST",
-    headers: { Prefer: "resolution=merge-duplicates" },
+    headers: { Prefer: "resolution=ignore-duplicates" },
     body: JSON.stringify({ job_key: DAILY_MARKET_JOB_KEY, job_name: "Daily Market Data", cron_expression: "0 30 21 * * *", active: false }),
   });
 }
@@ -557,12 +557,16 @@ export async function manualMarketDataRunHandler(req: Request, res: ExpressRespo
   }
 }
 
+export function isActiveScheduledMarketJob(job: { active: boolean } | undefined): boolean {
+  return job?.active === true;
+}
+
 export async function scheduledMarketDataHandler(req: Request, res: ExpressResponse) {
   try {
     const user = await sdk.authenticateRequest(req);
     if (!user.isCron || !user.taskUid) return res.status(403).json({ error: "cron-only" });
-    const jobs = await supabaseRequest<Array<{ job_key: string }>>(`/rest/v1/market_data_jobs?select=job_key&job_key=eq.${DAILY_MARKET_JOB_KEY}&schedule_cron_task_uid=eq.${encodeURIComponent(user.taskUid)}&limit=1`);
-    if (jobs.length === 0) return res.json({ ok: true, skipped: "orphan_or_unconfigured_schedule" });
+    const jobs = await supabaseRequest<Array<{ job_key: string; active: boolean }>>(`/rest/v1/market_data_jobs?select=job_key,active&job_key=eq.${DAILY_MARKET_JOB_KEY}&schedule_cron_task_uid=eq.${encodeURIComponent(user.taskUid)}&limit=1`);
+    if (!isActiveScheduledMarketJob(jobs[0])) return res.json({ ok: true, skipped: "orphan_or_inactive_schedule" });
     res.json(await runMarketDataCollector());
   } catch (error) {
     res.status(500).json({ error: error instanceof Error ? error.message : String(error), timestamp: new Date().toISOString() });
