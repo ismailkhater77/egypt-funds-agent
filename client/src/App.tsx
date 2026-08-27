@@ -6,12 +6,14 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import AdminSources from "./pages/AdminSources";
+import SmartScores from "./pages/SmartScores";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/scores"} component={SmartScores} />
       <Route path={"/admin/sources"} component={AdminSources} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

@@ -37,4 +37,11 @@ describe("dashboard.snapshot access", () => {
       code: "FORBIDDEN",
     });
   });
+
+  it("rejects a signed-in non-admin caller before the SmartScore runner can write evaluations", async () => {
+    const caller = appRouter.createCaller(standardUserContext);
+    await expect(caller.smartScore.run()).rejects.toMatchObject({
+      code: "FORBIDDEN",
+    });
+  });
 });

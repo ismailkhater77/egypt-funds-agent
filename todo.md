@@ -184,3 +184,8 @@
 - [x] Verify desktop and mobile RTL layouts, data/error states, accessibility, unit tests, and screenshots before saving the dashboard checkpoint
 - [x] Move source health and agent activity out of the public market dashboard and restrict their route and data to admin users only
 - [x] Restrict public charts, comparisons, and simulations to complete compatible time series from the database; suppress partial or non-overlapping series
+- [x] Model SmartScore methodology with immutable P=30%, R=25%, B=25%, C=10%, I=10% weights and proportional redistribution only for unavailable components
+- [x] Add versioned, auditable evaluation records separating performance score, evidence/confidence, track-record tier, peer cohort, and raw versus qualified rank
+- [x] Build benchmark, risk, consistency, inflation, anomaly, and period-alignment guards without silent substitutions or missing-data-as-zero behavior
+- [x] Implement an admin-only evaluation runner and a public score presentation that labels verified, assumed, and unverified inputs
+- [x] Add comprehensive SmartScore tests for new funds, long histories, missing inputs, near-zero volatility, anomalies, unequal periods, unavailable benchmarks, weight redistribution, and qualification ranks
