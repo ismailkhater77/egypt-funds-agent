@@ -3,8 +3,8 @@
   "source_rows": [
     {
       "source_id": "src_eima_historical_weekly_reports",
-      "source_name": "EIMA Historical Weekly Fund Performance Reports (user-provided import)",
-      "source_url": "https://eima.org.eg/",
+      "source_name": "EIMA Historical Weekly Fund Performance Reports (31-report user-provided import)",
+      "source_url": "https://eima.org.eg/?page_id=1886",
       "source_kind": "industry_association_historical_report",
       "active": false
     }

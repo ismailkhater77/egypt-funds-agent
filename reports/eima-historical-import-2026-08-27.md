@@ -2,9 +2,11 @@
 
 ## Scope and source classification
 
-The uploaded file `eima_fund_performance_integrated(1).csv` contains historical weekly fund-performance observations dated from **31 December 2025** through **30 July 2026**. The file carries raw fund and manager labels, the report date, NAV, category, report status, and source-page/file metadata. It repeats a fund’s same NAV across return-horizon rows, so those rows were collapsed before any database operation.
+The uploaded file `eima_fund_performance_integrated(1).csv` is a consolidation of **31** weekly EIMA fund-performance reports. Its `report_date` values reconcile exactly to the 31 dates listed in EIMA’s official reports index, from **31 December 2025** through **30 July 2026**.[1] The file carries raw fund and manager labels, the report date, NAV, category, report status, and source-page/file metadata. It repeats a fund’s same NAV across return-horizon rows, so those rows were collapsed before any database operation.
 
-EIMA describes itself as a professional association representing asset and investment managers under FRA supervision and publishes weekly performance reports for public disclosure.[1] It is neither the relevant fund manager nor the custodian bank nor the FRA itself. Therefore, the imported records are deliberately classified as **historical review observations**, not as validated NAVs. They do not improve operational coverage, replace a manager or bank source, alter the latest validated price, or participate in the scheduled-weekly exception.
+EIMA describes itself as a professional association representing asset and investment managers under FRA supervision and publishes weekly performance reports for public disclosure.[2] It is neither the relevant fund manager nor the custodian bank nor the FRA itself. Therefore, the imported records are deliberately classified as **historical review observations**, not as validated NAVs. They do not improve operational coverage, replace a manager or bank source, alter the latest validated price, or participate in the scheduled-weekly exception.
+
+The EIMA reports index displays one February label as “February 29th, 2026,” although 2026 is not a leap year. The linked report filename and the CSV both identify the report as **26 February 2026**, which is the canonical stored date; the page label remains recorded in the reconciliation artifact for audit.
 
 ## Identity and data-quality gate
 
@@ -51,4 +53,6 @@ The post-import audit confirmed that the EIMA source exists once and is inactive
 
 ## References
 
-[1] [EIMA — Egyptian Investment Management Association](https://eima.org.eg/)
+[1] [EIMA Reports Index — 31 reconciled reports](https://eima.org.eg/?page_id=1886)
+
+[2] [EIMA — Egyptian Investment Management Association](https://eima.org.eg/)
