@@ -24,6 +24,10 @@
 
 والصفحة العربية الرسمية لبنك ABC تؤكد الهوية نفسها، لكنها لا تنشر إلا نشرات اكتتاب للأعوام 2022 و2024 و2025 وقرار توزيع أرباح مؤرخ 18 ديسمبر 2019. لا تتضمن هذه المواد قيمة وثيقة حالية أو تاريخ تقييم؛ كما تفصل الصفحة صندوق Mazaya النقدي بوصفه منتجًا آخر. لذلك لا يوجد مصدر سعر عام من بنك ABC لصندوق النمو الرأسمالي في هذا الفحص.[14]
 
+وفي إعادة الفحص الحي لجدول Azimut الرسمي ظهر السجل باسم **ABC**، بالرمز `ABCBNKF EY` وباشتراك واسترداد أسبوعيين، لكن خانة NAV معروضة `-- EGP` بلا قيمة أو تاريخ. لذلك يؤكد الجدول الهوية والدورية فقط، ولا ينتج صف NAV قابلًا للحفظ.[4]
+
+كما فُحصت صفحة التقارير المالية العامة لبنك ABC مصر: أحدث ما تعرضه في 2026 هو القوائم المالية **للبنك** عن الربع الأول، والملفات المدرجة تخص تقارير البنك للفترات السابقة. لا يوجد فيها تقرير خاص بصندوق النمو الرأسمالي أو قيمة وثيقة أو تاريخ تقييم؛ لذلك لا تُعامل كتغذية NAV للصندوق.[18]
+
 بحث الموقع العام للهيئة العامة للرقابة المالية عن تسميات BLOM وBank ABC وصياغات NAV/سعر الوثيقة لم ينتج إفصاحًا حديثًا مناسبًا؛ النتيجة ذات الصلة الوحيدة كانت وثيقة استراتيجية عامة من 2021. لا يغيّر ذلك بطاقات الهوية أو يدعم كتابة NAV.[15]
 
 ## بطاقة BLOM Bank Fund I
@@ -106,3 +110,4 @@
 [12]: https://play.google.com/store/apps/details?id=com.thinkstudio.cfhl&hl=en_US "Cairo Capital Wealth — Google Play"
 [16]: https://primeholdingco.com/wp-content/uploads/2025/10/Aman-Money-Market-fund-Term-sheet-En.pdf "Prime Investments — Aman Money Market Fund Prospectus"
 [17]: https://primeholdingco.com/%D8%A8%D8%B1%D8%A7%D9%8A%D9%85-%D9%88%D8%AB%D8%A7%D8%A6%D9%82-%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%A3%D8%AF%D8%A7%D8%B1%D8%A9/?lang=ar "Prime Wathaeq — Fund Administration"
+[18]: https://www.bank-abc.com/en/CountrySites/Egypt/FinancialReports/Pages/Financial-Statements.aspx "Bank ABC Egypt — Financial Statements"
