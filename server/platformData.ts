@@ -149,6 +149,39 @@ export function buildExecutiveSignal(score: UniverseFund | null) {
   return { profile, strengths, watchItems: Array.from(new Set(watchItems)), evidenceQuality: score.dataConfidence ?? "Insufficient" };
 }
 
+type VisualPoint = { date: string; value: number | null };
+
+export function buildVisualizationReadiness(navPoints: VisualPoint[], performancePoints: VisualPoint[], scorePoints: VisualPoint[]) {
+  const normalize = (points: VisualPoint[]) => Array.from(
+    new Map(points.filter(point => point.value !== null && Number.isFinite(point.value)).map(point => [point.date, point])).values(),
+  ).sort((left, right) => left.date.localeCompare(right.date));
+  const nav = normalize(navPoints);
+  const performance = normalize(performancePoints);
+  const score = normalize(scorePoints);
+  const series = (points: VisualPoint[], unavailableReason: string) => ({
+    supported: points.length >= 2,
+    pointCount: points.length,
+    firstDate: points[0]?.date ?? null,
+    lastDate: points.at(-1)?.date ?? null,
+    reason: points.length >= 2 ? null : unavailableReason,
+  });
+  const performanceDates = new Set(performance.map(point => point.date));
+  const scoreDates = new Set(score.map(point => point.date));
+  const alignedDates = Array.from(performanceDates).filter(date => scoreDates.has(date)).sort();
+  return {
+    nav: series(nav, "لا توجد نقطتا NAV موثقتان على الأقل للرسم."),
+    performance: series(performance, "لا توجد نقطتا عائد أسبوعي موثقتان على الأقل للرسم."),
+    score: series(score, "لا توجد نقطتا SmartScore موثقتان على الأقل للرسم."),
+    alignedPerformanceScore: {
+      supported: alignedDates.length >= 2,
+      pointCount: alignedDates.length,
+      firstDate: alignedDates[0] ?? null,
+      lastDate: alignedDates.at(-1) ?? null,
+      reason: alignedDates.length >= 2 ? null : "لا يوجد تقاطع زمني موثق كافٍ بين الأداء وSmartScore.",
+    },
+  };
+}
+
 function assumedTbillWeeklyReturns(rows: IndicatorRow[]): WeeklyReturn[] {
   const yields = rows.filter(row => row.indicator_key === "TBILL_YIELD_AVG" && Number(row.value) > 0).sort((a, b) => a.report_date.localeCompare(b.report_date));
   return yields.slice(1).map((row, index) => {
@@ -174,13 +207,19 @@ async function buildFundProfile(fundId: string) {
   const weeklyReturns: WeeklyReturn[] = performance.filter(row => row.horizon === "weekly" && numeric(row.return_pct) !== null).map(row => ({ date: row.report_date, returnPct: numeric(row.return_pct)!, inputStatus: "verified" }));
   const riskInput: FundScoreInput = { fundId, category: overview.category ?? "Unclassified", reportDate: overview.reportDate ?? cairoDate(), horizonReturns: overview.returns, weeklyReturns, riskFreeWeeklyReturns: assumedTbillWeeklyReturns(indicators), benchmarks: [], inflationReturnPct: null, inflationStatus: "null", inputStatuses: ["verified"] };
   const riskMetrics = calculateRiskMetrics(riskInput);
+  const performanceHistory = performance.filter(row => row.horizon === "weekly").map(row => ({ date: row.report_date, returnPct: numeric(row.return_pct) }));
+  const navHistory = prices.map(row => ({ date: row.valuation_date, nav: numeric(row.nav), currency: row.currency }));
+  const scoreHistory = evaluations.map(row => ({ date: row.report_date, smartScore: numeric(row.smartscore), evidenceScore: numeric(row.evidence_score), components: { P: numeric(row.performance_score), R: numeric(row.risk_score), B: numeric(row.benchmark_score), C: numeric(row.consistency_score), I: numeric(row.inflation_score) }, rawRank: row.raw_rank, qualifiedRank: row.qualified_rank, qualificationStatus: row.qualification_status, dataConfidence: row.data_confidence, dataTier: row.data_tier, trackRecord: row.track_record, warnings: row.warnings }));
+  const visualization = buildVisualizationReadiness(
+    navHistory.map(point => ({ date: point.date, value: point.nav })),
+    performanceHistory.map(point => ({ date: point.date, value: point.returnPct })),
+    scoreHistory.map(point => ({ date: point.date, value: point.smartScore })),
+  );
   return {
     overview, executiveSignal: buildExecutiveSignal(overview), riskMetrics,
     fundSize: null as number | null, investmentStrategy: null as string | null,
     performanceIntelligence: Object.fromEntries(Array.from(latestPerformance.entries()).map(([horizon, row]) => [horizon, numeric(row.return_pct)])),
-    performanceHistory: performance.filter(row => row.horizon === "weekly").map(row => ({ date: row.report_date, returnPct: numeric(row.return_pct) })),
-    navHistory: prices.map(row => ({ date: row.valuation_date, nav: numeric(row.nav), currency: row.currency })),
-    scoreHistory: evaluations.map(row => ({ date: row.report_date, smartScore: numeric(row.smartscore), evidenceScore: numeric(row.evidence_score), components: { P: numeric(row.performance_score), R: numeric(row.risk_score), B: numeric(row.benchmark_score), C: numeric(row.consistency_score), I: numeric(row.inflation_score) }, rawRank: row.raw_rank, qualifiedRank: row.qualified_rank, qualificationStatus: row.qualification_status, dataConfidence: row.data_confidence, dataTier: row.data_tier, trackRecord: row.track_record, warnings: row.warnings })),
+    performanceHistory, navHistory, scoreHistory, visualization,
     benchmarkResults: scoreDetail?.benchmarkResults ?? [], effectiveWeights: scoreDetail?.effectiveWeights ?? null, inputStatus: scoreDetail?.inputStatus ?? null,
   };
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildExecutiveSignal, buildUniverseFunds, deriveFundType, deriveResearchSignals } from "./platformData";
+import { buildExecutiveSignal, buildUniverseFunds, buildVisualizationReadiness, deriveFundType, deriveResearchSignals } from "./platformData";
 
 describe("platform fund universe", () => {
   it("derives product fund types deterministically from the stored category", () => {
@@ -46,5 +46,26 @@ describe("platform fund universe", () => {
 
   it("does not fabricate a verdict when the score is unavailable", () => {
     expect(buildExecutiveSignal(null)).toMatchObject({ profile:"insufficient_evidence", evidenceQuality:"Insufficient" });
+  });
+
+  it("allows visual series only with at least two verified points and explicit score-performance overlap", () => {
+    const readiness = buildVisualizationReadiness(
+      [{ date: "2026-01-01", value: 10 }, { date: "2026-01-08", value: 10.2 }],
+      [{ date: "2026-01-08", value: 1.2 }, { date: "2026-01-15", value: 0.8 }],
+      [{ date: "2026-01-08", value: 62 }, { date: "2026-01-15", value: 63 }],
+    );
+    expect(readiness.nav).toMatchObject({ supported: true, pointCount: 2 });
+    expect(readiness.alignedPerformanceScore).toMatchObject({ supported: true, pointCount: 2, firstDate: "2026-01-08" });
+  });
+
+  it("suppresses partial or non-overlapping visualization series rather than creating points", () => {
+    const readiness = buildVisualizationReadiness(
+      [{ date: "2026-01-01", value: 10 }],
+      [{ date: "2026-01-08", value: 1.2 }, { date: "2026-01-15", value: 0.8 }],
+      [{ date: "2026-02-01", value: 62 }, { date: "2026-02-08", value: 63 }],
+    );
+    expect(readiness.nav).toMatchObject({ supported: false, pointCount: 1 });
+    expect(readiness.alignedPerformanceScore).toMatchObject({ supported: false, pointCount: 0 });
+    expect(readiness.alignedPerformanceScore.reason).toContain("تقاطع زمني");
   });
 });
