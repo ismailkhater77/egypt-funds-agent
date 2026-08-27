@@ -6,6 +6,8 @@ The user requested that discovery be limited to these 22 active uncovered catalo
 
 Snduk identifies itself as an independent fund-comparison platform and states that its data is based on available sources at publication. Its public funds directory is powered by a publicly reachable `funds.list` response and exposes fund names, manager labels, a `currentPrice` field, and record-maintenance timestamps. These are useful discovery fields, but the displayed record timestamp is not by itself a valuation/as-of date, and Snduk is not the fund manager, sponsor bank, or regulator. Consequently, no Snduk value is eligible for `fund_prices.status = validated` without separate primary evidence of the exact identity, actual NAV, and explicit valuation date.
 
+Snduk’s own public Investment Disclaimer, last updated 26-Jan-2026, says that its information is based on available sources at publication, that it cannot guarantee every item is complete, accurate, or up to date, and that users should verify information independently. The page does not identify an original data source or ingestion method for each fund price. This explicit limitation confirms that its displayed `Document Price` label cannot prove a first-party valuation route by itself.
+
 ## Initial observations
 
 The public directory confirms that it holds records for at least Pharos Fund I, Pioneers Fund I, Al Baraka Bank Egypt balanced / Al Motawazen, Naeem Misr Fund, and the Prime-managed fund family. It also reveals nearby but non-equivalent records, including the CIB/Faisal Aman fund and a distinct EFG-managed Al Baraka periodic fund. These similarly named entries must not be substituted for the 22 in scope. Candidate records will be evaluated one fund at a time and their direct URLs, displayed NAVs, any historical-price dates, and official-source corroboration will be recorded before any write.
@@ -85,6 +87,34 @@ The following values were displayed by Snduk under its `Document Price — Last 
 
 The same batched extraction encountered unparseable markup around the date labels for Al Motawazen and Zaldi Star after returning a valid price; their dates are therefore not recorded from that extraction. Both require the same primary-source corroboration as every other candidate.
 
+## Decision matrix after primary-source review
+
+| Fund or group | Result of primary-source review | Snduk value treatment | Automated-status decision |
+|---|---|---|---|
+| Al Motawazen | NAEEM/FRA confirms identity; current NAEEM page has no current dated NAV | Comparison only | Pending |
+| Arope, Momentum, Stream | Cairo Capital/CFH presence proves manager relationship but has no public dated NAV | Comparison only | Pending |
+| Aspire Rawajj, Aspire Waffrah Plus | Primary PDFs describe products but contain no current dated NAV | Comparison only | Pending |
+| Bokra Shakmagia | Bokra primary site identifies product but has no dated NAV | Comparison only | Pending |
+| Tharaa, Prime NMOW, Aman Micro Finance | Prime table proves fund identities and displays values but lacks valuation dates; Aman has no Snduk exact record | Comparison only | Pending |
+| Mawared | PFI primary page is dated but its current 71.4934 EGP / 29-Aug-2026 observation is future-dated on 27-Aug-2026 and the source is not a proven weekly channel | Snduk’s 71.3532 / 25-Aug-2026 is not substituted | Pending |
+| Naeem Misr | NAEEM primary detail page proves identity and weekly dealing but has no current NAV/date; a LinkedIn lead is sign-in-blocked | Comparison only | Pending |
+| NI Capital 15/30 and Education | Official NI product/fact-sheet route proves identity but not a readable current dated NAV; LinkedIn price-post lead is access-blocked; Education has no Snduk exact record | Comparison only where available | Pending |
+| GIG Makaseb tranches | Official manager and Snduk description confirm two separate issues, but neither assigns a current value to an individual tranche | Combined Snduk record rejected for allocation | Pending |
+| Bank ABC Fund I | Primary Bank ABC/Azimut route proves capital-growth identity but presents no current NAV/date; Snduk Mazaya hit is a separate product | Rejected identity mismatch | Pending |
+| BLOM I and II | No Snduk record; bank route has no current dated NAV | No candidate | Pending |
+| Pioneers Fund I | Snduk has a matching candidate; primary route has no current dated NAV | Comparison only | Pending |
+| Pharos Fund I | Direct manager Facebook post publicly displays 792.60 EGP on 26-Aug-2026; server-side Facebook fetch remains HTTP 400 | Snduk’s 792.04 EGP / 25-Aug-2026 remains comparison only | Primary source qualified, automation blocked |
+| Zaldi Star | Primary page is an exact daily-product source but exposes 112.88191 EGP dated 30-Aug-2026, future-dated on 27-Aug-2026 | Snduk’s different 112.6561 EGP / 26-Aug-2026 is not substituted | Pending |
+
+**Conclusion:** no Snduk value was added to `fund_prices`, no Snduk source was made active, and the operational validated coverage remains unchanged by this pass. The only independently qualified primary observation identified is Pharos, which awaits a stable server-side retrieval path before it can be automated.
+
+## Live database audit after this pass
+
+The live read-only audit at 27-Aug-2026 confirms **213 active** catalog funds, **191** with at least one `validated` NAV dated on or before the database current date, and **22** active funds still uncovered. It also confirms **0** future-dated `validated` rows and **0** duplicate groups under the `(fund_id, source_id, valuation_date, status)` key.
+
+`fund_prices` contains **6,036** rows in total: **5,690** EIMA historical rows classified as `review` from `src_eima_historical_weekly_reports`, and **346** non-EIMA operational/audit rows. Of the total, **305** rows are `validated`; this row count is deliberately distinct from the **191/213** active-fund coverage metric because a covered fund can have multiple validated snapshots.
+
 ## Source
 
 - [Snduk Egypt public funds directory](https://snduk.com/eg/funds?lang=en)
+- [Snduk Investment Disclaimer](https://snduk.com/eg/disclaimer?lang=en)

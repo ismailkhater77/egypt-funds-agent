@@ -154,5 +154,6 @@
 - [x] Audit the historical performance and indicator imports for date completeness, idempotency, and relational integrity
 - [x] Widen historical performance NAV precision beyond four decimals and reconcile the preliminary rounded EIMA rows from the original CSV
 - [x] Inventory Snduk pages and displayed NAV/date records for only the user-specified 22 uncovered active funds, preserving each displayed identity and URL
-- [ ] Cross-check every Snduk candidate against an official manager, sponsor-bank, or FRA disclosure with an explicit valuation date before any validated NAV write
+- [x] Cross-check every Snduk candidate against an official manager, sponsor-bank, or FRA disclosure with an explicit valuation date before any validated NAV write
 - [ ] Integrate and test only candidates that independently pass source, exact-identity, actual-NAV, valuation-date, future-date, and idempotency guards; document all others as third-party discovery evidence only
+- [ ] Prepare a least-privilege RLS policy proposal for eima_reports and eima_report_indicators, then obtain explicit user approval before applying any migration

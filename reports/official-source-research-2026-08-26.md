@@ -6,6 +6,10 @@ Official URL: https://www.pharosholding.com/
 
 The official Pharos Holding homepage identifies the company and provides corporate navigation, but the extracted page contains no fund-price table, NAV value, or valuation date for Pharos Fund I. The fund therefore remains Pending Verification under the project's strict rule.
 
+The user-confirmed official Aton Pharos Asset Management Facebook page was publicly readable in the browser and exposed an exact 26-Aug-2026 NAV post. However, the limited server-side recheck at 07:08 UTC on 27-Aug-2026 still returned HTTP 400 before parsing: `fetchedRecords=0`, `matchedRecords=0`, `inserted=0`. This remains a transport/access-stability blocker for the automated collector; it does not invalidate the browser-visible official disclosure and no Snduk value was substituted.
+
+The alternate public endpoint `https://mbasic.facebook.com/AtonPharos/` was probed without authentication. It returned HTTP 302 to Facebook’s sign-in page and then a 200 login page, not post HTML. It therefore cannot be used as an unauthenticated automated transport fallback. No cookies were stored, no login was attempted, and no collector code was changed.
+
 ## Blom
 
 Official URL inspected: https://www.blombank.com/english/products-and-services/investment-services
@@ -66,7 +70,7 @@ The official Bokra website confirms the regulated savings platform and lists `ا
 
 Official URL: https://pfi-am.com.eg/funds/
 
-The current PFI page explicitly labels NAV per certificate and dates. GIG Equity Fund shows 1,387.99 dated 26-08-2026 and is already covered/unchanged. GIG Money Market shows 18.9972 dated 29-08-2026, Mawared shows 71.4934 dated 29-08-2026, and PFI Cashi shows 11.6242 dated 29-08-2026. Those future-dated values were rejected as of 2026-08-26 and were not stored.
+The current PFI page explicitly labels NAV per certificate and dates. On the recheck of 27-Aug-2026, GIG Equity Fund showed 1,387.99 dated 26-08-2026 and remains already covered/unchanged. GIG Money Market showed 18.9972 dated 29-08-2026, Mawared showed **71.4934** dated **29-08-2026**, and PFI Cashi showed 11.6242 dated 29-08-2026. The official Mawared value is not the same as the Snduk comparison value of 71.3532 dated 25-Aug-2026. Since the PFI-dated values remain future-dated relative to 27-Aug-2026 and PFI is not configured as a proven weekly source, they were not stored as `validated` or `scheduled_weekly` observations.
 
 ## Al Baraka Al Motawazen
 
