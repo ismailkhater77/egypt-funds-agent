@@ -189,3 +189,15 @@
 - [x] Build benchmark, risk, consistency, inflation, anomaly, and period-alignment guards without silent substitutions or missing-data-as-zero behavior
 - [x] Implement an admin-only evaluation runner and a public score presentation that labels verified, assumed, and unverified inputs
 - [x] Add comprehensive SmartScore tests for new funds, long histories, missing inputs, near-zero volatility, anomalies, unequal periods, unavailable benchmarks, weight redistribution, and qualification ranks
+- [x] Freeze SmartScore v1 weights at P=30%, R=25%, B=25%, C=10%, I=10% across calculations, API contracts, methodology copy, and UI
+- [x] Build a professional global product shell and responsive RTL navigation for Market Intelligence, Fund Universe, Discover, Rank, Compare, Fund Profile, Decision Support, and Monitoring
+- [x] Implement a server-driven Fund Universe with category, manager, type, currency, status, data-availability, and track-record facets derived only from database records
+- [x] Build Discover search, deterministic smart filters, category rankings, top performers, rising funds, new funds, and an evidence-aware opportunity scanner without recommendations or fabricated signals
+- [x] Add separate SmartScore, performance, risk, real-return, benchmark, consistency, and confidence ranking views with explicit eligibility and null handling
+- [x] Build Fund-vs-Fund, Fund-vs-Category, Fund-vs-Benchmark, and Fund-vs-Market comparison flows restricted to aligned compatible periods
+- [x] Build a full Fund Profile and Fund DNA experience with overview, manager/category metadata, NAV/returns, performance history, risk, benchmarks, data availability, score breakdown, evidence matrix, and reliability flags
+- [x] Add research-grade decision signals that explain strengths, weaknesses, risks, and evidence quality without producing personalized investment advice
+- [x] Implement authenticated shortlist, watchlist, comparison candidates, portfolio candidates, and decision-journal persistence with ownership isolation
+- [x] Prepare monitoring for performance, SmartScore, confidence, benchmark, and risk changes with no schedule activation before publication and explicit user approval
+- [x] Add unit and integration tests for all new data selectors, access controls, filters, rankings, comparisons, profile outputs, and decision-support persistence
+- [x] Verify the complete platform visually on desktop and mobile, preserve the private admin sources route, run full tests, and save a stable checkpoint without publishing

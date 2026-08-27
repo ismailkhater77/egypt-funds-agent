@@ -7,6 +7,13 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import AdminSources from "./pages/AdminSources";
 import SmartScores from "./pages/SmartScores";
+import FundUniverse from "./pages/FundUniverse";
+import Discover from "./pages/Discover";
+import Rankings from "./pages/Rankings";
+import Compare from "./pages/Compare";
+import FundProfile from "./pages/FundProfile";
+import Workspace from "./pages/Workspace";
+import Monitoring from "./pages/Monitoring";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -14,6 +21,13 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/scores"} component={SmartScores} />
+      <Route path={"/funds"} component={FundUniverse} />
+      <Route path={"/discover"} component={Discover} />
+      <Route path={"/rank"} component={Rankings} />
+      <Route path={"/compare"} component={Compare} />
+      <Route path={"/funds/:fundId"} component={FundProfile} />
+      <Route path={"/workspace"} component={Workspace} />
+      <Route path={"/monitoring"} component={Monitoring} />
       <Route path={"/admin/sources"} component={AdminSources} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

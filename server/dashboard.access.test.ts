@@ -24,6 +24,13 @@ const standardUserContext: TrpcContext = {
 };
 
 describe("dashboard.snapshot access", () => {
+  it("rejects anonymous access to the private decision workspace", async () => {
+    const caller = appRouter.createCaller(anonymousContext);
+    await expect(caller.workspace.snapshot()).rejects.toMatchObject({
+      code: "UNAUTHORIZED",
+    });
+  });
+
   it("rejects an anonymous caller before any source health or agent data can be read", async () => {
     const caller = appRouter.createCaller(anonymousContext);
     await expect(caller.dashboard.snapshot()).rejects.toMatchObject({

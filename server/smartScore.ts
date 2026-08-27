@@ -59,7 +59,7 @@ export type SmartScoreResult = {
   warnings: string[];
 };
 
-type RiskMetrics = { volatility: number | null; sharpe: number | null; sortino: number | null; maxDrawdown: number | null };
+export type RiskMetrics = { volatility: number | null; sharpe: number | null; sortino: number | null; maxDrawdown: number | null };
 type ConsistencyMetrics = { positiveShare: number | null; signPersistence: number | null; horizonPositiveShare: number | null };
 
 const EPSILON = 0.0001;
@@ -95,7 +95,7 @@ export function redistributeWeights(components: Record<ComponentKey, number | nu
   }, {} as Record<ComponentKey, number | null>);
 }
 
-function calculateRiskMetrics(input: FundScoreInput): RiskMetrics {
+export function calculateRiskMetrics(input: FundScoreInput): RiskMetrics {
   const fund = validReturns(input.weeklyReturns);
   if (fund.length < 2) return { volatility: null, sharpe: null, sortino: null, maxDrawdown: null };
   const fundValues = fund.map(item => item.returnPct / 100);
