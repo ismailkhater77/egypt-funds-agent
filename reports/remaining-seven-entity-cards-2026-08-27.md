@@ -61,3 +61,17 @@
 [8]: https://primeholdingco.com/asset-management/ "Prime Holding — Asset Management"
 [9]: https://www.bank-abc.com/en/CountrySites/Egypt/AboutABC/Pages/ABC-Mutual-Funds.aspx "Bank ABC Egypt — Mutual Funds"
 [10]: https://nicapital.com.eg/lines-of-business/asset-management/ "NI Capital — Asset Management"
+
+### متابعة سجلات BLOM لدى Bank ABC
+
+بحث النطاق العام لبنك ABC عن رقمي السجلين 669271 و669306 وعن تسميات صندوقي BLOM السابقين لم يُظهر إفصاحًا أو مستندًا جديدًا يحوي NAV أو تاريخ تقييم. تظل صفحة الصناديق الرسمية هي الدليل العام المتاح؛ وهي تصف صندوق ABC للأسهم وصندوق Mazaya النقدي من دون جدول سعر حالي للصندوقين السابقين.[9]
+
+### متابعة GIG Makaseb
+
+تؤكد صفحة Snduk العامة وجود رابط واحد بعنوان **Makaseb Fund — GIG Shariah** يعرض 20.5413 EGP بتاريخ 23 أغسطس 2026، لكن اسم الصفحة وسعرها لا يحددان الشريحة الأولى أو الثانية؛ ولذلك لا يمكن إسناده إلى أي من سجلي الكتالوج. ووجد بحث NI Capital ملف fact sheet رسميًا من نوفمبر 2024 يميز الشريحتين، لكنه وثيقة تاريخية ولا يغني عن لقطة NAV تشغيلية حديثة. يبقى جدول NI Capital الحالي، الذي يسمي الشريحتين منفصلتين لكن بتاريـخ 29 أغسطس المستقبلي، المصدر الدقيق الوحيد من حيث الهوية في هذه اللحظة.[10] [11]
+
+[11]: https://snduk.com/eg/funds/makaseb-fund-gig-shariah?lang=ar "Snduk — GIG Makaseb Fund"
+
+### متابعة صندوق التعليم الخيري
+
+النص الحي لصفحة NI Capital يذكر **EDUCATION FOR LIFE** بالاسم، ويعرض تاريخ **29 August 2026** وقيمة شهادة ظاهرة قدرها **200.417 EGP**. وبما أن هذا التاريخ لم يصبح حاضرًا عند الفحص في 27 أغسطس، لم تُضف القيمة إلى قاعدة البيانات؛ يظل السجل مصدرًا أوليًا دقيقًا من حيث الاسم لكنه مؤجل زمنيًا فقط.[10]
