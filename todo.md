@@ -176,6 +176,9 @@
 - [ ] Investigate and correct the displayed USD/EGP value and market date using the saved observation and its primary source without estimated substitution
 - [x] Fix Fund Universe row and fund-name navigation so each clicked fund opens its matching Fund Profile route with available performance, risk, and data-quality information
 - [x] Make Fund Universe filtering functional and discoverable for search, category, manager, currency, active status, and data availability, with truthful no-results states
+- [x] Add advanced Fund Universe filters for search, category, management company, currency, data availability, and selectable track-record period using explicit AND logic
+- [x] Add evidence-aware market-criterion chips that apply only compatible stored metrics and show an unavailable state rather than a proxy or inferred result
+- [x] Add Reset and CSV export actions that operate only on the current filtered result set with transparent column definitions
 - [ ] Add unit tests, manual-run verification, and daily scheduled update handler; create the production schedule only after the user publishes
 - [x] Replace the paid Twelve Data plus MSCI API proposal with a free-only source plan; document any exact required indicator that has no compliant free API rather than substituting an ETF, CFD, or estimate
 - [x] Add parser and credential tests plus protected manual and cron-only market-data handlers; keep the production schedule inactive until the user publishes
