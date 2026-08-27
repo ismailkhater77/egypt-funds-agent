@@ -145,3 +145,5 @@
 - [x] Integrate FABMISR Al Awal from its official daily fund page only after exact catalog identity, source link, idempotent live write, and regression tests are confirmed
 - [x] Re-run the aggregate Run All job after the sandbox-wide external fetch outage clears, and distinguish transport failures from source/parser failures
 - [x] Add a TLS-validated direct-IP DNS-over-HTTPS fallback for FABMISR when the standard Cloudflare hostname lookup also depends on failed local DNS
+- [x] Audit the uploaded EIMA historical NAV CSV for schema, source attribution, date coverage, and catalog identity before any database write
+- [x] Import only EIMA historical NAV rows that pass source, identity, valuation-date, and idempotency validation without replacing current collector sources

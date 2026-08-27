@@ -1,0 +1,802 @@
+{
+  "input_file": "/home/ubuntu/upload/eima_fund_performance_integrated(1).csv",
+  "file_size_bytes": 24439427,
+  "headers": [
+    "report_date",
+    "report_status",
+    "category",
+    "row_number",
+    "fund_name_raw",
+    "management_company_raw",
+    "inception_date_raw",
+    "initial_value",
+    "nav_value",
+    "horizon",
+    "return_pct",
+    "rank",
+    "source_page",
+    "management_company_key",
+    "management_company_normalized",
+    "logo_file",
+    "logo_format",
+    "width_px",
+    "height_px",
+    "source_file",
+    "logo_link_status",
+    "ref_period",
+    "interest_deposit_rate_gt_1m_le_3m_pct",
+    "interest_deposit_rate_gt_3m_le_6m_pct",
+    "interest_deposit_rate_gt_6m_le_1y_pct",
+    "interest_corporate_loan_rate_le_1y_pct",
+    "interest_source_file",
+    "inflation_headline_cpi_monthly_change_pct",
+    "inflation_core_cpi_monthly_change_pct",
+    "inflation_administered_prices_monthly_change_pct",
+    "inflation_vegetables_fruit_monthly_change_pct",
+    "inflation_source_file",
+    "fx_buy_egp_per_unit",
+    "fx_sell_egp_per_unit",
+    "fx_spread_egp_per_unit",
+    "egx30_close_value",
+    "egx30_high_value",
+    "egx30_low_value",
+    "tbill_yield_avg_pct",
+    "tbill_yield_min_pct",
+    "tbill_yield_max_pct",
+    "tbill_volume_total_egp_mn",
+    "tbill_tenor_count",
+    "report_note_count",
+    "has_report_notes"
+  ],
+  "total_rows": 52920,
+  "unique_raw_funds": 208,
+  "unique_raw_managers": 32,
+  "date_range": {
+    "minimum": "2025-12-31",
+    "maximum": "2026-07-30",
+    "distinct_report_dates": 31,
+    "report_date_row_counts": {
+      "2025-12-31": 1080,
+      "2026-01-08": 1620,
+      "2026-01-15": 1620,
+      "2026-01-22": 1620,
+      "2026-01-29": 1656,
+      "2026-02-05": 1665,
+      "2026-02-12": 1674,
+      "2026-02-19": 1674,
+      "2026-02-26": 1692,
+      "2026-03-05": 1683,
+      "2026-03-12": 1692,
+      "2026-03-19": 1710,
+      "2026-03-26": 1710,
+      "2026-04-02": 1710,
+      "2026-04-09": 1764,
+      "2026-04-16": 1764,
+      "2026-04-23": 1764,
+      "2026-04-30": 1764,
+      "2026-05-07": 1764,
+      "2026-05-14": 1764,
+      "2026-05-21": 1764,
+      "2026-05-28": 1764,
+      "2026-06-04": 1764,
+      "2026-06-11": 1764,
+      "2026-06-18": 1764,
+      "2026-06-25": 1773,
+      "2026-07-02": 1773,
+      "2026-07-09": 1773,
+      "2026-07-16": 1773,
+      "2026-07-23": 1800,
+      "2026-07-30": 1818
+    }
+  },
+  "report_statuses": {
+    "Original": 49446,
+    "Edited": 1764,
+    "Amended": 1710
+  },
+  "required_field_blanks": {
+    "nav_value": 1710
+  },
+  "malformed_dates_sample": [],
+  "malformed_navs_sample": [
+    {
+      "row": "21098",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "nav_value": ""
+    },
+    {
+      "row": "21099",
+      "fund_name_raw": "CIB (Thabat)",
+      "nav_value": ""
+    },
+    {
+      "row": "21100",
+      "fund_name_raw": "CIB (Thabat)",
+      "nav_value": ""
+    },
+    {
+      "row": "21101",
+      "fund_name_raw": "CIB (Thabat)",
+      "nav_value": ""
+    },
+    {
+      "row": "21102",
+      "fund_name_raw": "CIB (Thabat)",
+      "nav_value": ""
+    },
+    {
+      "row": "21103",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "nav_value": ""
+    },
+    {
+      "row": "21104",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "nav_value": ""
+    },
+    {
+      "row": "21105",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "nav_value": ""
+    },
+    {
+      "row": "21106",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "nav_value": ""
+    },
+    {
+      "row": "21107",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "nav_value": ""
+    },
+    {
+      "row": "21108",
+      "fund_name_raw": "B-Secure",
+      "nav_value": ""
+    },
+    {
+      "row": "21109",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "nav_value": ""
+    },
+    {
+      "row": "21110",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "nav_value": ""
+    },
+    {
+      "row": "21111",
+      "fund_name_raw": "B-Secure",
+      "nav_value": ""
+    },
+    {
+      "row": "21112",
+      "fund_name_raw": "B-Secure",
+      "nav_value": ""
+    },
+    {
+      "row": "21113",
+      "fund_name_raw": "B-Secure",
+      "nav_value": ""
+    },
+    {
+      "row": "21114",
+      "fund_name_raw": "B-Secure",
+      "nav_value": ""
+    },
+    {
+      "row": "21115",
+      "fund_name_raw": "B-Secure",
+      "nav_value": ""
+    },
+    {
+      "row": "21116",
+      "fund_name_raw": "B-Secure",
+      "nav_value": ""
+    },
+    {
+      "row": "21117",
+      "fund_name_raw": "B-Secure",
+      "nav_value": ""
+    },
+    {
+      "row": "21118",
+      "fund_name_raw": "B-Secure",
+      "nav_value": ""
+    },
+    {
+      "row": "21119",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "nav_value": ""
+    },
+    {
+      "row": "21120",
+      "fund_name_raw": "CIB (Thabat)",
+      "nav_value": ""
+    },
+    {
+      "row": "21121",
+      "fund_name_raw": "Misr Capital Guaranteed (Al Omr)",
+      "nav_value": ""
+    },
+    {
+      "row": "21122",
+      "fund_name_raw": "CIB (Thabat)",
+      "nav_value": ""
+    }
+  ],
+  "source_pages": {
+    "2": 14916,
+    "1": 13548,
+    "4": 9177,
+    "3": 8337,
+    "5": 6942
+  },
+  "top_categories": {
+    "Open End- Money Market Funds": 14916,
+    "Open End- Equity Funds": 10266,
+    "Open End - Mixed Money Market & Fixed Income": 3327,
+    "Open End - Islamic Equity Funds": 3282,
+    "Index -Passive Funds": 2880,
+    "Open End - Islamic Money Market Funds": 2508,
+    "Open End - Balanced Funds": 2484,
+    "Open End - Gold Funds": 2142,
+    "Open End - Thematic Funds": 1839,
+    "Open End - Fixed Income Funds": 1398,
+    "Open- End Fixed Income Dollar Funds": 1233,
+    "Open End - Sectorial Funds": 1104,
+    "Open End - Charitable Funds": 1104,
+    "Capital Protected Funds": 828,
+    "Asset Allocator Funds": 828,
+    "Open End - Islamic Balanced Funds": 552,
+    "Open- End Money Market Dollar Funds": 552,
+    "Closed- End Foreign Currency -Dollar Funds": 426,
+    "Fund of Funds": 348,
+    "Capital Guaranteed Funds": 276,
+    "Exchange Traded Funds": 267,
+    "Index -Active Funds": 216,
+    "Open- End Fixed Income Euro Funds": 144
+  },
+  "top_managers": {
+    "CI Asset Management": 10677,
+    "Beltone Asset Management": 7242,
+    "Hermes Portfolio and Fund Management": 7146,
+    "Azimut Egypt Asset Management": 4986,
+    "Arab African Investment Management": 4548,
+    "Al Ahly Financial Investments Management": 3588,
+    "NI Capital": 1932,
+    "HC Securities & Investment": 1932,
+    "CFH Asset Management": 1380,
+    "NBK Capital Asset Management Egypt": 1104,
+    "Prime Investments": 1104,
+    "Mubasher Asset Management": 846,
+    "Alpha Financial Investment Management": 810,
+    "Amwal for Financial Investments": 582,
+    "PFI Asset Management": 552,
+    "*PFI Asset Management": 552,
+    "Sigma Asset Management": 552,
+    "Zaldi Investments": 483,
+    "Alpha Financial Investments Management": 294,
+    "Target Asset Management": 276,
+    "Granite Fund Management": 276,
+    "Naeem Capital for Investments": 276,
+    "Acumen Asset Management": 276,
+    "*Hermes Portfolio and Fund Management": 276,
+    "Sigma Funds Management": 276,
+    "Naeem for Financial Investments": 276,
+    "Pharos Asset Management": 276,
+    "Alpha Financial Investments Management & Zaldi Investments": 267,
+    "Al Baraka Capital": 54,
+    "Bokra": 54,
+    "Thndr Asset Management": 18,
+    "Alpha Financial Investment Management & Zaldi Investments": 9
+  },
+  "top_funds": {
+    "Credit Agricole Egypt Fund I": 276,
+    "Cash Mubasher": 276,
+    "Stream": 276,
+    "Target First Fund": 276,
+    "Granite First Fund": 276,
+    "Misr Capital Guaranteed (Al Omr)": 276,
+    "Arab African International Bank (Guard)": 276,
+    "CIB (Thabat)": 276,
+    "NI Capital 15/30": 276,
+    "Bareeq": 276,
+    "B-Secure": 276,
+    "*CI Fixed Income Fund": 276,
+    "Agricultural Bank of Egypt Fund (Al Massy)": 276,
+    "QNB Al Ahli (Tawazon)": 276,
+    "Credit Agricole Egypt Fund IV (Al Thiqa)": 276,
+    "Bank Nxt Fund III (Sanady)": 276,
+    "CIB Fund (Takamol)": 276,
+    "Al Ahly Hayat": 276,
+    "CIB Fund IV (Hamaya)": 276,
+    "FAB Misr Fund (Etm'nan)": 276,
+    "National Bank of Egypt Fund I": 276,
+    "Banque Misr Fund I": 276,
+    "*National Bank of Kuwait (Al Mizan)": 276,
+    "PFI Cashi": 276,
+    "The United Bank Fund (Rakhaa)": 276,
+    "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)": 276,
+    "Al Baraka Bank Egypt (Al Barakat)": 276,
+    "Misr Takaful": 276,
+    "Basata": 276,
+    "AZ Halan": 276,
+    "Fanar": 276,
+    "AZ Thndr": 276,
+    "Odin 4": 276,
+    "Zaldi Star": 276,
+    "GIG Makaseb Fund First Tranche": 276,
+    "Egyptian Arab Land Bank Fund (Al Masry)": 276,
+    "ALEXBANK Fund III": 276,
+    "Afaaq": 276,
+    "Edkhar": 276,
+    "Misr Insurance (Istithmar and Aman)": 276,
+    "Banque Du Caire (Al Thabet)": 276,
+    "GIG Makaseb Fund Second Tranche": 276,
+    "AZ Naser": 276,
+    "SAIB Fund III (Al Rabeh)": 276,
+    "AAIB (Gozoor)": 276,
+    "Al Baraka Bank Egypt (Al Motawazen)": 276,
+    "Misr Money Market ($)": 276,
+    "CIAM ($)": 276,
+    "Menthum USD $": 276,
+    "Maksab First Tranche USD $": 276,
+    "Beltone Fixed Income USD Fund": 276,
+    "Azimut Target Maturity Fund-Target 2027 USD": 276,
+    "Beltone Financial Fund": 276,
+    "Beltone Real Estate Fund": 276,
+    "Beltone Industrial Fund": 276,
+    "Beltone Consumer Fund": 276,
+    "Azimut Target Maturity Fund-Target 2029 USD": 276,
+    "Sabayek": 276,
+    "Dahab": 276,
+    "Mubasher Gold": 276,
+    "AZ Gold": 276,
+    "CIAM ESG": 276,
+    "Ataa": 276,
+    "The charitable education Fund": 276,
+    "Sports Fund": 276,
+    "Shefa Orman Charity Fund": 276,
+    "CIAM 5th Issue (Electronic Payments)": 276,
+    "CIAM Misr Equity": 276,
+    "CIAM Misr Shariah Equity": 276,
+    "AZ-Foras Shariah": 276,
+    "National Bank of Egypt VII": 276,
+    "Beltone EGX33 Shariah Index Tracker – Wafra": 276,
+    "Beltone EGX100 Index Tracker – Meya Meya": 276,
+    "Kenoz EGX33 Shariah Index Tracker – Shariah": 276,
+    "FAB Misr Fund (Ezdhar)": 276,
+    "SAIB Fund II": 276,
+    "Sigma Traded Fund": 276,
+    "Ebank Fund III (Konooz)": 276,
+    "Beltone EGX 35 Tracker": 276,
+    "CIAM 1st Issue (Real Estate)": 276,
+    "CIAM 2nd Issue (Technology)": 276,
+    "CIAM 3rd Issue (Export)": 276,
+    "CIAM 4th Issue (Consumption)": 276,
+    "AZ-LV": 276,
+    "NI Capital EGX 70": 276,
+    "Menthum Grow EGX 30 Capped": 276,
+    "Prime NMOW": 276,
+    "B-Alpha": 276,
+    "Tamayoz": 276,
+    "NI Capital (Sahmy Fund)": 276,
+    "Mubasher Equity": 276,
+    "Kenz Foras Equity": 276,
+    "*Maashy": 276,
+    "Momentum": 276,
+    "Odin Trend": 276,
+    "AZ Foras": 276,
+    "Pioneers Fund I": 276,
+    "Misr Al Mostakbal Fund": 276,
+    "QNB AlAHLI (Tadawol)": 276,
+    "National Bank of Kuwait Fund (Namaa)": 276
+  },
+  "unique_candidate_nav_observations_before_catalog_matching": 5940,
+  "duplicate_horizon_group_count": 5940,
+  "duplicate_horizon_groups_sample": [
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Credit Agricole Egypt Fund I",
+      "management_company_raw": "Hermes Portfolio and Fund Management",
+      "nav_value": "1513.3",
+      "source_page": "1",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Cash Mubasher",
+      "management_company_raw": "Mubasher Asset Management",
+      "nav_value": "21.5162",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Stream",
+      "management_company_raw": "CFH Asset Management",
+      "nav_value": "1.1",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Target First Fund",
+      "management_company_raw": "Target Asset Management",
+      "nav_value": "10.69835",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Granite First Fund",
+      "management_company_raw": "Granite Fund Management",
+      "nav_value": "1.04363",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Misr Capital Guaranteed (Al Omr)",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "12.43",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Arab African International Bank (Guard)",
+      "management_company_raw": "Arab African Investment Management",
+      "nav_value": "33.2882",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "CIB (Thabat)",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "569.07",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "NI Capital 15/30",
+      "management_company_raw": "NI Capital",
+      "nav_value": "19.27594",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Bareeq",
+      "management_company_raw": "Arab African Investment Management",
+      "nav_value": "188.92212",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "B-Secure",
+      "management_company_raw": "Beltone Asset Management",
+      "nav_value": "1.77367",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "*National Bank of Egypt VIII",
+      "management_company_raw": "Al Ahly Financial Investments Management",
+      "nav_value": "2432.955",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "*CI Fixed Income Fund",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "1.65492",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Agricultural Bank of Egypt Fund (Al Massy)",
+      "management_company_raw": "Hermes Portfolio and Fund Management",
+      "nav_value": "61.16",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "QNB Al Ahli (Tawazon)",
+      "management_company_raw": "Beltone Asset Management",
+      "nav_value": "677.42319",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Credit Agricole Egypt Fund IV (Al Thiqa)",
+      "management_company_raw": "HC Securities & Investment",
+      "nav_value": "703.88",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Bank Nxt Fund III (Sanady)",
+      "management_company_raw": "Azimut Egypt Asset Management",
+      "nav_value": "22.16803",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "CIB Fund (Takamol)",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "695.46",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Al Ahly Hayat",
+      "management_company_raw": "Al Ahly Financial Investments Management",
+      "nav_value": "278.88",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "CIB Fund IV (Hamaya)",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "694.08",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "FAB Misr Fund (Etm'nan)",
+      "management_company_raw": "HC Securities & Investment",
+      "nav_value": "296.61709",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "National Bank of Egypt Fund I",
+      "management_company_raw": "Al Ahly Financial Investments Management",
+      "nav_value": "131.95",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Banque Misr Fund I",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "16.0228",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "*National Bank of Kuwait (Al Mizan)",
+      "management_company_raw": "NBK Capital Asset Management Egypt",
+      "nav_value": "10.30583",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "PFI Cashi",
+      "management_company_raw": "PFI Asset Management",
+      "nav_value": "10.3418",
+      "source_page": "2",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "The United Bank Fund (Rakhaa)",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "131.634",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+      "management_company_raw": "Beltone Asset Management",
+      "nav_value": "372.4778",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Al Baraka Bank Egypt (Al Barakat)",
+      "management_company_raw": "Hermes Portfolio and Fund Management",
+      "nav_value": "232.25",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Misr Takaful",
+      "management_company_raw": "Arab African Investment Management",
+      "nav_value": "188.9497",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Basata",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "1.0277",
+      "source_page": "2",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "AZ Halan",
+      "management_company_raw": "Azimut Egypt Asset Management",
+      "nav_value": "1.61502",
+      "source_page": "2",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Fanar",
+      "management_company_raw": "Arab African Investment Management",
+      "nav_value": "155.9269",
+      "source_page": "2",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "AZ Thndr",
+      "management_company_raw": "Azimut Egypt Asset Management",
+      "nav_value": "1.18338",
+      "source_page": "2",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Odin 4",
+      "management_company_raw": "Alpha Financial Investments Management",
+      "nav_value": "1.12396",
+      "source_page": "2",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Zaldi Star",
+      "management_company_raw": "Zaldi Investments",
+      "nav_value": "110.6088",
+      "source_page": "2",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "GIG Makaseb Fund First Tranche",
+      "management_company_raw": "NI Capital",
+      "nav_value": "18.29768",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Egyptian Arab Land Bank Fund (Al Masry)",
+      "management_company_raw": "Alpha Financial Investments Management",
+      "nav_value": "430.86364",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "ALEXBANK Fund III",
+      "management_company_raw": "Hermes Portfolio and Fund Management",
+      "nav_value": "55.15313",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Afaaq",
+      "management_company_raw": "Arab African Investment Management",
+      "nav_value": "235.1703",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Edkhar",
+      "management_company_raw": "Azimut Egypt Asset Management",
+      "nav_value": "19.36857",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Misr Insurance (Istithmar and Aman)",
+      "management_company_raw": "Arab African Investment Management",
+      "nav_value": "197.3098",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Banque Du Caire (Al Thabet)",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "458.2049",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "GIG Makaseb Fund Second Tranche",
+      "management_company_raw": "NI Capital",
+      "nav_value": "18.22678",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "AZ Naser",
+      "management_company_raw": "Azimut Egypt Asset Management",
+      "nav_value": "16.32653",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "SAIB Fund III (Al Rabeh)",
+      "management_company_raw": "Hermes Portfolio and Fund Management",
+      "nav_value": "409.39615",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "AAIB (Gozoor)",
+      "management_company_raw": "Arab African Investment Management",
+      "nav_value": "50.52059",
+      "source_page": "3",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Al Baraka Bank Egypt (Al Motawazen)",
+      "management_company_raw": "Naeem Capital for Investments",
+      "nav_value": "241.81",
+      "source_page": "4",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Misr Money Market ($)",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "14.40105",
+      "source_page": "5",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "CIAM ($)",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "10.39694",
+      "source_page": "5",
+      "row_count": 6
+    },
+    {
+      "report_date": "2025-12-31",
+      "fund_name_raw": "Menthum USD $",
+      "management_company_raw": "CI Asset Management",
+      "nav_value": "1.0952",
+      "source_page": "5",
+      "row_count": 6
+    }
+  ],
+  "conflicting_nav_same_date_fund_manager_count": 0,
+  "conflicting_nav_same_date_fund_manager_sample": []
+}

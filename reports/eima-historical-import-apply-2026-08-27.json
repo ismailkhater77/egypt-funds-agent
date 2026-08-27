@@ -1,0 +1,29 @@
+{
+  "mode": "apply",
+  "as_of_date": "2026-08-26",
+  "source": {
+    "source_id": "src_eima_historical_weekly_reports",
+    "source_url": "https://eima.org.eg/",
+    "source_kind": "industry_association_historical_report",
+    "active": false
+  },
+  "policy": "All records are status=review / historical_import_eima_review; no record is validated by this importer.",
+  "input_rows": 52920,
+  "exact_active_identity_pairs": 207,
+  "eligible_unique_fund_date_observations": 5690,
+  "excluded_input_rows": {
+    "non_exact_or_inactive_identity": 495,
+    "invalid_or_missing_nav": 1746
+  },
+  "conflicting_fund_date_groups_excluded": 0,
+  "conflicting_fund_date_groups_sample": [],
+  "currency_counts": {
+    "EGP": 5435,
+    "USD": 239,
+    "EUR": 16
+  },
+  "inserted": 5690,
+  "unchanged": 0,
+  "existing_conflicts_not_overwritten": 0,
+  "existing_conflicts_sample": []
+}

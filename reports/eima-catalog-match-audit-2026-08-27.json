@@ -1,0 +1,3944 @@
+{
+  "input_file": "/home/ubuntu/upload/eima_fund_performance_integrated(1).csv",
+  "catalog_fund_count": 215,
+  "candidate_nav_observations": 5744,
+  "candidate_source_rows_after_horizon_dedup": 51156,
+  "entity_count": 213,
+  "entity_classifications": {
+    "EXACT_ACTIVE": 207,
+    "FUZZY_REVIEW": 1,
+    "UNMATCHED": 4,
+    "EXACT_INACTIVE": 1
+  },
+  "source_files": {
+    "1774132264570-ppkz0ixlrrg.webp": 10344,
+    "1774788549018-taqryf1xok.webp": 7179,
+    "1774122498557-tsdvaprwjgr.webp": 7008,
+    "": 5976,
+    "1774221738819-fdogjmxke2.webp": 4824,
+    "1774131178493-a5tsjqb19j.webp": 4395,
+    "1774439391840-qkrki2kvefk.webp": 1869,
+    "1774727942953-62n959yxmg.webp": 1815,
+    "1776356345422-ly9ayhv2qw.webp": 1335,
+    "1774450813994-47huedj6lac.webp": 1068,
+    "1780069045380-dulguau48t9.webp": 1068,
+    "1780584876001-huepja0r2fr.webp": 1068,
+    "1774269629811-tztc3bdixmi.webp": 819,
+    "1785666653937-dbso8aycbbh.webp": 534,
+    "1777804781543-oegu7p0i54d.webp": 465,
+    "1781539747201-fubf7cekck.webp": 267,
+    "1774293784955-danvdww6l9v.webp": 267,
+    "1774432627775-saxbtxbl5ha.webp": 267,
+    "1774436528781-gztk7zaayx.webp": 267,
+    "1775387582300-h4co7m1ivqf.webp": 267,
+    "1786460536750-9balsjgh2tc.webp": 54
+  },
+  "matched_source_rows": 50946,
+  "active_matched_source_rows": 50679,
+  "entities": [
+    {
+      "raw_fund_name": "*CI Fixed Income Fund",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5fd06bad24df7b1b",
+          "canonical_name": "CIAM Fixed Income Fund (Kol Shahr)",
+          "eima_name_raw": "*CI Fixed Income Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "*Maashy",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_33f6632a1feaada7",
+          "canonical_name": "*Maashy",
+          "eima_name_raw": "*Maashy",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "*National Bank of Egypt VIII",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2025-12-31",
+      "unique_dates": 1,
+      "source_row_count": 6,
+      "candidates": [
+        {
+          "fund_id": "fund_e42f345f7bffd172",
+          "canonical_name": "صندوق الواعد – دخل ثابت",
+          "eima_name_raw": "National Bank of Egypt VIII",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "*National Bank of Kuwait (Al Mizan)",
+      "raw_manager_name": "NBK Capital Asset Management Egypt",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_a54635b361da0832",
+          "canonical_name": "*National Bank of Kuwait (Al Mizan)",
+          "eima_name_raw": "*National Bank of Kuwait (Al Mizan)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "AAIB (Gozoor)",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_6c6c8859d82febfc",
+          "canonical_name": "AAIB (Gozoor)",
+          "eima_name_raw": "AAIB (Gozoor)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_5e0d169d137e8e17",
+          "canonical_name": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+          "eima_name_raw": "ADIB Egypt Shari'a Compliant (Al Nahrda Fund)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "ALEXBANK Fund I",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_75f480cb1cc5346b",
+          "canonical_name": "Bank of Alexandria Mutual Fund No. 1",
+          "eima_name_raw": "ALEXBANK Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "ALEXBANK Fund II",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_f8f71290ee431793",
+          "canonical_name": "Bank of Alexandria Mutual Fund No. 2",
+          "eima_name_raw": "ALEXBANK Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "ALEXBANK Fund III",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5468465eb99512e9",
+          "canonical_name": "Bank of Alexandria Fund No. 3",
+          "eima_name_raw": "ALEXBANK Fund III",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "AZ Foras",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_6293926e9cfd4869",
+          "canonical_name": "AZ Foras",
+          "eima_name_raw": "AZ Foras",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "AZ Gold",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_69768837ab21ae45",
+          "canonical_name": "AZ Gold",
+          "eima_name_raw": "AZ Gold",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "AZ Halan",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_7984dd2a845f904f",
+          "canonical_name": "AZ Halan",
+          "eima_name_raw": "AZ Halan",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "AZ Naser",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_63b2d19280bbf1bb",
+          "canonical_name": "AZ Naser",
+          "eima_name_raw": "AZ Naser",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "AZ Thndr",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_9ebcd523fc49a4c3",
+          "canonical_name": "AZ Thndr",
+          "eima_name_raw": "AZ Thndr",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "AZ Value",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_594b8151365a5058",
+          "canonical_name": "AZ Value",
+          "eima_name_raw": "AZ Value",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "AZ-Foras Shariah",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_ec01acace56cb648",
+          "canonical_name": "AZ-Foras Shariah",
+          "eima_name_raw": "AZ-Foras Shariah",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "AZ-LV",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_a68c44781bf3f565",
+          "canonical_name": "AZ-LV",
+          "eima_name_raw": "AZ-LV",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Afaaq",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_62ec8b7e2c9716ff",
+          "canonical_name": "Afaaq",
+          "eima_name_raw": "Afaaq",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Agricultural Bank of Egypt (Al Hasad Al Yaumy)",
+      "raw_manager_name": "HC Securities & Investment",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_911baed193599096",
+          "canonical_name": "Agricultural Bank of Egypt Fund No.2 (Al Hasad Al Yaumy)",
+          "eima_name_raw": "Agricultural Bank of Egypt (Al Hasad Al Yaumy)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Agricultural Bank of Egypt (Al Wefak)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "FUZZY_REVIEW",
+      "report_date_min": "2026-07-23",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 2,
+      "source_row_count": 18,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_505f20f4ff52058b",
+          "canonical_name": "Agriculural Bank of Egypt (Al Wefak)",
+          "eima_name_raw": "Agriculural Bank of Egypt (Al Wefak)",
+          "active": true,
+          "score": 0.9855
+        },
+        {
+          "fund_id": "fund_addb8d2de283e26b",
+          "canonical_name": "Egyptian Agricultural Bank (Al Massy)",
+          "eima_name_raw": "Agricultural Bank of Egypt Fund (Al Massy)",
+          "active": true,
+          "score": 0.8267
+        },
+        {
+          "fund_id": "fund_911baed193599096",
+          "canonical_name": "Agricultural Bank of Egypt Fund No.2 (Al Hasad Al Yaumy)",
+          "eima_name_raw": "Agricultural Bank of Egypt (Al Hasad Al Yaumy)",
+          "active": true,
+          "score": 0.7848
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Agricultural Bank of Egypt Fund (Al Massy)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_addb8d2de283e26b",
+          "canonical_name": "Egyptian Agricultural Bank (Al Massy)",
+          "eima_name_raw": "Agricultural Bank of Egypt Fund (Al Massy)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Agriculural Bank of Egypt (Al Wefak)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-16",
+      "unique_dates": 28,
+      "source_row_count": 249,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_505f20f4ff52058b",
+          "canonical_name": "Agriculural Bank of Egypt (Al Wefak)",
+          "eima_name_raw": "Agriculural Bank of Egypt (Al Wefak)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Ahli United Bank (Alpha)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "UNMATCHED",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-04-30",
+      "unique_dates": 17,
+      "source_row_count": 150,
+      "candidates": [
+        {
+          "fund_id": "fund_e6b8f19b34ef9ea5",
+          "canonical_name": "KFH-Tharwa-Shariaa-Compliant Money Market Fund",
+          "eima_name_raw": "Ahli United Bank (Tharwa)",
+          "active": true,
+          "score": 0.8444
+        },
+        {
+          "fund_id": "fund_dbbed067d20f4b66",
+          "canonical_name": "United Bank Egypt Money Market Fund (Rakhaa)",
+          "eima_name_raw": "The United Bank Fund (Rakhaa)",
+          "active": true,
+          "score": 0.6939
+        },
+        {
+          "fund_id": "fund_c89c74ac6157383b",
+          "canonical_name": "KFH-Alpha-Shariaa Compliant Equity Fund",
+          "eima_name_raw": "KFH Bank (Alpha)",
+          "active": true,
+          "score": 0.6667
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Ahli United Bank (Tharwa)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_e6b8f19b34ef9ea5",
+          "canonical_name": "KFH-Tharwa-Shariaa-Compliant Money Market Fund",
+          "eima_name_raw": "Ahli United Bank (Tharwa)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
+      "raw_manager_name": "Sigma Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_196096d8c91019c6",
+          "canonical_name": "Al Ahli Bank of Kuwait - Egypt Fund I",
+          "eima_name_raw": "Al Ahli Bank of Kuwait - Egypt Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Al Ahli Bank of Kuwait - Egypt Fund II",
+      "raw_manager_name": "Sigma Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_8cb45ae0c96c7f90",
+          "canonical_name": "Al Ahli Bank of Kuwait - Egypt Fund II",
+          "eima_name_raw": "Al Ahli Bank of Kuwait - Egypt Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Al Ahly Hayat",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_7090c320a549df5c",
+          "canonical_name": "صندوق الأهلي حياة – متوازن",
+          "eima_name_raw": "Al Ahly Hayat",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Al Baraka Bank Egypt",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_7799d127d2e3fafa",
+          "canonical_name": "Al Baraka Bank Islamic Fund",
+          "eima_name_raw": "Al Baraka Bank Egypt",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Al Baraka Bank Egypt (Al Barakat)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_3284023fbe6c1899",
+          "canonical_name": "Al Baraka Bank Islamic Money Market Fund (Al Barakat)",
+          "eima_name_raw": "Al Baraka Bank Egypt (Al Barakat)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Al Baraka Bank Egypt (Al Motawazen)",
+      "raw_manager_name": "Naeem Capital for Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_8890fe5997836df8",
+          "canonical_name": "Al Baraka Bank Egypt (Al Motawazen)",
+          "eima_name_raw": "Al Baraka Bank Egypt (Al Motawazen)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Allianz",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_054936aa9e17886f",
+          "canonical_name": "Allianz Co. Money Market Fund",
+          "eima_name_raw": "Allianz",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Aman Micro Finance",
+      "raw_manager_name": "Prime Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_9a9824abcbc06d4e",
+          "canonical_name": "Aman Micro Finance",
+          "eima_name_raw": "Aman Micro Finance",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Arab African International Bank (Guard)",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_a61e15ee9305ebc6",
+          "canonical_name": "Arab African International Bank (Guard)",
+          "eima_name_raw": "Arab African International Bank (Guard)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Arab African International Bank (Juman)",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_17c89daa3d4a1923",
+          "canonical_name": "Arab African International Bank (Juman)",
+          "eima_name_raw": "Arab African International Bank (Juman)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Arab African International Bank (Shield)",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_4924d1368f6343dc",
+          "canonical_name": "Arab African International Bank (Shield)",
+          "eima_name_raw": "Arab African International Bank (Shield)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Arab Bank Fund (Yomaty)",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_d248d4b02433f626",
+          "canonical_name": "صندوق البنك العربي النقدي بالجنيه المصري ذو العائد اليومي التراكمي \"يوماتي\"",
+          "eima_name_raw": "Arab Bank Fund (Yomaty)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Arope Insurance Misr Fund",
+      "raw_manager_name": "CFH Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_dcdce29bf354ca01",
+          "canonical_name": "Arope Insurance Misr Fund",
+          "eima_name_raw": "Arope Insurance Misr Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Aspire Rawajj",
+      "raw_manager_name": "Amwal for Financial Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-04-09",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 17,
+      "source_row_count": 153,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_00eb009a5cba4913",
+          "canonical_name": "Aspire Rawajj",
+          "eima_name_raw": "Aspire Rawajj",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Aspire Waffrah Plus",
+      "raw_manager_name": "Amwal for Financial Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-04-09",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 17,
+      "source_row_count": 153,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_340c039797911e9c",
+          "canonical_name": "Aspire Waffrah Plus",
+          "eima_name_raw": "Aspire Waffrah Plus",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Ataa",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_cd774486b2708c4c",
+          "canonical_name": "Ataa",
+          "eima_name_raw": "Ataa",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Attijariwafa BankFund",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_458f7f604809eb89",
+          "canonical_name": "صندوق استثمار التجاري وفا بنك إيجبت النقدي بالجنيه المصري \"رصيدي اليوم\"",
+          "eima_name_raw": "Attijariwafa BankFund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Azimut Target Maturity Fund-Target 2027 USD",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_0b35a6355a36769f",
+          "canonical_name": "Azimut Target Maturity Fund-Target 2027 USD",
+          "eima_name_raw": "Azimut Target Maturity Fund-Target 2027 USD",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Azimut Target Maturity Fund-Target 2029 USD",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_98e4d067c5c77b65",
+          "canonical_name": "Azimut Target Maturity Fund-Target 2029 USD",
+          "eima_name_raw": "Azimut Target Maturity Fund-Target 2029 USD",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Azimut Target Maturity Fund-Target 2030 USD",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-07-23",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 2,
+      "source_row_count": 18,
+      "candidates": [
+        {
+          "fund_id": "fund_d2870f20c8658b00",
+          "canonical_name": "Azimut Target Maturity Fund-Target 2030 USD",
+          "eima_name_raw": "Azimut Target Maturity Fund-Target 2030 USD",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "B-Alpha",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_e0c61fcc066e02ae",
+          "canonical_name": "صندوق بلتون للإستثمار النشط في الأسهم المصري B-Alpha",
+          "eima_name_raw": "B-Alpha",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "B-Couponat",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-07-30",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 1,
+      "source_row_count": 9,
+      "candidates": [
+        {
+          "fund_id": "fund_273f8757bddb9973",
+          "canonical_name": "الاصدار الثاني صندوق بلتون ذو العائد الدوري “كوبونات- B \"",
+          "eima_name_raw": "B-Couponat",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "B-Secure",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5f9867233e699077",
+          "canonical_name": "صندوق بلتون للأوراق المالية ذات العائد الثابت ذو العائد التراكمي والتوزيع الدوري B-Secure”",
+          "eima_name_raw": "B-Secure",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "B-Youmy",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-07-30",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 1,
+      "source_row_count": 9,
+      "candidates": [
+        {
+          "fund_id": "fund_6e2602dc275c6aa6",
+          "canonical_name": "الاصدار الثالث صندوق بلتون ذو العائد اليومى التراكمى “يومى - B \"",
+          "eima_name_raw": "B-Youmy",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "B70- EGX 70 Tracker",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-03-19",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 19,
+      "source_row_count": 171,
+      "candidates": [
+        {
+          "fund_id": "fund_a14b1984e6ee491f",
+          "canonical_name": "بلتون للإستثمار في أسهم مؤشر \"EGX-70EWI\" B-70",
+          "eima_name_raw": "B70- EGX 70 Tracker",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Bank ABC Fund (Mazaya)",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_ddc5d394505a99b7",
+          "canonical_name": "صندوق بنك المؤسسة العربية المصرفية Bank ABC بالجنيه المصري ذو العائد اليومي التراكمي \" مزايا\"",
+          "eima_name_raw": "Bank ABC Fund (Mazaya)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Bank ABC Fund I",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_e813d653742781f5",
+          "canonical_name": "Bank ABC Fund I",
+          "eima_name_raw": "Bank ABC Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Bank Nxt Fund I",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_3e250209bb10955c",
+          "canonical_name": "BANK NXT Money Market Fund",
+          "eima_name_raw": "Bank Nxt Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Bank Nxt Fund II (Helal)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_19d6487e194e32b5",
+          "canonical_name": "BANK NXT (Helal) Fund 2",
+          "eima_name_raw": "Bank Nxt Fund II (Helal)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Bank Nxt Fund III (Sanady)",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_d5278f42f53f168d",
+          "canonical_name": "Bank Nxt Fund III (Sanady)",
+          "eima_name_raw": "Bank Nxt Fund III (Sanady)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Banque Du Caire (Al Thabet)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_18a34b655259f418",
+          "canonical_name": "Banque Du Caire Fixed Income Fund (El Thabet)",
+          "eima_name_raw": "Banque Du Caire (Al Thabet)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Banque Du Caire Fund I",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_a4a7277af28c4ba3",
+          "canonical_name": "Banque du Caire Mutual Fund No. 1",
+          "eima_name_raw": "Banque Du Caire Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Banque Du Caire Fund II",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_1bbc98b369114e95",
+          "canonical_name": "صندوق استثمار بنك القاهرة النقدي للسيولة ذو العائد اليومي التراكمي \" القاهرة اليومي\"",
+          "eima_name_raw": "Banque Du Caire Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Banque Misr Fund I",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_59a03f0a961229af",
+          "canonical_name": "Banque Misr First Fund",
+          "eima_name_raw": "Banque Misr Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Banque Misr Fund II",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_e57915c4aea2ff67",
+          "canonical_name": "Banque Misr Second Fund",
+          "eima_name_raw": "Banque Misr Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Banque Misr Fund III",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_04922021c4bbd796",
+          "canonical_name": "Banque Misr Third Fund",
+          "eima_name_raw": "Banque Misr Fund III",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Banque Misr Fund IV",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_3442167caff8194a",
+          "canonical_name": "Banque Misr Fourth Fund",
+          "eima_name_raw": "Banque Misr Fund IV",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Bareeq",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_4d3e4c02b52413fb",
+          "canonical_name": "Bareeq",
+          "eima_name_raw": "Bareeq",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Basata",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_147a738f036b4614",
+          "canonical_name": "Basata Fund",
+          "eima_name_raw": "Basata",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Beltone Consumer Fund",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_677538b0d0f1aac4",
+          "canonical_name": "بلتون للإستثمار في أسهم القطاعات الإستهلاكية",
+          "eima_name_raw": "Beltone Consumer Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Beltone EGX 35 Tracker",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_21e3c6b23e6f074a",
+          "canonical_name": "صندوق بلتون للإستثمار في أسهم مؤشر \"EGX-35LV\" B-35",
+          "eima_name_raw": "Beltone EGX 35 Tracker",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Beltone EGX100 Index Tracker – Meya Meya",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5db2afe47b118793",
+          "canonical_name": "بلتون ذو العائد التراكمي للإستثمار في أسهم مؤشر EGX100 \"مائه/مائه\"",
+          "eima_name_raw": "Beltone EGX100 Index Tracker – Meya Meya",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Beltone EGX33 Shariah Index Tracker – Wafra",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_7f9c790e19a85c26",
+          "canonical_name": "بلتون ذو العائد التراكمي للإستثمار في أسهم مؤشر الشريعة EGX33 “وفرة”",
+          "eima_name_raw": "Beltone EGX33 Shariah Index Tracker – Wafra",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Beltone Fada",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-04-09",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 17,
+      "source_row_count": 153,
+      "candidates": [
+        {
+          "fund_id": "fund_69861fed8a7bc96f",
+          "canonical_name": "صندوق استثمار بلتون ايفولف للاستثمار فى الفضة ذو العائد اليومى التراكمى \" فضة \"",
+          "eima_name_raw": "Beltone Fada",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Beltone Financial Fund",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_eb6d028c9161f545",
+          "canonical_name": "بلتون للإستثمار في أسهم القطاعات المالية",
+          "eima_name_raw": "Beltone Financial Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Beltone Fixed Income USD Fund",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_47d56bf6fa1027de",
+          "canonical_name": "صندوق بلتون للدخل الثابت بالدولار الأمريكي",
+          "eima_name_raw": "Beltone Fixed Income USD Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Beltone Industrial Fund",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_a824eaf1e65870b5",
+          "canonical_name": "بلتون للإستثمار في أسهم القطاعات الصناعية",
+          "eima_name_raw": "Beltone Industrial Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Beltone Real Estate Fund",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_4ffe13e99f4fc1d7",
+          "canonical_name": "بلتون للإستثمار في أسهم القطاعات العقارية",
+          "eima_name_raw": "Beltone Real Estate Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Blom Bank Fund I",
+      "raw_manager_name": "CFH Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_5e23d437b00dd28f",
+          "canonical_name": "Blom Bank Fund I",
+          "eima_name_raw": "Blom Bank Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Blom Bank Fund II",
+      "raw_manager_name": "CFH Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_6003f4e5a46235cf",
+          "canonical_name": "Blom Bank Fund II",
+          "eima_name_raw": "Blom Bank Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Bokra Shakmagia",
+      "raw_manager_name": "Bokra",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-06-25",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 6,
+      "source_row_count": 54,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_e4143c8985b4e122",
+          "canonical_name": "Bokra Shakmagia",
+          "eima_name_raw": "Bokra Shakmagia",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Bonds Fixed Income USD Fund",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-03-19",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 19,
+      "source_row_count": 171,
+      "candidates": [
+        {
+          "fund_id": "fund_81ea87492cdbab5e",
+          "canonical_name": "Bonds Fixed Income USD Fund",
+          "eima_name_raw": "Bonds Fixed Income USD Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CI Misr Al Youmy",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_a9ed4a029c9b8915",
+          "canonical_name": "CIAM Money Market Fund (Misr Al Youmy)",
+          "eima_name_raw": "CI Misr Al Youmy",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM ($)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_386921f5fc6aabcf",
+          "canonical_name": "CIAM Fixed Income Fund (Misr Al Yomy USD)",
+          "eima_name_raw": "CIAM ($)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM 1st Issue (Real Estate)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_f3c7a6f56f090248",
+          "canonical_name": "CI Real Estate Value Chain",
+          "eima_name_raw": "CIAM 1st Issue (Real Estate)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM 2nd Issue (Technology)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_44c2791a8c5eae3d",
+          "canonical_name": "CI Financials and Fintech",
+          "eima_name_raw": "CIAM 2nd Issue (Technology)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM 3rd Issue (Export)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_195b83809c5e4a2c",
+          "canonical_name": "CI Exporters",
+          "eima_name_raw": "CIAM 3rd Issue (Export)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM 4th Issue (Consumption)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_b485e7d20cc3f70c",
+          "canonical_name": "CI Consumer and Basic Needs",
+          "eima_name_raw": "CIAM 4th Issue (Consumption)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM 5th Issue (Electronic Payments)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_3f77f14dd18f46c9",
+          "canonical_name": "CI Telecoms and IT",
+          "eima_name_raw": "CIAM 5th Issue (Electronic Payments)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM 6th Issue (The Quant)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-04-09",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 17,
+      "source_row_count": 153,
+      "candidates": [
+        {
+          "fund_id": "fund_4a4e66c62823a21c",
+          "canonical_name": "CI The Quant",
+          "eima_name_raw": "CIAM 6th Issue (The Quant)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM 7th Issue (HD 20)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-04-09",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 17,
+      "source_row_count": 153,
+      "candidates": [
+        {
+          "fund_id": "fund_9f0aec90206805f8",
+          "canonical_name": "CI 20HD",
+          "eima_name_raw": "CIAM 7th Issue (HD 20)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM 8th Issue (IPOs)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-04-09",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 17,
+      "source_row_count": 153,
+      "candidates": [
+        {
+          "fund_id": "fund_95bdd90815aff576",
+          "canonical_name": "CI IPO",
+          "eima_name_raw": "CIAM 8th Issue (IPOs)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM ESG",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_1c606a2bd7a87a6e",
+          "canonical_name": "Misr ESG Fund",
+          "eima_name_raw": "CIAM ESG",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM Gold",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "UNMATCHED",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2025-12-31",
+      "unique_dates": 1,
+      "source_row_count": 6,
+      "candidates": [
+        {
+          "fund_id": "fund_d890d29ee6d3b975",
+          "canonical_name": "CIAM Gold Fund (Gold Masr)",
+          "eima_name_raw": "CIAM Gold Fund",
+          "active": true,
+          "score": 0.7826
+        },
+        {
+          "fund_id": "fund_69768837ab21ae45",
+          "canonical_name": "AZ Gold",
+          "eima_name_raw": "AZ Gold",
+          "active": true,
+          "score": 0.75
+        },
+        {
+          "fund_id": "fund_386921f5fc6aabcf",
+          "canonical_name": "CIAM Fixed Income Fund (Misr Al Yomy USD)",
+          "eima_name_raw": "CIAM ($)",
+          "active": true,
+          "score": 0.7059
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM Gold Fund",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-08",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 29,
+      "source_row_count": 261,
+      "candidates": [
+        {
+          "fund_id": "fund_d890d29ee6d3b975",
+          "canonical_name": "CIAM Gold Fund (Gold Masr)",
+          "eima_name_raw": "CIAM Gold Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM Misr Equity",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_98634228c0ad3387",
+          "canonical_name": "Misr Equity Fund",
+          "eima_name_raw": "CIAM Misr Equity",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIAM Misr Shariah Equity",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_edd9ee4031222463",
+          "canonical_name": "CIAM Shariaa Index Equity Fund (EGX 33)",
+          "eima_name_raw": "CIAM Misr Shariah Equity",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIB (Thabat)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_e7b7e7a69d1d0f92",
+          "canonical_name": "CIB Fixed Income Fund (Thabat)",
+          "eima_name_raw": "CIB (Thabat)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIB Fund (Takamol)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_8c84dc350643b43a",
+          "canonical_name": "CIB Balanced Fund (Takamol)",
+          "eima_name_raw": "CIB Fund (Takamol)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIB Fund I (Osoul)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_318fd4d1552c0e1a",
+          "canonical_name": "CIB Money Market Fund (Ossoul)",
+          "eima_name_raw": "CIB Fund I (Osoul)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIB Fund II (Istthmar)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_56df5f71a12e14b8",
+          "canonical_name": "CIB Fund (2) (Istethmar)",
+          "eima_name_raw": "CIB Fund II (Istthmar)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "CIB Fund IV (Hamaya)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_2433cf90eee59126",
+          "canonical_name": "CIB Fund (4) (Hemaya)",
+          "eima_name_raw": "CIB Fund IV (Hamaya)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Cash Mubasher",
+      "raw_manager_name": "Mubasher Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_ec35b86a2af66e66",
+          "canonical_name": "Cash Mubasher",
+          "eima_name_raw": "Cash Mubasher",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Credit Agricole Egypt Fund I",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_7cc6304e5269054b",
+          "canonical_name": "Credit Agricole Mutual Fund No. 1",
+          "eima_name_raw": "Credit Agricole Egypt Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Credit Agricole Egypt Fund II",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_009606a871333aa4",
+          "canonical_name": "Credit Agricole Mutual Fund No. 2",
+          "eima_name_raw": "Credit Agricole Egypt Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Credit Agricole Egypt Fund III",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_a8f3a08e143e8ca5",
+          "canonical_name": "Credit Agricole Money Market Fund No. 3",
+          "eima_name_raw": "Credit Agricole Egypt Fund III",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Credit Agricole Egypt Fund IV (Al Thiqa)",
+      "raw_manager_name": "HC Securities & Investment",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_7d36b894257db9f9",
+          "canonical_name": "Crédit Agricole – Egypt Fund No.4 Balanced Fund (Al Thiqa)",
+          "eima_name_raw": "Credit Agricole Egypt Fund IV (Al Thiqa)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Dahab",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_3b007e03cf3d8988",
+          "canonical_name": "صندوق دهب",
+          "eima_name_raw": "Dahab",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Delta Life Insurance",
+      "raw_manager_name": "Alpha Financial Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-08",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 29,
+      "source_row_count": 261,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_2a497fc7469ee7ea",
+          "canonical_name": "Delta Life Insurance",
+          "eima_name_raw": "Delta Life Insurance",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Delta Life Insurance",
+      "raw_manager_name": "Alpha Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2025-12-31",
+      "unique_dates": 1,
+      "source_row_count": 6,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_2a497fc7469ee7ea",
+          "canonical_name": "Delta Life Insurance",
+          "eima_name_raw": "Delta Life Insurance",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Diamond",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_05a1f20e1c5b16d1",
+          "canonical_name": "Diamond",
+          "eima_name_raw": "Diamond",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "EGX30 Index ETF- EGX30 Index ETF",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 29,
+      "source_row_count": 258,
+      "candidates": [
+        {
+          "fund_id": "fund_8d7fb095eec2e9ed",
+          "canonical_name": "صندوق استثمار شركة صناديق المؤشرات EGX30 Index ETF",
+          "eima_name_raw": "EGX30 Index ETF- EGX30 Index ETF",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Ebank Fund (El Khabeer)",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_a786beb77a2a6a85",
+          "canonical_name": "Ebank Fund (El Khabeer)",
+          "eima_name_raw": "Ebank Fund (El Khabeer)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Ebank Fund II",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_cc427cc3701e7509",
+          "canonical_name": "Ebank Fund II",
+          "eima_name_raw": "Ebank Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Ebank Fund III (Konooz)",
+      "raw_manager_name": "Prime Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_b4f8cf2ed93a265a",
+          "canonical_name": "Ebank Fund III (Konooz)",
+          "eima_name_raw": "Ebank Fund III (Konooz)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Edkhar",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5549b9417edff89d",
+          "canonical_name": "Edkhar",
+          "eima_name_raw": "Edkhar",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Egyptian Arab Land Bank Fund (Al Masry)",
+      "raw_manager_name": "Alpha Financial Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-08",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 29,
+      "source_row_count": 261,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_65fc778135774384",
+          "canonical_name": "Egyptian Arab Land Bank Fund (Al Masry)",
+          "eima_name_raw": "Egyptian Arab Land Bank Fund (Al Masry)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Egyptian Arab Land Bank Fund (Al Masry)",
+      "raw_manager_name": "Alpha Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2025-12-31",
+      "unique_dates": 1,
+      "source_row_count": 6,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_65fc778135774384",
+          "canonical_name": "Egyptian Arab Land Bank Fund (Al Masry)",
+          "eima_name_raw": "Egyptian Arab Land Bank Fund (Al Masry)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Egyptian Gulf Bank (Tharaa)",
+      "raw_manager_name": "Prime Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_2770d5bf37ce5dc4",
+          "canonical_name": "Egyptian Gulf Bank (Tharaa)",
+          "eima_name_raw": "Egyptian Gulf Bank (Tharaa)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Egyptian Gulf Bank Fund I",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_e23ea10475bd65e7",
+          "canonical_name": "Egyptian Gulf Bank Mutual Fund",
+          "eima_name_raw": "Egyptian Gulf Bank Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Emirates NBD (Mazid)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_54d2af279fd38f33",
+          "canonical_name": "Emirates NBD Money Market Fund (Mazid)",
+          "eima_name_raw": "Emirates NBD (Mazid)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "FAB Misr (Modkharaty)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_43f33bd3196adab7",
+          "canonical_name": "FABMisr Money Market Fund (Modkharaty)",
+          "eima_name_raw": "FAB Misr (Modkharaty)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "FAB Misr Fund (Etm'nan)",
+      "raw_manager_name": "HC Securities & Investment",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_a489be10a3161f80",
+          "canonical_name": "FABMISR (Etm’nan) Capital Preservation Fund",
+          "eima_name_raw": "FAB Misr Fund (Etm'nan)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "FAB Misr Fund (Ezdhar)",
+      "raw_manager_name": "Acumen Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_4401d4d4b9314a90",
+          "canonical_name": "FAB Misr Fund (Ezdhar)",
+          "eima_name_raw": "FAB Misr Fund (Ezdhar)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "FIBE & CIB (Aman)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_2daf6f49025a1405",
+          "canonical_name": "Faisal & CIB Fund (Al Aman)",
+          "eima_name_raw": "FIBE & CIB (Aman)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Fab Misr (Al Awal)",
+      "raw_manager_name": "HC Securities & Investment",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_572c49594f78c71c",
+          "canonical_name": "FABMISR (Al Awal) Daily Cumulative Return Fund for Liquidity",
+          "eima_name_raw": "Fab Misr (Al Awal)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Faisal Islamic Bank of Egypt Fund",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_44166931f38ee123",
+          "canonical_name": "Faisal Islamic Bank of Egypt Fund",
+          "eima_name_raw": "Faisal Islamic Bank of Egypt Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Fanar",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_e89bbc9d85ecf407",
+          "canonical_name": "Fanar",
+          "eima_name_raw": "Fanar",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Fawry",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_3a979f5bc0895ae4",
+          "canonical_name": "Fawry CI Capital Money Market Fund (Yawmy)",
+          "eima_name_raw": "Fawry",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "GIG Insurance",
+      "raw_manager_name": "*PFI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_1aa1daa182ccd3f4",
+          "canonical_name": "GIG Insurance",
+          "eima_name_raw": "GIG Insurance",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "GIG Insurance - Egypt Fund I",
+      "raw_manager_name": "*PFI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_cb37d8a8ab14a079",
+          "canonical_name": "GIG Insurance - Egypt Fund I",
+          "eima_name_raw": "GIG Insurance - Egypt Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "GIG Makaseb Fund First Tranche",
+      "raw_manager_name": "NI Capital",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_7c6c6f87a110bc05",
+          "canonical_name": "GIG Makaseb Fund First Tranche",
+          "eima_name_raw": "GIG Makaseb Fund First Tranche",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "GIG Makaseb Fund Second Tranche",
+      "raw_manager_name": "NI Capital",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_ab8f6b89e48300e6",
+          "canonical_name": "GIG Makaseb Fund Second Tranche",
+          "eima_name_raw": "GIG Makaseb Fund Second Tranche",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Gosour Equity",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-02-05",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 25,
+      "source_row_count": 225,
+      "candidates": [
+        {
+          "fund_id": "fund_18c27c04454a5e14",
+          "canonical_name": "Gosour Equity",
+          "eima_name_raw": "Gosour Equity",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Granite First Fund",
+      "raw_manager_name": "Granite Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_bad1022b0ea1c260",
+          "canonical_name": "Granite First Fund",
+          "eima_name_raw": "Granite First Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "HSBC Egypt Bank Fund",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_aebc19e10d1526dd",
+          "canonical_name": "HSBC Money Market Fund",
+          "eima_name_raw": "HSBC Egypt Bank Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Hermes",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-29",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 26,
+      "source_row_count": 234,
+      "candidates": [
+        {
+          "fund_id": "fund_ffd69f146b1a9cb9",
+          "canonical_name": "EFG Hermes Money Market Fund",
+          "eima_name_raw": "Hermes",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Hermes Equity",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-29",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 26,
+      "source_row_count": 234,
+      "candidates": [
+        {
+          "fund_id": "fund_8890dc47a4febaea",
+          "canonical_name": "EFG Hermes Equity Fund",
+          "eima_name_raw": "Hermes Equity",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Hermes Fixed Income USD Fund",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-02-12",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 24,
+      "source_row_count": 216,
+      "candidates": [
+        {
+          "fund_id": "fund_44d31baa2f135a94",
+          "canonical_name": "EFG Hermes Fixed Income Fund (USD)",
+          "eima_name_raw": "Hermes Fixed Income USD Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Hermes Gold",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-29",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 26,
+      "source_row_count": 234,
+      "candidates": [
+        {
+          "fund_id": "fund_f517786d76dc74dc",
+          "canonical_name": "EFG Hermes Gold Fund",
+          "eima_name_raw": "Hermes Gold",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Hermes Shariah",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-29",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 26,
+      "source_row_count": 234,
+      "candidates": [
+        {
+          "fund_id": "fund_d1eb6c122d182dcb",
+          "canonical_name": "EFG Hermes Islamic Equity Fund",
+          "eima_name_raw": "Hermes Shariah",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Hourus",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_3892077415908a70",
+          "canonical_name": "صندوق حورس - النقدي",
+          "eima_name_raw": "Hourus",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Housing & Development Bank ( AL Tameer)",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_8e638aeb2853a1a5",
+          "canonical_name": "Housing & Development Bank ( AL Tameer)",
+          "eima_name_raw": "Housing & Development Bank ( AL Tameer)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Housing & Development Bank (Mawared)",
+      "raw_manager_name": "PFI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_7a2bb4bbf55e9560",
+          "canonical_name": "Housing & Development Bank (Mawared)",
+          "eima_name_raw": "Housing & Development Bank (Mawared)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Iskan Insurance",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_0b5432fffbaa9c8c",
+          "canonical_name": "Iskan Insurance",
+          "eima_name_raw": "Iskan Insurance",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "KFH Bank (Alpha)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-05-07",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 13,
+      "source_row_count": 117,
+      "candidates": [
+        {
+          "fund_id": "fund_c89c74ac6157383b",
+          "canonical_name": "KFH-Alpha-Shariaa Compliant Equity Fund",
+          "eima_name_raw": "KFH Bank (Alpha)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Kenoz EGX33 Shariah Index Tracker – Shariah",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_291a3c879cd82808",
+          "canonical_name": "Kenoz EGX33 Shariah Index Tracker – Shariah",
+          "eima_name_raw": "Kenoz EGX33 Shariah Index Tracker – Shariah",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Kenz Foras Equity",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_585e5ab0b900073b",
+          "canonical_name": "Kenz Foras Equity",
+          "eima_name_raw": "Kenz Foras Equity",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "MID Bank Fund I",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5138e12acac03d95",
+          "canonical_name": "صندوق استثمار ميدبنك الأول ذو العائد التراكمي والتوزيع الدوري",
+          "eima_name_raw": "MID Bank Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "MID Bank Fund II",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_c330bbe2271df519",
+          "canonical_name": "صندوق استثمار ميدبنك الثاني النقدي (ذو العائد اليومي والتوزيع الدوري)",
+          "eima_name_raw": "MID Bank Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Maksab First Tranche USD $",
+      "raw_manager_name": "Alpha Financial Investment Management & Zaldi Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-08",
+      "report_date_max": "2026-01-08",
+      "unique_dates": 1,
+      "source_row_count": 9,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_cb2fa7631c7099b1",
+          "canonical_name": "Maksab First Tranche USD $",
+          "eima_name_raw": "Maksab First Tranche USD $",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Maksab First Tranche USD $",
+      "raw_manager_name": "Alpha Financial Investments Management & Zaldi Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 29,
+      "source_row_count": 258,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_cb2fa7631c7099b1",
+          "canonical_name": "Maksab First Tranche USD $",
+          "eima_name_raw": "Maksab First Tranche USD $",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Manasek",
+      "raw_manager_name": "Al Baraka Capital",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-02-26",
+      "report_date_max": "2026-03-26",
+      "unique_dates": 5,
+      "source_row_count": 45,
+      "candidates": [
+        {
+          "fund_id": "fund_19f4c3f8a68ba311",
+          "canonical_name": "Al Baraka Capital Fund - Manasek",
+          "eima_name_raw": "Manasek",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Manasek",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-04-09",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 17,
+      "source_row_count": 153,
+      "candidates": [
+        {
+          "fund_id": "fund_19f4c3f8a68ba311",
+          "canonical_name": "Al Baraka Capital Fund - Manasek",
+          "eima_name_raw": "Manasek",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Menthum",
+      "raw_manager_name": "Azimut Egypt Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_52f11ef94c6ef2ee",
+          "canonical_name": "Menthum",
+          "eima_name_raw": "Menthum",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Menthum Grow EGX 30 Capped",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_01c26dadf463c6f9",
+          "canonical_name": "صندوق استثمار منثم ذو العائد التراكمي للاستثمار في أسهم مؤشر EGX30 Capped",
+          "eima_name_raw": "Menthum Grow EGX 30 Capped",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Menthum USD $",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_161bc7887f7badbd",
+          "canonical_name": "Menthum Fixed Income Fund – USD",
+          "eima_name_raw": "Menthum USD $",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Misr Al Mostakbal Fund",
+      "raw_manager_name": "HC Securities & Investment",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_db51b3c5dedb115e",
+          "canonical_name": "Misr Al Mostakbal Fund",
+          "eima_name_raw": "Misr Al Mostakbal Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Misr Capital Guaranteed (Al Omr)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_66ee0f79a9d96e03",
+          "canonical_name": "Banque Misr (5) Capital Protected",
+          "eima_name_raw": "Misr Capital Guaranteed (Al Omr)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Misr Insurance (Istithmar and Aman)",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_c722efc8d8e6f31a",
+          "canonical_name": "Misr Insurance (Istithmar and Aman)",
+          "eima_name_raw": "Misr Insurance (Istithmar and Aman)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Misr Insurance Fund",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_b312b6dcabf028f6",
+          "canonical_name": "صندوق استثمار مصر للتأمين النقدي للسيولة ذو العائد اليومي التراكمي \"الحصن اليومي\"",
+          "eima_name_raw": "Misr Insurance Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Misr Life Insurance Fund",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_7fa7346ab5d14bdb",
+          "canonical_name": "Misr Life Insurance Co. Money Market Fund",
+          "eima_name_raw": "Misr Life Insurance Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Misr Money Market",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_f1549e41b9828268",
+          "canonical_name": "Banque Misr Money Market Fund (EGP)",
+          "eima_name_raw": "Misr Money Market",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Misr Money Market ($)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_c4f258ea6d6a9783",
+          "canonical_name": "Banque Misr Money Market Fund (USD)",
+          "eima_name_raw": "Misr Money Market ($)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Misr Takaful",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_a9311525e8341ee9",
+          "canonical_name": "Misr Takaful",
+          "eima_name_raw": "Misr Takaful",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Momentum",
+      "raw_manager_name": "CFH Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_506d6004db598cdc",
+          "canonical_name": "Momentum",
+          "eima_name_raw": "Momentum",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Mubasher Equity",
+      "raw_manager_name": "Mubasher Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_8f87165f1dc5f1b3",
+          "canonical_name": "Mubasher Equity",
+          "eima_name_raw": "Mubasher Equity",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Mubasher Gold",
+      "raw_manager_name": "Mubasher Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_ce8809c05bb69e89",
+          "canonical_name": "Mubasher Gold",
+          "eima_name_raw": "Mubasher Gold",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Mubasher Silver",
+      "raw_manager_name": "Mubasher Asset Management",
+      "classification": "UNMATCHED",
+      "report_date_min": "2026-07-23",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 2,
+      "source_row_count": 18,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_ce8809c05bb69e89",
+          "canonical_name": "Mubasher Gold",
+          "eima_name_raw": "Mubasher Gold",
+          "active": true,
+          "score": 0.7143
+        },
+        {
+          "fund_id": "fund_catalog_8f87165f1dc5f1b3",
+          "canonical_name": "Mubasher Equity",
+          "eima_name_raw": "Mubasher Equity",
+          "active": true,
+          "score": 0.6667
+        },
+        {
+          "fund_id": "fund_catalog_ec35b86a2af66e66",
+          "canonical_name": "Cash Mubasher",
+          "eima_name_raw": "Cash Mubasher",
+          "active": true,
+          "score": 0.5714
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "NBE & Al Baraka Bank Egypt Fund (Bashayer)",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_61b3c8b926dce88d",
+          "canonical_name": "صندوق بشائر – أسهم اسلامي",
+          "eima_name_raw": "NBE & Al Baraka Bank Egypt Fund (Bashayer)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "NI Capital (Sahmy Fund)",
+      "raw_manager_name": "NI Capital",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_2274c76e2f0c2607",
+          "canonical_name": "NI Capital (Sahmy Fund)",
+          "eima_name_raw": "NI Capital (Sahmy Fund)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "NI Capital 15/30",
+      "raw_manager_name": "NI Capital",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_4a91355f14fab6b2",
+          "canonical_name": "NI Capital 15/30",
+          "eima_name_raw": "NI Capital 15/30",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "NI Capital EGX 70",
+      "raw_manager_name": "NI Capital",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_0e3039d40b526224",
+          "canonical_name": "NI Capital EGX 70",
+          "eima_name_raw": "NI Capital EGX 70",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Naeem Misr Fund",
+      "raw_manager_name": "Naeem for Financial Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_7ecf69eda96b7c22",
+          "canonical_name": "Naeem Misr Fund",
+          "eima_name_raw": "Naeem Misr Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Egypt Fund I",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_93b839afbc5e4290",
+          "canonical_name": "الصندوق الأول – متوازن",
+          "eima_name_raw": "National Bank of Egypt Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Egypt Fund II",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_ecdb9f8262d72ce7",
+          "canonical_name": "الصندوق الثاني – أسهم",
+          "eima_name_raw": "National Bank of Egypt Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Egypt Fund III",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_29d32f37da9ab72a",
+          "canonical_name": "الصندوق الثالث – أسهم",
+          "eima_name_raw": "National Bank of Egypt Fund III",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Egypt Fund IV",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_4c30fe8a694e6d87",
+          "canonical_name": "الصندوق الرابع – نقدى",
+          "eima_name_raw": "National Bank of Egypt Fund IV",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Egypt Fund V",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_31ea749d92554ea8",
+          "canonical_name": "الصندوق الخامس – أسهم",
+          "eima_name_raw": "National Bank of Egypt Fund V",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Egypt VII",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_be23bf789e4c5d6b",
+          "canonical_name": "الصندوق السابع",
+          "eima_name_raw": "National Bank of Egypt VII",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Egypt VIII",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-08",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 29,
+      "source_row_count": 261,
+      "candidates": [
+        {
+          "fund_id": "fund_e42f345f7bffd172",
+          "canonical_name": "صندوق الواعد – دخل ثابت",
+          "eima_name_raw": "National Bank of Egypt VIII",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Kuwait (Hayat)",
+      "raw_manager_name": "NBK Capital Asset Management Egypt",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_27773e8d07295e89",
+          "canonical_name": "National Bank of Kuwait (Hayat)",
+          "eima_name_raw": "National Bank of Kuwait (Hayat)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Kuwait Fund (Ishraq)",
+      "raw_manager_name": "NBK Capital Asset Management Egypt",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_e4c9c101a3374b3d",
+          "canonical_name": "National Bank of Kuwait Fund (Ishraq)",
+          "eima_name_raw": "National Bank of Kuwait Fund (Ishraq)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "National Bank of Kuwait Fund (Namaa)",
+      "raw_manager_name": "NBK Capital Asset Management Egypt",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_fbdb62734b9d2bc8",
+          "canonical_name": "National Bank of Kuwait Fund (Namaa)",
+          "eima_name_raw": "National Bank of Kuwait Fund (Namaa)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Odin 4",
+      "raw_manager_name": "Alpha Financial Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-08",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 29,
+      "source_row_count": 261,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_228c50577ac34cf2",
+          "canonical_name": "Odin 4",
+          "eima_name_raw": "Odin 4",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Odin 4",
+      "raw_manager_name": "Alpha Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2025-12-31",
+      "unique_dates": 1,
+      "source_row_count": 6,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_228c50577ac34cf2",
+          "canonical_name": "Odin 4",
+          "eima_name_raw": "Odin 4",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Odin Trend",
+      "raw_manager_name": "Alpha Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_fd33cc2b398c2dfc",
+          "canonical_name": "Odin Trend",
+          "eima_name_raw": "Odin Trend",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "PFI Cashi",
+      "raw_manager_name": "PFI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_55de4d996617e8fc",
+          "canonical_name": "PFI Cashi",
+          "eima_name_raw": "PFI Cashi",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Pharos Fund I",
+      "raw_manager_name": "Pharos Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_2d0080f3a14a0fb8",
+          "canonical_name": "Pharos Fund I",
+          "eima_name_raw": "Pharos Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Pioneers Fund I",
+      "raw_manager_name": "Amwal for Financial Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_e538c111a8f2f22a",
+          "canonical_name": "Pioneers Fund I",
+          "eima_name_raw": "Pioneers Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Prime NMOW",
+      "raw_manager_name": "Prime Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_6b4de8489e04124c",
+          "canonical_name": "Prime NMOW",
+          "eima_name_raw": "Prime NMOW",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "QNB Al Ahli (Tawazon)",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_d276dbadffdb507f",
+          "canonical_name": "صندوق استثمار بنك قطر الوطني الأهلي الثاني ذو العائد الدوري التراكمي بالجنيه المصري - توازن",
+          "eima_name_raw": "QNB Al Ahli (Tawazon)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "QNB AlAHLI (Tadawol)",
+      "raw_manager_name": "HC Securities & Investment",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_8267d32e1a907f71",
+          "canonical_name": "QNB Al Ahli Fund No.3 Periodic Cumulative Return, (Tadawol)",
+          "eima_name_raw": "QNB AlAHLI (Tadawol)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "QNB AlAhli (Themar)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_dacab30de94875f4",
+          "canonical_name": "QNB Al Ahli Money Market Fund (Themar)",
+          "eima_name_raw": "QNB AlAhli (Themar)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "SAIB & ADIB Fund (Sanabel)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5fc8c80c905b9888",
+          "canonical_name": "Sanabel Islamic Fund",
+          "eima_name_raw": "SAIB & ADIB Fund (Sanabel)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "SAIB Fund II",
+      "raw_manager_name": "*Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5250f3711dadc2a6",
+          "canonical_name": "SAIB’s Second Investment Fund",
+          "eima_name_raw": "SAIB Fund II",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "SAIB Fund III (Al Rabeh)",
+      "raw_manager_name": "Hermes Portfolio and Fund Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_b433cc6abdcf0a71",
+          "canonical_name": "SAIB’s Third Investment Fund (El Rabeh)",
+          "eima_name_raw": "SAIB Fund III (Al Rabeh)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Sabayek",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5f870a3631b4f621",
+          "canonical_name": "صندوق بلتون ايفولف للاستثمار في الذهب \"سبائك\"",
+          "eima_name_raw": "Sabayek",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Saib (Yaumy Fund)",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_98f867d45b6b4ecd",
+          "canonical_name": "صندوق استثمار بنك الشركة المصرفية الدولية النقدي للسيولة بالجنيه المصرى ذو العائد اليومي التراكمي \"يومي\"",
+          "eima_name_raw": "Saib (Yaumy Fund)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Sarwa Life Insurance Fund",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_48e5fdafdedbaee3",
+          "canonical_name": "Sarwa Life Insurance Co. Fund",
+          "eima_name_raw": "Sarwa Life Insurance Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Sarwaty",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2025-12-31",
+      "unique_dates": 1,
+      "source_row_count": 6,
+      "candidates": [
+        {
+          "fund_id": "fund_902d8a9ccc91c398",
+          "canonical_name": "Sarwaty*",
+          "eima_name_raw": "Sarwaty*",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Sarwaty*",
+      "raw_manager_name": "Arab African Investment Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-01-08",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 29,
+      "source_row_count": 261,
+      "candidates": [
+        {
+          "fund_id": "fund_902d8a9ccc91c398",
+          "canonical_name": "Sarwaty*",
+          "eima_name_raw": "Sarwaty*",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Shefa Orman Charity Fund",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_c140cb2ec26f5bb4",
+          "canonical_name": "Shefa Orman Charity Fund",
+          "eima_name_raw": "Shefa Orman Charity Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Sigma Traded Fund",
+      "raw_manager_name": "Sigma Funds Management",
+      "classification": "EXACT_INACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_7c9cd45a3eb4f4c2",
+          "canonical_name": "Sigma Traded Fund",
+          "eima_name_raw": "Sigma Traded Fund",
+          "active": false,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Siula Money Market",
+      "raw_manager_name": "NI Capital",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_09c739ead1bd42d7",
+          "canonical_name": "Siula Money Market",
+          "eima_name_raw": "Siula Money Market",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Sports Fund",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_5bf58206c8e6cab7",
+          "canonical_name": "صندوق الاستثمار الخيري لدعم الرياضة \"صندوق الرياضة المصري Egyptian Sport Fund",
+          "eima_name_raw": "Sports Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Stream",
+      "raw_manager_name": "CFH Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_5832f921b015e253",
+          "canonical_name": "Stream",
+          "eima_name_raw": "Stream",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Suez Canal Bank ( Al Suez Al Youmi)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_46ddc8f193e74f70",
+          "canonical_name": "Suez Canale Bank Money Market Fund",
+          "eima_name_raw": "Suez Canal Bank ( Al Suez Al Youmi)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Suez Canal Bank Fund I",
+      "raw_manager_name": "HC Securities & Investment",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_472ddcd8c94d7ed3",
+          "canonical_name": "Suez Canal Bank (Fund No.1)",
+          "eima_name_raw": "Suez Canal Bank Fund I",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Suez Canal Bank Fund II (Al Agial)",
+      "raw_manager_name": "Beltone Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_58307ef8e9ea2272",
+          "canonical_name": "(صندوق استثمار بنك قناة السويس الثاني للاسهم (الأجيال",
+          "eima_name_raw": "Suez Canal Bank Fund II (Al Agial)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Tamayoz",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_3c02c00fe3d0e17f",
+          "canonical_name": "صندوق تميز – نقدى",
+          "eima_name_raw": "Tamayoz",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Target First Fund",
+      "raw_manager_name": "Target Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_c1a54a18b309eebb",
+          "canonical_name": "Target First Fund",
+          "eima_name_raw": "Target First Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "The United Bank Fund (Rakhaa)",
+      "raw_manager_name": "CI Asset Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_dbbed067d20f4b66",
+          "canonical_name": "United Bank Egypt Money Market Fund (Rakhaa)",
+          "eima_name_raw": "The United Bank Fund (Rakhaa)",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "The charitable education Fund",
+      "raw_manager_name": "NI Capital",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 24,
+      "source_row_count": 213,
+      "candidates": [
+        {
+          "fund_id": "fund_catalog_36f84fcd84ba2624",
+          "canonical_name": "The charitable education Fund",
+          "eima_name_raw": "The charitable education Fund",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Thndr Gold",
+      "raw_manager_name": "Thndr Asset Management",
+      "classification": "UNMATCHED",
+      "report_date_min": "2026-07-23",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 2,
+      "source_row_count": 18,
+      "candidates": [
+        {
+          "fund_id": "fund_f517786d76dc74dc",
+          "canonical_name": "EFG Hermes Gold Fund",
+          "eima_name_raw": "Hermes Gold",
+          "active": true,
+          "score": 0.6667
+        },
+        {
+          "fund_id": "fund_catalog_ce8809c05bb69e89",
+          "canonical_name": "Mubasher Gold",
+          "eima_name_raw": "Mubasher Gold",
+          "active": true,
+          "score": 0.6087
+        },
+        {
+          "fund_id": "fund_69768837ab21ae45",
+          "canonical_name": "AZ Gold",
+          "eima_name_raw": "AZ Gold",
+          "active": true,
+          "score": 0.5882
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Wethaq",
+      "raw_manager_name": "Al Ahly Financial Investments Management",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_49ae7cc7867eed20",
+          "canonical_name": "صندوق وثاق – نقدى",
+          "eima_name_raw": "Wethaq",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Zaldi El Masry",
+      "raw_manager_name": "Zaldi Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-04-09",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 17,
+      "source_row_count": 153,
+      "candidates": [
+        {
+          "fund_id": "fund_1e30d07a3be5bc69",
+          "canonical_name": "Zaldi-Elmasry",
+          "eima_name_raw": "Zaldi El Masry",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Zaldi Star",
+      "raw_manager_name": "Zaldi Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2025-12-31",
+      "report_date_max": "2026-07-30",
+      "unique_dates": 30,
+      "source_row_count": 267,
+      "candidates": [
+        {
+          "fund_id": "fund_3729c5fb2587a803",
+          "canonical_name": "Zaldi Star- EGP",
+          "eima_name_raw": "Zaldi Star",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "raw_fund_name": "Zaldi Star Equity",
+      "raw_manager_name": "Zaldi Investments",
+      "classification": "EXACT_ACTIVE",
+      "report_date_min": "2026-02-26",
+      "report_date_max": "2026-03-26",
+      "unique_dates": 5,
+      "source_row_count": 45,
+      "candidates": [
+        {
+          "fund_id": "fund_deba41285f829ec4",
+          "canonical_name": "Zaldi Star (Money Market)",
+          "eima_name_raw": "Zaldi Star Equity",
+          "active": true,
+          "score": 1.0
+        }
+      ]
+    }
+  ]
+}

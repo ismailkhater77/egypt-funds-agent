@@ -1,0 +1,27 @@
+{
+  "as_of_date": "2026-08-26",
+  "source_rows": [
+    {
+      "source_id": "src_eima_historical_weekly_reports",
+      "source_name": "EIMA Historical Weekly Fund Performance Reports (user-provided import)",
+      "source_url": "https://eima.org.eg/",
+      "source_kind": "industry_association_historical_report",
+      "active": false
+    }
+  ],
+  "source_exists_exactly_once": true,
+  "historical_review_rows": 5690,
+  "currency_counts": {
+    "EGP": 5435,
+    "USD": 239,
+    "EUR": 16
+  },
+  "valuation_date_min": "2025-12-31",
+  "valuation_date_max": "2026-07-30",
+  "non_review_rows": 0,
+  "wrong_observation_state_rows": 0,
+  "future_dated_eima_rows": 0,
+  "same_source_duplicate_groups": 0,
+  "same_source_duplicate_groups_sample": [],
+  "coverage_rule": "All EIMA rows are review records and excluded from validated coverage by status."
+}
