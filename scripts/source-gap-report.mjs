@@ -1,6 +1,8 @@
 import { writeFile } from "node:fs/promises";
 
-const asOfDate = "2026-08-26";
+import { getEgyptBusinessDate } from "./lib/egyptBusinessDate.mjs";
+
+const asOfDate = getEgyptBusinessDate();
 const base = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const headers = { apikey: key, Authorization: `Bearer ${key}` };
@@ -26,5 +28,5 @@ const row = (fund, includeUrl = false) => `| ${fund.canonical_name.replaceAll("|
 const covered = funds.filter((fund) => validFundIds.has(fund.fund_id));
 const markdown = `# Source-Coverage Gap Report — ${asOfDate}\n\nThis report is a **read-only** Supabase audit of active fund records. “No update source at all” means \`price_update_url IS NULL\`; it does not mean that an external source can never be found. “Linked but no validated snapshot” means a URL exists in the active fund catalog but there is no validated price dated on or before ${asOfDate}.\n\n| Category | Count |\n| --- | ---: |\n| Active catalog funds | ${funds.length} |\n| Funds with no update-source URL at all | ${unlinked.length} |\n| Funds linked to a URL but without a validated snapshot as of ${asOfDate} | ${linkedButNoValidatedSnapshot.length} |\n| Funds with no validated snapshot as of ${asOfDate} (functional coverage gap) | ${noValidatedSnapshot.length} |\n| Funds with at least one validated snapshot as of ${asOfDate} | ${covered.length} |\n\n## A. Funds with no update-source URL at all (${unlinked.length})\n\n| Canonical fund name | Imported/EIMA name | Source URL |\n| --- | --- | --- |\n${unlinked.map((fund) => row(fund)).join("\n")}\n\n## B. Funds linked to a source URL but with no validated snapshot as of ${asOfDate} (${linkedButNoValidatedSnapshot.length})\n\nThese are **not** part of the “no source at all” count. They are included so that stale, undated, future-dated, blocked, or unmatched source situations remain visibly separate.\n\n| Canonical fund name | Imported/EIMA name | Linked source URL |\n| --- | --- | --- |\n${linkedButNoValidatedSnapshot.map((fund) => row(fund, true)).join("\n")}\n\n## C. Funds with no validated snapshot as of ${asOfDate} (${noValidatedSnapshot.length})\n\nThis is the operational priority list. It contains all active funds not yet covered by a validated NAV snapshot, whether the catalog currently has a source URL or not.\n\n| Canonical fund name | Imported/EIMA name | Linked source URL |\n| --- | --- | --- |\n${noValidatedSnapshot.map((fund) => row(fund, true)).join("\n")}\n`;
 
-await writeFile("/home/ubuntu/egypt-funds-agent/reports/source-coverage-gap-2026-08-26.md", markdown);
+await writeFile(`/home/ubuntu/egypt-funds-agent/reports/source-coverage-gap-${asOfDate}.md`, markdown);
 console.log(JSON.stringify({ asOfDate, activeFunds: funds.length, unlinked: unlinked.length, linkedButNoValidatedSnapshot: linkedButNoValidatedSnapshot.length, noValidatedSnapshot: noValidatedSnapshot.length, covered: covered.length }, null, 2));

@@ -1,6 +1,8 @@
 import { writeFile } from "node:fs/promises";
 
-const asOfDate = "2026-08-26";
+import { getEgyptBusinessDate } from "./lib/egyptBusinessDate.mjs";
+
+const asOfDate = getEgyptBusinessDate();
 const base = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!base || !key) throw new Error("Supabase server configuration is missing");
@@ -37,5 +39,5 @@ Scheduled weekly rows are queried separately from coverage eligibility. A schedu
 ${scheduledRows}
 `;
 
-await writeFile("/home/ubuntu/egypt-funds-agent/reports/scheduled-weekly-nav-audit-2026-08-26.md", markdown);
+await writeFile(`/home/ubuntu/egypt-funds-agent/reports/scheduled-weekly-nav-audit-${asOfDate}.md`, markdown);
 console.log(JSON.stringify({ asOfDate, futureValidated: futureValidated.length, scheduledWeeklyReviews: scheduled.length, coverageEligibleValidatedRows: coverageEligible.length }, null, 2));

@@ -164,3 +164,5 @@
 - [x] Create and maintain individual entity cards for Aman Micro Finance, Bank ABC Fund I, BLOM I/II, GIG Makaseb I/II, and The charitable education Fund before any further source matching
 - [x] Complete a focused official-source and Snduk re-discovery pass for the seven remaining funds; integrate only a future exact record or directly published NAV without substituting identities or tranches
 - [x] Populate only empty `price_update_url` fields for 14 Snduk-covered funds after a dry-run; preserve Zaldi Star's existing official link
+- [x] Replace UTC calendar-date guards with a tested Egypt-local business date across collection, coverage, and audit scripts
+- [x] Re-run future-date, coverage, scheduled-weekly, and duplicate audits under the Egypt-local business date and document any eligibility change

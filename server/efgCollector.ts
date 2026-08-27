@@ -156,8 +156,23 @@ function parseEnglishDateStrict(value: string): string {
   return date.toISOString().slice(0, 10);
 }
 
+export function egyptBusinessDate(now = new Date()): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Africa/Cairo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  const get = (type: Intl.DateTimeFormatPartTypes) => parts.find((part) => part.type === type)?.value;
+  const year = get("year");
+  const month = get("month");
+  const day = get("day");
+  if (!year || !month || !day) throw new Error("Unable to derive Egypt business date");
+  return `${year}-${month}-${day}`;
+}
+
 function asOfDate(): string {
-  return new Date().toISOString().slice(0, 10);
+  return egyptBusinessDate();
 }
 
 export function isCoverageEligibleSnapshot(status: string, valuationDate: string, asOf = asOfDate()): boolean {
@@ -326,7 +341,7 @@ export function parsePfiFunds(html: string): EfgRecord[] {
     if (!match) continue;
     const nav = parseLocalizedNumber(match[1]);
     const valuationDate = `${match[4]}-${match[3]}-${match[2]}`;
-    if (!Number.isFinite(nav) || nav < 0 || valuationDate > new Date().toISOString().slice(0, 10)) continue;
+    if (!Number.isFinite(nav) || nav < 0 || valuationDate > asOfDate()) continue;
     records.push({ name, rawName: name, nav, valuationDate, currency: "EGP" });
   }
   return records;
@@ -350,7 +365,7 @@ export function parseNiCapitalFunds(html: string): EfgRecord[] {
     if (!match) continue;
     const date = parseEnglishDateStrict(match[1]);
     const nav = parseLocalizedNumber(match[2]);
-    if (!Number.isFinite(nav) || nav < 0 || date > new Date().toISOString().slice(0, 10)) continue;
+    if (!Number.isFinite(nav) || nav < 0 || date > asOfDate()) continue;
     records.push({ name, rawName: publishedName, nav, valuationDate: date, currency: "EGP" });
   }
   return records;
@@ -603,7 +618,7 @@ type AzimutListPayload = { response?: { funds?: { dataList?: AzimutFundPayload[]
 function latestActualAzimutGraphPoint(graph: AzimutGraphPoint[] | undefined, asOf = asOfDate()): { nav: number; valuationDate: string } | null {
   const points = (graph ?? [])
     .filter((point): point is AzimutGraphPoint => Array.isArray(point) && point.length >= 2 && Number.isFinite(point[0]) && Number.isFinite(point[1]))
-    .map(([timestamp, nav]) => ({ nav, valuationDate: new Date(timestamp).toISOString().slice(0, 10) }))
+    .map(([timestamp, nav]) => ({ nav, valuationDate: egyptBusinessDate(new Date(timestamp)) }))
     .filter((point) => point.valuationDate <= asOf)
     .sort((left, right) => left.valuationDate.localeCompare(right.valuationDate));
   return points.at(-1) ?? null;
@@ -618,7 +633,7 @@ export function parseAzimutFunds(payload: string): EfgRecord[] {
     const date = graphPoint?.valuationDate ?? fund.last_nav?.date;
     if (!fund.name || !Number.isFinite(nav) || (nav ?? 0) < 0 || !date) return [];
     const parsedDate = new Date(date);
-    const valuationDate = Number.isNaN(parsedDate.getTime()) ? null : parsedDate.toISOString().slice(0, 10);
+    const valuationDate = Number.isNaN(parsedDate.getTime()) ? null : egyptBusinessDate(parsedDate);
     if (!valuationDate || valuationDate > asOfDate()) return [];
     return [{ name: fund.name, rawName: fund.name, nav: nav as number, valuationDate, currency: (fund.currency?.symbol ?? "EGP").toUpperCase() }];
   });
@@ -640,7 +655,7 @@ export function parseEbankMarketUpdates(html: string): EfgRecord[] {
     const dateMatch = segment.match(/(\d{2})-(\d{2})-(\d{4})/);
     if (!dateMatch) continue;
     const valuationDate = `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}`;
-    if (valuationDate > new Date().toISOString().slice(0, 10)) continue;
+    if (valuationDate > asOfDate()) continue;
     const afterDate = segment.slice((dateMatch.index ?? 0) + dateMatch[0].length);
     const numbers = Array.from(afterDate.matchAll(/\b\d+(?:\.\d+)?\b/g)).map(match => Number(match[0])).filter(value => Number.isFinite(value));
     const nav = numbers.at(-1);

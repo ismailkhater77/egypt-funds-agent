@@ -1,8 +1,13 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { aggregateRunSummaries, buildActiveFundsQuery, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseFabMisrAlAwal, parseAtonPharosFunds, parseSndukAuthorizedFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runFabMisrAlAwalCollector, runSndukAuthorizedCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, fetchFabMisrPage, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult, sndukAuthorizedFundSpecs } from "./efgCollector";
+import { aggregateRunSummaries, buildActiveFundsQuery, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseFabMisrAlAwal, parseAtonPharosFunds, parseSndukAuthorizedFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runFabMisrAlAwalCollector, runSndukAuthorizedCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, fetchFabMisrPage, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult, sndukAuthorizedFundSpecs, egyptBusinessDate } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
+  it("uses Cairo's calendar day during the post-midnight local window", () => {
+    expect(egyptBusinessDate(new Date("2026-08-26T20:30:00.000Z"))).toBe("2026-08-26");
+    expect(egyptBusinessDate(new Date("2026-08-26T22:30:00.000Z"))).toBe("2026-08-27");
+  });
+
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
     const html = readFileSync(new URL("./fixtures/abk-equity-fund.html", import.meta.url), "utf8");
     expect(parseAbkFund(html)).toEqual([{

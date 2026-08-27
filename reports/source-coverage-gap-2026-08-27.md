@@ -1,40 +1,61 @@
-# تقرير فجوة تغطية مصادر NAV — 27 أغسطس 2026
+# Source-Coverage Gap Report — 2026-08-27
 
-## نتيجة التدقيق الحي
+This report is a **read-only** Supabase audit of active fund records. “No update source at all” means `price_update_url IS NULL`; it does not mean that an external source can never be found. “Linked but no validated snapshot” means a URL exists in the active fund catalog but there is no validated price dated on or before 2026-08-27.
 
-بعد تشغيل المصدر الخارجي المفوض من المستخدم Snduk ضمن قائمة السماح المحددة، أصبح الكتالوج التشغيلي يحتوي على **213 صندوقًا نشطًا**؛ منها **206 صناديق** لديها لقطة `validated` بتاريخ لا يتجاوز تاريخ قاعدة البيانات، بينما بقيت **7 صناديق نشطة** بلا لقطة معتمدة. أضاف مصدر Snduk المفوض 15 صندوقًا نشطًا جديدًا إلى مقياس التغطية.
+| Category | Count |
+| --- | ---: |
+| Active catalog funds | 213 |
+| Funds with no update-source URL at all | 23 |
+| Funds linked to a URL but without a validated snapshot as of 2026-08-27 | 1 |
+| Funds with no validated snapshot as of 2026-08-27 (functional coverage gap) | 7 |
+| Funds with at least one validated snapshot as of 2026-08-27 | 206 |
 
-> هذه التغطية تعني وجود صف `validated` في السياسة التشغيلية الحالية، لكنها لا تعني أن كل الـ206 يعتمد على مدير صندوق أو بنك أو هيئة؛ صفوف Snduk الخمسة عشر موسومة بوضوح كمصدر خارجي مفوض من المستخدم.[1]
+## A. Funds with no update-source URL at all (23)
 
-| المقياس | العدد |
-|---|---:|
-| إجمالي الكتالوج | 215 |
-| الصناديق النشطة | 213 |
-| الصناديق النشطة المغطاة `validated` | 206 |
-| الصناديق النشطة غير المغطاة | 7 |
-| الصناديق المغطاة من Snduk المفوض | 15 |
-| الصناديق النشطة بلا `price_update_url` | 23 |
-| NAVات `validated` المستقبلية | 0 |
-| مجموعات تكرار المصدر نفسه | 0 |
+| Canonical fund name | Imported/EIMA name | Source URL |
+| --- | --- | --- |
+| *National Bank of Kuwait (Al Mizan) | *National Bank of Kuwait (Al Mizan) | — |
+| Al Ahli Bank of Kuwait - Egypt Fund I | Al Ahli Bank of Kuwait - Egypt Fund I | — |
+| Aman Micro Finance | Aman Micro Finance | — |
+| Blom Bank Fund I | Blom Bank Fund I | — |
+| Blom Bank Fund II | Blom Bank Fund II | — |
+| Delta Life Insurance | Delta Life Insurance | — |
+| Ebank Fund III (Konooz) | Ebank Fund III (Konooz) | — |
+| FAB Misr Fund (Ezdhar) | FAB Misr Fund (Ezdhar) | — |
+| GIG Insurance | GIG Insurance | — |
+| GIG Insurance - Egypt Fund I | GIG Insurance - Egypt Fund I | — |
+| GIG Makaseb Fund First Tranche | GIG Makaseb Fund First Tranche | — |
+| GIG Makaseb Fund Second Tranche | GIG Makaseb Fund Second Tranche | — |
+| Granite First Fund | Granite First Fund | — |
+| National Bank of Kuwait (Hayat) | National Bank of Kuwait (Hayat) | — |
+| National Bank of Kuwait Fund (Ishraq) | National Bank of Kuwait Fund (Ishraq) | — |
+| National Bank of Kuwait Fund (Namaa) | National Bank of Kuwait Fund (Namaa) | — |
+| NI Capital (Sahmy Fund) | NI Capital (Sahmy Fund) | — |
+| NI Capital EGX 70 | NI Capital EGX 70 | — |
+| Odin 4 | Odin 4 | — |
+| PFI Cashi | PFI Cashi | — |
+| Target First Fund | Target First Fund | — |
+| The charitable education Fund | The charitable education Fund | — |
+| صندوق استثمار العربية المصرية للتأمين | Arabia Egypt Insurance Investment Fund | — |
 
-## الصناديق السبعة المتبقية بلا لقطة معتمدة
+## B. Funds linked to a source URL but with no validated snapshot as of 2026-08-27 (1)
 
-| الصندوق | الفئة المسجلة | رابط تحديث مسجل | سبب عدم الإدراج من Snduk |
-|---|---|---|---|
-| Aman Micro Finance | غير محددة | — | لا يوجد سجل Snduk دقيق مطابق. |
-| Bank ABC Fund I | Open End- Equity Funds | https://azimut.eg/funds | ظهر Mazaya فقط؛ وهو صندوق مختلف ومرفوض كإحلال. |
-| Blom Bank Fund I | Open End- Equity Funds | — | لا يوجد سجل Snduk دقيق. |
-| Blom Bank Fund II | Open End- Money Market Funds | — | لا يوجد سجل Snduk دقيق. |
-| GIG Makaseb Fund First Tranche | غير محددة | — | سجل Snduk لا يسند السعر إلى الشريحة الأولى. |
-| GIG Makaseb Fund Second Tranche | غير محددة | — | سجل Snduk لا يسند السعر إلى الشريحة الثانية. |
-| The charitable education Fund | غير محددة | — | لا يوجد سجل Snduk دقيق. |
+These are **not** part of the “no source at all” count. They are included so that stale, undated, future-dated, blocked, or unmatched source situations remain visibly separate.
 
-## فصل طبقات الأسعار
+| Canonical fund name | Imported/EIMA name | Linked source URL |
+| --- | --- | --- |
+| Bank ABC Fund I | Bank ABC Fund I | https://azimut.eg/funds |
 
-تظل طبقة NAV التاريخية من EIMA منفصلة بالمنشأ والحالة: بياناتها `review` ولا تدخل مقياس التغطية التشغيلي. أما صفوف Snduk الجديدة فتحمل مصدرًا منفصلًا وبصمة تفويض خارجية، فلا تستبدل أو تحذف أي NAV من مدير أو بنك أو هيئة.[1]
+## C. Funds with no validated snapshot as of 2026-08-27 (7)
 
-رُبطت حقول `price_update_url` الشاغرة للـ14 صندوقًا المغطاة من Snduk برابط المصدر المفوض، في حين احتفظ Zaldi Star برابطه الرسمي القائم. لذلك انخفض عدد الصناديق النشطة بلا رابط تحديث من 37 إلى **23**؛ ولا يؤثر هذا الربط في طبقة EIMA أو في أولوية المصادر الأولية المستقبلية.
+This is the operational priority list. It contains all active funds not yet covered by a validated NAV snapshot, whether the catalog currently has a source URL or not.
 
-## المراجع
-
-[1]: https://snduk.com/eg/disclaimer?lang=en "Snduk Investment Disclaimer"
+| Canonical fund name | Imported/EIMA name | Linked source URL |
+| --- | --- | --- |
+| Aman Micro Finance | Aman Micro Finance | null |
+| Bank ABC Fund I | Bank ABC Fund I | https://azimut.eg/funds |
+| Blom Bank Fund I | Blom Bank Fund I | null |
+| Blom Bank Fund II | Blom Bank Fund II | null |
+| GIG Makaseb Fund First Tranche | GIG Makaseb Fund First Tranche | null |
+| GIG Makaseb Fund Second Tranche | GIG Makaseb Fund Second Tranche | null |
+| The charitable education Fund | The charitable education Fund | null |

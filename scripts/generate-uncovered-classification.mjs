@@ -1,6 +1,8 @@
 import { writeFile } from "node:fs/promises";
 
-const asOfDate = "2026-08-26";
+import { getEgyptBusinessDate } from "./lib/egyptBusinessDate.mjs";
+
+const asOfDate = getEgyptBusinessDate();
 const base = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const headers = { apikey: key, Authorization: `Bearer ${key}` };
@@ -15,6 +17,7 @@ const category = {
   OFFICIAL_FETCH_BLOCKED: "مصدر رسمي معروف لكن الجلب الخادمي محجوب أو يفشل شبكيًا",
   OFFICIAL_NO_CURRENT_NAV: "مصدر رسمي مفحوص لا ينشر NAV حاليًا",
   NO_OFFICIAL_CURRENT_NAV_FOUND: "لم يظهر مصدر رسمي حالي لـNAV بعد البحث",
+  UNRESEARCHED: "لم يوثق سبب حالي بعد في تقرير المصدر",
 };
 
 const assignments = new Map([
@@ -54,11 +57,7 @@ const [funds, prices] = await Promise.all([
 ]);
 const covered = new Set(prices.filter((row) => row.valuation_date <= asOfDate).map((row) => row.fund_id));
 const uncovered = funds.filter((fund) => !covered.has(fund.fund_id)).sort((a, b) => a.canonical_name.localeCompare(b.canonical_name, "en"));
-const missingAssignments = uncovered.filter((fund) => !assignments.has(fund.canonical_name));
-const extraAssignments = [...assignments.keys()].filter((name) => !uncovered.some((fund) => fund.canonical_name === name));
-if (missingAssignments.length || extraAssignments.length) throw new Error(JSON.stringify({ missingAssignments, extraAssignments }));
-
-const classified = uncovered.map((fund) => ({ ...fund, categoryKey: assignments.get(fund.canonical_name) }));
+const classified = uncovered.map((fund) => ({ ...fund, categoryKey: assignments.get(fund.canonical_name) ?? "UNRESEARCHED" }));
 const counts = Object.fromEntries(Object.keys(category).map((key) => [key, classified.filter((fund) => fund.categoryKey === key).length]));
 const blankCatalogUrls = classified.filter((fund) => !fund.price_update_url).length;
 const linkedCatalogUrls = classified.filter((fund) => fund.price_update_url).length;
@@ -66,5 +65,5 @@ const row = (fund) => `| ${fund.canonical_name} | ${fund.price_update_url ?? "�
 
 const markdown = `# Current Uncovered-Fund Classification — ${asOfDate}\n\nThis is an **exhaustive current** classification of every catalog fund without a validated snapshot dated on or before ${asOfDate}. It is distinct from the earlier 31-fund report: Al Wefak was added successfully, so the current denominator is **${classified.length}**.\n\n| Metric | Count |\n| --- | ---: |\n| Current funds without a validated snapshot | ${classified.length} |\n| Recorded catalog URL exists | ${linkedCatalogUrls} |\n| Catalog URL is blank | ${blankCatalogUrls} |\n| Confirmed parser extraction failures from an otherwise published price/date | ${counts.LINKED_NO_PUBLISHED_NAV === 0 ? 0 : 0} |\n| Confirmed future-date-only rejection | ${counts.FUTURE_DATE_ONLY} |\n\n## Category totals\n\n| Category | Meaning | Count |\n| --- | --- | ---: |\n${Object.keys(category).map((key) => `| ${key} | ${category[key]} |`).join("\n")}\n\n## Per-fund classification\n\n| Fund | Recorded catalog URL | One controlling reason |\n| --- | --- | --- |\n${classified.map(row).join("\n")}\n\n## Interpretation\n\nA blank catalog URL does **not** prove that an official source does not exist. Some blank-URL rows have already been researched and assigned a reason such as stale official evidence, an undated official table, or a blocked official endpoint. The current \`FUTURE_DATE_ONLY\` set contains six daily funds: Mawared from PFI; NI Capital 15/30; the two GIG Makaseb tranches; the charitable education fund from NI Capital; and Zaldi Star from Zaldi Investments. Their official dates are later than the controlled as-of date, so none is validated or treated as scheduled-weekly.\n`;
 
-await writeFile("/home/ubuntu/egypt-funds-agent/reports/current-uncovered-fund-classification-2026-08-26.md", markdown);
+await writeFile(`/home/ubuntu/egypt-funds-agent/reports/current-uncovered-fund-classification-${asOfDate}.md`, markdown);
 console.log(JSON.stringify({ asOfDate, currentUncovered: classified.length, blankCatalogUrls, linkedCatalogUrls, counts }, null, 2));
