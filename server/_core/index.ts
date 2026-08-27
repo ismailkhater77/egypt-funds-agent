@@ -9,6 +9,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { allCollectorsHandler, efgStatusHandler, manualBeltoneRunHandler, manualEfgRunHandler, manualPharosRunHandler, providerSupportHandler, scheduledAllCollectorsHandler, scheduledEfgHandler } from "../efgCollector";
+import { manualMarketDataRunHandler, scheduledMarketDataHandler } from "../marketDataCollector";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -40,11 +41,13 @@ async function startServer() {
   app.post("/api/collector/efg/run", manualEfgRunHandler);
   app.post("/api/collector/pharos/run", manualPharosRunHandler);
   app.post("/api/collector/beltone/run", manualBeltoneRunHandler);
+  app.post("/api/collector/market-data/run", manualMarketDataRunHandler);
   app.get("/api/collector/efg/status", efgStatusHandler);
   app.post("/api/collector/all/run", allCollectorsHandler);
   app.get("/api/collector/support", providerSupportHandler);
   app.post("/api/scheduled/efg", scheduledEfgHandler);
   app.post("/api/scheduled/all", scheduledAllCollectorsHandler);
+  app.post("/api/scheduled/market-data", scheduledMarketDataHandler);
   // tRPC API
   app.use(
     "/api/trpc",
