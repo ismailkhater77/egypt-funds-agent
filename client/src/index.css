@@ -116,6 +116,18 @@
   .fund-table th { position: sticky; top: 0; background: #10363d; color: #95b4ad; font-size: 11px; font-weight: 500; padding: 12px 16px; z-index: 1; }
   .fund-table td { padding: 13px 16px; border-top: 1px solid #1b454d; font-size: 12px; }
   .fund-table tr:hover td { background: #10363d; }
+  .fund-table-head { align-items:center; gap:1rem; }
+  .advanced-filter-link,.fund-name-link { border:0; background:transparent; color:inherit; cursor:pointer; font:inherit; }
+  .advanced-filter-link { border:1px solid #35606a; color:#19c39a; font-size:11px; padding:8px 11px; white-space:nowrap; transition:all 160ms cubic-bezier(.23,1,.32,1); }
+  .advanced-filter-link:hover,.advanced-filter-link:focus-visible { border-color:#19c39a; background:rgb(25 195 154 / .08); }
+  .fund-quick-filters { display:flex; align-items:end; flex-wrap:wrap; gap:12px; padding:14px 0 16px; }
+  .fund-quick-filters label { display:grid; gap:4px; color:#95b4ad; font-size:10px; }
+  .fund-quick-filters select { min-width:160px; border:1px solid #35606a; background:#09252b; color:#eef8f4; padding:8px 10px; font-size:11px; }
+  .fund-filter-count { color:#648f89; font-size:10px; padding-bottom:8px; }
+  .fund-name-link { align-items:center; color:#eef8f4; display:inline-flex; gap:7px; max-width:100%; text-align:right; transition:color 160ms cubic-bezier(.23,1,.32,1),transform 160ms cubic-bezier(.23,1,.32,1); }
+  .fund-name-link:hover,.fund-name-link:focus-visible { color:#19c39a; text-decoration:underline; text-underline-offset:3px; }
+  .fund-name-link:active,.advanced-filter-link:active { transform:scale(.97); }
+  .fund-name-link:focus-visible,.advanced-filter-link:focus-visible,.fund-quick-filters select:focus-visible { outline:2px solid #e7bd64; outline-offset:2px; }
   .status-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; font-size: 10px; border: 1px solid #38616a; color: #b8d7d0; }
   .status-chip.verified { color: #19c39a; border-color: rgb(25 195 154 / .45); background: rgb(25 195 154 / .07); }
   .status-chip.pending { color: #d99a5f; border-color: rgb(217 154 95 / .45); background: rgb(217 154 95 / .07); }
