@@ -249,6 +249,8 @@ The fetched first-party Facebook HTML exposed the following post text from actor
 
 A fresh live server-side collector run after the broader transport issue cleared again returned **HTTP 400** from the same official Facebook page. This isolates the remaining blocker to Facebook’s server-side response rather than a general sandbox network outage; no Pharos snapshot was inserted and the source remains excluded from Run All.
 
+إعادة اختبار HTTP العامة في 27 أغسطس 2026، بالعنوان نفسه ورأس متصفح قياسي، أعادت **302** إلى صفحة تسجيل دخول Facebook ثم **400** للطلب النهائي. لا توجد جلسة أو ملفات تعريف ارتباط صالحة، ولم تُحاوَل مصادقة أو تجاوز حماية. لذلك يؤكد الفحص أن الإشكال قيد الوصول العام الخادمي لا في مطابقة Pharos أو محلل النص؛ يبقى المصدر خارج التشغيل الآلي حتى يظهر مسار رسمي عام ومستقر.
+
 ## Pioneers Funds official-site recheck
 
 Official URL: http://www.pioneersfunds.com/
