@@ -398,3 +398,9 @@ The linked official prospectus file is protected by the bank’s request filter 
 An FRA registry result also appears relevant to a former Piraeus/ABK fund, but the full registry page is access-protected in this environment. Its search snippet alone is not sufficient evidence to map the catalog’s Fund II record to the daily Money Market Fund, so the unresolved identity decision is retained.
 
 [12] [ABK Egypt — Money Market Fund](https://www.abkegypt.com/Business/Treasury/Investments/Money-Market-Fund)
+
+## NI Capital Makaseb live table recheck — 27 August 2026
+
+The directly rendered NI Capital price table continues to name the two GIG Makaseb issues separately: **MAKASEB 1st Tranche** at **20.64864 EGP** and **MAKASEB 2nd Tranche** at **20.60258 EGP**. Both rows carry the displayed date **29 August 2026**. As the controlled collection date remains 27 August 2026 and the product is described by NI Capital as daily, neither value was added as a `validated` or `scheduled_weekly` row. This confirms a future-date timing condition, not an identity or source-discovery failure. [13]
+
+[13] [NI Capital — Asset Management and Funds Certificates Prices](https://nicapital.com.eg/lines-of-business/asset-management/)

@@ -44,6 +44,8 @@
 
 لم يُكتب أي NAV للصناديق السبعة التالية لأن Snduk لم يوفر سجلًا دقيقًا مطابقًا لها أو لم يميز الشريحة: Aman Micro Finance، Bank ABC Fund I، BLOM Bank Fund I، BLOM Bank Fund II، GIG Makaseb Fund First Tranche، GIG Makaseb Fund Second Tranche، وThe charitable education Fund. لم يستبدل الجامع Mazaya بـBank ABC Fund I، ولم يوزع السعر الموحّد لمكاسب GIG على أي شريحة.
 
+بعد مراجعة مسبقة للحقول، رُبطت حقول `price_update_url` الشاغرة للـ14 صندوقًا من اللقطات الخمسة عشر برابط دليل Snduk المفوض. احتفظ صندوق Zaldi Star برابطه الأولي القائم لدى Zaldi Investments ولم يُستبدل. هذه الروابط تصف قناة التحديث الخارجية المفوضة، لا مصدرًا أوليًا من المدير أو البنك أو الهيئة.
+
 ## فحوص السلامة
 
 أظهر تدقيق قاعدة البيانات بعد الإدراج أن عدد صفوف Snduk المستقبلية `validated` يساوي 0، وأن مجموعات التكرار على المفتاح `(fund_id, source_id, valuation_date, status)` تساوي 0. ونجحت اختبارات المشروع: 55 اختبار Vitest، وفحص TypeScript بلا أخطاء.

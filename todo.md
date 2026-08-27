@@ -161,3 +161,6 @@
 - [x] Implement exact-name/slug allow-listing for only Snduk records with confirmed fund identity, NAV, and displayed Document Price date; retain absent or tranche-ambiguous records as pending
 - [x] Add Snduk source parser tests for scope restriction, identity rejection, date parsing, and idempotent persistence
 - [x] Run the authorized Snduk collector twice, audit coverage/source provenance/future dates/duplicates, and document any of the 22 that cannot be written because Snduk lacks an exact record
+- [x] Create and maintain individual entity cards for Aman Micro Finance, Bank ABC Fund I, BLOM I/II, GIG Makaseb I/II, and The charitable education Fund before any further source matching
+- [x] Complete a focused official-source and Snduk re-discovery pass for the seven remaining funds; integrate only a future exact record or directly published NAV without substituting identities or tranches
+- [x] Populate only empty `price_update_url` fields for 14 Snduk-covered funds after a dry-run; preserve Zaldi Star's existing official link
