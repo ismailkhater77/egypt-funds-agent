@@ -172,7 +172,7 @@
 - [x] Verify API coverage and historical availability for USD/EGP, BTC/USD, XAU/USD, XAG/USD, SPX, MSCI EM, and EGX30; select the smallest reliable source set
 - [x] Implement an idempotent server-side market-data collector with exact symbols, source provenance, and no fabricated observations
 - [x] Import a bounded verified historical series for each supported market indicator and validate date/value integrity
-- [ ] Find a compliant free historical API for exact EGX30 and exact MSCI Emerging Markets, or retain their verified current-only snapshots without ETF, CFD, or proxy substitution
+- [x] Find a compliant free historical API for exact EGX30 and exact MSCI Emerging Markets, or retain their verified current-only snapshots without ETF, CFD, or proxy substitution
 - [ ] Add unit tests, manual-run verification, and daily scheduled update handler; create the production schedule only after the user publishes
 - [x] Replace the paid Twelve Data plus MSCI API proposal with a free-only source plan; document any exact required indicator that has no compliant free API rather than substituting an ETF, CFD, or estimate
 - [x] Add parser and credential tests plus protected manual and cron-only market-data handlers; keep the production schedule inactive until the user publishes
