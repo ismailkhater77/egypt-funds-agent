@@ -183,3 +183,4 @@
 - [x] Implement normalized time-series comparison and investment-amount simulation only over the actual shared history range, with inflation and methodology disclosures and no investment recommendation
 - [x] Verify desktop and mobile RTL layouts, data/error states, accessibility, unit tests, and screenshots before saving the dashboard checkpoint
 - [x] Move source health and agent activity out of the public market dashboard and restrict their route and data to admin users only
+- [x] Restrict public charts, comparisons, and simulations to complete compatible time series from the database; suppress partial or non-overlapping series

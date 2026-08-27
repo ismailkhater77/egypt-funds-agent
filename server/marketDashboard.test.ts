@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { selectLatestMarketObservations, selectLatestVerifiedFundPrices, toPublicMarketDashboardSnapshot, type MarketDashboardSnapshot } from "./marketDashboard";
+import { buildCompatibleChart, selectLatestMarketObservations, selectLatestVerifiedFundPrices, toPublicMarketDashboardSnapshot, type MarketDashboardSnapshot } from "./marketDashboard";
 
 describe("market dashboard selection", () => {
   it("uses the latest validated fund value that is not future-dated", () => {
@@ -39,5 +39,30 @@ describe("market dashboard selection", () => {
     expect(JSON.stringify(publicSnapshot)).not.toContain("Private job");
     expect(publicSnapshot.funds[0]).not.toHaveProperty("price_update_url");
     expect(publicSnapshot.market[0]).not.toHaveProperty("sourceName");
+  });
+
+  it("emits chart points only for complete series observed over identical dates", () => {
+    const rows = [
+      { indicator_key: "USD_EGP", source_id: "fx", source_symbol: "USD/EGP", market_date: "2026-08-20", value: 50, unit: "EGP_per_USD", source_observed_at: null, fetched_at: "2026-08-20T20:00:00Z", source_url: "https://example.test", observation_status: "validated" },
+      { indicator_key: "USD_EGP", source_id: "fx", source_symbol: "USD/EGP", market_date: "2026-08-21", value: 51, unit: "EGP_per_USD", source_observed_at: null, fetched_at: "2026-08-21T20:00:00Z", source_url: "https://example.test", observation_status: "validated" },
+      { indicator_key: "BTC_USD", source_id: "crypto", source_symbol: "BTC-USD", market_date: "2026-08-20", value: 100, unit: "USD_per_BTC", source_observed_at: null, fetched_at: "2026-08-20T20:00:00Z", source_url: "https://example.test", observation_status: "validated" },
+      { indicator_key: "BTC_USD", source_id: "crypto", source_symbol: "BTC-USD", market_date: "2026-08-21", value: 200, unit: "USD_per_BTC", source_observed_at: null, fetched_at: "2026-08-21T20:00:00Z", source_url: "https://example.test", observation_status: "validated" },
+      { indicator_key: "EGX30", source_id: "egx", source_symbol: "^CASE30", market_date: "2026-08-21", value: 1000, unit: "index_points", source_observed_at: null, fetched_at: "2026-08-21T20:00:00Z", source_url: "https://example.test", observation_status: "validated" },
+    ];
+    const chart = buildCompatibleChart(rows, ["USD_EGP", "BTC_USD", "EGX30"]);
+    expect(chart).toMatchObject({ status: "ready", indicatorKeys: ["USD_EGP", "BTC_USD"], excludedIndicatorKeys: ["EGX30"], startDate: "2026-08-20", endDate: "2026-08-21", pointCount: 2 });
+    expect(chart.points[0]).toMatchObject({ date: "2026-08-20", USD_EGP: 100, BTC_USD: 100 });
+    expect(chart.points[1]).toMatchObject({ date: "2026-08-21", USD_EGP: 102, BTC_USD: 204 });
+    expect(chart.points[1]).not.toHaveProperty("EGX30");
+  });
+
+  it("does not emit a chart when complete series lack at least two shared dates", () => {
+    const rows = [
+      { indicator_key: "USD_EGP", source_id: "fx", source_symbol: "USD/EGP", market_date: "2026-08-20", value: 50, unit: "EGP_per_USD", source_observed_at: null, fetched_at: "2026-08-20T20:00:00Z", source_url: "https://example.test", observation_status: "validated" },
+      { indicator_key: "USD_EGP", source_id: "fx", source_symbol: "USD/EGP", market_date: "2026-08-21", value: 51, unit: "EGP_per_USD", source_observed_at: null, fetched_at: "2026-08-21T20:00:00Z", source_url: "https://example.test", observation_status: "validated" },
+      { indicator_key: "BTC_USD", source_id: "crypto", source_symbol: "BTC-USD", market_date: "2026-08-21", value: 100, unit: "USD_per_BTC", source_observed_at: null, fetched_at: "2026-08-21T20:00:00Z", source_url: "https://example.test", observation_status: "validated" },
+      { indicator_key: "BTC_USD", source_id: "crypto", source_symbol: "BTC-USD", market_date: "2026-08-22", value: 102, unit: "USD_per_BTC", source_observed_at: null, fetched_at: "2026-08-22T20:00:00Z", source_url: "https://example.test", observation_status: "validated" },
+    ];
+    expect(buildCompatibleChart(rows, ["USD_EGP", "BTC_USD"])).toMatchObject({ status: "insufficient_compatible_history", pointCount: 0, points: [] });
   });
 });
