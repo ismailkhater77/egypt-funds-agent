@@ -15,6 +15,12 @@ The operational coverage gap remains **22 active funds**. Every one of these fun
 | 9 | Bokra | 1 | Bokra Shakmagia needs a public manager-issued NAV and date; the public marketing and news pages have not exposed one. |
 | 10 | Zaldi Investments | 1 | Zaldi Star needs a first-party actual valuation date distinct from the prospective daily update date shown at present. |
 
+## Queue update — first-party recheck
+
+The accessible public Cairo Capital corporate site confirms its asset-management activity but publishes no fund list, NAV, or valuation-date field for the five CFH-linked funds. The direct Cairo Capital route is therefore documented as an exhausted public-web lead, not as a failed fund or a reason to reuse EIMA history. The funds remain pending until Cairo Capital, a named sponsor bank, or the FRA publishes an explicit current per-certificate NAV with its valuation date.
+
+Azimut Egypt’s public feed confirms Bank ABC Fund I as its weekly EGP equity product but its `ABC` record contains no `last_nav`, and the official directory shows `-- EGP`. Bank ABC Fund I remains pending. The next practical manager channel for current inspection is NI Capital, followed by Prime Investments and its sponsor banks.
+
 ## Historical audit anchors only
 
 | Fund | Latest EIMA review date | Historical NAV | Currency | Named historical manager |

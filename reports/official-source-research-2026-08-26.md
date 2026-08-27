@@ -26,7 +26,7 @@ The official ABK source was recorded separately, Fund II was linked to it, and t
 
 Official URL: https://www.naeemholding.com/asset-management/investment-offerings/our-funds/
 
-Naeem's official funds page identifies NAEEM MISR FUND and shows NAV values of 163.43 and 94.91 with `Last Update` = 31/3/2021. The linked detail URL currently returns Page not found. Because the official evidence is materially stale and no current valuation date is available, Naeem Misr Fund remains Pending Verification.
+Naeem's official funds page identifies NAEEM MISR FUND and shows NAV values of 163.43 and 94.91 with `Last Update` = 31/3/2021. The linked current detail page is now accessible and independently confirms the open-ended EGP Sharia-compliant equity identity, NAEEM Financial Investments as manager, and weekly subscription/redemption through Egyptian Gulf Bank. However, it contains no current NAV value and no current valuation/as-of date; the displayed historical-return table has no current period label. Therefore, the current official page strengthens identity and weekly-cycle evidence only. Because no current valuation date is published, Naeem Misr Fund remains Pending Verification.
 
 ## Aspire Funds
 
@@ -54,6 +54,8 @@ The first-party CIB/CI Capital fact sheet states `Aman Fund`, managed by CI Capi
 
 The database record for `Aman Micro Finance` explicitly lists `Prime Investments` as management company, while the official CIB Aman fact sheet lists CI Capital Asset Management. This confirms an identity mismatch, so the valid CIB Aman NAV was correctly not assigned to Aman Micro Finance.
 
+The official Aman Holding site was also checked directly. Its accessible navigation presents consumer finance, payment, installment, and `Aman Youm byoum` services, but provides no product page, NAV statement, or valuation date for `Aman Micro Finance`. It does not overcome the Prime-managed catalog identity or provide a validated source.
+
 ## Bokra Shakmagia
 
 Official URL: https://bokra.com/
@@ -77,6 +79,8 @@ The official Naeem page identifies Al Baraka Fund as an open-ended Egyptian bala
 Official page: https://nicapital.com.eg/lines-of-business/asset-management/
 
 The current NI Capital page links first-party Fact Sheets for the uncovered funds. The 15/30 sheet reports IC Price 19.27594, the GIG Makaseb sheet reports 18.29768 (first tranche) and 18.22678 (second tranche), and the National Charitable Investment Fund for Education sheet reports IC price 186.3485. However, all three documents are explicitly labeled **December 2025** and do not provide a current 26-Aug-2026 valuation date. They are therefore useful official identity evidence but stale for the daily NAV objective; no snapshots were inserted and NI Capital 15/30, Makaseb tranches, and Education for Life remain Pending Verification.
+
+Search discovery surfaced NI Capital’s official LinkedIn presence with a snippet referring to investment-fund prices dated 25-Aug-2026. Direct public access to the company-posts page is currently blocked by LinkedIn’s sign-in wall, so the full post text, individual NAVs, and valuation-date wording cannot be independently read or fetched by the collector. This lead is recorded for future first-party access but cannot support a price write at present.
 
 ## Stream / Cairo Capital
 
@@ -120,9 +124,9 @@ The official Mubasher Capital `asset-management` and `/mutual-funds` sections id
 
 The accessible BLOM Bank Egypt domain presents a legacy site whose footer states **Copyright © 2017**. Its official sitemap lists consumer banking, corporate banking, institutional banking, rates, exchange rates, and corporate pages, but no investment-fund, NAV, or fund-price section. This cannot support a current dated NAV for BLOM Bank Fund I or BLOM Bank Fund II. The public acquisition history also creates an identity-continuity concern, so no mapping to Bank ABC or another successor source was inferred.
 
-## Cairo Capital / Momentum official-source recheck
+## Cairo Capital / CFH official-source recheck
 
-The official Cairo Capital website identifies Cairo Capital as an Egyptian asset manager but exposes no Momentum product page, NAV table, or valuation-date field. The official `CairoCapitalGP` Facebook post establishes that **Momentum Fund** is associated with Cairo Capital and ranks it in EIMA weekly-equity performance, but publishes neither a NAV nor an explicit valuation date. The available first-party evidence therefore proves a manager/fund relationship but not a validated price observation; no source mapping or snapshot was added.
+The official Cairo Capital website identifies Cairo Capital as an Egyptian asset manager but exposes no public fund list, product page, NAV table, or valuation-date field for the CFH-linked funds: **Arope Insurance Misr Fund**, **BLOM Bank Fund I**, **BLOM Bank Fund II**, **Momentum**, and **Stream**. The official `CairoCapitalGP` Facebook post establishes that **Momentum Fund** is associated with Cairo Capital and ranks it in EIMA weekly-equity performance, but publishes neither a NAV nor an explicit valuation date. The available first-party evidence therefore proves a manager/fund relationship for Momentum but not a validated price observation for any of the five funds; no source mapping or snapshot was added.
 
 ## Al Baraka Al Motawazen identity reconciliation — legal identity verified, no qualified current NAV
 
@@ -149,6 +153,8 @@ The official page publishes **112.88191 EGP** with date **30-Aug-2026**. Relativ
 Bank ABC Egypt’s active mutual-funds page is now `https://www.bank-abc.com/en/CountrySites/Egypt/AboutABC/Pages/ABC-Mutual-Funds.aspx`. It identifies its capital-growth EGP fund (`صندوق استثمار بنك المؤسسة العربية المصرفية ذو النمو الرأسمالي بالجنية المصري`) and separately identifies the daily money-market **Mazaya** fund. This confirms that the catalog’s **Bank ABC Fund I** belongs to the capital-growth product, not Mazaya. The page publishes prospectuses and quarterly financial statements, including the equity fund’s official statements dated **30-Jun-2026**, but it does not display a current NAV or valuation date.
 
 The 30-Jun-2026 primary financial-statement PDF is a signed fund financial-position/income report. Its visible core statements disclose aggregate assets, liabilities, income, and investment gains, but do not state a NAV **per certificate**. No NAV was derived from statement totals or stored. The former short mutual-funds URL returns Bank ABC’s own **Page not found** response, while the active page remains identity and document evidence rather than a current price feed.
+
+Azimut Egypt’s public first-party `/api/fund/list?size=100&web=true` feed, which powers its official funds directory, was also checked. Its `ABC` record establishes the EGP equity identity, slug `abc-1`, and **Weekly** pricing frequency, but contains no `last_nav` object; the rendered official directory correspondingly shows the NAV as `-- EGP`. Therefore the manager’s own current public feed does not currently provide either an actual NAV or a valuation date for Bank ABC Fund I.
 
 ## BLOM Bank I/II successor-record recheck
 
