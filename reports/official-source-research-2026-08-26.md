@@ -98,6 +98,8 @@ After opening the official Funds tab, Prime publishes a table that identifies `A
 
 The raw HTML of Prime's official page carries `article:modified_time=2026-08-26T06:15:43Z`, but this is the webpage modification timestamp, not a valuation/as-of date for the displayed NAVs. It cannot satisfy the NAV valuation-date requirement, so the values remain excluded from validated coverage.
 
+Prime Wathaeq’s official funds-administration page confirms that the company calculates NAVs and prepares shareholder and regulatory reports for fund managers, banks, and pension funds. It exposes no public fund-price table, dated NAV report, or client-specific disclosure link. This establishes a possible administrative contact path but not an eligible public source for Aman, Tharaa, or Prime NMW.
+
 ## Alpha Odin official recheck
 
 Official URLs: https://alpha-odin.com/, https://alpha-odin.com/funds/, and the public first-party card API consumed by the homepage: `https://alphaodinf.uwd.agency/funds/`.
@@ -288,6 +290,20 @@ The integration creates a separate official-bank source (`src_fab_misr_al_awal`)
 ## Mubasher Asset Management primary-source recheck
 
 The accessible Mubasher Funds news route exposes platform price-category articles and market news, while Mubasher Capital’s public asset-management and mutual-funds pages describe Bahrain-regulated services without an Egyptian fund NAV table or valuation-date field. Neither route supplied a link to an independently accessible Egyptian Mubasher Asset Management primary NAV disclosure. The existing Mubasher publication collectors therefore remain distinctly labeled as affiliated/publication channels rather than being promoted to an unproven primary-manager source.
+
+## NAEEM quarterly primary disclosure recheck
+
+NAEEM Holding’s own Q1-2025 earnings release reports **Al Baraka Fund** NAV of **209.16 EGP** and **NAEEM Misr Islamic Fund** NAV of **326.08 EGP**, each explicitly as of **31 March 2025**. The subsequent 1H-2025 release reports **219.97 EGP** and **340.36 EGP**, respectively, as of **30 June 2025**; the 9M-2025 release reports **220.86 EGP** and **334.19 EGP**, respectively, as of **30 September 2025**. This strengthens the direct manager/fund identity evidence and proves that NAEEM can disclose dated NAV observations in its investor-relations materials. However, all accessible disclosures are materially stale versus the controlled **26-Aug-2026** coverage date, so none was inserted or used to close the current gap. Direct checks for the predictable `Q1-26` and `Q2-26` release-file paths did not yield accessible content. [6] [7] [8]
+
+The current investor-relations route is `https://www.naeemholding.com/i-r-3/`. Its publicly rendered content exposes navigation headings for announcements, disclosures, and financial statements, but no current release list or fund NAV document in the accessible view. It therefore does not presently improve the pricing evidence beyond the dated 2025 releases above.
+
+The manager’s IR page embeds the issuer-specific EGI-D investor-relations announcements portal. That official embedded route loads 2026 announcements, including 13-Aug-2026 half-year results and 14-May-2026 first-quarter results. Opening the half-year consolidated announcement confirms that the rendered notice identifies a limited-review attachment, but its published text is limited to the corporate financial-statement headline and loss figures; it states neither fund’s NAV nor valuation date. A read-only call to the same public embedded API returned both 30-Jun-2026 result records with `attachmentUrl=null`, so this route currently supplies neither a downloadable primary statement nor a fund NAV observation.
+
+[6] [NAEEM Holding — Q1-2025 Earnings Release](https://www.naeemholding.com/wp-content/uploads/Earning-Release-Q1-25.pdf)
+
+[7] [NAEEM Holding — 1H-2025 Earnings Release](https://www.naeemholding.com/wp-content/uploads/Earning-Release-Q2-25.pdf)
+
+[8] [NAEEM Holding — 9M-2025 Earnings Release](https://www.naeemholding.com/wp-content/uploads/Earning-Release-Q3-25.pdf)
 
 ## PFI Mawared frequency confirmation
 
