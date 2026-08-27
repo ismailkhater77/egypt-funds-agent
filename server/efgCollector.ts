@@ -43,6 +43,25 @@ const ABK_EQUITY_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Invest
 const ABK_MONEY_MARKET_SOURCE_URL = "https://www.abkegypt.com/Business/Treasury/Investments/Money-Market-Fund?r=2";
 const ALPHA_ODIN_SOURCE_URL = "https://alpha-odin.com/";
 const ALPHA_ODIN_API_URL = "https://alphaodinf.uwd.agency/funds/";
+const SNDK_AUTHORIZED_SOURCE_URL = "https://snduk.com/eg/funds?lang=en";
+const SNDK_AUTHORIZED_PARSER_NAME = "snduk_user_authorized_external_nav_v1";
+export const sndukAuthorizedFundSpecs = [
+  { slug: "al-baraka-bank-shariah-balanced-fund", canonicalName: "Al Baraka Bank Egypt (Al Motawazen)", sourceName: "Al Baraka Bank Shariah Balanced Fund" },
+  { slug: "arope-money-market-fund", canonicalName: "Arope Insurance Misr Fund", sourceName: "Arope Money Market Fund" },
+  { slug: "rawajj-money-market-fund", canonicalName: "Aspire Rawajj", sourceName: "Rawajj Money Market Fund" },
+  { slug: "waffrah-plus-fund-aspire", canonicalName: "Aspire Waffrah Plus", sourceName: "Waffrah Plus Fund" },
+  { slug: "el-shakmagya-bokra-gold-fund", canonicalName: "Bokra Shakmagia", sourceName: "El Shakmagya Bokra Gold Fund" },
+  { slug: "tharaa-fund", canonicalName: "Egyptian Gulf Bank (Tharaa)", sourceName: "Tharaa Fund" },
+  { slug: "mawared-fund", canonicalName: "Housing & Development Bank (Mawared)", sourceName: "Mawared Fund" },
+  { slug: "momentum-cairo-capital-fund", canonicalName: "Momentum", sourceName: "Cairo Capital Momentum Cumulative Fund" },
+  { slug: "naeem-misr-sharia-fund", canonicalName: "Naeem Misr Fund", sourceName: "Naeem Misr Sharia Fund" },
+  { slug: "15-30-fixed-income-fund", canonicalName: "NI Capital 15/30", sourceName: "15/30 Fixed Income Fund" },
+  { slug: "pharos-fund-1", canonicalName: "Pharos Fund I", sourceName: "Pharos Fund 1" },
+  { slug: "al-raeed-fund-Pioneers", canonicalName: "Pioneers Fund I", sourceName: "Al-Raeed Fund (Pioneers)" },
+  { slug: "prime-nmw-fund", canonicalName: "Prime NMOW", sourceName: "Prime NMW Fund" },
+  { slug: "stream-fixed-income-fund", canonicalName: "Stream", sourceName: "Stream Fixed Income Fund" },
+  { slug: "zaldi-star-fund", canonicalName: "Zaldi Star (Money Market)", sourceName: "Zaldi Star Fund" },
+] as const;
 const NBK_SOURCE_URLS = [
   "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/ishraq.html",
   "https://www.nbk.com/egypt/financial-markets/investment/mutual-funds/namaa.html",
@@ -219,6 +238,49 @@ export function parseAtonPharosFunds(html: string): EfgRecord[] {
     candidates.push({ name: "Pharos Fund I", rawName: "صندوق فاروس الأول ذو العائد التراكمي", nav, valuationDate, currency: "EGP" });
   }
   return candidates.sort((left, right) => right.valuationDate.localeCompare(left.valuationDate)).slice(0, 1);
+}
+
+function parseSndukDocumentPrice(html: string): { nav: number; valuationDate: string } | null {
+  const text = stripTags(html);
+  const match = text.match(/EGP[\s\u00a0]*([0-9][0-9,.]*)[\s\S]{0,240}?Document Price\s*-\s*Last Updated:\s*(\d{1,2})\/(\d{1,2})\/(\d{2,4}),\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+  if (!match) return null;
+  const nav = parseLocalizedNumber(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const rawYear = Number(match[4]);
+  const year = rawYear < 100 ? 2000 + rawYear : rawYear;
+  const hour = Number(match[5]);
+  const minute = Number(match[6]);
+  const meridiem = match[7].toUpperCase();
+  if (!Number.isFinite(nav) || nav < 0 || month < 1 || month > 12 || day < 1 || day > 31 || hour < 1 || hour > 12 || minute < 0 || minute > 59) return null;
+  const hour24 = (hour % 12) + (meridiem === "PM" ? 12 : 0);
+  const valuationDate = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+  const parsed = new Date(`${valuationDate}T${String(hour24).padStart(2, "0")}:${String(minute).padStart(2, "0")}:00Z`);
+  if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== valuationDate) return null;
+  return { nav, valuationDate };
+}
+
+/**
+ * User-authorized external source. The allow-list is deliberately finite: absent
+ * catalog funds and tranche-ambiguous records can never be discovered or matched
+ * by this collector.
+ */
+export async function parseSndukAuthorizedFunds(_directoryHtml: string): Promise<EfgRecord[]> {
+  const records = await Promise.all(sndukAuthorizedFundSpecs.map(async (spec) => {
+    const detailUrl = new URL(`/eg/funds/${spec.slug}?lang=en`, SNDK_AUTHORIZED_SOURCE_URL).href;
+    const response = await fetch(detailUrl, { headers: { "User-Agent": "EgyptFundsPriceAgent/1.0", Accept: "text/html" } });
+    if (!response.ok) throw new Error(`Snduk detail page returned HTTP ${response.status} for ${spec.slug}`);
+    const snapshot = parseSndukDocumentPrice(await response.text());
+    if (!snapshot) throw new Error(`Snduk detail page has no parseable Document Price date for ${spec.slug}`);
+    return {
+      name: spec.canonicalName,
+      rawName: spec.sourceName,
+      nav: snapshot.nav,
+      valuationDate: snapshot.valuationDate,
+      currency: "EGP",
+    };
+  }));
+  return records;
 }
 
 export function parseScbFundRates(html: string): EfgRecord[] {
@@ -932,7 +994,7 @@ async function resolveRecordForPersistence(record: EfgRecord, fund: FundRow, sou
   };
 }
 
-async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string, sourceUrl: string, parserName: string, schedule?: "daily" | "weekly"): Promise<"inserted" | "scheduled" | "unchanged" | "updated"> {
+async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string, sourceUrl: string, parserName: string, schedule?: "daily" | "weekly", sourceProvenance?: string): Promise<"inserted" | "scheduled" | "unchanged" | "updated"> {
   const resolved = await resolveRecordForPersistence(record, fund, sourceId, parserName, schedule);
   const persistedRecord = resolved.record;
   const existing = await fetchExisting(fund.fund_id, persistedRecord.valuationDate, sourceId);
@@ -952,6 +1014,7 @@ async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string,
       candidate_valuation_date: resolved.candidateDate,
       date_resolution: resolved.dateResolution,
       observation_state: resolved.status === "review" ? "scheduled_weekly" : "validated_actual_or_resolved_date",
+      source_provenance: sourceProvenance ?? "provider_direct",
     },
   };
   if (existing) {
@@ -970,7 +1033,7 @@ async function writeSnapshot(record: EfgRecord, fund: FundRow, sourceId: string,
   return resolved.status === "review" ? "scheduled" : "inserted";
 }
 
-type CollectorConfig = { sourceUrl: string; fetchUrl?: string; parserName: string; parse: (html: string) => EfgRecord[] | Promise<EfgRecord[]>; fetcher?: (url: string) => Promise<globalThis.Response>; matchAllFunds?: boolean; schedule?: "daily" | "weekly" };
+type CollectorConfig = { sourceUrl: string; fetchUrl?: string; parserName: string; parse: (html: string) => EfgRecord[] | Promise<EfgRecord[]>; fetcher?: (url: string) => Promise<globalThis.Response>; matchAllFunds?: boolean; schedule?: "daily" | "weekly"; sourceProvenance?: string };
 
 function fetchWithDigicertChain(url: string): Promise<globalThis.Response> {
   return new Promise((resolve, reject) => {
@@ -1145,7 +1208,7 @@ async function runCollector(config: CollectorConfig): Promise<RunSummary> {
     run.unmatched.push(...matching.unmatched);
     for (const { record, fund } of matching.matched) {
       try {
-        const result = await writeSnapshot(record, fund, sourceId, config.sourceUrl, config.parserName, config.schedule);
+        const result = await writeSnapshot(record, fund, sourceId, config.sourceUrl, config.parserName, config.schedule, config.sourceProvenance);
         run[result] += 1;
       } catch (error) {
         run.failed.push({ name: record.name, error: error instanceof Error ? error.message : String(error) });
@@ -1216,6 +1279,9 @@ export function runMubasherCollector(): Promise<RunSummary> {
 const fetchPharosPage = (url: string) => fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/131 Safari/537.36", Accept: "text/html,application/xhtml+xml", "Accept-Language": "ar,en;q=0.8" } });
 export function runPharosCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: PHAROS_SOURCE_URL, parserName: PHAROS_PARSER_NAME, parse: parseAtonPharosFunds, fetcher: fetchPharosPage, matchAllFunds: true });
+}
+export function runSndukAuthorizedCollector(): Promise<RunSummary> {
+  return runCollector({ sourceUrl: SNDK_AUTHORIZED_SOURCE_URL, parserName: SNDK_AUTHORIZED_PARSER_NAME, parse: parseSndukAuthorizedFunds, matchAllFunds: true, sourceProvenance: "user_authorized_external_snduk_limited_22" });
 }
 export function runScbCollector(): Promise<RunSummary> {
   return runCollector({ sourceUrl: SCB_SOURCE_URL, parserName: SCB_PARSER_NAME, parse: parseScbFundRates, matchAllFunds: true });
@@ -1288,6 +1354,7 @@ export function getProviderSupportReport() {
     { provider: "EBank", source: EBANK_SOURCE_URL, parser: EBANK_PARSER_NAME, status: "implemented" as const, note: "Official Market Updates page; Khabeer/Money Market/Konooz NAV and valuation dates" },
     { provider: "ABK-Egypt", source: `${ABK_EQUITY_SOURCE_URL}, ${ABK_MONEY_MARKET_SOURCE_URL}`, parser: "abk_official_fund_pages_v2", status: "implemented" as const, note: "Official equity and money-market fund pages; Fund II identity reconciled through Sigma, May-2009 inception, and EGP 10 nominal value" },
     { provider: "Alpha Odin", source: ALPHA_ODIN_SOURCE_URL, parser: ALPHA_ODIN_PARSER_NAME, status: "implemented" as const, note: "Official homepage cards; limited to exact, reviewed Odin Trend and Egyptian Arab Land Bank Al Masry identities" },
+    { provider: "Snduk (user-authorized external source)", source: SNDK_AUTHORIZED_SOURCE_URL, parser: SNDK_AUTHORIZED_PARSER_NAME, status: "implemented" as const, note: "User-authorized external NAV source, finite allow-list of 15 exact records from the named 22-fund scope; not a manager, bank, or regulator source" },
   ];
 }
 
@@ -1320,6 +1387,7 @@ export async function runAllCollectors(): Promise<RunSummary> {
     { sourceUrl: ABK_EQUITY_SOURCE_URL, parserName: "abk_official_fund_pages_v2", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ABK_MONEY_MARKET_SOURCE_URL, parserName: "abk_official_fund_pages_v2", parse: parseAbkFund, fetcher: fetchWithDigicertChain, matchAllFunds: true },
     { sourceUrl: ALPHA_ODIN_SOURCE_URL, fetchUrl: ALPHA_ODIN_API_URL, parserName: ALPHA_ODIN_PARSER_NAME, parse: parseAlphaOdinFunds, matchAllFunds: true },
+    { sourceUrl: SNDK_AUTHORIZED_SOURCE_URL, parserName: SNDK_AUTHORIZED_PARSER_NAME, parse: parseSndukAuthorizedFunds, matchAllFunds: true, sourceProvenance: "user_authorized_external_snduk_limited_22" },
     { sourceUrl: ZALDI_STAR_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
     { sourceUrl: ZALDI_ELMASRY_URL, parserName: ZALDI_PARSER_NAME, parse: parseZaldiFund },
   ]).then(summary => {

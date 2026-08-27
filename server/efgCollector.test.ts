@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { aggregateRunSummaries, buildActiveFundsQuery, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseFabMisrAlAwal, parseAtonPharosFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runFabMisrAlAwalCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, fetchFabMisrPage, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult } from "./efgCollector";
+import { aggregateRunSummaries, buildActiveFundsQuery, collectorStatus, emptyRecordsOutcome, matchEfgRecords, normalize, parseAbkFund, parseAfimFunds, parseAlphaOdinFunds, parseAzimutFunds, parseBeltoneFunds, parseEbankMarketUpdates, parseHcSponsor, parseZaldiFund, chooseActualValuationDate, resolvePersistedValuationDate, parseCiCapitalFunds, parseEfgMutualFunds, parseFaisalMutualFunds, parseMubasherDailyArticle, parseMubasherFunds, parseNbkFundPage, parseNiCapitalFunds, parsePfiFunds, parseFabMisrEzdehar, parseFabMisrAlAwal, parseAtonPharosFunds, parseSndukAuthorizedFunds, parseScbFundRates, parseCreditAgricoleThiqa, parseBdcAlWefak, runFabMisrCollector, runFabMisrAlAwalCollector, runSndukAuthorizedCollector, runBeltoneCollector, runHcCollector, runZaldiStarCollector, fetchFabMisrPage, selectDnsARecord, isCoverageEligibleSnapshot, selectLatestValidatedSnapshots, findSameSourceDuplicateGroups, tallyWriteResult, sndukAuthorizedFundSpecs } from "./efgCollector";
 
 describe("EFG mutual-fund parser", () => {
   it("extracts the official ABK-Egypt Equity Fund price and last-update date", () => {
@@ -226,6 +226,43 @@ describe("EFG mutual-fund parser", () => {
     expect(parseAtonPharosFunds(html)).toEqual([{
       name: "Pharos Fund I", rawName: "صندوق فاروس الأول ذو العائد التراكمي", nav: 792.6, valuationDate: "2026-08-26", currency: "EGP",
     }]);
+  });
+
+  it("restricts Snduk authorization to 15 exact records and parses its displayed Document Price date", async () => {
+    expect(sndukAuthorizedFundSpecs).toHaveLength(15);
+    expect(sndukAuthorizedFundSpecs.map((spec) => spec.canonicalName)).not.toContain("Aman Micro Finance");
+    expect(sndukAuthorizedFundSpecs.map((spec) => spec.canonicalName)).not.toContain("Bank ABC Fund I");
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(`<div>EGP&nbsp;447.56</div><div>Document Price - Last Updated: <span>8/1/26, 12:00 AM</span></div>`, { status: 200 })));
+    await expect(parseSndukAuthorizedFunds("<html>directory</html>")).resolves.toEqual(expect.arrayContaining([{
+      name: "Arope Insurance Misr Fund", rawName: "Arope Money Market Fund", nav: 447.56, valuationDate: "2026-08-01", currency: "EGP",
+    }]));
+    vi.unstubAllGlobals();
+  });
+
+  it("persists only the finite user-authorized Snduk allow-list with explicit external provenance", async () => {
+    const detail = `<div>EGP&nbsp;447.56</div><div>Document Price - Last Updated: <span>8/1/26, 12:00 AM</span></div>`;
+    const catalog = sndukAuthorizedFundSpecs.map((spec, index) => ({ fund_id: `snduk-${index}`, canonical_name: spec.canonicalName, eima_name_raw: null, category: null, price_update_url: null }));
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url === "https://snduk.com/eg/funds?lang=en") return new Response("<html>directory</html>", { status: 200 });
+      if (url.startsWith("https://snduk.com/eg/funds/")) return new Response(detail, { status: 200 });
+      if (url.includes("/rest/v1/funds?")) return new Response(JSON.stringify(catalog), { status: 200 });
+      if (url.includes("/rest/v1/sources?")) return new Response(JSON.stringify([{ source_id: "src_snduk_authorized_22" }]), { status: 200 });
+      if (url.includes("/rest/v1/fund_prices?")) return new Response(JSON.stringify([]), { status: 200 });
+      if (url.endsWith("/rest/v1/fund_prices") && init?.method === "POST") return new Response(null, { status: 204 });
+      return new Response(JSON.stringify([]), { status: 200 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const summary = await runSndukAuthorizedCollector();
+    expect(summary).toMatchObject({ status: "success", fetchedRecords: 15, matchedRecords: 15, inserted: 15, unchanged: 0, failed: [] });
+    const writes = fetchMock.mock.calls.filter(([input, init]) => String(input).endsWith("/rest/v1/fund_prices") && init?.method === "POST");
+    expect(writes).toHaveLength(15);
+    expect(JSON.parse(String(writes[0]?.[1]?.body))).toMatchObject({
+      source_id: "src_snduk_authorized_22",
+      status: "validated",
+      raw_payload: { source_provenance: "user_authorized_external_snduk_limited_22" },
+    });
+    vi.unstubAllGlobals();
   });
 
   it("extracts the current Mubasher daily article table", () => {

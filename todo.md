@@ -155,5 +155,9 @@
 - [x] Widen historical performance NAV precision beyond four decimals and reconcile the preliminary rounded EIMA rows from the original CSV
 - [x] Inventory Snduk pages and displayed NAV/date records for only the user-specified 22 uncovered active funds, preserving each displayed identity and URL
 - [x] Cross-check every Snduk candidate against an official manager, sponsor-bank, or FRA disclosure with an explicit valuation date before any validated NAV write
-- [ ] Integrate and test only candidates that independently pass source, exact-identity, actual-NAV, valuation-date, future-date, and idempotency guards; document all others as third-party discovery evidence only
+- [x] Integrate and test only candidates that independently pass source, exact-identity, actual-NAV, valuation-date, future-date, and idempotency guards; document all others as third-party discovery evidence only
 - [ ] Prepare a least-privilege RLS policy proposal for eima_reports and eima_report_indicators, then obtain explicit user approval before applying any migration
+- [x] Create a user-authorized Snduk external-price source explicitly limited to the 22 named catalog funds and preserve its non-primary provenance
+- [x] Implement exact-name/slug allow-listing for only Snduk records with confirmed fund identity, NAV, and displayed Document Price date; retain absent or tranche-ambiguous records as pending
+- [x] Add Snduk source parser tests for scope restriction, identity rejection, date parsing, and idempotent persistence
+- [x] Run the authorized Snduk collector twice, audit coverage/source provenance/future dates/duplicates, and document any of the 22 that cannot be written because Snduk lacks an exact record
