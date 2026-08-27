@@ -66,6 +66,8 @@
 
 تؤكد صفحة NI Capital الحالية على نحو مستقل السعرين والاسمين للشريحتين — 20.64864 EGP للأولى و20.60258 EGP للثانية — لكن تاريخها المنشور لا يزال 29 أغسطس 2026، وهو تاريخ مستقبلي عند هذا التشغيل المؤرخ 27 أغسطس 2026. ولم يظهر سعر موثق جديد لصندوق التعليم الخيري. لا تغيير في التغطية أو في الصفوف المحفوظة نتج عن هذه الإعادة.[8] [9] [10]
 
+إعادة الفحص الحي أكدت كذلك `15/30 Fixed Income Fund` بسعر **21.78483 EGP**، إلى جانب الشريحتين وصندوق `EDUCATION FOR LIFE` بقيمة **200.417 EGP**؛ إلا أن تواريخ التقييم الثلاثة المعروضة جميعًا هي **29 August 2026**. لذلك تظل القيم دقيقة من حيث الاسم والمصدر لكنها غير مؤهلة للحفظ المعتمد في 27 أغسطس، ولا تُعامل كاستثناء أسبوعي لأن المصدر لم يُعتمد ضمن سياسة الملاحظات الأسبوعية.[10]
+
 [8]: https://primeholdingco.com/asset-management/ "Prime Holding — Asset Management"
 [9]: https://www.bank-abc.com/en/CountrySites/Egypt/AboutABC/Pages/ABC-Mutual-Funds.aspx "Bank ABC Egypt — Mutual Funds"
 [10]: https://nicapital.com.eg/lines-of-business/asset-management/ "NI Capital — Asset Management"
