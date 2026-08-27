@@ -17,7 +17,6 @@ export type MarketDashboardSnapshot = {
 };
 
 export type PublicMarketDashboardSnapshot = Pick<MarketDashboardSnapshot, "asOfDate" | "generatedAt" | "coverage"> & {
-  freshness: { status: "schedule_inactive" | "fresh" | "stale"; latestMarketDate: string | null; latestFetchedAt: string | null; lastSuccessfulRunAt: string | null; scheduledActive: boolean };
   market: Array<Pick<MarketDashboardSnapshot["market"][number], "indicator_key" | "source_symbol" | "market_date" | "value" | "unit" | "displayName" | "assetClass" | "baseAsset" | "quoteCurrency" | "canonicalDefinition">>;
   chart: CompatibleChart;
   funds: Array<Pick<MarketDashboardSnapshot["funds"][number], "fund_id" | "canonical_name" | "category" | "latestNav" | "currency" | "valuationDate" | "verified">>;
@@ -104,15 +103,10 @@ export function buildCompatibleChart(rows: MarketRow[], indicatorKeys: string[])
 
 export function toPublicMarketDashboardSnapshot(snapshot: MarketDashboardSnapshot): PublicMarketDashboardSnapshot {
   const indicatorKeys = snapshot.market.map(item => item.indicator_key);
-  const latestMarketDate = snapshot.market.reduce<string | null>((latest, item) => !latest || item.market_date > latest ? item.market_date : latest, null);
-  const latestFetchedAt = snapshot.market.reduce<string | null>((latest, item) => !latest || item.fetched_at > latest ? item.fetched_at : latest, null);
-  const lastSuccessfulRunAt = snapshot.marketJob?.last_status === "success" ? snapshot.marketJob.last_finished_at : null;
-  const freshnessStatus = !snapshot.marketJob?.active ? "schedule_inactive" : latestFetchedAt && Date.now() - Date.parse(latestFetchedAt) <= 36 * 60 * 60 * 1000 ? "fresh" : "stale";
   return {
     asOfDate: snapshot.asOfDate,
     generatedAt: snapshot.generatedAt,
     coverage: snapshot.coverage,
-    freshness: { status: freshnessStatus, latestMarketDate, latestFetchedAt, lastSuccessfulRunAt, scheduledActive: snapshot.marketJob?.active === true },
     market: snapshot.market.map(({ indicator_key, source_symbol, market_date, value, unit, displayName, assetClass, baseAsset, quoteCurrency, canonicalDefinition }) => ({ indicator_key, source_symbol, market_date, value, unit, displayName, assetClass, baseAsset, quoteCurrency, canonicalDefinition })),
     chart: buildCompatibleChart(snapshot.marketSeries, indicatorKeys),
     funds: snapshot.funds.map(({ fund_id, canonical_name, category, latestNav, currency, valuationDate, verified }) => ({ fund_id, canonical_name, category, latestNav, currency, valuationDate, verified })),
