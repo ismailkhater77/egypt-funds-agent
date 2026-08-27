@@ -526,3 +526,24 @@
   @media (max-width:900px) { .visual-readiness { grid-template-columns:repeat(2,1fr); }.visual-readiness article:nth-child(2) { border-left:0; }.visual-readiness article:nth-child(3),.visual-readiness article:nth-child(4) { border-top:1px solid #27505a; } }
   @media (max-width:620px) { .visual-heading { flex-direction:column; align-items:flex-start; gap:7px; }.visual-heading > p { max-width:none; }.visual-grid { grid-template-columns:1fr; }.visual-card-wide { grid-column:auto; }.visual-card { min-height:300px; padding:13px; }.visual-readiness { grid-template-columns:1fr; }.visual-readiness article { min-height:66px; border-left:0; border-top:1px solid #27505a; }.visual-readiness article:first-child { border-top:0; } }
 }
+
+.product-journey {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border: 1px solid #35606a;
+  background: linear-gradient(135deg, rgba(17, 57, 64, .86), rgba(7, 30, 35, .92));
+}
+.journey-intro h2 { margin-top: .35rem; font-size: 1.35rem; }
+.journey-intro > p:last-child { margin-top: .6rem; color: #95b4ad; font-size: .78rem; line-height: 1.7; }
+.journey-steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .5rem; }
+.journey-step { position: relative; display: flex; min-height: 132px; flex-direction: column; align-items: flex-start; gap: .45rem; padding: .8rem .7rem; border: 1px solid #35606a; background: rgba(6, 28, 33, .78); color: #eef8f4; text-align: right; transition: border-color 160ms ease-out, transform 160ms ease-out, background 160ms ease-out; }
+.journey-step:hover, .journey-step:focus-visible { border-color: #19c39a; background: rgba(25, 195, 154, .1); transform: translateY(-2px); outline: none; }
+.journey-index { color: #d99a5f; font-size: .68rem; }
+.journey-label { font-size: .85rem; font-weight: 600; }
+.journey-detail { color: #95b4ad; font-size: .7rem; line-height: 1.65; }
+.journey-arrow { position: absolute; left: -.55rem; top: 50%; color: #19c39a; font-size: 1rem; transform: translateY(-50%); }
+@media (max-width: 900px) { .product-journey { grid-template-columns: 1fr; } .journey-steps { grid-template-columns: repeat(5, minmax(130px, 1fr)); overflow-x: auto; padding-bottom: .25rem; } }
+@media (max-width: 560px) { .product-journey { padding: 1rem; } .journey-steps { grid-template-columns: repeat(5, 145px); } }
