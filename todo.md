@@ -183,6 +183,9 @@
 - [x] Build advanced fund-performance and SmartScore visualizations for compatible stored periods, including score evolution, performance horizon matrix, risk-return positioning, and category distribution
 - [x] Add interactive Fund Profile and Compare visualizations that expose alignment dates, evidence quality, and unavailable-data states without proxy series or fabricated points
 - [x] Verify visualization calculations, null handling, desktop/mobile rendering, and accessibility with automated tests and screenshots
+- [x] Redesign the advanced Fund Universe filter experience for mobile and desktop with progressive disclosure, active-filter summary, instant result count, and a compact research-command layout
+- [x] Audit and enable each missing benchmark criterion only when its exact stored series and period alignment meet the platform data-quality rules; retain clear unavailable reasons otherwise
+- [x] Verify redesigned filters and benchmark criteria with unit tests, interaction testing, and desktop/mobile screenshots
 - [ ] Add unit tests, manual-run verification, and daily scheduled update handler; create the production schedule only after the user publishes
 - [x] Replace the paid Twelve Data plus MSCI API proposal with a free-only source plan; document any exact required indicator that has no compliant free API rather than substituting an ETF, CFD, or estimate
 - [x] Add parser and credential tests plus protected manual and cron-only market-data handlers; keep the production schedule inactive until the user publishes

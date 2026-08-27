@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildExecutiveSignal, buildUniverseFunds, buildVisualizationReadiness, deriveFundType, deriveResearchSignals } from "./platformData";
+import { buildExecutiveSignal, buildUniverseFunds, buildVisualizationReadiness, deriveBenchmarkCriteria, deriveFundType, deriveResearchSignals } from "./platformData";
 
 describe("platform fund universe", () => {
   it("derives product fund types deterministically from the stored category", () => {
@@ -67,5 +67,23 @@ describe("platform fund universe", () => {
     expect(readiness.nav).toMatchObject({ supported: false, pointCount: 1 });
     expect(readiness.alignedPerformanceScore).toMatchObject({ supported: false, pointCount: 0 });
     expect(readiness.alignedPerformanceScore.reason).toContain("تقاطع زمني");
+  });
+
+  it("enables only benchmark lenses backed by multiple exact stored report dates", () => {
+    const criteria = deriveBenchmarkCriteria([
+      { indicator_key: "EGX30_CLOSE", report_date: "2026-01-01", value: 100 },
+      { indicator_key: "EGX30_CLOSE", report_date: "2026-01-08", value: 105 },
+      { indicator_key: "FX_SELL_EGP_PER_UNIT", report_date: "2026-01-01", value: 50 },
+      { indicator_key: "TBILL_YIELD_AVG", report_date: "2026-01-01", value: 20 },
+    ]);
+    expect(criteria.find((item) => item.id === "egx30")).toMatchObject({ state: "ready", mode: "filter", observations: 2 });
+    expect(criteria.find((item) => item.id === "usd_egp")).toMatchObject({ state: "unavailable", mode: "context", observations: 1 });
+    expect(criteria.find((item) => item.id === "tbills")).toMatchObject({ state: "unavailable", mode: "context", observations: 1 });
+  });
+
+  it("keeps inflation and unsupported market lenses visible but outside deterministic filtering", () => {
+    const criteria = deriveBenchmarkCriteria([{ indicator_key: "CPI_HEADLINE_MONTHLY_CHANGE", report_date: "2026-01-01", value: 1.3 }]);
+    expect(criteria.find((item) => item.id === "inflation")).toMatchObject({ state: "unavailable", mode: "context" });
+    expect(criteria.find((item) => item.id === "msci_em_egp")).toMatchObject({ state: "unavailable", mode: "context", observations: 1 });
   });
 });

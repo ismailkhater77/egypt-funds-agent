@@ -19,6 +19,17 @@ export type UniverseFund = {
 type EvaluationHistoryRow = { report_date: string; smartscore: number | string | null; performance_score: number | string | null; risk_score: number | string | null; benchmark_score: number | string | null; consistency_score: number | string | null; inflation_score: number | string | null; evidence_score: number | string; raw_rank: number | null; qualified_rank: number | null; qualification_status: string; data_confidence: string; data_tier: string; track_record: string; warnings: string[] };
 type IndicatorRow = { indicator_key: string; report_date: string; value: number | string };
 
+export type BenchmarkCriterionAvailability = {
+  id: "best_category" | "tbills" | "usd_egp" | "gold_egp" | "egx30" | "inflation" | "bitcoin_egp" | "msci_em_egp" | "sp500_egp" | "silver_egp";
+  label: string;
+  state: "ready" | "unavailable";
+  mode: "filter" | "context";
+  observations: number;
+  firstDate: string | null;
+  lastDate: string | null;
+  note: string;
+};
+
 async function supabaseRead<T>(path: string): Promise<T> {
   const baseUrl = process.env.SUPABASE_URL;
   const secret = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -56,6 +67,42 @@ export function deriveResearchSignals(fund: Pick<UniverseFund, "components" | "e
   if ((fund.evidenceScore ?? 0) < 40) signals.push("low_evidence");
   if (fund.warnings.includes("anomaly_candidate") || fund.warnings.includes("near_zero_volatility")) signals.push("anomaly_review");
   return signals;
+}
+
+function indicatorCoverage(indicators: IndicatorRow[], indicatorKey: string) {
+  const dates = Array.from(new Set(indicators
+    .filter((row) => row.indicator_key === indicatorKey && Number(row.value) > 0 && Boolean(row.report_date))
+    .map((row) => row.report_date)))
+    .sort((a, b) => a.localeCompare(b));
+  return { observations: dates.length, firstDate: dates[0] ?? null, lastDate: dates.at(-1) ?? null };
+}
+
+/** Builds a public, evidence-aware status for every requested market lens. */
+export function deriveBenchmarkCriteria(indicators: IndicatorRow[]): BenchmarkCriterionAvailability[] {
+  const fromSeries = (id: BenchmarkCriterionAvailability["id"], label: string, key: string, readyNote: string): BenchmarkCriterionAvailability => {
+    const coverage = indicatorCoverage(indicators, key);
+    const ready = coverage.observations >= 2;
+    return {
+      id, label, state: ready ? "ready" : "unavailable", mode: ready ? "filter" : "context", ...coverage,
+      note: ready ? readyNote : "لا توجد سلسلة موثقة متعددة التواريخ لهذا المرجع داخل تقارير الأداء.",
+    };
+  };
+  const inflation = indicatorCoverage(indicators, "CPI_HEADLINE_MONTHLY_CHANGE");
+  const marketOnly = (id: BenchmarkCriterionAvailability["id"], label: string, note: string): BenchmarkCriterionAvailability => ({
+    id, label, state: "unavailable", mode: "context", observations: 0, firstDate: null, lastDate: null, note,
+  });
+  return [
+    { id: "best_category", label: "الأفضل ضمن الفئة", state: "ready", mode: "filter", observations: 0, firstDate: null, lastDate: null, note: "أعلى SmartScore متاح ضمن الفئة نفسها." },
+    fromSeries("tbills", "أذون الخزانة", "TBILL_YIELD_AVG", "مرجع أذون الخزانة محفوظ ضمن تقارير EIMA؛ عائده الأسبوعي محسوب من العائد السنوي المنشور."),
+    fromSeries("usd_egp", "USD/EGP", "FX_SELL_EGP_PER_UNIT", "سلسلة سعر بيع الدولار مقابل الجنيه المحفوظة ضمن تقارير EIMA."),
+    fromSeries("egx30", "EGX 30", "EGX30_CLOSE", "سلسلة الإغلاق التاريخية لمؤشر EGX 30 المحفوظة ضمن تقارير EIMA."),
+    marketOnly("gold_egp", "Gold/EGP", "توجد ملاحظات سوق حديثة، لكن لا توجد فترة مشتركة موثقة مع تاريخ أداء الصناديق."),
+    marketOnly("silver_egp", "Silver/EGP", "توجد ملاحظات سوق حديثة، لكن لا توجد فترة مشتركة موثقة مع تاريخ أداء الصناديق."),
+    marketOnly("bitcoin_egp", "Bitcoin/EGP", "توجد ملاحظات سوق حديثة، لكن لا توجد فترة مشتركة موثقة مع تاريخ أداء الصناديق."),
+    marketOnly("sp500_egp", "S&P 500/EGP", "توجد ملاحظات سوق حديثة، لكن لا توجد فترة مشتركة موثقة مع تاريخ أداء الصناديق."),
+    { id: "msci_em_egp", label: "MSCI EM/EGP", state: "unavailable", mode: "context", observations: 1, firstDate: null, lastDate: null, note: "المؤشر الدقيق محفوظ كلقطة واحدة فقط؛ لا يصلح لتصفية أو مقارنة زمنية." },
+    { id: "inflation", label: "التضخم", state: "unavailable", mode: "context", ...inflation, note: "التضخم المتاح شهري ومتكرر داخل التقارير الأسبوعية؛ ليس عائد تضخم مواءمًا للفترة." },
+  ];
 }
 
 export function buildUniverseFunds(funds: FundRow[], prices: PriceRow[], latestScores: ScoreRow[], priorScores: ScoreRow[], performance: PerformanceRow[], asOfDate: string): UniverseFund[] {
@@ -97,18 +144,20 @@ async function buildFundUniverseSnapshot() {
   const latestDate = reportDates[0]?.report_date ?? null;
   const priorDate = reportDates[1]?.report_date ?? null;
   const scoreSelect = "fund_id,report_date,smartscore,performance_score,risk_score,benchmark_score,consistency_score,inflation_score,evidence_score,data_confidence,data_tier,track_record,natural_benchmark,raw_rank,qualified_rank,qualification_status,warnings";
-  const [funds, prices, latestScores, priorScores, performance] = await Promise.all([
+  const [funds, prices, latestScores, priorScores, performance, indicators] = await Promise.all([
     supabaseRead<FundRow[]>("/rest/v1/funds?select=fund_id,canonical_name,management_company_raw,category,active&order=canonical_name.asc&limit=500"),
     supabaseRead<PriceRow[]>(`/rest/v1/fund_prices?select=fund_id,nav,currency,valuation_date,collected_at,status&status=eq.validated&valuation_date=lte.${cairoDate()}&order=valuation_date.desc,collected_at.desc&limit=1000`),
     latestDate ? supabaseRead<ScoreRow[]>(`/rest/v1/smartscore_evaluations?select=${scoreSelect}&report_date=eq.${latestDate}&order=raw_rank.asc.nullslast&limit=500`) : Promise.resolve([]),
     priorDate ? supabaseRead<ScoreRow[]>(`/rest/v1/smartscore_evaluations?select=${scoreSelect}&report_date=eq.${priorDate}&limit=500`) : Promise.resolve([]),
     latestDate ? supabaseRead<PerformanceRow[]>(`/rest/v1/fund_performance_history?select=fund_id,report_date,horizon,return_pct,currency,identity_status&report_date=eq.${latestDate}&identity_status=eq.EXACT_ACTIVE&limit=2500`) : Promise.resolve([]),
+    supabaseRead<IndicatorRow[]>("/rest/v1/eima_report_indicators?select=indicator_key,report_date,value&limit=2000"),
   ]);
   const items = buildUniverseFunds(funds, prices, latestScores, priorScores, performance, cairoDate());
   const unique = (values: Array<string | null>) => Array.from(new Set(values.filter((value): value is string => Boolean(value)))).sort((a, b) => a.localeCompare(b));
   return {
     asOfDate: cairoDate(), reportDate: latestDate, priorReportDate: priorDate, items,
     facets: { categories: unique(items.map(item => item.category)), managers: unique(items.map(item => item.manager)), fundTypes: unique(items.map(item => item.fundType)), currencies: unique(items.map(item => item.currency)), trackRecords: unique(items.map(item => item.trackRecord)), dataAvailability: ["complete", "partial", "limited"] as const },
+    benchmarkCriteria: deriveBenchmarkCriteria(indicators),
     summary: { total: items.length, active: items.filter(item => item.active).length, withCurrentNav: items.filter(item => item.verifiedSnapshot).length, scored: items.filter(item => item.smartScore !== null).length, emerging: items.filter(item => item.trackRecord === "Emerging").length },
   };
 }
