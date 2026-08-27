@@ -16,6 +16,12 @@ export type MarketDashboardSnapshot = {
   marketJob: JobRow | null;
 };
 
+export type PublicMarketDashboardSnapshot = Pick<MarketDashboardSnapshot, "asOfDate" | "generatedAt" | "coverage"> & {
+  market: Array<Pick<MarketDashboardSnapshot["market"][number], "indicator_key" | "source_symbol" | "market_date" | "value" | "unit" | "displayName" | "assetClass" | "baseAsset" | "quoteCurrency" | "canonicalDefinition">>;
+  marketSeries: Array<Pick<MarketRow, "indicator_key" | "market_date" | "value" | "unit">>;
+  funds: Array<Pick<MarketDashboardSnapshot["funds"][number], "fund_id" | "canonical_name" | "category" | "latestNav" | "currency" | "valuationDate" | "verified">>;
+};
+
 function cairoBusinessDate(now = new Date()): string {
   const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Cairo", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(now);
   const get = (type: Intl.DateTimeFormatPartTypes) => parts.find(part => part.type === type)?.value;
@@ -49,6 +55,17 @@ export function selectLatestMarketObservations(rows: MarketRow[]): Map<string, M
     if (!previous || row.market_date > previous.market_date || (row.market_date === previous.market_date && row.fetched_at > previous.fetched_at)) latest.set(row.indicator_key, row);
   }
   return latest;
+}
+
+export function toPublicMarketDashboardSnapshot(snapshot: MarketDashboardSnapshot): PublicMarketDashboardSnapshot {
+  return {
+    asOfDate: snapshot.asOfDate,
+    generatedAt: snapshot.generatedAt,
+    coverage: snapshot.coverage,
+    market: snapshot.market.map(({ indicator_key, source_symbol, market_date, value, unit, displayName, assetClass, baseAsset, quoteCurrency, canonicalDefinition }) => ({ indicator_key, source_symbol, market_date, value, unit, displayName, assetClass, baseAsset, quoteCurrency, canonicalDefinition })),
+    marketSeries: snapshot.marketSeries.map(({ indicator_key, market_date, value, unit }) => ({ indicator_key, market_date, value, unit })),
+    funds: snapshot.funds.map(({ fund_id, canonical_name, category, latestNav, currency, valuationDate, verified }) => ({ fund_id, canonical_name, category, latestNav, currency, valuationDate, verified })),
+  };
 }
 
 export async function getMarketDashboardSnapshot(): Promise<MarketDashboardSnapshot> {

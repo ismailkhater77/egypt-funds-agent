@@ -8,11 +8,33 @@ const anonymousContext: TrpcContext = {
   res: {} as TrpcContext["res"],
 };
 
+const standardUserContext: TrpcContext = {
+  ...anonymousContext,
+  user: {
+    id: 2,
+    openId: "standard-user",
+    name: "Standard User",
+    email: "standard@example.com",
+    loginMethod: "manus",
+    role: "user",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    lastSignedIn: new Date(),
+  },
+};
+
 describe("dashboard.snapshot access", () => {
-  it("rejects an anonymous caller before any market or fund data can be read", async () => {
+  it("rejects an anonymous caller before any source health or agent data can be read", async () => {
     const caller = appRouter.createCaller(anonymousContext);
     await expect(caller.dashboard.snapshot()).rejects.toMatchObject({
-      code: "UNAUTHORIZED",
+      code: "FORBIDDEN",
+    });
+  });
+
+  it("rejects a signed-in non-admin caller from the private source route", async () => {
+    const caller = appRouter.createCaller(standardUserContext);
+    await expect(caller.dashboard.snapshot()).rejects.toMatchObject({
+      code: "FORBIDDEN",
     });
   });
 });

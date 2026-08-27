@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { selectLatestMarketObservations, selectLatestVerifiedFundPrices } from "./marketDashboard";
+import { selectLatestMarketObservations, selectLatestVerifiedFundPrices, toPublicMarketDashboardSnapshot, type MarketDashboardSnapshot } from "./marketDashboard";
 
 describe("market dashboard selection", () => {
   it("uses the latest validated fund value that is not future-dated", () => {
@@ -22,5 +22,22 @@ describe("market dashboard selection", () => {
     const selected = selectLatestMarketObservations(rows);
     expect(selected.get("SPX")?.value).toBe(101);
     expect(selected.has("BTC_USD")).toBe(false);
+  });
+
+  it("removes source details, source URLs, collection metadata, and job history from the public snapshot", () => {
+    const snapshot = {
+      asOfDate: "2026-08-27", generatedAt: "2026-08-27T12:00:00.000Z", coverage: { activeFunds: 1, coveredFunds: 1, uncoveredFunds: 0, linkedWithoutSnapshot: 0 },
+      market: [{ indicator_key: "USD_EGP", source_id: "source-secret", source_symbol: "USD/EGP", market_date: "2026-08-27", value: 50, unit: "EGP_per_USD", source_observed_at: "2026-08-27T11:00:00.000Z", fetched_at: "2026-08-27T11:01:00.000Z", source_url: "https://private.example", observation_status: "validated", displayName: "US Dollar / Egyptian Pound", assetClass: "forex", baseAsset: "USD", quoteCurrency: "EGP", canonicalDefinition: "EGP per USD", sourceName: "Private source" }],
+      marketSeries: [{ indicator_key: "USD_EGP", source_id: "source-secret", source_symbol: "USD/EGP", market_date: "2026-08-27", value: 50, unit: "EGP_per_USD", source_observed_at: null, fetched_at: "2026-08-27T11:01:00.000Z", source_url: "https://private.example", observation_status: "validated" }],
+      funds: [{ fund_id: "fund-1", canonical_name: "Fund One", category: null, price_update_url: "https://private.example/fund", latestNav: 10, currency: "EGP", valuationDate: "2026-08-27", sourceName: "Private source", collectedAt: "2026-08-27T11:01:00.000Z", verified: true }],
+      sources: [{ source_id: "source-secret", source_name: "Private source", source_url: "https://private.example", source_kind: "private", active: true, priceCount: 1, coveredFundCount: 1, latestValuationDate: "2026-08-27" }],
+      marketJob: { job_key: "job", job_name: "Private job", cron_expression: "secret", active: true, last_started_at: null, last_finished_at: null, last_status: "success", last_run_summary: {} },
+    } satisfies MarketDashboardSnapshot;
+    const publicSnapshot = toPublicMarketDashboardSnapshot(snapshot);
+    expect(JSON.stringify(publicSnapshot)).not.toContain("source-secret");
+    expect(JSON.stringify(publicSnapshot)).not.toContain("private.example");
+    expect(JSON.stringify(publicSnapshot)).not.toContain("Private job");
+    expect(publicSnapshot.funds[0]).not.toHaveProperty("price_update_url");
+    expect(publicSnapshot.market[0]).not.toHaveProperty("sourceName");
   });
 });
