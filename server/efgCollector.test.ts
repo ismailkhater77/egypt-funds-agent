@@ -285,14 +285,14 @@ describe("EFG mutual-fund parser", () => {
   });
 
   it("extracts PFI funds and rejects future-dated rows", () => {
-    const html = `<h2>GIG Equity Fund</h2><div>About NAV Per Certificate 1,387.99 26-08-2026</div><h2>GIG Money Market Fund</h2><div>About NAV Per Certificate 18.9972 29-08-2026</div>`;
+    const html = `<h2>GIG Equity Fund</h2><div>About NAV Per Certificate 1,387.99 26-08-2026</div><h2>GIG Money Market Fund</h2><div>About NAV Per Certificate 18.9972 01-09-2026</div>`;
     expect(parsePfiFunds(html)).toEqual([{
       name: "GIG Equity Fund", rawName: "GIG Equity Fund", nav: 1387.99, valuationDate: "2026-08-26", currency: "EGP",
     }]);
   });
 
   it("extracts NI Capital official funds and rejects future-dated rows", () => {
-    const html = `<section>SIULA MONEY MARKET FUND 26 August 2026 Certificate Price EGP 24.55001</section><section>SAHMY FUND 26 August 2026 Certificate Price EGP 40.7555</section><section>SAHMY 70 FUND 26 August 2026 Certificate Price EGP 22.4184</section><section>15/30 Fixed Income Fund 29 August 2026 Certificate Price EGP 21.78483</section><section>MAKASEB 1st Tranche 29 August 2026 Certificate Price EGP 20.64864</section><section>MAKASEB 2nd Tranche 29 August 2026 Certificate Price EGP 20.60258</section><section>EDUCATION FOR LIFE 29 August 2026 Certificate Price EGP 200.417</section>`;
+    const html = `<section>SIULA MONEY MARKET FUND 26 August 2026 Certificate Price EGP 24.55001</section><section>SAHMY FUND 26 August 2026 Certificate Price EGP 40.7555</section><section>SAHMY 70 FUND 26 August 2026 Certificate Price EGP 22.4184</section><section>15/30 Fixed Income Fund 01 September 2026 Certificate Price EGP 21.78483</section><section>MAKASEB 1st Tranche 01 September 2026 Certificate Price EGP 20.64864</section><section>MAKASEB 2nd Tranche 01 September 2026 Certificate Price EGP 20.60258</section><section>EDUCATION FOR LIFE 01 September 2026 Certificate Price EGP 200.417</section>`;
     expect(parseNiCapitalFunds(html)).toEqual([
       { name: "Siula Money Market", rawName: "SIULA MONEY MARKET FUND", nav: 24.55001, valuationDate: "2026-08-26", currency: "EGP" },
       { name: "NI Capital (Sahmy Fund)", rawName: "SAHMY FUND", nav: 40.7555, valuationDate: "2026-08-26", currency: "EGP" },
@@ -323,8 +323,8 @@ describe("EFG mutual-fund parser", () => {
     }]);
   });
   it("preserves a future weekly FABMISR source date for scheduled review instead of discarding the official NAV", () => {
-    const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>29 August 2026</td></tr><tr><td>Currency (EGP)</td><td>480.1000</td></tr></table>`;
-    expect(parseFabMisrEzdehar(html)).toEqual([{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav: 480.1, valuationDate: "2026-08-29", currency: "EGP" }]);
+    const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>01 September 2026</td></tr><tr><td>Currency (EGP)</td><td>480.1000</td></tr></table>`;
+    expect(parseFabMisrEzdehar(html)).toEqual([{ name: "FAB Misr Fund (Ezdhar)", rawName: "Ezdehar Fund", nav: 480.1, valuationDate: "2026-09-01", currency: "EGP" }]);
   });
   it("persists FABMISR Al Awal as a daily validated snapshot under its independent official-bank source", async () => {
     const html = `<div>Al Awal Daily Money Market Fund (NAV)</div><table><tr><td>Date</td><td>24 August 2026</td></tr><tr><td>Currency (EGP)</td><td>541.46040</td></tr></table>`;
@@ -537,7 +537,7 @@ describe("EFG mutual-fund parser", () => {
   });
 
   it("stores a future-dated official weekly NAV as review without promoting it to validated", async () => {
-    const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>29 August 2026</td></tr><tr><td>Currency (EGP)</td><td>480.1000</td></tr></table>`;
+    const html = `<div>Ezdehar Fund (NAV)</div><table><tr><td>Date</td><td>01 September 2026</td></tr><tr><td>Currency (EGP)</td><td>480.1000</td></tr></table>`;
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input);
       if (url.includes("/rest/v1/funds?")) return new Response(JSON.stringify([{ fund_id: "fab-ezdehar", canonical_name: "FAB Misr Fund (Ezdhar)", eima_name_raw: null, category: null, price_update_url: "https://www.fabmisr.com.eg/en/personal-banking/investments-funds/ezdehar-fund" }]), { status: 200 });
@@ -552,7 +552,7 @@ describe("EFG mutual-fund parser", () => {
     expect(summary).toMatchObject({ status: "success", fetchedRecords: 1, matchedRecords: 1, inserted: 0, scheduled: 1, failed: [] });
     const write = fetchMock.mock.calls.find(([input, init]) => String(input).endsWith("/rest/v1/fund_prices") && init?.method === "POST");
     const payload = JSON.parse(String(write?.[1]?.body));
-    expect(payload).toMatchObject({ valuation_date: "2026-08-29", status: "review", raw_payload: { observation_state: "scheduled_weekly" } });
+    expect(payload).toMatchObject({ valuation_date: "2026-09-01", status: "review", raw_payload: { observation_state: "scheduled_weekly" } });
     vi.unstubAllGlobals();
   });
 

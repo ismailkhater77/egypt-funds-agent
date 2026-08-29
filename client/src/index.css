@@ -574,3 +574,23 @@
 .heatmap-empty { background: rgba(100, 143, 137, .08); color: #648f89; }
 .heatmap-disclosure { margin-top: .8rem; font-size: .68rem; }
 @media (max-width: 700px) { .heatmap-explainer { flex-direction: column; } .heatmap-legend { white-space: normal; } .category-heatmap-panel { padding: .75rem; } }
+
+.macro-ticker { margin-bottom: 1.25rem; border: 1px solid #35606a; background: #061c21; overflow: hidden; }
+.macro-ticker-head { display: flex; align-items: center; gap: .65rem; padding: .75rem 1rem; border-bottom: 1px solid #35606a; }
+.macro-ticker-head strong { display: block; margin-top: .2rem; color: #eef8f4; font-size: .95rem; }
+.macro-ticker-head small { margin-inline-start: auto; color: #648f89; font-size: .62rem; }
+.macro-ticker-track { display: flex; width: max-content; min-width: 100%; animation: macro-ticker-slide 45s linear infinite; }
+.macro-ticker:hover .macro-ticker-track, .macro-ticker:focus-within .macro-ticker-track { animation-play-state: paused; }
+.macro-ticker-item { display: flex; min-width: 178px; flex-direction: column; gap: .22rem; padding: .8rem 1rem; border-inline-start: 1px solid rgba(53,96,106,.55); }
+.macro-ticker-item strong { color: #eef8f4; font-family: "IBM Plex Mono", monospace; font-size: 1rem; }
+.macro-ticker-item small { color: #95b4ad; font-size: .63rem; white-space: nowrap; }
+@keyframes macro-ticker-slide { from { transform: translateX(0); } to { transform: translateX(50%); } }
+@media (prefers-reduced-motion: reduce) { .macro-ticker-track { animation: none; } }
+@media (max-width: 600px) { .macro-ticker-head { align-items: flex-start; } .macro-ticker-head small { display: none; } .macro-ticker-item { min-width: 160px; } }
+
+.horizon-selector { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .8rem; }
+.horizon-selector button { padding: .42rem .65rem; border: 1px solid #35606a; background: transparent; color: #95b4ad; font-size: .68rem; cursor: pointer; transition: color 160ms ease-out, border-color 160ms ease-out, background 160ms ease-out; }
+.horizon-selector button:hover, .horizon-selector button:focus-visible { border-color: #19c39a; color: #eef8f4; outline: none; }
+.horizon-selector button.active { border-color: #19c39a; background: rgba(25,195,154,.16); color: #eef8f4; }
+.category-heatmap .heatmap-row { grid-template-columns: 1.35fr 1fr; }
+.category-heatmap .heatmap-row.heatmap-header { min-height: 42px; }
