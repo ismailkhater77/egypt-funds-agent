@@ -221,6 +221,7 @@
 - [ ] Rebuild homepage as macro ticker → aligned long-history chart → EGP 1,000 scenario → interactive category heatmap with selectable horizons
 - [x] Stabilize date-sensitive collector fixtures so future-date regression tests remain deterministic as Cairo's current date advances
 - [x] Replace the failing GoldAPI spot fetch for XAU/XAG with the verified free Gold API endpoint, add parser/credential coverage, and refresh only source-confirmed observations
-- [ ] Run a production-readiness audit covering homepage analytical flow, data freshness disclosures, scheduler activation prerequisites, admin/public boundaries, and release verification
+- [x] Run a production-readiness audit covering homepage analytical flow, data freshness disclosures, scheduler activation prerequisites, admin/public boundaries, and release verification
 - [ ] Define and close the critical blockers required before publishing, without publishing or activating schedules during development
 - [x] Replace the generic empty historical-chart state with an evidence coverage view showing per-indicator observation count and actual date range
+- [x] Remove the retired unused ProductJourney card component and styles so the homepage has one authoritative analytical flow

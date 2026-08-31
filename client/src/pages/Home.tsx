@@ -29,16 +29,7 @@ function MacroTicker({ market }: { market: Array<{ indicator_key: string; source
   return <section className="macro-ticker" aria-label="شريط مؤشرات الاقتصاد والسوق"><div className="macro-ticker-head"><span className="live-dot" /><div><p className="eyebrow">MACRO MARKET BOARD / VERIFIED SNAPSHOTS</p><strong>نبض المشهد الاقتصادي</strong></div><small className="mono">CAIRO · VERIFIED SNAPSHOTS</small></div><div className="macro-ticker-track">{items.length ? [...items, ...items].map((item, index) => <article className="macro-ticker-item" key={`${item.indicator_key}-${index}`} aria-hidden={index >= items.length}><span className="symbol">{item.source_symbol}</span><strong>{formatNumber(Number(item.value))}</strong><small>{item.displayName} · {item.market_date}</small></article>) : <div className="empty-state">لا توجد لقطات سوق موثقة متاحة.</div>}</div></section>;
 }
 
-function ProductJourney({ coverage, indicatorCount, chartReady, onNavigate }: { coverage?: { activeFunds: number; coveredFunds: number; uncoveredFunds: number }; indicatorCount: number; chartReady: boolean; onNavigate: (id: string) => void }) {
-  const steps = [
-    { key: "data", label: "البيانات", detail: `${coverage?.activeFunds ?? "—"} صندوقًا في الكتالوج · ${indicatorCount} مؤشرات سوق`, action: "funds" },
-    { key: "information", label: "المعلومة", detail: "NAV وتاريخ تقييم وحالة تحقق لكل لقطة", action: "funds" },
-    { key: "context", label: "السياق", detail: chartReady ? "سلاسل متوافقة تربط الأصل بالسوق" : "السياق ينتظر تقاطعًا زمنيًا موثقًا", action: "comparison" },
-    { key: "intelligence", label: "الذكاء", detail: `${coverage?.coveredFunds ?? "—"} صندوقًا ببيانات NAV معتمدة قابلة للتحليل`, action: "scores" },
-    { key: "decision", label: "القرار البحثي", detail: "قارن وراقب وسجّل فرضيتك — دون توصية شخصية", action: "funds" },
-  ];
-  return <section className="product-journey" aria-label="رحلة تحويل البيانات إلى قرار بحثي"><div className="journey-intro"><p className="eyebrow">PRODUCT LOGIC / NOT A PRICE BOARD</p><h2>من الرقم إلى الفهم</h2><p>المنصة لا تتوقف عند عرض السعر؛ كل طبقة تضيف معنى قابلًا للفحص قبل أن يصل المستخدم إلى قرار بحثي.</p></div><div className="journey-steps">{steps.map((step, index) => <button key={step.key} className="journey-step" onClick={() => onNavigate(step.action)}><span className="journey-index mono">0{index + 1}</span><span className="journey-label">{step.label}</span><span className="journey-detail">{step.detail}</span>{index < steps.length - 1 ? <span className="journey-arrow" aria-hidden="true">←</span> : null}</button>)}</div></section>;
-}
+
 
 type HeatmapFund = { fundId: string; category: string | null; returns: Record<string, number | null>; smartScore: number | null; dataAvailability: string };
 
