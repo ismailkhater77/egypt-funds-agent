@@ -1,4 +1,4 @@
-# Daily Egyptian fund NAV + market-data collectors
+# Daily pipeline: fund NAV collectors → market data → SmartScore refresh
 # Secrets: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 # Schedule: 14:30 UTC Sun–Thu ≈ 16:30 Egypt
 
@@ -16,7 +16,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -53,6 +53,15 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: pnpm exec tsx scripts/run-market-data-once.ts
         continue-on-error: true
+
+      # SmartScore v1.0 formulas unchanged — refresh evaluations after data collection.
+      # Scores are driven by EIMA performance rows + indicators for report dates;
+      # this step keeps evaluations in sync whenever the pipeline runs.
+      - name: Refresh SmartScore evaluations
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: pnpm exec tsx scripts/run-smartscore.mjs
 
       - name: Upload reports on failure
         if: failure()
