@@ -1,0 +1,66 @@
+# Daily Egyptian fund NAV + market-data collectors
+# Requires repository secrets:
+#   SUPABASE_URL
+#   SUPABASE_SERVICE_ROLE_KEY
+#
+# Schedule: 14:30 UTC Sun–Thu ≈ 16:30 Egypt (after typical session)
+
+name: NAV Daily Collectors
+
+on:
+  schedule:
+    - cron: "30 14 * * 0-4"
+  workflow_dispatch: {}
+
+concurrency:
+  group: nav-daily
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run all fund NAV collectors
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
+            echo "Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY secrets"
+            exit 1
+          fi
+          pnpm exec tsx scripts/run-all-once.mjs
+
+      - name: Run market data collector
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: pnpm exec tsx scripts/run-market-data-once.ts
+        continue-on-error: true
+
+      - name: Upload reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: collector-failure-${{ github.run_id }}
+          path: reports/
+          retention-days: 7
