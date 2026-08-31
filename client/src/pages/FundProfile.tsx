@@ -16,8 +16,8 @@ export default function FundProfile({ params }: { params: { fundId: string } }) 
   const fundId = decodeURIComponent(params.fundId);
   const input = useMemo(() => ({ fundId }), [fundId]);
   const { data, isLoading, error } = trpc.platform.profile.useQuery(input, { retry:false, refetchOnWindowFocus:false });
-  if (isLoading) return <ProductShell title="ملف الصندوق" eyebrow="FUND PROFILE / LOADING"><div className="platform-empty">يجري تجميع ملف الصندوق والأدلة…</div></ProductShell>;
-  if (error || !data) return <ProductShell title="ملف الصندوق" eyebrow="FUND PROFILE / UNAVAILABLE"><div className="platform-empty">تعذر العثور على ملف موثق لهذا الصندوق.</div></ProductShell>;
+  if (isLoading) return <ProductShell title="ملف الصندوق" eyebrow="FUND DNA · PROFILE / LOADING"><div className="platform-empty">يجري تجميع ملف الصندوق والأدلة…</div></ProductShell>;
+  if (error || !data) return <ProductShell title="ملف الصندوق" eyebrow="FUND DNA · PROFILE / UNAVAILABLE"><div className="platform-empty">تعذر العثور على ملف موثق لهذا الصندوق.</div></ProductShell>;
   const { overview } = data;
   const overviewCards = [
     ["أحدث NAV", overview.latestNav === null ? "—" : fmt(overview.latestNav, 4), overview.valuationDate ?? "غير متاح"],
@@ -27,7 +27,7 @@ export default function FundProfile({ params }: { params: { fundId: string } }) 
     ["استراتيجية الاستثمار", "غير متاحة", "تنتظر مصدرًا موثقًا"],
     ["Track Record", overview.trackRecord ?? "غير مقيم", overview.reportDate ?? "—"],
   ];
-  return <ProductShell title={overview.canonicalName} eyebrow="FUND PROFILE / FUND DNA" description={`${overview.manager ?? "شركة الإدارة غير متاحة"} · ${overview.category ?? "الفئة غير متاحة"}`}>
+  return <ProductShell title={overview.canonicalName} eyebrow="FUND DNA · PROFILE / FUND DNA" description={`${overview.manager ?? "شركة الإدارة غير متاحة"} · ${overview.category ?? "الفئة غير متاحة"}`}>
     <button className="profile-back" onClick={() => setLocation("/funds")}><ArrowRight size={14}/>العودة إلى دليل الصناديق</button>
     <section className="profile-hero">
       <div className="profile-identity">
