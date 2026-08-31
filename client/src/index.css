@@ -993,3 +993,101 @@
 @media (max-width: 640px) {
   .filter-select-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ===== UI Pass 3 — Fund DNA + density ===== */
+.dna-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 16px;
+}
+.dna-flow span {
+  padding: 6px 10px;
+  border: 1px solid #1e4650;
+  color: #648f89;
+  font: 500 10px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.04em;
+}
+.dna-flow span.active {
+  border-color: #2dd4a8;
+  color: #e8f4f0;
+  background: rgb(45 212 168 / .1);
+}
+.profile-score-meta {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+.profile-score-meta .score-not-return {
+  color: #d4b06a;
+  font-size: 10px;
+  border-top: 1px solid #1e4650;
+  padding-top: 8px;
+}
+.b-transparency-strip {
+  display: grid;
+  grid-template-columns: 120px 160px 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 14px;
+  padding: 14px 16px;
+  border: 1px solid #1e4650;
+  background: linear-gradient(90deg, rgb(168 148 255 / .08), transparent 55%);
+}
+.b-transparency-strip small {
+  display: block;
+  color: #7ea39c;
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+.b-transparency-strip strong {
+  color: #e8f4f0;
+  font-size: 22px;
+}
+.b-transparency-strip p {
+  margin: 0;
+  color: #9dbbb5;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.constellation-grid article.calculated {
+  border-color: rgb(45 212 168 / .35);
+}
+.constellation-grid article.unaligned,
+.constellation-grid article.unavailable {
+  opacity: 0.72;
+}
+.hero-panel {
+  box-shadow: inset 0 0 0 1px rgb(45 212 168 / .06);
+}
+.platform-kpis article strong {
+  letter-spacing: -0.04em;
+}
+@media (max-width: 900px) {
+  .b-transparency-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+  .b-transparency-strip p {
+    grid-column: 1 / -1;
+  }
+  .dna-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .performance-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .profile-hero {
+    grid-template-columns: 1fr !important;
+  }
+  .score-table-wrap { overflow-x: auto; }
+  .rankings-mobile-hint {
+    display: block;
+    margin: 0 0 10px;
+    color: #7ea39c;
+    font-size: 11px;
+  }
+}
+@media (min-width: 901px) {
+  .rankings-mobile-hint { display: none; }
+}
