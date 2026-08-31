@@ -26,6 +26,7 @@ export type CompatibleChart = {
   status: "ready" | "insufficient_compatible_history";
   indicatorKeys: string[];
   excludedIndicatorKeys: string[];
+  seriesAvailability: Array<{ indicatorKey: string; observationCount: number; startDate: string | null; endDate: string | null }>;
   startDate: string | null;
   endDate: string | null;
   pointCount: number;
@@ -82,10 +83,14 @@ export function buildCompatibleChart(rows: MarketRow[], indicatorKeys: string[])
     const existing = entries.get(row.market_date);
     if (!existing || row.fetched_at > existing.fetched_at) entries.set(row.market_date, row);
   }
+  const seriesAvailability = indicatorKeys.map(indicatorKey => {
+    const dates = Array.from(perIndicator.get(indicatorKey)?.keys() ?? []).sort();
+    return { indicatorKey, observationCount: dates.length, startDate: dates[0] ?? null, endDate: dates.at(-1) ?? null };
+  });
   const candidates = indicatorKeys.filter(key => (perIndicator.get(key)?.size ?? 0) >= 2);
-  if (candidates.length < 2) return { status: "insufficient_compatible_history", indicatorKeys: [], excludedIndicatorKeys: indicatorKeys, startDate: null, endDate: null, pointCount: 0, points: [] };
+  if (candidates.length < 2) return { status: "insufficient_compatible_history", indicatorKeys: [], excludedIndicatorKeys: indicatorKeys, seriesAvailability, startDate: null, endDate: null, pointCount: 0, points: [] };
   const commonDates = Array.from(perIndicator.get(candidates[0])!.keys()).filter(date => candidates.every(key => perIndicator.get(key)!.has(date))).sort();
-  if (commonDates.length < 2) return { status: "insufficient_compatible_history", indicatorKeys: [], excludedIndicatorKeys: indicatorKeys, startDate: null, endDate: null, pointCount: 0, points: [] };
+  if (commonDates.length < 2) return { status: "insufficient_compatible_history", indicatorKeys: [], excludedIndicatorKeys: indicatorKeys, seriesAvailability, startDate: null, endDate: null, pointCount: 0, points: [] };
   const includesUsdEgp = candidates.includes("USD_EGP");
   const egpEquivalent = (key: string, date: string) => {
     const value = Number(perIndicator.get(key)!.get(date)!.value);
@@ -98,7 +103,7 @@ export function buildCompatibleChart(rows: MarketRow[], indicatorKeys: string[])
     for (const key of candidates) point[key] = (egpEquivalent(key, date) / baseValues.get(key)!) * 100;
     return point;
   });
-  return { status: "ready", indicatorKeys: candidates, excludedIndicatorKeys: indicatorKeys.filter(key => !candidates.includes(key)), startDate: commonDates[0], endDate: commonDates.at(-1) ?? null, pointCount: points.length, points };
+  return { status: "ready", indicatorKeys: candidates, excludedIndicatorKeys: indicatorKeys.filter(key => !candidates.includes(key)), seriesAvailability, startDate: commonDates[0], endDate: commonDates.at(-1) ?? null, pointCount: points.length, points };
 }
 
 export function toPublicMarketDashboardSnapshot(snapshot: MarketDashboardSnapshot): PublicMarketDashboardSnapshot {
