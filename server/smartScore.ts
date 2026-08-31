@@ -36,6 +36,21 @@ export type BenchmarkResult = {
   contributionScore: number | null;
   status: "calculated" | "unavailable" | "unaligned";
 };
+
+/** Transparency for axis B only — does not change B score math. */
+export type BenchmarkTransparency = {
+  availableCount: number;
+  excludedCount: number;
+  totalConfigured: number;
+  available: string[];
+  excluded: Array<{ key: string; reason: "unavailable" | "unaligned"; role: "natural" | "opportunity" }>;
+  configuredWeights: Record<string, number>;
+  /** Normalized weights inside B after exclusions (sum to 1 when any available). */
+  effectiveWeightsInsideB: Record<string, number>;
+  naturalBenchmark: string | null;
+  summary: string;
+};
+
 export type SmartScoreResult = {
   fundId: string;
   category: string;
@@ -56,6 +71,7 @@ export type SmartScoreResult = {
   qualifiedRank: number | null;
   qualificationStatus: "qualified" | "not_yet_qualified" | "not_ranked";
   benchmarkResults: BenchmarkResult[];
+  benchmarkTransparency: BenchmarkTransparency;
   warnings: string[];
 };
 
@@ -152,6 +168,52 @@ function weightedBenchmarkScore(results: BenchmarkResult[], inputs: BenchmarkInp
   return available.reduce((sum, result) => sum + result.contributionScore! * (inputs.find(input => input.key === result.benchmarkKey)?.weight ?? 0) / totalWeight, 0);
 }
 
+export function buildBenchmarkTransparency(results: BenchmarkResult[], inputs: BenchmarkInput[]): BenchmarkTransparency {
+  const configuredWeights: Record<string, number> = {};
+  for (const input of inputs) configuredWeights[input.key] = input.weight;
+
+  const availableResults = results.filter(result => result.status === "calculated" && result.contributionScore !== null);
+  const excluded = results
+    .filter(result => !(result.status === "calculated" && result.contributionScore !== null))
+    .map(result => ({
+      key: result.benchmarkKey,
+      reason: (result.status === "unaligned" ? "unaligned" : "unavailable") as "unavailable" | "unaligned",
+      role: result.benchmarkRole,
+    }));
+
+  const totalWeight = availableResults.reduce(
+    (sum, result) => sum + (configuredWeights[result.benchmarkKey] ?? 0),
+    0,
+  );
+  const effectiveWeightsInsideB: Record<string, number> = {};
+  if (totalWeight > 0) {
+    for (const result of availableResults) {
+      effectiveWeightsInsideB[result.benchmarkKey] = (configuredWeights[result.benchmarkKey] ?? 0) / totalWeight;
+    }
+  }
+
+  const available = availableResults.map(result => result.benchmarkKey);
+  const naturalBenchmark = inputs.find(input => input.role === "natural")?.key ?? null;
+  const summary =
+    available.length === 0
+      ? `B excluded all ${results.length} configured benchmarks (none period-aligned).`
+      : excluded.length === 0
+        ? `B uses ${available.length}/${results.length} benchmarks; no exclusions.`
+        : `B uses ${available.length}/${results.length} benchmarks; excluded ${excluded.map(item => item.key).join(", ")}.`;
+
+  return {
+    availableCount: available.length,
+    excludedCount: excluded.length,
+    totalConfigured: results.length,
+    available,
+    excluded,
+    configuredWeights,
+    effectiveWeightsInsideB,
+    naturalBenchmark,
+    summary,
+  };
+}
+
 function componentEvidence(input: FundScoreInput, benchmarkResults: BenchmarkResult[]): Record<ComponentKey, number> {
   const weeklyCount = validReturns(input.weeklyReturns).length;
   const horizonCount = validHorizonCount(input);
@@ -243,7 +305,7 @@ export function evaluateSmartScoreCohort(inputs: FundScoreInput[]): SmartScoreRe
       effectiveWeights, componentAvailability: { P: performanceScore !== null, R: riskScore !== null, B: benchmarkScore !== null, C: consistencyScore !== null, I: inflationScore !== null },
       evidenceCoverage, evidenceScore, dataConfidence: confidenceFor(evidenceScore), dataTier: tierFor(inputStatuses), trackRecord: classifyTrackRecord(validReturns(input.weeklyReturns).length),
       peerCohortSize: peers.length || null, fallbackUsed, naturalBenchmark: input.benchmarks.find(benchmark => benchmark.role === "natural")?.key ?? null,
-      rawRank: null, qualifiedRank: null, qualificationStatus: hasAnyComponent ? "not_yet_qualified" as const : "not_ranked" as const, benchmarkResults, warnings,
+      rawRank: null, qualifiedRank: null, qualificationStatus: hasAnyComponent ? "not_yet_qualified" as const : "not_ranked" as const, benchmarkResults, benchmarkTransparency: buildBenchmarkTransparency(benchmarkResults, input.benchmarks), warnings,
     };
   });
   for (const category of Array.from(new Set(preliminary.map(item => item.category)))) {

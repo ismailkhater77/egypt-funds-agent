@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { evaluateSmartScoreCohort, redistributeWeights, SMARTSCORE_WEIGHTS, type FundScoreInput } from "./smartScore";
+import { buildBenchmarkTransparency, evaluateSmartScoreCohort, redistributeWeights, SMARTSCORE_WEIGHTS, type FundScoreInput } from "./smartScore";
 
 function input(fundId: string, weekly: number[], ytd: number | null, options: Partial<FundScoreInput> = {}): FundScoreInput {
   const dates = weekly.map((_, index) => `2026-07-${String(index + 1).padStart(2, "0")}`);
@@ -87,4 +87,28 @@ describe("SmartScore v1", () => {
     expect(benchmark.status).toBe("unaligned");
     expect(benchmark.contributionScore).toBeNull();
   });
+
+  it("exposes B transparency for available vs excluded benchmarks without changing B math", () => {
+    const dates = Array.from({ length: 8 }, (_, index) => `2026-01-${String(index + 1).padStart(2, "0")}`);
+    const aligned = dates.map((date, index) => ({ date, returnPct: 0.2, inputStatus: "verified" as const }));
+    const result = evaluateSmartScoreCohort([
+      input("t", [0.4, 0.41, 0.42, 0.43, 0.44, 0.45, 0.46, 0.47], 4, {
+        benchmarks: [
+          { key: "EGX30", role: "natural", weight: 0.6, weeklyReturns: aligned, inputStatus: "verified" },
+          { key: "GOLD", role: "opportunity", weight: 0.4, weeklyReturns: [{ date: "2020-01-01", returnPct: 1, inputStatus: "verified" }], inputStatus: "verified" },
+        ],
+      }),
+      input("peer-a", [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2], 2),
+      input("peer-b", [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1], 1),
+    ])[0];
+    expect(result.fundId).toBe("t");
+    expect(result.benchmarkTransparency.available).toContain("EGX30");
+    expect(result.benchmarkTransparency.excluded.some(item => item.key === "GOLD")).toBe(true);
+    expect(result.benchmarkTransparency.availableCount).toBe(1);
+    expect(result.benchmarkTransparency.excludedCount).toBe(1);
+    expect(result.benchmarkTransparency.effectiveWeightsInsideB.EGX30).toBeCloseTo(1, 8);
+    expect(result.benchmarkTransparency.summary).toContain("excluded");
+    expect(result.components.B).not.toBeNull();
+  });
+
 });

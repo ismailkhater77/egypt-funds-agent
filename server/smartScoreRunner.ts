@@ -100,7 +100,12 @@ function evaluationPayload(result: SmartScoreResult) {
     data_confidence: result.dataConfidence, data_tier: result.dataTier, track_record: result.trackRecord, peer_cohort_size: result.peerCohortSize, fallback_used: result.fallbackUsed,
     natural_benchmark: result.naturalBenchmark, raw_rank: result.rawRank, qualified_rank: result.qualifiedRank, qualification_status: result.qualificationStatus,
     input_status: { performance: "verified", risk_free: "assumed", benchmark_inputs: result.benchmarkResults.map(item => ({ key: item.benchmarkKey, status: item.inputStatus })), inflation: result.components.I === null ? "null" : "verified" },
-    warnings: result.warnings, calculation_inputs: { methodology_version: METHODOLOGY_VERSION, component_formulae: ["P: peer percentile across available official horizons", "R: percentile across volatility, Sharpe, Sortino, and max drawdown", "B: aligned cumulative benchmark comparison", "C: weekly sign stability", "I: period-aligned real return"], source_provenance: ["EIMA official periodic reports", "EIMA report indicators"] },
+    warnings: result.warnings, calculation_inputs: {
+      methodology_version: METHODOLOGY_VERSION,
+      component_formulae: ["P: peer percentile across available official horizons", "R: percentile across volatility, Sharpe, Sortino, and max drawdown", "B: aligned cumulative benchmark comparison", "C: weekly sign stability", "I: period-aligned real return"],
+      source_provenance: ["EIMA official periodic reports", "EIMA report indicators"],
+      benchmark_transparency: result.benchmarkTransparency,
+    },
   };
 }
 
@@ -119,7 +124,13 @@ async function persistResults(results: SmartScoreResult[]): Promise<void> {
   const benchmarks = results.flatMap(result => {
     const evaluationId = evaluationIdByKey.get(`${result.fundId}::${result.reportDate}`);
     if (!evaluationId) throw new Error(`SmartScore evaluation persistence did not return an identifier for ${result.fundId}`);
-    return result.benchmarkResults.map(item => ({ evaluation_id: evaluationId, benchmark_key: item.benchmarkKey, benchmark_role: item.benchmarkRole, input_status: item.inputStatus, aligned_start_date: null, aligned_end_date: null, return_pct: item.returnPct, outperformance_pct: item.outperformancePct, downside_protection_pct: item.downsideProtectionPct, consistency_pct: item.consistencyPct, contribution_score: item.contributionScore, status: item.status, calculation_inputs: { period_aligned: item.status === "calculated" } }));
+    return result.benchmarkResults.map(item => ({ evaluation_id: evaluationId, benchmark_key: item.benchmarkKey, benchmark_role: item.benchmarkRole, input_status: item.inputStatus, aligned_start_date: null, aligned_end_date: null, return_pct: item.returnPct, outperformance_pct: item.outperformancePct, downside_protection_pct: item.downsideProtectionPct, consistency_pct: item.consistencyPct, contribution_score: item.contributionScore, status: item.status, calculation_inputs: {
+      period_aligned: item.status === "calculated",
+      configured_weight: result.benchmarkTransparency.configuredWeights[item.benchmarkKey] ?? null,
+      effective_weight_inside_b: result.benchmarkTransparency.effectiveWeightsInsideB[item.benchmarkKey] ?? null,
+      included_in_b: item.status === "calculated" && item.contributionScore !== null,
+      exclusion_reason: item.status === "calculated" ? null : item.status,
+    } }));
   });
   const evidence = results.flatMap(result => {
     const evaluationId = evaluationIdByKey.get(`${result.fundId}::${result.reportDate}`)!;

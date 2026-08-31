@@ -41,12 +41,27 @@ export async function getLatestSmartScoreSnapshot() {
 }
 
 export async function getSmartScoreDetail(fundId: string) {
-  const rows = await supabaseRead<EvaluationRow[]>(`/rest/v1/smartscore_evaluations?select=evaluation_id,fund_id,report_date,category,methodology_version,smartscore,performance_score,risk_score,benchmark_score,consistency_score,inflation_score,evidence_score,data_confidence,data_tier,track_record,peer_cohort_size,fallback_used,natural_benchmark,raw_rank,qualified_rank,qualification_status,warnings,effective_weights,input_status&fund_id=eq.${encodeURIComponent(fundId)}&order=report_date.desc&limit=1`);
+  const rows = await supabaseRead<EvaluationRow[]>(`/rest/v1/smartscore_evaluations?select=evaluation_id,fund_id,report_date,category,methodology_version,smartscore,performance_score,risk_score,benchmark_score,consistency_score,inflation_score,evidence_score,data_confidence,data_tier,track_record,peer_cohort_size,fallback_used,natural_benchmark,raw_rank,qualified_rank,qualification_status,warnings,effective_weights,input_status,calculation_inputs&fund_id=eq.${encodeURIComponent(fundId)}&order=report_date.desc&limit=1`);
   const row = rows[0];
   if (!row) return null;
   const [funds, benchmarks] = await Promise.all([
     supabaseRead<FundRow[]>(`/rest/v1/funds?select=fund_id,canonical_name&fund_id=eq.${encodeURIComponent(fundId)}&limit=1`),
     supabaseRead<BenchmarkRow[]>(`/rest/v1/smartscore_benchmark_results?select=benchmark_key,benchmark_role,input_status,return_pct,outperformance_pct,downside_protection_pct,consistency_pct,contribution_score,status&evaluation_id=eq.${row.evaluation_id}&order=benchmark_role.asc,benchmark_key.asc&limit=20`),
   ]);
-  return { ...toPublicScore(row, funds[0]?.canonical_name ?? row.fund_id), benchmarkResults: benchmarks.map(item => ({ benchmarkKey: item.benchmark_key, benchmarkRole: item.benchmark_role, inputStatus: item.input_status, returnPct: numberOrNull(item.return_pct), outperformancePct: numberOrNull(item.outperformance_pct), downsideProtectionPct: numberOrNull(item.downside_protection_pct), consistencyPct: numberOrNull(item.consistency_pct), contributionScore: numberOrNull(item.contribution_score), status: item.status })) };
+  const calculationInputs = (row as EvaluationRow & { calculation_inputs?: { benchmark_transparency?: unknown } }).calculation_inputs;
+  return {
+    ...toPublicScore(row, funds[0]?.canonical_name ?? row.fund_id),
+    benchmarkTransparency: calculationInputs?.benchmark_transparency ?? null,
+    benchmarkResults: benchmarks.map(item => ({
+      benchmarkKey: item.benchmark_key,
+      benchmarkRole: item.benchmark_role,
+      inputStatus: item.input_status,
+      returnPct: numberOrNull(item.return_pct),
+      outperformancePct: numberOrNull(item.outperformance_pct),
+      downsideProtectionPct: numberOrNull(item.downside_protection_pct),
+      consistencyPct: numberOrNull(item.consistency_pct),
+      contributionScore: numberOrNull(item.contribution_score),
+      status: item.status,
+    })),
+  };
 }
