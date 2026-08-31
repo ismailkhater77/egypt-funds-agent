@@ -1,0 +1,33 @@
+name: CI SmartScore
+
+on:
+  push:
+    paths:
+      - "server/smartScore.ts"
+      - "server/smartScoreRunner.ts"
+      - "server/smartScoreDashboard.ts"
+      - "server/smartScore*.test.ts"
+      - "scripts/run-smartscore.mjs"
+  pull_request:
+    paths:
+      - "server/smartScore.ts"
+      - "server/smartScoreRunner.ts"
+      - "server/smartScoreDashboard.ts"
+      - "server/smartScore*.test.ts"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@9.15.0 --activate
+      - run: pnpm install --frozen-lockfile
+      - name: Unit tests (SmartScore)
+        run: pnpm exec vitest run server/smartScore.test.ts server/smartScoreRunner.test.ts

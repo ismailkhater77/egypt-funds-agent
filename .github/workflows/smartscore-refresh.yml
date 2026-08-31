@@ -1,0 +1,39 @@
+# Lightweight SmartScore-only refresh (no NAV collectors)
+name: SmartScore Refresh
+
+on:
+  workflow_dispatch:
+    inputs:
+      report_date:
+        description: "Optional EIMA report date YYYY-MM-DD (empty = all available)"
+        required: false
+        default: ""
+  schedule:
+    # Extra mid-week refresh Tue 18:00 UTC in case EIMA rows land after the NAV window
+    - cron: "0 18 * * 2"
+
+concurrency:
+  group: smartscore-refresh
+  cancel-in-progress: false
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@9.15.0 --activate
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Run SmartScore
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SMARTSCORE_REPORT_DATE: ${{ inputs.report_date }}
+        run: pnpm exec tsx scripts/run-smartscore.mjs

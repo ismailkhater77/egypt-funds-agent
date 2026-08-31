@@ -1,3 +1,31 @@
+
+/** UI-facing labels only — does not alter stored scores. */
+function buildPresentation(row: EvaluationRow & { calculation_inputs?: { benchmark_transparency?: {
+  availableCount?: number; excludedCount?: number; totalConfigured?: number; summary?: string; available?: string[]; excluded?: Array<{ key: string }>;
+} } }) {
+  const bt = row.calculation_inputs?.benchmark_transparency;
+  const confidenceNote =
+    row.data_confidence === "High" ? "Strong evidence coverage for this evaluation window."
+    : row.data_confidence === "Moderate" ? "Adequate evidence; review gaps before relying solely on rank."
+    : row.data_confidence === "Limited" ? "Limited evidence — treat SmartScore as directional only."
+    : "Insufficient evidence — SmartScore should not drive a decision alone.";
+  const tierNote =
+    row.data_tier === "Verified" ? "Inputs are predominantly verified official series."
+    : row.data_tier === "Mixed" ? "Mix of verified and assumed inputs (e.g. risk-free)."
+    : row.data_tier === "Limited" ? "Some unverified or thin inputs present."
+    : "Inputs are unverified or missing critical series.";
+  return {
+    scoreIsNotEvidence: true,
+    confidenceNote,
+    tierNote,
+    benchmarkTransparency: bt ?? null,
+    bAxisPlainLanguage: bt?.summary ?? null,
+    bAvailableCount: bt?.availableCount ?? null,
+    bExcludedCount: bt?.excludedCount ?? null,
+    bTotalConfigured: bt?.totalConfigured ?? null,
+  };
+}
+
 type EvaluationRow = {
   evaluation_id: string; fund_id: string; report_date: string; category: string | null; methodology_version: string; smartscore: number | string | null;
   performance_score: number | string | null; risk_score: number | string | null; benchmark_score: number | string | null; consistency_score: number | string | null; inflation_score: number | string | null;
@@ -48,10 +76,13 @@ export async function getSmartScoreDetail(fundId: string) {
     supabaseRead<FundRow[]>(`/rest/v1/funds?select=fund_id,canonical_name&fund_id=eq.${encodeURIComponent(fundId)}&limit=1`),
     supabaseRead<BenchmarkRow[]>(`/rest/v1/smartscore_benchmark_results?select=benchmark_key,benchmark_role,input_status,return_pct,outperformance_pct,downside_protection_pct,consistency_pct,contribution_score,status&evaluation_id=eq.${row.evaluation_id}&order=benchmark_role.asc,benchmark_key.asc&limit=20`),
   ]);
-  const calculationInputs = (row as EvaluationRow & { calculation_inputs?: { benchmark_transparency?: unknown } }).calculation_inputs;
+  const rowWithInputs = row as EvaluationRow & { calculation_inputs?: { benchmark_transparency?: {
+    availableCount?: number; excludedCount?: number; totalConfigured?: number; summary?: string; available?: string[]; excluded?: Array<{ key: string }>;
+  } } };
   return {
     ...toPublicScore(row, funds[0]?.canonical_name ?? row.fund_id),
-    benchmarkTransparency: calculationInputs?.benchmark_transparency ?? null,
+    presentation: buildPresentation(rowWithInputs),
+    benchmarkTransparency: rowWithInputs.calculation_inputs?.benchmark_transparency ?? null,
     benchmarkResults: benchmarks.map(item => ({
       benchmarkKey: item.benchmark_key,
       benchmarkRole: item.benchmark_role,
