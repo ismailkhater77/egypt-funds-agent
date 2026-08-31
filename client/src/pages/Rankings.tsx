@@ -38,11 +38,35 @@ export default function Rankings() {
   const definition = metrics.find(item => item.id === metric)!;
   const filteredItems = useMemo(() => (data?.items ?? []).filter(item => (category === "__all__" || item.category === category) && item.canonicalName.toLowerCase().includes(search.toLowerCase())), [data, category, search]);
   const rows = useMemo(() => filteredItems.map(item => ({ item, value:definition.key in item.components ? item.components[definition.key as "P"|"R"|"B"|"C"|"I"] : definition.key === "smartScore" ? item.smartScore : item.evidenceScore })).filter((row): row is { item:typeof filteredItems[number]; value:number } => row.value !== null).sort((a,b) => b.value - a.value), [filteredItems, definition]);
-  return <ProductShell title="تصنيفات الصناديق" eyebrow="RANK / SEPARATED ANALYTICAL LENSES" description="سبعة تصنيفات مستقلة؛ الأداء والمخاطر والمراجع والاتساق والعائد الحقيقي وقوة الأدلة لا تُدمج في ترتيب واحد غير قابل للتفسير.">
-    <div className="rank-tabs">{metrics.map(item => <button key={item.id} onClick={() => setMetric(item.id)} className={metric === item.id ? "active" : ""}>{item.label}</button>)}</div>
-    <section className="rank-controls"><label><Search size={14}/><input value={search} onChange={event => setSearch(event.target.value)} placeholder="ابحث باسم الصندوق"/></label><select value={category} onChange={event => setCategory(event.target.value)}><option value="__all__">كل الفئات</option>{data?.facets.categories.map(item => <option key={item} value={item}>{item}</option>)}</select><span>{fmt(rows.length,0)} نتيجة قابلة للترتيب</span></section>
+  return <ProductShell title="تصنيفات الصناديق" eyebrow="RANKINGS · ONE LENS AT A TIME" description="سبعة عدسات منفصلة. اختر محورًا واحدًا — الأداء أو المخاطر أو المراجع أو الأدلة — دون دمجها في ترتيب واحد مضلل.">
+    <section className="rank-lens-banner" aria-label="العدسة النشطة">
+      <div>
+        <p className="eyebrow">ACTIVE LENS</p>
+        <h2>{definition.label}</h2>
+        <p>يُرتَّب فقط من يملك قيمة حقيقية على هذا المحور. المفقود يبقى مفقودًا ولا يُستبدل بصفر.</p>
+      </div>
+      <div className="rank-lens-count">
+        <span>نتائج قابلة للترتيب</span>
+        <strong className="mono">{isLoading ? "…" : fmt(rows.length, 0)}</strong>
+      </div>
+    </section>
+    <div className="rank-tabs" role="tablist" aria-label="محاور التصنيف">{metrics.map(item => <button key={item.id} role="tab" aria-selected={metric === item.id} onClick={() => setMetric(item.id)} className={metric === item.id ? "active" : ""}>{item.label}</button>)}</div>
+    <section className="rank-controls">
+      <label><Search size={14}/><input value={search} onChange={event => setSearch(event.target.value)} placeholder="ابحث باسم الصندوق" aria-label="بحث في التصنيفات"/></label>
+      <select value={category} onChange={event => setCategory(event.target.value)} aria-label="تصفية الفئة"><option value="__all__">كل الفئات</option>{data?.facets.categories.map(item => <option key={item} value={item}>{item}</option>)}</select>
+    </section>
     {!isLoading && !error && <RankingVisuals rows={rows} items={filteredItems} metricLabel={definition.label}/>}
-    {error ? <div className="platform-empty">تعذر تحميل التصنيفات. لا تُعرض نتائج بديلة.</div> : <section className="rank-board"><header><span>#</span><span>الصندوق</span><span>{definition.label}</span><span>Evidence</span><span>الأهلية</span><span/></header>{rows.slice(0,100).map((row,index) => <article key={row.item.fundId} onClick={() => setLocation(`/funds/${encodeURIComponent(row.item.fundId)}`)}><strong className="mono rank-index">{String(index + 1).padStart(2,"0")}</strong><div><b>{row.item.canonicalName}</b><small>{row.item.category ?? "غير مصنف"}</small></div><strong className="mono rank-value">{fmt(row.value)}</strong><span className={`score-chip confidence-${(row.item.dataConfidence ?? "insufficient").toLowerCase()}`}>{fmt(row.item.evidenceScore,0)} · {row.item.dataConfidence ?? "—"}</span><span>{row.item.qualificationStatus === "qualified" ? <span className="status-chip verified"><ShieldCheck size={12}/>مؤهل</span> : <span className="status-chip pending">Raw Rank</span>}</span><ArrowUpLeft size={15}/></article>)}</section>}
+    {error ? <div className="platform-empty">تعذر تحميل التصنيفات. لا تُعرض نتائج بديلة.</div> : <section className="rank-board" aria-label="لوحة الترتيب">
+      <header className="rank-board-head"><span>#</span><span>الصندوق</span><span>{definition.label}</span><span>Evidence</span><span>الأهلية</span><span className="sr-only">فتح</span></header>
+      <div className="rank-board-list">{rows.slice(0,100).map((row,index) => <article key={row.item.fundId} onClick={() => setLocation(`/funds/${encodeURIComponent(row.item.fundId)}`)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setLocation(`/funds/${encodeURIComponent(row.item.fundId)}`); } }} role="link" tabIndex={0}>
+        <strong className="mono rank-index">{index + 1}</strong>
+        <div className="rank-fund-meta"><b>{row.item.canonicalName}</b><small>{row.item.category ?? "غير مصنف"}</small></div>
+        <span className="mono rank-value">{fmt(row.value)}</span>
+        <span className={`status-chip ${(row.item.dataConfidence ?? "insufficient").toLowerCase()}`}>{fmt(row.item.evidenceScore,0)} · {row.item.dataConfidence ?? "—"}</span>
+        <span>{row.item.qualificationStatus === "qualified" ? <span className="status-chip verified"><ShieldCheck size={12}/>مؤهل</span> : <span className="status-chip pending">Raw Rank</span>}</span>
+        <ArrowUpLeft size={15} aria-hidden="true"/>
+      </article>)}</div>
+    </section>}
     {isLoading && <div className="platform-empty"><BarChart3 size={20}/>يجري بناء التصنيف من أحدث تقرير…</div>}
     {!isLoading && !rows.length && !error && <div className="platform-empty">لا تتوفر قيم قابلة للترتيب لهذا المحور والفئة حاليًا؛ لا يُستخدم الصفر بدل البيانات المفقودة.</div>}
     <p className="public-disclosure">كل ترتيب يعرض فقط الصناديق التي يتوفر لها المحور المحدد. Qualified Rank منفصل عن Raw Rank ولا يُمنح دون شروط الأدلة.</p>
