@@ -220,3 +220,4 @@
 - [x] Reposition the category heatmap as the homepage's primary analytical entry point and redesign the first-screen flow around market structure before detail cards
 - [ ] Rebuild homepage as macro ticker → aligned long-history chart → EGP 1,000 scenario → interactive category heatmap with selectable horizons
 - [x] Stabilize date-sensitive collector fixtures so future-date regression tests remain deterministic as Cairo's current date advances
+- [x] Replace the failing GoldAPI spot fetch for XAU/XAG with the verified free Gold API endpoint, add parser/credential coverage, and refresh only source-confirmed observations

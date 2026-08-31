@@ -4,6 +4,7 @@ import { sdk } from "./_core/sdk";
 
 const FRANKFURTER_USD_EGP_URL = "https://api.frankfurter.dev/v2/rate/USD/EGP";
 const GOLDAAPI_BASE_URL = "https://www.goldapi.io/api";
+const GOLD_API_BASE_URL = "https://api.gold-api.com/price";
 const YAHOO_FINANCE_CHART_DOCUMENTATION_URL = "https://finance.yahoo.com/";
 const DAILY_MARKET_JOB_KEY = "daily_market_data";
 
@@ -51,7 +52,7 @@ type YahooChartPayload = {
 };
 
 type FrankfurterPayload = { date?: string; base?: string; quote?: string; rate?: number };
-type GoldApiPayload = { timestamp?: string | number; price?: number; metal?: string; currency?: string; error?: unknown };
+type GoldApiPayload = { timestamp?: string | number; updatedAt?: string; price?: number; metal?: string; symbol?: string; name?: string; currency?: string; error?: unknown };
 type StoredObservation = { value: string | number; unit: string; source_observed_at: string | null; source_url: string };
 
 const frankfurterSource: SourceSpec = {
@@ -70,8 +71,8 @@ const yahooSource: SourceSpec = {
 
 const goldApiSource: SourceSpec = {
   sourceId: "src_goldapi_free_spot",
-  sourceName: "GoldAPI Free — XAU/XAG spot",
-  sourceUrl: "https://www.goldapi.io/price/XAU/USD/free",
+  sourceName: "Gold API — free real-time XAU/XAG spot",
+  sourceUrl: "https://gold-api.com/",
   sourceKind: "free_metal_price_api",
 };
 
@@ -110,7 +111,7 @@ export const marketIndicatorSpecs: readonly MarketIndicatorSpec[] = [
     canonicalDefinition: "U.S. dollars per troy ounce of gold spot.",
     source: goldApiSource,
     sourceSymbol: "XAU/USD",
-    sourceDocumentationUrl: "https://www.goldapi.io/price/XAU/USD/free",
+    sourceDocumentationUrl: "https://gold-api.com/docs",
   },
   {
     indicatorKey: "XAG_USD",
@@ -122,7 +123,7 @@ export const marketIndicatorSpecs: readonly MarketIndicatorSpec[] = [
     canonicalDefinition: "U.S. dollars per troy ounce of silver spot.",
     source: goldApiSource,
     sourceSymbol: "XAG/USD",
-    sourceDocumentationUrl: "https://www.goldapi.io/price/XAU/USD/free",
+    sourceDocumentationUrl: "https://gold-api.com/docs",
   },
   {
     indicatorKey: "SPX",
@@ -227,16 +228,19 @@ export function parseFrankfurterUsdEgp(payload: unknown): MarketObservationCandi
 export function parseGoldApiSpot(pair: "XAU/USD" | "XAG/USD", payload: unknown): MarketObservationCandidate {
   const data = payload as GoldApiPayload;
   const expectedMetal = pair.slice(0, 3);
-  if (data.metal && data.metal.toUpperCase() !== expectedMetal) throw new Error(`GoldAPI returned ${data.metal} for ${pair}`);
-  if (data.currency && data.currency.toUpperCase() !== "USD") throw new Error(`GoldAPI returned ${data.currency} for ${pair}`);
-  const sourceObservedAt = typeof data.timestamp === "string" && !Number.isNaN(Date.parse(data.timestamp))
-    ? new Date(data.timestamp).toISOString()
-    : typeof data.timestamp === "number" && Number.isFinite(data.timestamp)
-      ? new Date(data.timestamp < 100_000_000_000 ? data.timestamp * 1000 : data.timestamp).toISOString()
-      : null;
-  if (!sourceObservedAt) throw new Error(`GoldAPI ${pair} response has no valid timestamp`);
+  const responseSymbol = (data.metal ?? data.symbol ?? "").toUpperCase();
+  if (responseSymbol && responseSymbol !== expectedMetal) throw new Error(`Gold API returned ${responseSymbol} for ${pair}`);
+  if (data.currency && data.currency.toUpperCase() !== "USD") throw new Error(`Gold API returned ${data.currency} for ${pair}`);
+  const sourceObservedAt = typeof data.updatedAt === "string" && !Number.isNaN(Date.parse(data.updatedAt))
+    ? new Date(data.updatedAt).toISOString()
+    : typeof data.timestamp === "string" && !Number.isNaN(Date.parse(data.timestamp))
+      ? new Date(data.timestamp).toISOString()
+      : typeof data.timestamp === "number" && Number.isFinite(data.timestamp)
+        ? new Date(data.timestamp < 100_000_000_000 ? data.timestamp * 1000 : data.timestamp).toISOString()
+        : null;
+  if (!sourceObservedAt) throw new Error(`Gold API ${pair} response has no valid timestamp`);
   const indicatorKey = expectedMetal === "XAU" ? "XAU_USD" : "XAG_USD";
-  const sourceUrl = `${GOLDAAPI_BASE_URL}/${pair}`;
+  const sourceUrl = `${GOLD_API_BASE_URL}/${pair}`;
   return {
     indicatorKey,
     sourceId: goldApiSource.sourceId,
@@ -246,7 +250,7 @@ export function parseGoldApiSpot(pair: "XAU/USD" | "XAG/USD", payload: unknown):
     unit: "USD_per_troy_ounce",
     sourceObservedAt,
     sourceUrl,
-    rawPayload: { metal: data.metal ?? expectedMetal, currency: data.currency ?? "USD", timestamp: sourceObservedAt, price: data.price },
+    rawPayload: { metal: data.metal ?? data.name ?? expectedMetal, symbol: data.symbol ?? expectedMetal, currency: data.currency ?? "USD", timestamp: sourceObservedAt, price: data.price },
   };
 }
 
@@ -411,11 +415,9 @@ async function fetchFrankfurterCandidate(): Promise<MarketObservationCandidate> 
 }
 
 async function fetchGoldApiCandidate(pair: "XAU/USD" | "XAG/USD"): Promise<MarketObservationCandidate> {
-  const goldApiKey = process.env.GOLDAPI_API_KEY;
-  if (!goldApiKey) throw new Error("GOLDAPI_API_KEY is missing");
-  const response = await fetch(`${GOLDAAPI_BASE_URL}/${pair}`, { headers: { "x-access-token": goldApiKey, Accept: "application/json" } });
+  const response = await fetch(`${GOLD_API_BASE_URL}/${pair}`, { headers: { Accept: "application/json" } });
   const payload = await response.json().catch(() => null);
-  if (!response.ok) throw new Error(`GoldAPI ${pair} HTTP ${response.status}`);
+  if (!response.ok) throw new Error(`Gold API ${pair} HTTP ${response.status}`);
   return parseGoldApiSpot(pair, payload);
 }
 

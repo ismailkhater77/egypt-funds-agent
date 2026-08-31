@@ -174,8 +174,8 @@ describe("EFG mutual-fund parser", () => {
       {
         name: "az- حالا",
         currency: { symbol: "EGP" },
-        last_nav: { nav: 1.81142, date: "2026-08-30" },
-        graph: [[Date.parse("2026-08-25T12:00:00Z"), 1.81055], [Date.parse("2026-08-30T12:00:00Z"), 1.81142]],
+        last_nav: { nav: 1.81142, date: "2026-09-01" },
+        graph: [[Date.parse("2026-08-25T12:00:00Z"), 1.81055]],
       },
     ] } } });
     expect(parseAzimutFunds(payload)).toEqual([{ name: "az- حالا", rawName: "az- حالا", nav: 1.81055, valuationDate: "2026-08-25", currency: "EGP" }]);
@@ -217,13 +217,13 @@ describe("EFG mutual-fund parser", () => {
   it("extracts Credit Agricole Al Thiqa NAV with an explicit closing date", () => {
     const html = `<h2>Crédit Agricole Egypt Mutual Fund Number 4</h2><div>As of closing: 23 August 2026</div><div>IC Price: EGP 903.73</div><div>Updated every Sunday and Wednesday</div>`;
     expect(parseCreditAgricoleThiqa(html)).toEqual([{ name: "Crédit Agricole – Egypt Fund No.4 Balanced Fund (Al Thiqa)", rawName: "CAE Mutual Fund Number 4 – Al Thiqa", nav: 903.73, valuationDate: "2026-08-23", currency: "EGP" }]);
-    expect(parseCreditAgricoleThiqa(html.replace("23 August 2026", "30 August 2026"))).toEqual([]);
+    expect(parseCreditAgricoleThiqa(html.replace("23 August 2026", "01 September 2026"))).toEqual([]);
   });
 
   it("extracts Banque du Caire Al Wefak NAV with the official update date", () => {
     const html = `<div>تم تحديث الأسعار بتاريخ 26-August-2026</div><table><tr><td>الوفاق</td><td>45.9061</td></tr></table>`;
     expect(parseBdcAlWefak(html)).toEqual([{ name: "Agriculural Bank of Egypt (Al Wefak)", rawName: "الوفاق", nav: 45.9061, valuationDate: "2026-08-26", currency: "EGP" }]);
-    expect(parseBdcAlWefak(html.replace("26-August-2026", "30-August-2026"))).toEqual([]);
+    expect(parseBdcAlWefak(html.replace("26-August-2026", "01-September-2026"))).toEqual([]);
   });
 
   it("extracts the official Aton Pharos Fund I NAV from dated Arabic post text", () => {
@@ -381,7 +381,7 @@ describe("EFG mutual-fund parser", () => {
   it("rejects future-dated Azimut API rows while retaining current official NAV rows", () => {
     const payload = JSON.stringify({ response: { funds: { dataList: [
       { name: "az– استحقاق T27 USD", currency: { symbol: "USD" }, last_nav: { nav: 10.50287, date: "2026-08-25" } },
-      { name: "az- حالا", currency: { symbol: "EGP" }, last_nav: { nav: 1.81142, date: "2026-08-30" } },
+      { name: "az- حالا", currency: { symbol: "EGP" }, last_nav: { nav: 1.81142, date: "2026-09-01" } },
     ] } } });
     expect(parseAzimutFunds(payload)).toEqual([{ name: "az– استحقاق T27 USD", rawName: "az– استحقاق T27 USD", nav: 10.50287, valuationDate: "2026-08-25", currency: "USD" }]);
   });
@@ -465,7 +465,7 @@ describe("EFG mutual-fund parser", () => {
   });
 
   it("rejects a changed NAV when the only provider date is a future schedule", async () => {
-    const html = `<div class="flex items-center justify-between w-full"><a><p>Beltone 2nd tranche &quot;B-Cobonat&quot; Fund</p></a><div><p>1.03</p><p>2026-07-16</p><p>2026-08-30</p><p>-</p></div></div>`;
+    const html = `<div class="flex items-center justify-between w-full"><a><p>Beltone 2nd tranche &quot;B-Cobonat&quot; Fund</p></a><div><p>1.03</p><p>2026-07-16</p><p>2026-09-01</p><p>-</p></div></div>`;
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input);
       if (url === "https://www.beltoneholding.com/business-line/asset-management-1") return new Response(html, { status: 200 });

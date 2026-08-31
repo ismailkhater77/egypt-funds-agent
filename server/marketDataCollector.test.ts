@@ -42,6 +42,11 @@ describe("free-source parsers", () => {
     expect(observation).toMatchObject({ indicatorKey: "XAU_USD", marketDate: "2026-08-27", value: 3375.52, unit: "USD_per_troy_ounce" });
   });
 
+  it("parses the free Gold API response with symbol and updatedAt", () => {
+    const observation = parseGoldApiSpot("XAG/USD", { symbol: "XAG", name: "Silver", currency: "USD", updatedAt: "2026-08-30T05:22:03Z", price: 66.502998 });
+    expect(observation).toMatchObject({ indicatorKey: "XAG_USD", sourceSymbol: "XAG/USD", marketDate: "2026-08-30", value: 66.502998, unit: "USD_per_troy_ounce", sourceObservedAt: "2026-08-30T05:22:03.000Z" });
+  });
+
   it("accepts GoldAPI historical timestamps expressed in milliseconds", () => {
     const observation = parseGoldApiSpot("XAU/USD", { metal: "XAU", currency: "USD", timestamp: 1787736600000, price: 4621.05 });
     expect(observation).toMatchObject({ indicatorKey: "XAU_USD", marketDate: "2026-08-26", sourceObservedAt: "2026-08-26T09:30:00.000Z" });
