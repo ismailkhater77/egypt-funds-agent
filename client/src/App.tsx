@@ -1,24 +1,27 @@
 import { Toaster } from "@/components/ui/sonner";
+import { lazy, Suspense } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
+
+const NotFound = lazy(() => import("@/pages/NotFound"));
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-import AdminSources from "./pages/AdminSources";
-import SmartScores from "./pages/SmartScores";
-import FundUniverse from "./pages/FundUniverse";
-import Discover from "./pages/Discover";
-import Rankings from "./pages/Rankings";
-import Compare from "./pages/Compare";
-import FundProfile from "./pages/FundProfile";
-import Workspace from "./pages/Workspace";
-import Monitoring from "./pages/Monitoring";
+const Home = lazy(() => import("./pages/Home"));
+const AdminSources = lazy(() => import("./pages/AdminSources"));
+const SmartScores = lazy(() => import("./pages/SmartScores"));
+const FundUniverse = lazy(() => import("./pages/FundUniverse"));
+const Discover = lazy(() => import("./pages/Discover"));
+const Rankings = lazy(() => import("./pages/Rankings"));
+const Compare = lazy(() => import("./pages/Compare"));
+const FundProfile = lazy(() => import("./pages/FundProfile"));
+const Workspace = lazy(() => import("./pages/Workspace"));
+const Monitoring = lazy(() => import("./pages/Monitoring"));
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
-    <Switch>
+    <Suspense fallback={<div className="route-loading" role="status">جاري تجهيز مساحة التحليل…</div>}>
+      <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/scores"} component={SmartScores} />
       <Route path={"/funds"} component={FundUniverse} />
@@ -30,9 +33,10 @@ function Router() {
       <Route path={"/monitoring"} component={Monitoring} />
       <Route path={"/admin/sources"} component={AdminSources} />
       <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+        {/* Final fallback route */}
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
   );
 }
 

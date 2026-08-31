@@ -225,3 +225,4 @@
 - [ ] Define and close the critical blockers required before publishing, without publishing or activating schedules during development
 - [x] Replace the generic empty historical-chart state with an evidence coverage view showing per-indicator observation count and actual date range
 - [x] Remove the retired unused ProductJourney card component and styles so the homepage has one authoritative analytical flow
+- [x] Reduce the production frontend bundle warning with safe route/vendor code splitting and verify the optimized build

@@ -152,6 +152,23 @@ function vitePluginManusDebugCollector(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
 
+function packageChunkName(moduleId: string) {
+  const nodeModulesMarker = "/node_modules/";
+  const markerIndex = moduleId.lastIndexOf(nodeModulesMarker);
+  if (markerIndex < 0) return null;
+  const packagePath = moduleId.slice(markerIndex + nodeModulesMarker.length);
+  const segments = packagePath.split("/");
+  if (segments[0] === ".pnpm") {
+    const packageFolder = segments[1];
+    if (!packageFolder) return null;
+    const versionSeparator = packageFolder.lastIndexOf("@");
+    const packageName = versionSeparator > 0 ? packageFolder.slice(0, versionSeparator) : packageFolder;
+    return `vendor-${packageName.replace(/\+/g, "-").replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+  }
+  const packageName = segments[0].startsWith("@") ? `${segments[0]}-${segments[1]}` : segments[0];
+  return `vendor-${packageName.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+}
+
 export default defineConfig({
   plugins,
   resolve: {
@@ -167,6 +184,13 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          return packageChunkName(id) ?? undefined;
+        },
+      },
+    },
   },
   server: {
     host: true,
